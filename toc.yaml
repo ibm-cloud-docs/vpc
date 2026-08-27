@@ -374,7 +374,8 @@ toc:
               id: importing-exporting-custom-images
               label: Importing and exporting custom images
               topics:
-              - vsi_is_import_and_validate_custom_images.md
+              - vsi_is_import_custom_image_COS.md
+              - vsi_is_import_images.md
           - vsi_is_manage_images.md
           - topicgroup:
               id: image-from-volume
@@ -382,6 +383,7 @@ toc:
               topics:
               - vsi_is_image_from_volume.md
               - vsi_is_create_image_from_volume.md
+              - vsi_is_manage_image_from_volume.md
       - topicgroup:
           id: catalog-images
           label: Images - Catalog

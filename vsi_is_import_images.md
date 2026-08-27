@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-08-27"
 
-keywords: custom image, import, validate, cloud object storage, COS
+keywords:
 
 subcollection: vpc
 
@@ -15,11 +15,8 @@ subcollection: vpc
 # Importing and validating custom images into VPC
 {: #importing-custom-images-vpc}
 
-You can create your own custom image on premises, upload it to {{site.data.keyword.cos_full_notm}}, and then import it directly to {{site.data.keyword.vpc_full}} infrastructure. Then, you can use your custom image to create a new virtual server instance that runs on the KVM hypervisor. If you plan to use your custom image in a private catalog, you must first import the custom image into {{site.data.keyword.vpc_short}} and validate it before importing it into the private catalog.
+You can create your own custom image on premises and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full}}. Then, you can use your custom image to create a new virtual server instance that runs on the KVM hypervisor. If you plan to use your custom image in a private catalog, you must first import the custom image into {{site.data.keyword.vpc_short}} and validate it.
 {: shortdesc}
-
-You can import your custom image from {{site.data.keyword.cos_full_notm}} into {{site.data.keyword.vpc_full}} or export your custom image from {{site.data.keyword.vpc_full}} into {{site.data.keyword.cos_full_notm}}.
-{: note}
 
 You can also create a custom image of a boot volume that is attached to a server at import time. For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 {: note}
@@ -45,10 +42,8 @@ For more information about custom images, see [Getting started with custom image
 The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 {: deprecated}
 
-## Uploading your image to {{site.data.keyword.cos_full_notm}}
-{: #upload-custom-image-cos}
-
-Before you can import your custom image, make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. On the **Objects** page of your {{site.data.keyword.cos_full_notm}} bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. For more information, see [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
+When you import a custom image from Cloud Object Storage, use lowercase file extensions such as `.vhd` and `.qcow2`. Image imports with uppercase file extensions such as `.VHD` or `.QCOW2` might fail validation and return an error.
+{: important}
 
 ## Importing a custom image by using the UI
 {: #import-custom-image-cloud-object-storage-ui}
