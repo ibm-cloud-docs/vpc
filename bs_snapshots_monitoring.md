@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-08-27"
 
 keywords: snapshots, Block Storage snapshots, snapshot status, lifecycle states, monitoring
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Monitoring {{site.data.keyword.block_storage_is_short}} snapshot lifecycle states
 {: #snapshots-vpc-monitoring}
 
-By using the UI, CLI, or API, you can check on the lifecycle status of your {{site.data.keyword.block_storage_is_short}} snapshots.
+Monitor the lifecycle status of {{site.data.keyword.block_storage_is_short}} snapshots, including pending, available, unusable, and deleting states, by using the console, CLI, or API.
 {: shortdesc}
 
 ## Snapshot lifecycle states

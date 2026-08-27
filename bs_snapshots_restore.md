@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-27"
 
-keywords:
+keywords: Block Storage, snapshots, restore volume, boot volume, data volume, fast restore, cross-regional copy, backup policy, sdp profile
 
 subcollection: vpc
 
@@ -21,7 +21,7 @@ Restoring data from a snapshot creates a new, fully provisioned volume that you 
 The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
 
-## About restoring a volume from a snapshot
+## How volume restoration works
 {: #snapshots-vpc-restore-concepts}
 
 Restoring a volume from a snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable.

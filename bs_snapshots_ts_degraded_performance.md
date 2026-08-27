@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-15"
+lastupdated: "2026-08-27"
 
-keywords:
+keywords: Block Storage, snapshots, troubleshoot, degraded performance, restore volume, initializing from snapshot, IOPS, health state
 
 subcollection: vpc
 

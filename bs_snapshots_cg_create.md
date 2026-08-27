@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-27"
 
-keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
+keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot, create consistency group
 
 subcollection: vpc
 

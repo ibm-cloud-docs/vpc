@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-27"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-create}
 
-With the UI, CLI, API, or Terraform, you can create a snapshot of a first-generation {{site.data.keyword.block_storage_is_short}} volume that is attached to a running virtual server instance. You can create a snapshot of a boot or a data volume. If the volume is not attached to a server instance, you can't create a snapshot of it.
+Create {{site.data.keyword.block_storage_is_short}} snapshots of boot or data volumes by using the console, CLI, API, or Terraform. Snapshots require the source volume to be attached to a running virtual server instance.
 {: shortdesc}
 
 In the current release of second-generation block storage volumes, you can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Consistency group snapshots are not supported.

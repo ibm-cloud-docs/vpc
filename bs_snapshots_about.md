@@ -15,7 +15,7 @@ subcollection: vpc
 # About {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-about}
 
-Learn about block storage snapshots in {{site.data.keyword.vpc_short}}, which are point-in-time copies of boot or data volumes that you can restore to new volumes.
+Block storage snapshots are point-in-time copies of boot or data volumes in {{site.data.keyword.vpc_short}}. Restore snapshot data to new volumes for testing, recovery from accidental deletion, or data corruption. Replicate snapshots across zones and regions for disaster recovery.
 {: shortdesc}
 
 In the current release of second-generation block volumes, snapshots are available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.

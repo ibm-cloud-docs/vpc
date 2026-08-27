@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-08-27"
 
-keywords:
+keywords: Block Storage, snapshots, troubleshoot, unusable snapshot, encryption key, customer root key, health state, faulted
 
 subcollection: vpc
 

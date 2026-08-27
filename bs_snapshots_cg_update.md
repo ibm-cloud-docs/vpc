@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-27"
 
-keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
+keywords: consistency group, snapshots, backups, instance snapshot, instance backup, rename consistency group, delete member snapshots
 
 subcollection: vpc
 
