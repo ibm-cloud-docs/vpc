@@ -143,7 +143,6 @@ The following limitations apply for the second-generation block storage snapshot
 * You can't create a copy of a snapshot in the source (local) region.
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
-* Only one snapshot creation operation can run at a time per volume. Additional requests for the same volume receive a temporary `Volume busy` error before being accepted. Snapshot requests for different volumes are accepted independently but can be queued for execution on the hypervisor one at a time, so creation and capture times may vary across volumes.
 
 The following limitations apply for the first-generation block storage snapshots:
 
@@ -156,7 +155,6 @@ The following limitations apply for the first-generation block storage snapshots
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Restoring an instance directly from snapshot consistency group identifier is not supported.
-* Only one snapshot creation operation can run at a time per volume. Additional requests for the same volume may receive a temporary `Volume busy` error before being accepted. Snapshot requests for different volumes are accepted independently but are queued for execution on the hypervisor one at a time, so creation and capture times may vary across volumes.
 
 ## Securing your data
 {: #bs-snapshot-data-security}

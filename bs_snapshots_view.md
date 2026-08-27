@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-27"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -29,7 +29,7 @@ You can use the UI to list your snapshots and consistency groups.
 
 In the console, you can view a list of all snapshots that you created, with the most recent one at the beginning of the list. You can filter the list to view specific snapshots.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshots and Snapshot consistency groups.
 
 1. Select the **Snapshots** tab. The snapshots are listed for a specific region. If you want to see snapshots in another region, click the arrow to expand the list and select a different region. By default, the newest snapshots are displayed at the beginning of the list.
 
@@ -44,21 +44,21 @@ Table 1 describes the information for all snapshots that is shown on the list of
 | Size | Size of the snapshot in GBs. The size is inherited from the source volume. |
 | Source volume | It shows the boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
 | Snapshot copies | Number of copies that a snapshot has in other regions. |
-| Created date | The local date and time when the snapshot was created. |
+| Created date (Local) | The local date and time when the snapshot was created. |
 | Consistency group | This field shows the name of the consistency group if the snapshot is a member of a snapshot set.|
 {: caption="List of all snapshots" caption-side="bottom"}
 
-Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to display optional fields that you can add to the table.
+Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to open the **Edit columns** panel, where you can show or hide optional columns.
 
 | Field | Description |
 |-------|-------------|
+| Resource group | The resource group that the snapshot belongs to. |
 | Encryption | It shows [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The encryption is inherited from the source volume. |
 | Fast restore status | It indicates whether fast restore clones are available for the snapshots. The possible statuses are enabled, pending, or disabled. |
-| Resource group |The resource group that the snapshot belongs to.|
 | Bootable | Yes or No. It shows whether the snapshot was taken of a boot volume or a data volume. |
 | Created by | It shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
 | Generation | Gen 1 or Gen 2, this value is inherited from the parent volume based on its volume profile. |
-{: caption="List of optional informational fields for all snapshots" caption-side="bottom"}
+{: caption="Optional columns for the snapshots list" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
    - [Rename](/docs/vpc?topic=vpc-snapshots-vpc-rename&interface=ui#snapshots-vpc-rename-ui)
@@ -110,9 +110,9 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
 
 In the console, you can view a list of all consistency groups that you created, with the most recent one at the beginning of the list. You can filter the list to view specific consistency groups.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshots and Snapshot consistency groups.
 
-1. Select the **Snapshot consistency group** tab. The groups are listed for a specific region. If you want to see consistency groups in another region, click the arrow to expand the list and select a different region. By default, the newest snapshot groups are displayed at the beginning of the list.
+1. Select the **Snapshot consistency groups** tab. The groups are listed for a specific region. If you want to see consistency groups in another region, click the arrow to expand the list and select a different region. By default, the newest snapshot groups are displayed at the beginning of the list.
 
 1. As your list of consistency groups grows, use the filter to indicate the number of items to display per page. Use the page navigation arrows to move forward and back through the list.
 
@@ -122,19 +122,19 @@ The following table describes the information for all consistency groups in the 
 |--------|-------------|
 | Name   | The name that you provided when you created the consistency group. Click the name of the group to see its [details](#snapshot-vpc-view-consistency-group-ui). |
 | Status | Status of the consistency group, depending on whether it's usable (_active_ status), unusable, or being created. |
-| Source VSI | It shows the virtual server instance that contains the source volumes of the snapshots in the consistency group. Click the name of the virtual server instance to see its details. |
+| Source virtual server | It shows the virtual server instance that contains the source volumes of the snapshots in the consistency group. Click the name of the virtual server instance to see its details. |
 | Snapshot members | Number of snapshots that are members of the group. |
-| Created date | The local date and time when the snapshot was created. |
+| Created date (Local) | The local date and time when the consistency group was created. |
 {: caption="List of all consistency groups" caption-side="bottom"}
 
-Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to display optional fields that you can add to the table.
+Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to open the **Edit columns** panel, where you can show or hide optional columns.
 
 | Field      | Description |
 |------------|-------------|
-| Created by | It shows whether the snapshot set was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
-| Resource group | The resource group that the consistency group belongs to.|
-| Created by | It shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
-{: caption="List of optional informational fields for all snapshots" caption-side="bottom"}
+| Resource group | The resource group that the consistency group belongs to. |
+| Created by | It shows whether the consistency group was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
+| Backup policy job ID | The ID of the backup policy job that created the consistency group. |
+{: caption="Optional columns for the consistency groups list" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
    - Rename

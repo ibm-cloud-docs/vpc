@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-08-27"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -177,7 +177,7 @@ Even without EIT, the data moves through a secure data center network. For more 
 
 {{site.data.keyword.cloud}} provides the following transit encryption types for file shares.
 - IPsec - You can establish an encrypted mount connection between the compute host and a **zonal** file share by using the Internet Security Protocol (IPsec) security profile, and an instance identity certificate. For more information, see [Encryption in transit - IPsec encryption](/docs/vpc?topic=vpc-file-storage-vpc-eit-ipsec).
-- Stunnel - You can establish an encrypted mount connection between the compute host and a **regional** file share by creating a TLS 1.2+ connection between the client VSI and NFS server with stunnel. For more information, see [Encryption in transit - TLS encryption](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls).
+- Stunnel - You can establish an encrypted mount connection between the compute host and a **regional** file share by creating a TLS 1.2+ connection between the client virtual server instance and NFS server with stunnel. For more information, see [Encryption in transit - TLS encryption](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls).
 
 For information about a known issue with IPsec-configured mounts, see [Potential mount disruption for IPsec-configured zonal file shares during maintenance](/docs/vpc?topic=vpc-storage-known-issues#ipsec-connection-delays).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-27"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share, stunnel
 
@@ -59,7 +59,7 @@ Before you use Mount Helper, confirm that your environment meets the following r
 * The compute host and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
 * The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), so it has an IP address within the VPC that represents the virtual NFS server.
 
-Do not add the Mount Helper installer script to your `cloud-init` configuration. The utility requires a running and stable VSI to operate, as the script makes Metadata API requests for host identity verification.
+Do not add the Mount Helper installer script to your `cloud-init` configuration. The utility requires a running and stable virtual server instance to operate, as the script makes Metadata API requests for host identity verification.
 {: note}
 
 ## Restrictions and limitations

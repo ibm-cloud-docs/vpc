@@ -131,9 +131,9 @@ Snapshots have their own lifecycle, independent of the {{site.data.keyword.block
 {: faq}
 {: #faq-snapshot-request-order}
 
-No. A {{site.data.keyword.block_storage_is_short}} volume can process only one snapshot creation operation at a time. When you submit multiple snapshot requests for the same volume, additional requests are queued until the in-progress operation completes. The order in which queued requests are processed is not guaranteed, and you cannot control or enforce the processing order.
+No. A {{site.data.keyword.block_storage_is_short}} volume can process only one snapshot creation operation at a time. If you submit multiple requests for the same volume while one is in progress, the other requests receive a temporary `Volume busy` error. This condition usually resolves within a few seconds, after which the requests are accepted. For more information, see [How snapshots work](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots-vpc-operation).
 
-If you require consistent snapshots across multiple volumes at the same point in time, use a [snapshot consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about#multi-volume-snapshots). A consistency group captures all attached volumes simultaneously, which avoids any ordering dependency between requests.
+If you require consistent snapshots across multiple volumes at the same point in time, use a [snapshot consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about#multi-volume-snapshots).
 
 ## How am I charged for usage?
 {: faq}

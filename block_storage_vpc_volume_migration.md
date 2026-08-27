@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-27"
 
 keywords: Block Storage, volume migration, volume jobs, storage generations, volume conversion
 
@@ -43,7 +43,7 @@ If you are not satisfied with the migrated volume’s performance or features, c
 * If an offline migration is in progress, any new volume attachment request fails. To proceed with the attachment, you must cancel the migration process.
 * If an online migration is in progress, initiating a volume detachment can cancel the migration process.
 * New snapshots cannot be created from a volume while it's migrating.
-* If a volume is attached to a VSI that uses pooled bandwidth allocation, the volume cannot be migrated. Set the bandwidth allocation to `weighted` to support the volume migration process.
+* If a volume is attached to a virtual server instance that uses pooled bandwidth allocation, the volume cannot be migrated. Set the bandwidth allocation to `weighted` to support the volume migration process.
 * [Select availability]{: tag-green} Only those second-generation volumes can be migrated back to a first-generation profile that were originally created as first-generation volumes. Volumes that were created with the `sdp` profile cannot be converted to a first-generation profile.
 * [Select availability]{: tag-green} If a migrated volume's capacity is increased over 16 TB, it cannot be migrated back to use a first-generation profile. The first-generation, traditional profiles don't support capacities larger than 16 TB.
 

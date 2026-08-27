@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-08-27"
 
 keywords: file share, Mount Helper, install, installation, download, build, update, uninstall
 
@@ -51,7 +51,7 @@ If you want to mount a regional file share on an IBM Power VSI, download the ins
 
    The file contains the following items: installation and uninstallation scripts, `rpm` and `deb` packages, root CA certificates, and the configuration file.
 
-   Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
+   Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the server. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
 
 ## Installing the Mount Helper to mount zonal file shares
