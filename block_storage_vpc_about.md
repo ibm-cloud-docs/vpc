@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-08-27"
 
 keywords: block storage, VPC, boot volume, data volume, IOPS, NVMe, encryption, SSD, sdp profile, volume profiles
 
@@ -16,10 +16,10 @@ subcollection: vpc
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
 
-{{site.data.keyword.block_storage_is_full}} provides high-performance SSD-backed block storage for virtual server instances in {{site.data.keyword.vpc_short}}. Create boot and data volumes with customizable capacity, IOPS, and encryption.
+{{site.data.keyword.block_storage_is_full}} provides high-performance, SSD-backed block storage for virtual server instances in {{site.data.keyword.vpc_short}}. Create boot and data volumes with customizable capacity, IOPS, and encryption. Volume data is stored redundantly across multiple physical disks in an Availability Zone.
 {: shortdesc}
 
-## Overview
+## How IBM Cloud Block Storage for VPC works
 {: #block-storage-overview}
 
 {{site.data.keyword.block_storage_is_short}} provides primary boot volumes and secondary data volumes. Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning, or as stand-alone volumes that you can later attach to an instance. To protect your data, you can use your own encryption keys or choose IBM-managed encryption.

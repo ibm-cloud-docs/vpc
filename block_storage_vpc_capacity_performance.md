@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2026
 lastupdated: "2026-08-27"
 
-keywords:
+keywords: Block Storage, virtual private cloud, IOPS, throughput, capacity, SSD, volume performance, sdp profile, storage profile, bandwidth, I/O size, tiered profile, custom profile
 
 subcollection: vpc
 

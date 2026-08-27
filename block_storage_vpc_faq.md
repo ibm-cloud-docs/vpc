@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-08-27"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -51,6 +51,7 @@ In this release, you can perform the following actions:
 
 ## Can I use `sdp` profile for my boot volume if I want to use secure boot?
 {: #sdp-no-secure-boot}
+{: faq}
 
 No. When second-generation boot volumes with the `sdp` profile are used, secure boot is not supported.
 

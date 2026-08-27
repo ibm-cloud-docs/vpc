@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-27"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Increase {{site.data.keyword.cloud_notm}} block storage boot and data volume capacity to meet growing storage requirements, without causing outages.
 {: shortdesc}
 
-## Overview
+## How volume capacity expansion works
 {: #expand-volumes-overview}
 
 You can increase the capacity of second-generation boot and data volumes at any time, regardless if they are attached to a virtual server or not. First-generation boot and data volumes must be attached to a running server when you attempt to increase the capacity.
