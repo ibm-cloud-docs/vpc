@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-28"
 
 keywords:
 
@@ -321,7 +321,7 @@ From the virtual server instance, make a request to the identity API to retrieve
 
    The response provides the identity access token. The parser saves it into the `.access_token` file.
 
-   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). Some operating systems do not include `jq` by default. Install `jq` before use or substitute another JSON parser.
    {: note}
 
 #### Retrieving the initialization information

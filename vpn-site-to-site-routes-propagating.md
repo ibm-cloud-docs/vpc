@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-07-14"
+lastupdated: "2026-08-28"
 
 keywords: network, VPN, VPN gateways, encryption
 
@@ -42,7 +42,7 @@ Route propagation and route advertisement behavior differ based on the VPN gatew
 | VPN type | Route behavior | Transit Gateway support |
 | --- | --- | --- |
 | **Policy-based VPN** | No manual route configuration required. Traffic that matches the configured local and remote CIDR ranges and defined security policies pass through the VPN. | Supported. To configure a transit gateway with a policy-based VPN connection, see [Setting up a transit gateway with policy-based VPN](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui#setup-tg-with-vpn-vpc). |
-| **Static route-based VPN** | You must configure routes manually in the routing table. Traffic is forwarded through the VPN tunnel based on routing table entries that point to the VPN connection. | Supported. To configure a transit gateway with a static route-based connection, see [Setting up a transit gateway with static route-based VPN for VPC](/docs/vpc?topic=vpc-advertise-routes-s2s#setup-tg-with-static-vpn-vpc). |
+| **Static route-based VPN** | You must configure routes manually in the routing table. Traffic is forwarded through the VPN tunnel based on routing table entries that point to the VPN connection. | Supported. To configure a transit gateway with a static route-based connection, see [Setting up a transit gateway with static route-based VPN for VPC](/docs/vpc?topic=vpc-advertise-routes-s2s#setup-tg-with-static-vpn-vpc). | 
 | **Dynamic route-based VPN** | No manual route configuration required. BGP automatically learns and propagates routes. | Supported with automatic route advertisement. For more information, see [planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-connection-considerations). |
 {: caption="VPN gateway modes and route propagation behavior" caption-side="bottom"}
 
@@ -107,6 +107,8 @@ In this configuration, the enterprise network connects to a VPN gateway located 
 The ingress routing table in the transit VPC advertises on-premises CIDR ranges to the transit gateway and evaluates return traffic that is received from it. Return traffic follows the reverse path, flowing from the spoke VPC through the transit gateway, back to the transit VPC, then through the VPN gateway, and finally to the enterprise network.
 
 ![Static route-based VPN with transit gateway](images/vpn-static-tgw.svg){: caption="Static route-based VPN with transit gateway" caption-side="bottom"}
+
+
 
 ## Related links
 {: #propagating-routes-s2s-related}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-28"
 
 keywords: delete, resources, ui, console, cli, infrastructure, command line interface
 
@@ -237,7 +237,7 @@ curl -X GET "$vpc_api_endpoint/v1/vpcs?version=$version&generation=2" \
 ```
 {: pre}
 
-Add ` | json_pp ` or ` | jq ` after the curl command to get a readable JSON string. `jq` is a third-party tool that is licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. The `json_pp` command is a JSON preprocessor that is typically installed by default on most Linux distributions.
+Add ` | json_pp ` or ` | jq ` after the curl command to get a readable JSON string. `jq` is a third-party tool that is licensed under the [MIT license](https://stedolan.github.io/jq/download/). Some operating systems do not include `jq` by default. Install `jq` before use or substitute another JSON parser. The `json_pp` command is a JSON preprocessor that is typically installed by default on most Linux distributions.
 {: tip}
 
 Save the ID of the VPC in a variable so you can use it later, for example:

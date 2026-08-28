@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-28"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -281,7 +281,7 @@ To create a network load balancer with routing mode with the API, follow these s
    ```
    {: pre}
 
-   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). Some operating systems do not include `jq` by default. Install `jq` before use or substitute another JSON parser.
    {: note}
 
    Sample output:

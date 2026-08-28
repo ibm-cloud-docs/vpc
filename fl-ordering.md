@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-08-28"
 
 keywords: flow logs, ordering, getting started
 
@@ -245,7 +245,7 @@ To create a flow log collector by using the API, follow these steps:
    ```
    {: pre}
 
-   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). Some operating systems do not include `jq` by default. Install `jq` before use or substitute another JSON parser.
    {: note}
 
 1. To provision a collector that targets a subnet, virtual server instance, or VNIC, you must provide a subnet ID, virtual server instance ID, or VNIC ID as a collector target. For example, the following request creates a collector that targets a virtual server instance ID:

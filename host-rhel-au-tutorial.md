@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-20"
+lastupdated: "2026-08-28"
 
 keywords:
 
@@ -459,7 +459,7 @@ Use the following commands to verify whether the model is running:
 }
 ```
 
-The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). Some operating systems do not include `jq` by default. Install `jq` before use or substitute another JSON parser.
 {: note}
 
 ### Step 5: Chat with the model

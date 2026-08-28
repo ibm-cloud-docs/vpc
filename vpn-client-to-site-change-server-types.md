@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-08-28"
 
 keywords: upgrading VPN, VPN server types
 
@@ -103,7 +103,7 @@ To upgrade to an HA VPN server with the API, follow these steps:
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the correct variables.
 1. Find the VPN server that you want to upgrade:
 
-   Add ` | json_pp ` or ` | jq ` after the **curl** command to get a readable JSON string. `jq` is a third-party tool that is licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. The `json_pp` command is a JSON preprocessor that is typically installed by default on most Linux distributions.
+   Add ` | json_pp ` or ` | jq ` after the **curl** command to get a readable JSON string. `jq` is a third-party tool that is licensed under the [MIT license](https://stedolan.github.io/jq/download/). Some operating systems do not include `jq` by default. Install `jq` before use or substitute another JSON parser. The `json_pp` command is a JSON preprocessor that is typically installed by default on most Linux distributions.
    {: tip}
 
    ```bash

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-27"
+lastupdated: "2026-08-28"
 
 keywords:
 subcollection: vpc
@@ -49,6 +49,8 @@ Review the following considerations before you create a static route-based VPN c
 
 * If you plan to set a default route (`0.0.0.0/0`) in a VPC routing table to let egress traffic from your VPC resources pass through a VPN gateway, create your VPN gateway in a subnet different from the one associated with the routing table. Otherwise, this default route causes a routing conflict for the VPN gateway and can bring the VPN connection down.
 * IBM Cloud VPN for VPC supports only one route-based VPN per zone per VPC.
+
+
 
 ### Dynamic route-based VPN connection considerations
 {: #dynamic-route-based-connection-considerations}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-03"
+lastupdated: "2026-08-28"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -30,6 +30,8 @@ The IBM Cloud site-to-site VPN for VPC service includes the following features:
    {: #important-notice}
    {: important}
 
+   
+
 * **Dead peer detection** - Configurable mechanism to detect the availability of an IPsec peer.
 * **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH group for Phase 2 IPsec negotiation. IBM Cloud VPN for VPC supports DH groups `14-24` and `31`.
 * **Encryption** - IBM Cloud VPN for VPC supports `AES-128`, `AES-192`, and `AES-256` for data encryption during both IKE Phase 1 and Phase 2.
@@ -41,6 +43,9 @@ The IBM Cloud site-to-site VPN for VPC service includes the following features:
    * **Route-based VPN** - For a route-based VPN, virtual tunnel interfaces are created based on routing table entries and any traffic that is routed toward these logical interfaces with custom routes passes through the VPN. Both VPN options provide the same features. Route-based VPNs further support static and dynamic VPN connections.
       * **Static VPN connection** - In the static route-based connection, users must manually define and configure routes in the routing table. To get started, select **Static** as the mode when you create a VPN gateway and [create routes](/docs/vpc?topic=vpc-create-vpc-route) by using the VPN connection type.
       * **Dynamic VPN connection** - In the dynamic route-based connection, the routes are automatically discovered and managed between networks by using BGP, unlike static routing, which requires manual configuration. Dynamic configuration provides better scalability, network management, and high availability. To get started, select **dynamic** as the connection type when you create a VPN gateway. Keep in mind that you must use this connection along with a transit gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-connection-considerations) for dynamic route-based VPN.
+
+   
+
 * **Perfect Forward Secrecy (PFS)** - PFS makes sure that DH-generated keys aren't used again during IPsec renegotiation. If a key is compromised, only data in transit during the protected security association's lifetime is accessible.
 
 ## Getting started with VPN gateways
@@ -218,9 +223,9 @@ You can attach both direct link and VPN connections to a transit gateway to enab
 ### Use case 8: High availability dynamic route-based VPN with zonal affinity
 {: #use-case-8-vpn}
 
-You can achieve high availability for a dynamic, route-based VPN setup by deploying IBM Cloud VPN gateways in multiple zones. This configuration introduces zonal affinity, meaning that when a Power Virtual Server, Transit Gateway, and VPN connection are all located in the same zone, traffic is routed preferentially through that zone. Traffic shifts to another zone only if the VPN gateway in the current zone becomes unavailable.
+You can achieve high availability for a dynamic, route-based VPN setup by deploying IBM Cloud VPN gateways in multiple zones. This configuration introduces zonal affinity, which means that when a Power Virtual Server, Transit Gateway, and VPN connection are all located in the same zone, traffic is routed preferentially through that zone. Traffic shifts to another zone only if the VPN gateway in the current zone becomes unavailable.
 
-VPN traffic is secured by using IPsec, and automatic route discovery is enabled with BGP. Your on-premises network can connect to Power Virtual Servers through the transit gateway. As illustrated in the diagram, two VPN tunnels are established when you create a dynamic route-based VPN connection. If you enable the **Distribute traffic** option, traffic dynamically flows through both tunnels, which provides a higher throughput.
+VPN traffic is secured by using IPsec, and automatic route discovery is enabled with BGP. Your on-premises network can connect to power virtual servers through the transit gateway. As illustrated in the diagram, two VPN tunnels are established when you create a dynamic route-based VPN connection. If you enable the **Distribute traffic** option, traffic dynamically flows through both tunnels, which provides a higher throughput.
 
 ![VPN connection with transit gateway and power servers](images/vpn-tgw-pw.svg){: caption="VPN connection with transit gateway and power servers" caption-side="bottom"}
 
@@ -229,6 +234,8 @@ To set up this configuration, follow these steps:
 1. Provision a VPN gateway in Zone 1 and Zone 3. See [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui).
 1. Add a VPN connection to the provisioned gateway to connect to your on-premises network. See [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui).
 1. Set up a connection between IBM Cloud VPN and Transit Gateway. See [Creating a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui#tg-ui-creating-transit-gateway).
+
+
 
 ## Related links
 {: #vpn-related-links}

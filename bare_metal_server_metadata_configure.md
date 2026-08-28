@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-28"
 
 keywords:
 
@@ -45,7 +45,7 @@ Using the Metadata service API, make `PUT /identity/v1/token` call to get a bare
 
 In the example, the return value of the CURL command is the bare metal server identity access token, which is extracted by `jq` and placed in the `identity_token` environment variable. You use specify this variable in a `GET` call to the metadata service to reach the metadata endpoint. For more information, see [Acquire a bare metal server identity access token](/docs/vpc?topic=vpc-get-metadata-bare-metal&interface=api#metadata-json-token-usemd-bare-metal).
 
-The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create a bare metal server. You might need to install `jq` before use or use any parser of your choice.
+The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). Some operating systems do not include `jq` by default. Install `jq` before use or substitute another JSON parser.
 {: note}
 
 ```json

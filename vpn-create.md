@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-28"
 
 keywords:
 subcollection: vpc
@@ -39,6 +39,7 @@ To create a VPN gateway in the console, follow these steps:
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
    * **Subnet** - Select the subnet where you want to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn) for important subnet information.
    * **Mode** - Select either a policy-based or route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
+
    * **ASN** - A numeric identifier for the VPN gateway. This value identifies your local network for BGP peering and is used during the BGP session setup with your on-premises device.
    * **Advertised CIDRs (optional)** - The CIDR range values that advertise the IPv4 network ranges to the remote VPN peers.
 
@@ -129,6 +130,8 @@ ibmcloud is vpn-gateway-create VPN_GATEWAY_NAME SUBNET
 ```
 {: codeblock}
 
+
+
 Where:
 
 `VPN_GATEWAY_NAME`
@@ -136,6 +139,8 @@ Where:
 
 `SUBNET`
     : The ID of the subnet.
+
+
 
 `--mode`
     : The mode of the VPN gateway. One of: `policy`, `route`.
@@ -190,6 +195,8 @@ Where:
    ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route --advertised-cidrs 192.168.3.0/24 --local-asn 64520
    ```
    {: pre}
+
+
 
 - List all VPN gateways:
 
@@ -340,6 +347,8 @@ To create a VPN gateway with the API, follow these steps:
         }'
    ```
    {: codeblock}
+
+
 
    * To list all the advertised CIDRs for a VPN gateway, use the following command:
 
