@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-28"
 
-keywords:
+keywords: data encryption, customer-managed encryption, BYOK, key management service, Key Protect, root key, VPC encryption, planning, boot volume, data volume, file share, custom image
 
 subcollection: vpc
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Planning data encryption
+# Planning data encryption for IBM Cloud VPC resources
 {: #vpc-encryption-planning}
 
-Plan customer-managed encryption for storage volumes, snapshots, file shares, and custom images using your own root keys. Supports FIPS 140-2 Level 3 and Level 4.
+Plan customer-managed encryption for IBM Cloud VPC storage volumes, snapshots, file shares, and custom images. Evaluate key management service options, account prerequisites, key rotation strategy, and naming conventions before you begin.
 {: shortdesc}
 
 ## Planning for data encryption

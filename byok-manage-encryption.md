@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-28"
 
-keywords:
+keywords: customer-managed encryption, root key, key rotation, disable key, delete key, restore key, Key Protect, BYOK, VPC encryption, IAM authorization
 
 subcollection: vpc
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing data encryption
+# Managing data encryption for IBM Cloud VPC resources
 {: #vpc-encryption-managing}
 
-Manage customer-managed encryption for VPC resources by rotating, disabling, or deleting root keys. According to {{site.data.keyword.cloud}} encryption guidelines, regular key rotation and proper key lifecycle management reduce security risks by limiting exposure to compromised keys.
+Manage customer-managed encryption for IBM Cloud VPC resources by rotating, disabling, enabling, or deleting root keys to reduce security risks and control data access.
 {: shortdesc}
 
 The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).

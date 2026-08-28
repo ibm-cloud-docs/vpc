@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-08-28"
 
-keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup,
+keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup
 
 subcollection: vpc
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPC storage services overview
+# About IBM Cloud VPC storage services
 {: #storage-overview}
 
-The {{site.data.keyword.vpc_full}} (VPC) provides block storage, file storage, and snapshots solutions to meet your cloud storage needs. Instance storage provides dedicated drives that are directly attached to your virtual server instances. In addition, with the VPC Backup service, you can create scheduled backups of your block storage volumes.
+{{site.data.keyword.vpc_full}} provides block storage, file storage, snapshots, and backup services to meet your cloud storage needs, including options for encryption, replication, and instance-attached storage.
 {: shortdesc}
 
 ## {{site.data.keyword.block_storage_is_short}}

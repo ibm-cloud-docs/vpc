@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-20"
+lastupdated: "2026-08-28"
 
-keywords:
+keywords: storage durability, storage availability, high availability, block storage, file storage, VPC, AES-256, encryption, IOPS, SLO, disaster recovery
 
 subcollection: vpc
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Availability and Durability of VPC storage
+# Understanding high availability and durability of VPC storage in IBM Cloud
 {: #storageavailability}
 
-In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is of high priority because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing. When you store your data in {{site.data.keyword.block_storage_is_short}} volumes, snapshots, backups, or in {{site.data.keyword.filestorage_vpc_short}} shares, it's durable, highly available, and encrypted.
+IBM Cloud VPC storage is engineered for high durability and availability, protecting block storage and file shares against drive failures, data corruption, and accidental deletion. Data is stored redundantly across multiple physical disks in an Availability Zone and encrypted at rest.
 {: shortdesc}
 
 | {{site.data.keyword.block_storage_is_short}} Storage type | Use Case | Durability | Availability | Encryption |

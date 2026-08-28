@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-28"
 
-keywords:
+keywords: data encryption, IBM-managed encryption, customer-managed encryption, BYOK, AES-256, Key Protect, block storage, file storage, VPC, root key, FIPS
 
 subcollection: vpc
 
@@ -13,10 +13,10 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 
-# About data encryption for VPC
+# Data encryption for IBM Cloud VPC: Secure storage solutions
 {: #vpc-encryption-about}
 
-VPC volumes, snapshots, and file shares use AES-256 encryption by default. You can use {{site.data.keyword.keymanagementserviceshort}} Standard or Dedicated instances for customer-managed encryption.
+IBM Cloud VPC encrypts all block storage volumes and file shares at rest by default with IBM-managed encryption. Optionally, bring your own root keys with Key Protect or a dedicated key management service for full control over your data.
 {: shortdesc}
 
 ## IBM-managed encryption

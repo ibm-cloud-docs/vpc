@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-07-13"
+lastupdated: "2026-08-28"
 
 keywords:
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Known issues for storage services
+# Known issues with IBM Cloud storage services for VPC
 {: #storage-known-issues}
 
-These issues are temporary and are scheduled to be addressed in upcoming releases.
+Find known issues with IBM Cloud storage services for VPC, including block storage volumes, file shares, snapshots, and encryption. Workarounds are provided where available.
 {: shortdesc}
 
 ## Block Storage volumes and snapshots
@@ -46,10 +46,10 @@ A local {{site.data.keyword.keymanagementserviceshort}} instance is not availabl
 
 When a second-generation snapshot with provider-managed encryption is selected to create a volume with customer-managed keys, the volume provisioning gets stuck in `pending` status. When you restore a volume from a second-generation snapshot, make sure that the encryption type of the new volume matches the encryption type of the snapshot.
 
-### VSI creation can fail when the request includes multiple volumes with different profiles and one or more volumes are restored from snapshot
+### Virtual server instance creation can fail when the request includes multiple volumes with different profiles and one or more volumes are restored from snapshot
 {: #multi-volume-restore-from-snapshot-fail}
 
-When you create a virtual server instance with multiple volumes, the provisioning can fail if the volumes have different profiles and the data is restored from snapshots. This scenario is currently not supported. As a workaround, create the VSI first with a restored volume. Then, create and attach the restored data volumes separately.
+When you create a virtual server instance with multiple volumes, the provisioning can fail if the volumes have different profiles and the data is restored from snapshots. This scenario is currently not supported. As a workaround, create the virtual server instance first with a restored volume. Then, create and attach the restored data volumes separately.
 
 ### Snapshot operations can be slower after a volume is resized
 {: #snapshot-slowness-after-resize-known-issue}
