@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-08-31"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting, client-to-site, traffic flow, cannot access, DNS, VPE, virtual server
 
@@ -410,7 +410,7 @@ If the VPN client uses a local DNS server after connecting, the VPN DNS settings
 Verify that the VPN server is configured correctly to allow DNS resolution for VPN clients.
 
 * If you configure the IBM Cloud DNS Services private DNS resolvers (`161.26.0.7` and `161.26.0.8`) when you provision the VPN server, add a VPN server route with destination `161.26.0.0/16` and the **Translate** action.
-* Without this route, VPN clients might be unable to resolve private DNS names. For more information, see [Existing VPC configuration considerations](/docs/vpc?topic=vpc-client-to-site-vpn-planning#existing-vpc-configuration-considerations), and [About IBM Cloud DNS Services](https://cloud.ibm.com/docs/dns-svcs?topic=dns-svcs-about-dns-services).
+* Without this route, VPN clients might be unable to resolve private DNS names. For more information, see [Existing VPC configuration considerations](/docs/vpc?topic=vpc-client-to-site-vpn-planning#existing-vpc-configuration-considerations), and [About IBM Cloud DNS Services](/docs/dns-svcs?topic=dns-svcs-about-dns-services).
 
 ## Resolving advertised route quota issues
 {: #resolve-c2s-route-quota-issues}
