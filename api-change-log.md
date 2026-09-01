@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-01"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -38,8 +38,6 @@ SDK changes are based on API changes. For more information about the latest chan
 ## Upcoming changes
 {: #upcoming-changes}
 
-**`InstanceProfile` response change.** In an upcoming release, when [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the `vcpu_count` enumeration will transition from a fixed value to an enum-based value. The `supported_vcpu_count` property will be removed from the response. This behavior change will occur only for an [API version date](/docs/apis/vpc/latest#api-versioning) after its release.
-
 **`InstanceProfile` response change.** In an upcoming release, when [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response will include a `zones` property. This property indicates the zones that support the instance profile. When [creating an instance](/docs/apis/vpc/latest#create-instance), the request will fail if the profile is not supported in the specified zone.
 
 **Deprecated `classic_access` for VPCs.** When [creating a VPC](/docs/apis/vpc/latest#create-vpc), the `classic_access` property is now deprecated. Instead, use a [Transit Gateway](/docs/transit-gateway) to connect VPCs to Classic Infrastructure.
@@ -55,6 +53,18 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 1 September 2026
+{: #1-September-2026}
+
+### For version `2026-09-01` or later
+{: #version-2026-09-01}
+
+**Removal of `supported_vcpu_count` property for instance profiles.** When using a `version` query parameter of `2026-09-01` or later to [retrieve](/docs/apis/vpc/latest#get-instance-profile) or [list](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the `supported_vcpu_count` property is no longer included in the response.
+
+**Change to `vcpu_count` property for instance profiles.** When using a `version` query parameter of `2026-09-01` or later to [retrieve](/docs/apis/vpc/latest#get-instance-profile) or [list](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the `vcpu_count` property has been changed from a single value to an array that contains the possible vCPU profiles supported by the profile.
+
+For migration guidance, see [Updating to the 2026-09-01 version (instance profile vCPU count change)](docs/vpc?topic=vpc-2026-09-01-instance-profile-vcpu-count-change).
 
 ## 18 August 2026
 {: #18-august-2026}
