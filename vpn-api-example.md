@@ -14,7 +14,6 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 
-
 # API example - Connecting two VPCs using VPN
 {: #vpn-example}
 {: api}
