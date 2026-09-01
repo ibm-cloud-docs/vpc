@@ -55,7 +55,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 ## 1 September 2026
-{: #1-September-2026}
+{: #1-september-2026}
 
 ### For version `2026-09-01` or later
 {: #version-2026-09-01}
