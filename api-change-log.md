@@ -64,7 +64,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Change to `vcpu_count` property for instance profiles.** When using a `version` query parameter of `2026-09-01` or later to [retrieve](/docs/apis/vpc/latest#get-instance-profile) or [list](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the `vcpu_count` property has been changed from a single value to an array that contains the possible vCPU profiles supported by the profile.
 
-For migration guidance, see [Updating to the 2026-09-01 version (instance profile vCPU count change)](docs/vpc?topic=vpc-2026-09-01-instance-profile-vcpu-count-change).
+For migration guidance, see [Updating to the 2026-09-01 version (instance profile vCPU count change)](/docs/vpc?topic=vpc-2026-09-01-instance-profile-vcpu-count-change).
 
 ## 18 August 2026
 {: #18-august-2026}
