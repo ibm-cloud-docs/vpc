@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-09-01"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies
 
@@ -12,6 +12,8 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
+
 
 # API example - Connecting two VPCs using VPN
 {: #vpn-example}
