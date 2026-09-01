@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-09-01"
 
 keywords: creating bare metal servers
 
@@ -395,6 +395,8 @@ For example, you can create a bare metal server with the following configuration
    ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south-1 --profile mx2-metal-96x768 --image r006-31c8ca90-2623-48d7-8cf7-737be6fc4c3e --keys a6b1a881-2ce8-41a3-80fc-36316a73f803 --metadata-service true --metadata-service-protocol https --default-trusted-profile default-trusted-profile-name --default-trusted-profile-auto-link true --pnic-subnet 7ec86020-1c6e-4889-b3f0-a15f2e50f87e –pnic-name my-primary-network-interface --pnic-allowed-vlans 4 --network-interfaces '[{"name": "my-vlan-interface", "interface_type": "vlan", "vlan": 4, "allow_interface_to_float": true, "subnet": {"id":"7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}]' --output JSON
    ```
    {: pre}
+
+
 
 
 
