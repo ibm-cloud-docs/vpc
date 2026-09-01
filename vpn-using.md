@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-09-01"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -40,11 +40,12 @@ The IBM Cloud site-to-site VPN for VPC service includes the following features:
 * **VPN gateway modes** - IBM Cloud VPN for VPC offers _policy-based_ and _route-based_ VPN gateway modes.
 
    * **Policy-based VPN** - With a policy-based VPN, traffic that matches the negotiated CIDR ranges based on defined security policies passes through the VPN.
-   * **Route-based VPN** - For a route-based VPN, virtual tunnel interfaces are created based on routing table entries and any traffic that is routed toward these logical interfaces with custom routes passes through the VPN. Both VPN options provide the same features. Route-based VPNs further support static and dynamic VPN connections.
+   * **Route-based VPN** - For a route-based VPN, virtual tunnel interfaces are created based on routing table entries and any traffic that is routed toward these logical interfaces with custom routes passes through the VPN. Both VPN options provide the same features.
+
+   Route-based VPNs further support static and dynamic VPN connections.
+
       * **Static VPN connection** - In the static route-based connection, users must manually define and configure routes in the routing table. To get started, select **Static** as the mode when you create a VPN gateway and [create routes](/docs/vpc?topic=vpc-create-vpc-route) by using the VPN connection type.
       * **Dynamic VPN connection** - In the dynamic route-based connection, the routes are automatically discovered and managed between networks by using BGP, unlike static routing, which requires manual configuration. Dynamic configuration provides better scalability, network management, and high availability. To get started, select **dynamic** as the connection type when you create a VPN gateway. Keep in mind that you must use this connection along with a transit gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-connection-considerations) for dynamic route-based VPN.
-
-   
 
 * **Perfect Forward Secrecy (PFS)** - PFS makes sure that DH-generated keys aren't used again during IPsec renegotiation. If a key is compromised, only data in transit during the protected security association's lifetime is accessible.
 
