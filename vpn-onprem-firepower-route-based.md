@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-07"
+  years: 2020, 2026
+lastupdated: "2026-09-01"
 
 keywords: firepower, firepower peer, vpn
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Connecting to a Cisco Firepower Thread Defense peer (route-based)
+# Connecting to a Cisco Firepower Threat Defense peer (route-based)
 {: #cisco-ftd-route-based-config}
 
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Cisco FTDv to connect to VPN for VPC.
@@ -20,7 +20,7 @@ You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises
 Review [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you connect to your on-premises peer.
 {: important}
 
-These instructions are based on Cisco FTDv, Cisco Firepower Thread Defender, Version **7.0.4**.
+These instructions are based on Cisco FTDv, Cisco Firepower Threat Defense, Version **7.0.4**.
 
 ## Before you begin
 {: #cisco-ftd-before-you-begin}
@@ -32,10 +32,10 @@ The first step in configuring your Cisco FTDv for use with VPN for VPC is to ens
 - You have at least one configured and verified functional internal interface.
 - You have at least one configured and verified functional external interface.
 
-## Connecting an IBM route-based VPN to a Cisco Firepower Thread Defense peer
+## Connecting an IBM route-based VPN to a Cisco Firepower Threat Defense peer
 {: #cisco-ftd-procedure}
 
-To connect to a Cisco Firepower Thread Defense peer, follow these steps:
+To connect to a Cisco Firepower Threat Defense peer, follow these steps:
 
 1. Log in to the Firepower Device Manager and click **Device** in the menu bar to view the Device Summary page. Then, click **View Configuration** in the Site-to-Site VPN group.
 
@@ -51,7 +51,7 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
 
    ![Define Endpoints](images/vpn-define-endpoints.png){: caption="Define endpoints" caption-side="bottom"}
 
-      You can create a virtual tunnel interface (VTI) by clicking the **Create new Virtual Interface** link in the **Local VPN Access Interface** menu. Be careful to choose the link-local address and make sure that it is not overlapping with other addresses on the device. In this example, we used `169.254.0.0/30` for our primary tunnel. There are two available IP addresses `169.254.0.1` and `169.254.0.1` in this subnet with a 30-bit netmask. The first IP address `169.254.0.1` was used as the VTI on the FTDv. The second IP address `169.254.0.2` was used as the IBM VPN gateway VTI address.
+      You can create a virtual tunnel interface (VTI) by clicking the **Create new Virtual Interface** link in the **Local VPN Access Interface** menu. Be careful to choose the link-local address and make sure that it is not overlapping with other addresses on the device. In this example, we used `169.254.0.0/30` for our primary tunnel. There are two available IP addresses `169.254.0.1` and `169.254.0.2` in this subnet with a 30-bit netmask. The first IP address `169.254.0.1` was used as the VTI on the FTDv. The second IP address `169.254.0.2` was used as the IBM VPN gateway VTI address.
       {: note}
 
       ![Create Virtual Tunnel Interface](images/vpn-create-vti.png){: caption="Create Virtual Tunnel Interface" caption-side="bottom"}
@@ -90,7 +90,7 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
 1. Repeat step 7 to create another access control policy for the returning traffic. This time, the remote network object is the **Source**, and the local network object is the **Destination**.
 1. Add a static route to allow your local networks to pass through the primary IPsec VPN tunnel. To do so, go to **Device** > **Routing** > **+ button** and complete the following information:
 
-   - **Name** - Specify a name for the status route.
+   - **Name** - Specify a name for the static route.
    - **Interface** - Select the primary virtual tunnel interface that you already created.
    - **Networks** - Specify the network object that you created for the remote subnet.
    - **Gateway** - Create a network object with an IP from the same subnet as the primary virtual tunnel.
@@ -102,7 +102,7 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
 
 1. Add a static route to allow your local networks to pass through the secondary IPsec VPN tunnel. To do so, go to **Device** > **Routing** > **+ button** and complete the following information:
 
-   - **Name** - Specify a name for the status route (for example, `local-to-ibm-secondary`).
+   - **Name** - Specify a name for the static route (for example, `local-to-ibm-secondary`).
    - **Interface** - Select the secondary virtual tunnel interface that you already created.
    - **Networks** - Specify the network object that you created for the remote subnet.
    - **Gateway** - Create a network object with an IP from the same subnet as the secondary virtual tunnel.

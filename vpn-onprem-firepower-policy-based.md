@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-07"
+  years: 2020, 2026
+lastupdated: "2026-09-01"
 
 keywords: firepower, firepower peer, vpn
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Connecting to a Cisco Firepower Thread Defense peer (policy-based)
+# Connecting to a Cisco Firepower Threat Defense peer (policy-based)
 {: #cisco-ftd-policy-based-config}
 
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Cisco FTDv to connect to VPN for VPC.
@@ -20,7 +20,7 @@ You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises
 Review [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you connect to your on-premises peer.
 {: important}
 
-These instructions are based on Cisco FTDv, Cisco Firepower Thread Defender Version **7.0.4**.
+These instructions are based on Cisco FTDv, Cisco Firepower Threat Defense Version **7.0.4**.
 
 ## Before you begin
 {: #cisco-policy-before-you-begin}
@@ -35,7 +35,7 @@ The first step in configuring your Cisco FTDv for use with VPN for VPC is to ens
 ## Procedure
 {: #cisco-policy-procedure}
 
-To connect to a Cisco Firepower Thread Defense peer, follow these steps:
+To connect to a Cisco Firepower Threat Defense peer, follow these steps:
 
 1. Log in to the Firepower Device Manager and click **Device** in the menu bar to view the Device Summary page. Then, click **View Configuration** in the Site-to-Site VPN group.
 
