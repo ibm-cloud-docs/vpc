@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-09-02"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -548,6 +548,24 @@ data "ibm_is_bare_metal_servers" "example" {
 {: pre}
 
 For more information, see [ibm_is_bare_metal_servers](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_bare_metal_servers).
+
+### Viewing bare metal server capacity by using Terraform
+{: #viewing-bare-metal-server-capacity-terraform}
+{: terraform}
+
+To view bare metal server capacity by using Terraform, use the `ibm_is_bare_metal_server_capacities` data source. The information that is returned with this command is informational only and does not allocate capacity. Capacity information is displayed and includes only the available nodes. Nodes that are allocated elsewhere or are otherwise unavailable aren't included in the capacity information.
+
+You can optionally specify the `zone` argument, the `profile` argument, or both to filter the lookup.
+
+```terraform
+data "ibm_is_bare_metal_server_capacities" "ds_bmscapacities" {
+  zone    = "us-south-1"
+  profile = "some-profile"
+}
+```
+{: pre}
+
+For more information, see [ibm_is_bare_metal_capacities](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_bare_metal_servers_capacities).
 
 ### Restarting a bare metal server by using Terraform
 {: #reboot-bare-metal-servers-terraform}
