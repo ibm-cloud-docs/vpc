@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-09-03"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -26,11 +26,11 @@ The IBM Cloud site-to-site VPN for VPC service includes the following features:
 * **Authentication** - IBM Cloud VPN for VPC supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include `SHA-256`, `SHA-384`, and `SHA-512`.
 * **High availability** - IBM Cloud VPN for VPC is built on two VPN devices to provide appliance-level redundancy. A policy-based VPN operates in Active-Standby mode with a single VPN gateway IP shared between the members, whereas a route-based VPN offers both Active-Backup and Active-Active redundancy modes with two VPN gateway IPs.
 
+
+
    In the Active-Backup mode for a route-based VPN, two tunnels are set up between the IBM gateway and the peer VPN gateway. However, the IBM gateway always uses the tunnel with the smaller public IP as the primary egress path. The other tunnel, with the larger IP, acts as the secondary egress path. As long as both tunnels are active, traffic from the IBM VPC to the on-prem network goes through the primary egress path. If the primary egress path fails, traffic automatically switches to the secondary egress path. This setup is used when the "Distribute traffic" feature isn't enabled. The on-prem VPN gateway must also use the same configuration to choose the same preferred path. [Learn more](/docs/vpc?topic=vpc-using-vpn#active-backup-mode-static)
    {: #important-notice}
    {: important}
-
-   
 
 * **Dead peer detection** - Configurable mechanism to detect the availability of an IPsec peer.
 * **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH group for Phase 2 IPsec negotiation. IBM Cloud VPN for VPC supports DH groups `14-24` and `31`.

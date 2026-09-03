@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-24"
+lastupdated: "2026-09-03"
 
 subcollection: vpc
 
@@ -29,8 +29,8 @@ The following operating systems are available as stock images when you create a 
 | CentOS Stream 9.x, 10.x | x86-64 |
 | Debian 11.x, 12.x, 13.x | x86-64 |
 | Fedora Core OS | x86-64 |
-| Red Hat Enterprise Linux 8.x, 9.x | x86-64 |
-| Red Hat Enterprise Linux for SAP 8.x, 9.x | x86-64 |
+| Red Hat Enterprise Linux 8.x, 9.x, 10.x | x86-64 |
+| Red Hat Enterprise Linux for SAP 8.x, 9.x, 10.x | x86-64 |
 | RHEL AI 3.x for Nvidia | x86-64 |
 | RHEL AI 3.x for AMD| x86-64 |
 | RHEL AI 3.x for Intel | x86-64 |

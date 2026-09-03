@@ -3,7 +3,7 @@
 copyright:
 
   years: 2022, 2026
-lastupdated: "2026-07-24"
+lastupdated: "2026-09-03"
 
 keywords: operating system end of support (eos)
 
@@ -78,6 +78,8 @@ When you select a RHEL AI image, make sure that you are using the correct RHEL A
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
+| RHEL 10.x minimal | 31 May 2035    | Pay-as-you-Go  |
+| RHEL 10.x (SAP HANA and SAP applications) | 31 May 2035    | Pay-as-you-Go  |
 | RHEL 9.8 minimal | 31 May 2028    | Pay-as-you-Go  |
 | RHEL 9.8 (SAP HANA and SAP applications) | 31 May 2030    | Pay-as-you-Go |
 | RHEL 9.6 minimal | 31 May 2027    | Pay-as-you-Go  |
