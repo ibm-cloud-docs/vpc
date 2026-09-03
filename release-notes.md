@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-09-03"
 
 keywords:
 
@@ -23,6 +23,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## September 2026
+{: #vpc-sep26}
+
+### 03 September 2026
+{: #vpc-sep0326}
+{: release-note}
+
+NVIDIA B300 accelerated virtual server profile now available in Dallas region (select availability)
+:   NVIDIA B300 accelerated virtual server profile is now available for select customers in the Dallas (`us-south`) region in universal zone `us-south-dal12-a`. For more information, see [Accelerated (GPU) instance profiles - Gen 4](/docs/vpc?topic=vpc-accelerated-profile-family-gen4).
 
 ## August 2026
 {: #vpc-aug26}

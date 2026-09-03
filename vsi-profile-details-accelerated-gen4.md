@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-09-03"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, b300, blackwell, gen 4
 
@@ -48,9 +48,10 @@ Status: Select Availability
 
 The following table lists the available regions and universal zones for the NVIDIA B300 accelerated virtual server profiles.
 
-| Region                    | Universal zone    |
-| ------------------------  | -------------     |
-| Washington DC (`us-east`) | `us-east-wdc07-a` |
+| Region                    | Universal zone     |
+| ------------------------  | -------------      |
+| Dallas (`us-south`)       | `us-south-dal12-a` |
+| Washington DC (`us-east`) | `us-east-wdc07-a`  |
 {: caption="Supported regions and zones" caption-side="bottom"}
 
 For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
