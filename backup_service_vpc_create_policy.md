@@ -111,7 +111,8 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 1. Under **Optional**, you can configure two options for individual volume backups. When you're creating a plan for a policy that is for multi-volume backups or share backups, fast snapshot restore is not available.
 
    * **Fast snapshot restore** - When you enable this feature, you must specify the zone or zones where you want [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) enabled. You can also specify the maximum number of fast restore snapshots that you want to retain.
-     The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+
+     The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. Because backup plans automatically create and retain multiple snapshots based on your backup schedule and retention policy, each retained snapshot maintains its own set of active clones in each zone.
 
    * **Tagging**, specify more tags that apply to the backup when the plan runs.
       * Select the box to copy all tags from the source resource to all backups.
@@ -129,10 +130,10 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 ### Estimating your expected usage and costs
 {: #backup-cost-estimator-ui}
 
-
 Use the cost estimator to see what your backups might cost based on the rate of expected change in your {{site.data.keyword.block_storage_is_short}} volumes.
 
-
+The cost estimator only calculates standard backup storage capacity charges. It does not include flat hourly rate charges for active Fast Restore clones or cross-regional remote copies.
+{: note}
 
 1. After you create your backup policy and plan, on the side panel of the Backup summary, click **Add to estimate**.
 

@@ -144,7 +144,8 @@ The cost for snapshots is calculated based on GB capacity that is stored per mon
 Creating consistency group snapshots does not incur extra charges other than the cost associated with the size of the member snapshots.
 
 Pricing for snapshots is also set by region. When you use the [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) feature, your existing regional plan is adjusted.
-Billing for fast restore is based on instance hours. So the fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+
+Billing for fast restore is based on instance hours. So the fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. The snapshot cost estimator in the console only calculates standard snapshot storage capacity charges. It does not calculate flat-rate hourly charges for active Fast Restore clones or cross-regional remote copies.
 
 ## Can I add tags to a {{site.data.keyword.block_storage_is_short}} snapshot?
 {: faq}

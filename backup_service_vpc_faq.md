@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-03"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -120,7 +120,7 @@ Pricing of subsequent backups can also increase or decrease when you [increase s
 
 The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 
-You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in the console to see how the changes in the stored volume affect the cost. For more information, see [Estimating your costs](/docs/account?topic=account-cost).
+You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in the console to see how the changes in the stored volume capacity affect the cost. For more information, see [Estimating your costs](/docs/account?topic=account-cost). The cost estimator only calculates standard backup storage capacity charges. It does not calculate flat-rate hourly charges for active Fast Restore clones or cross-regional remote copies.
 
 ## Can I use data backups for disaster recovery?
 {: faq}
