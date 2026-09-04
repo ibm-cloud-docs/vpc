@@ -44,4 +44,4 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 ## Next steps
 {: #par-use-cases-related-links}
 
-- [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+* [Create a public address range](/docs/vpc?topic=vpc-par-creating).

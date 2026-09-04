@@ -49,5 +49,5 @@ As the rollout of Public Address Ranges for VPC continues, a few known issues an
 ## Next steps
 {: #known-issues-par-related-link}
 
-- [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
-- [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+* [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
+* [Create a public address range](/docs/vpc?topic=vpc-par-creating).

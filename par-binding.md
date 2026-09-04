@@ -247,5 +247,5 @@ resource "ibm_is_public_address_range" "public_address_range_instance" {
 ## Next steps
 {: #after-binding-par}
 
-- [View public address ranges](/docs/vpc?topic=vpc-par-viewing).
-- [Delete a public address range](/docs/vpc?topic=vpc-par-deleting).
+* [View public address ranges](/docs/vpc?topic=vpc-par-viewing).
+* [Delete a public address range](/docs/vpc?topic=vpc-par-deleting).

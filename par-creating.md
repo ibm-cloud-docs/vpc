@@ -239,5 +239,5 @@ resource "ibm_is_public_address_range" "example" {
 
 
 
-- [Bind the public address range to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding).
-- [View public address ranges](/docs/vpc?topic=vpc-par-viewing).
+* [Bind the public address range to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding).
+* [View public address ranges](/docs/vpc?topic=vpc-par-viewing).

@@ -64,9 +64,9 @@ Follow these steps to get started with IPv4 public address ranges.
 ## Next steps
 {: #par-related-links}
 
-- [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
-- [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
-- [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+* [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
+* [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
+* [Create a public address range](/docs/vpc?topic=vpc-par-creating).
 
 
 

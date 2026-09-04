@@ -158,4 +158,4 @@ data "ibm_is_public_address_ranges" "public_address_range_instances_example_test
 ## Next steps
 {: #after-view-par}
 
-- [Delete a public address range](/docs/vpc?topic=vpc-par-deleting).
+* [Delete a public address range](/docs/vpc?topic=vpc-par-deleting).
