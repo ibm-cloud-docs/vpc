@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-04"
 
 keywords: vpc, public address ranges, planning, considerations, limitations
 
@@ -72,7 +72,7 @@ Review the following considerations before creating a public address range.
 
 - [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
 - [Use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases)
-- 
-- 
+
+
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
