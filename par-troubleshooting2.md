@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-04"
 
 keywords:
 
@@ -33,8 +33,3 @@ To perform these tasks, you must first have either the Administrator or Editor I
 
 For more information, see [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles).
 {: note}
-
-## Related links
-{: #troubleshooting-related-link-par}
-
-For more information, see [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par) and [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning).

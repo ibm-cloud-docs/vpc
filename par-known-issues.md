@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-04"
 
 keywords: public address ranges, limitations
 
@@ -46,9 +46,8 @@ As the rollout of Public Address Ranges for VPC continues, a few known issues an
 
    Workaround: Retry the operation. The backend is healthy, and most retries complete successfully.
 
-## Related links
+## Next steps
 {: #known-issues-par-related-link}
 
-- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
-- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
-- [About IPv6 public address ranges](/docs/vpc?topic=vpc-ipv6-par-about)
+- [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
+- [Create a public address range](/docs/vpc?topic=vpc-par-creating).

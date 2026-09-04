@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-09-04"
 
 keywords:
 
@@ -174,10 +174,10 @@ The combined total of the advertised routes quota and the [address prefixes quot
 | ------ | --- |
 | Security groups | 100 per VPC |
 | Rules | 250 per security group |
-| [Targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) | 1000 per security group[^fn8] |
+| [Targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) | 1000 per security group[^fn1] |
 {: caption="Quotas for security groups" caption-side="bottom"}
 
-[^fn8]: Applies to user-created security groups only. The default security group is not subject to this limit.
+[^fn1]: Applies to user-created security groups only. The default security group is not subject to this limit.
 
 ### Virtual network interfaces
 {: #virtual-network-interfaces-quotas}
@@ -192,16 +192,16 @@ The combined total of the advertised routes quota and the [address prefixes quot
 
 | Resource | Quota | Supports Policy Mode | Supports Route Mode |
 | ------ | ------ | -------- | -------- |
-| VPN gateways | 9 per region, 3 per zone | Yes | Yes[^fn1] |
+| VPN gateways | 9 per region, 3 per zone | Yes | Yes[^fn2] |
 | VPN connections | 10 per VPN gateway | Yes | Yes |
 | IKE policies | 20 per region | Yes | Yes |
 | IPsec policies | 20 per region | Yes | Yes |
 | Peer and local subnets | 50 across all connections per gateway, 15 per connection | Yes | No |
-| User defined advertised routes | 10 per VPN gateway | No | Yes[^fn2] | 
+| User defined advertised routes | 10 per VPN gateway | No | Yes[^fn3] | 
 {: caption="Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
 
-[^fn1]: A single VPC supports a maximum of one route-mode VPN per zone.
-[^fn2]: This resource and quota is applicable only to dynamic route-based VPN connection.
+[^fn2]: A single VPC supports a maximum of one route-mode VPN per zone.
+[^fn3]: This resource and quota is applicable only to dynamic route-based VPN connection.
 
 ### Client VPN for VPC (client-to-site)
 {: #vpn-server-quotas}

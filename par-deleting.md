@@ -119,9 +119,8 @@ terraform destroy -auto-approve
 ```
 {: pre}
 
-## Related links
+## Next steps
 {: #after-delete-par}
 
-- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
-- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
-- [Creating public address ranges](/docs/vpc?topic=vpc-par-creating)
+- [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+- [View public address ranges](/docs/vpc?topic=vpc-par-viewing).
