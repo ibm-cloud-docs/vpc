@@ -233,16 +233,11 @@ resource "ibm_is_public_address_range" "example" {
 
 
 
-## Related links
+## Next steps
 {: #after-create-par}
 
-- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
-- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
 
 
 
-- [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
-- [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
-- [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
-- [Known issues](/docs/vpc?topic=vpc-par-known-issues)
-- [Troubleshooting](/docs/vpc?group=tbs-par)
+- [Bind the public address range to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding).
+- [View public address ranges](/docs/vpc?topic=vpc-par-viewing).

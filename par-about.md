@@ -61,11 +61,17 @@ Follow these steps to get started with IPv4 public address ranges.
 
 
 
-## Related links
+## Next steps
 {: #par-related-links}
 
-- [Use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases)
+- [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
+- [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
+- [Create a public address range](/docs/vpc?topic=vpc-par-creating).
 
+
+
+## Reference and support
+{: #par-reference-support}
 
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)

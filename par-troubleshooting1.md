@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-04"
 
 keywords:
 
@@ -44,10 +44,3 @@ Follow these steps to troubleshoot this issue:
    1. Confirm that public ingress routing is set up properly and that the VNF is reachable.
 1. Verify that the VNF appliance is correctly processing traffic, preserving source IP addresses on egress, and that firewall/security rules allow the traffic.
 1. If this issue persists, gather logs and routing details and [contact IBM Cloud support](/docs/support?topic=support-open-case&interface=ui).
-
-## Related links
-{: #ts-related-links-par}
-
-- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
-- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
-- [Use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases)
