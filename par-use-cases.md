@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-04"
 
 keywords: vpc, public address ranges, use cases, secure workloads, high availability, BYOIP
 
@@ -46,6 +46,6 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 
 - [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
 - [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
-- 
-- 
+
+
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
