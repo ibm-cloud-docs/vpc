@@ -130,12 +130,16 @@ ibmcloud is public-address-range-create --name public-address-range-1 --ipv4-add
 ```
 {: pre}
 
+
+
 Create a public address range that is named `public-address-range-2` with an address count of 4 and a resource group named `Default`:
 
 ```sh
 ibmcloud is public-address-range-create --name public-address-range-2 --ipv4-address-count 4 --resource-group-name Default
 ```
 {: pre}
+
+
 
 Create a public address range named `public-address-range-3` with an address count of 8, bound to VPC `cli-test-vpc` in zone `us-south-1` with resource group ID `72b27b5c-f4b0-48bb-b954-5becc7c1dcb3`:
 
