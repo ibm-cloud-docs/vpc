@@ -82,12 +82,16 @@ ibmcloud is public-address-range $par-id
 ```
 {: pre}
 
+
+
 View all public address ranges:
 
 ```sh
 ibmcloud is public-address-ranges
 ```
 {: pre}
+
+
 
 
 

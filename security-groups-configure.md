@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-04"
 
 keywords:
 
@@ -138,6 +138,8 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 
 ```
 {: pre}
+
+
 
 
 
