@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-09-04"
 
 keywords: public address range, create, bind
 
@@ -93,7 +93,6 @@ To create public address ranges from the command line, follow these steps:
    ibmcloud is public-address-range-create --ipv4-address-count IPV4_ADDRESS_COUNT [--name NAME] [--vpc VPC --zone ZONE] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
 
-   
    
    
 
