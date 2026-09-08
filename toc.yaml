@@ -998,7 +998,7 @@ toc:
       topics:
       - topicgroup:
           id: faq
-          label: FAQs
+          label: FAQ
           topics:
           - faq-vpc.md
           - faq-auto-scale.md
