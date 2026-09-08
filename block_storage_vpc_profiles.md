@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-09-08"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -176,7 +176,9 @@ general-purpose   tiered                -                               1
 sdp               defined_performance   1000                            2
 custom            custom                -                               1
 ```
-{: codeblock}
+{: screen}
+
+
 
 To view details of the profile, run the `ibmcloud is volume-profile` command with the name of the profile that you are interested in seeing. The following example shows the details of the `sdp` profile.
 
@@ -209,6 +211,8 @@ Adjustable Capacity States             attached, unattached
 Adjustable IOPS State                  attached, unattached
 ```
 {: screen}
+
+
 
 For more information about available command options, see [`ibmcloud is volume-profile`](/docs/vpc?topic=vpc-vpc-reference&interface=ui#volume-profile-view).
 

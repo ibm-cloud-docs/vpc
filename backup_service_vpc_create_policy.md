@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-03"
+lastupdated: "2026-09-08"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -313,6 +313,8 @@ Created at            2023-10-20T19:31:16+05:30
 {: screen}
 
 For more information about available command options, see [`ibmcloud is backup-policy-create`](/docs/cli?topic=cli-vpc-reference#backup-policy-create).
+
+
 
 ### Creating a backup policy for file shares from the CLI
 {: #backup-create-policy-noplan-share}

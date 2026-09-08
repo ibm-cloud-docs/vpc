@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-09-08"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -175,6 +175,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
+
+
 ### Creating a {{site.data.keyword.block_storage_is_short}} volume from the CLI
 {: #create-vol-cli}
 {: help}
@@ -267,6 +269,8 @@ Tags                                   -
 Storage Generation                     2
 ```
 {: screen}
+
+
 
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume with customer-managed encryption from the CLI
 {: #encrypt-standalone-data-vol-cli}

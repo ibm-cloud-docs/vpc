@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-09-08"
 
 keywords:
 
@@ -87,7 +87,7 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Block Storage for VPC | `volumeId: <volume-id>` |
 | Bare metal server | `bareMetalServerId: <bare-metal-server-id>` |
 | Cluster networks for VPC | `clusterNetworkId: <cluster-network-id>` |
-| Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` |
+| Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` | 
 | File Storage | `shareId: <share-id>` |
 | Floating IP for VPC | `floatingIpId: <fip-id>` |
 | Flow Logs for VPC | `flowLogCollectorId: <flc-id>` |

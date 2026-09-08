@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-08"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -209,14 +209,14 @@ For more information about available command options, see [`ibmcloud is backup-p
 Run the `ibmcloud is backup-policy-update` command and specify the policy ID or policy name, and the tags that you want to modify.
 
 ```sh
-ibmcloud is backup-policy-update POLICY [--included_content data_volumes|boot_volume ] [--output JSON] [-q, --quiet]
+ibmcloud is backup-policy-update POLICY [--included-content data_volumes|boot_volume] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 The following example updates backup policy to be applied to only the data volumes that are attached to the virtual server instance with the matching tag.
 
 ```sh
-ibmcloud is backup-policy-create --match-tags dev:test --name my-cr-backup-policy-v1 --match-resource-type instance --included-content data_volumes
+ibmcloud is backup-policy-update --match-tags dev:test --name my-cr-backup-policy-v1 --match-resource-type instance --included-content data_volumes
 ```
 {: pre}
 
@@ -226,7 +226,7 @@ Updating backup policy my-cr-backup-policy-v1 under account Test Account as user
 ID                    r006-e0713176-37b6-4168-88ab-ad92f8a544f9
 Name                  my-cr-backup-policy-v1
 CRN                   crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-e0713176-37b6-4168-88ab-ad92f8a544f9
-Status                stable
+Status                pending
 Plans                 ID   Name   Resource type
 
 Backup tags           dev:test

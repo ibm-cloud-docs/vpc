@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-09-08"
 
 keywords: creating bare metal servers
 
@@ -347,6 +347,8 @@ You can use the CLI to create a bare metal server. Use the following steps to cr
 
 1. Make sure that you set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 1. Make sure that you create a VPC and a subnet before you create a bare metal server.
+
+
 
 For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#creating-a-vpc-using-cli).
 

@@ -185,6 +185,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
+
+
 ### Updating a volume name
 {: #update-vol-name-cli}
 
@@ -311,6 +313,8 @@ Created           2023-06-29T18:14:57+00:00
 {: screen}
 
 For more information about available command options, see [`ibmcloud is instance-volume-attachment-update`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-update).
+
+
 
 ### Detaching a volume from the CLI
 {: #detach-vol-attachment-cli}
