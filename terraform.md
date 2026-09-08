@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-09-08"
 
 keywords: Terraform, VPC, infrastructure as code, IaC, HashiCorp
 
@@ -27,7 +27,7 @@ Looking for a managed Terraform on {{site.data.keyword.cloud}} solution? Try out
 Before you begin, make sure that you have the required access to create and work with VPC resources.
 
 1. Follow the [Terraform on {{site.data.keyword.cloud}} getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started) to install the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in for Terraform. The plug-in abstracts the {{site.data.keyword.cloud}} APIs that are used to provision, update, or delete VPC service instances and resources.
-2. Create a Terraform configuration file that is named `main.tf`. In this file, you add the configuration to create a {{site.data.keyword.vpc_full}} and associated resources by using HashiCorp Configuration Language (HCL). For more information, see [Provisioning infrastructure with Terraform](/docs/solution-tutorials?topic=solution-tutorials-vpc-app-deploy#vpc-app-deploy-terraform) and [Terraform documentation](https://developer.hashicorp.com/terraform/language){: external}.
+2. Create a Terraform configuration file that is named `main.tf`. In this file, you add the configuration to create an {{site.data.keyword.vpc_full}} and associated resources by using HashiCorp Configuration Language (HCL). For more information, see [Provisioning infrastructure with Terraform](/docs/solution-tutorials?topic=solution-tutorials-vpc-app-deploy#vpc-app-deploy-terraform) and [Terraform documentation](https://developer.hashicorp.com/terraform/language){: external}.
 
    The following example creates a VPC, a subnet in the `us-south-1` zone, an SSH key, a virtual network interface, and a virtual server instance with boot volume encryption and two network attachments. For other supported regions, see [Regions and endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
 

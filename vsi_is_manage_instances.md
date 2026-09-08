@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-22"
+lastupdated: "2026-09-08"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -531,6 +531,7 @@ curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/instance_id/reini
 }'
 ```
 {: pre}
+
 
 ## Deleting a virtual server instance in the console
 {: #delete-virtual-server-instances-ui}
