@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-09-07"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -35,12 +35,12 @@ The following table lists the VPC resource attributes. For more information, see
 
 Review the following tables that outline what types of tasks each role allows when you're working with the `VPC Infrastructure Services` service. Platform management roles enable users to perform tasks on service resources at the platform level. For example, assign user access to the service, create or delete instances, and bind instances to applications. Service access roles enable user access to `VPC Infrastructure Services` and the ability to call the `VPC Infrastructure Services` API.
 
-| Platform role |  Description of actions |
-|---------------|-------------------------|
-| Viewer                 | You can view service instances, but you can't modify them. |
-| Operator               | You can perform platform actions that are required to configure and operate service instances, such as viewing a service dashboard. |
-| Editor                 | You can perform all platform actions except for managing the account and assigning access policies. |
-| Administrator          | You can perform all platform actions based on the resource this role is assigned, including assigning access policies to other users.|
+| Platform role | Description of actions |
+| ------------- | ----------------------- |
+| Viewer | You can view service instances, but you can't modify them. |
+| Operator | You can perform platform actions that are required to configure and operate service instances, such as viewing a service dashboard. |
+| Editor | You can perform all platform actions except for managing the account and assigning access policies. |
+| Administrator | You can perform all platform actions based on the resource this role is assigned, including assigning access policies to other users. |
 {: row-headers}
 {: class="simple-tab-table"}
 {: caption="IAM VPC Infrastructure Services platform roles" caption-side="bottom"}
@@ -48,11 +48,11 @@ Review the following tables that outline what types of tasks each role allows wh
 {: tab-title="VPC Infrastructure Services Platform roles"}
 {: tab-group="IAMVPC}
 
-| Service role |  Description of actions |
-|--------------|------------------------|
-| Reader         | You can perform read-only actions within a service, such as viewing service-specific resources. |
-| Writer         | You have permissions beyond the reader role, including creating and editing service-specific resources. |
-| Manager        | You have permissions beyond the writer role that allows you to complete privileged actions, as defined by the service. In addition, you can create and edit service-specific resources.|
+| Service role | Description of actions |
+| ------------ | ---------------------- |
+| Reader | You can perform read-only actions within a service, such as viewing service-specific resources. |
+| Writer | You have permissions beyond the reader role, including creating and editing service-specific resources. |
+| Manager | You have permissions beyond the writer role that allows you to complete privileged actions, as defined by the service. In addition, you can create and edit service-specific resources. |
 | VPNClient | You need to select only this role if you need to assign access to VPN clients that have user ID and passcode authentication configured. If you need to configure the user ID and passcode authentication, see [Configuring user IDs and passcodes](/docs/vpc?topic=vpc-client-to-site-authentication#client-to-site-configuration-passcode). |
 | Bare Metal Advanced Network Operator | You have access to modify IP spoofing and infrastructure NAT on bare metal interfaces. |
 | Bare Metal Console Admin | You can access the bare metal server console. |
@@ -145,15 +145,15 @@ ibmcloud iam user-policy-create USER@EXAMPLE.COM --service-name is --roles "View
 For step-by-step instructions for assigning, removing, and reviewing access, see [Assigning access to resources by using the API](/docs/iam?topic=iam-assign-access-resources&interface=api) or [Create a policy API](/docs/apis/iam-policy-management#create-policy). Role cloud resource names (CRN) in the following table are used to assign access with the API.
 
 | Role name | Role CRN |
-|---------------|-----------------|
-| Viewer                 | `crn:v1:bluemix:public:iam::::role:Viewer`        |
-| Operator               | `crn:v1:bluemix:public:iam::::role:Operator`      |
-| Editor                 | `crn:v1:bluemix:public:iam::::role:Editor`        |
-| Administrator          | `crn:v1:bluemix:public:iam::::role:Administrator` |
-| Reader         | `crn:v1:bluemix:public:iam::::serviceRole:Reader`        |
-| Writer         | `crn:v1:bluemix:public:iam::::serviceRole:Writer`        |
-| Manager        | `crn:v1:bluemix:public:iam::::serviceRole:Manager`       |
-| VPNClient      | `crn:v1:bluemix:public:iam::::serviceRole:VPNClient` |
+| ------------- | --------------- |
+| Viewer | `crn:v1:bluemix:public:iam::::role:Viewer` |
+| Operator | `crn:v1:bluemix:public:iam::::role:Operator` |
+| Editor | `crn:v1:bluemix:public:iam::::role:Editor` |
+| Administrator | `crn:v1:bluemix:public:iam::::role:Administrator` |
+| Reader | `crn:v1:bluemix:public:iam::::serviceRole:Reader` |
+| Writer | `crn:v1:bluemix:public:iam::::serviceRole:Writer` |
+| Manager | `crn:v1:bluemix:public:iam::::serviceRole:Manager` |
+| VPNClient | `crn:v1:bluemix:public:iam::::serviceRole:VPNClient` |
 | Bare Metal Advanced Network Operator | `crn:v1:bluemix:public:iam::::serviceRole:BareMetalAdvancedNetworkOperator` |
 | Bare Metal Console Admin | `crn:v1:bluemix:public:iam::::serviceRole:BareMetalConsoleAdmin` |
 | IP Spoofing Operator | `crn:v1:bluemix:public:iam::::serviceRole:IPSpoofingOperator` |
@@ -439,7 +439,7 @@ For more information about using access management tags, see the following resou
 ### Limitations
 {: #iam-access-limitations}
 
-1. Some gaps exist between current implementation and the API Spec, which are documented [here](/docs/vpc?topic=vpc-known-issues).
+1. Some gaps exist between current implementation and the API Spec, which are documented in [VPC Known issues](/docs/vpc?topic=vpc-known-issues).
 
 1. Instance templates and dedicated host groups don't support access management tags. As a result, you can't completely manage [Auto scale](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=cli) and [Dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=cli) access by using these tags.
 

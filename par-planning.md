@@ -70,5 +70,5 @@ Review the following considerations before creating a public address range.
 ## Next steps
 {: #par-planning-related-links}
 
-- [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
-- [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+* [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
+* [Create a public address range](/docs/vpc?topic=vpc-par-creating).

@@ -122,5 +122,5 @@ terraform destroy -auto-approve
 ## Next steps
 {: #after-delete-par}
 
-- [Create a public address range](/docs/vpc?topic=vpc-par-creating).
-- [View public address ranges](/docs/vpc?topic=vpc-par-viewing).
+* [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+* [View public address ranges](/docs/vpc?topic=vpc-par-viewing).
