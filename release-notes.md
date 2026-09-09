@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-03"
+lastupdated: "2026-09-09"
 
 keywords:
 
@@ -26,6 +26,10 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2026
 {: #vpc-sep26}
+
+
+
+
 
 ### 03 September 2026
 {: #vpc-sep0326}
