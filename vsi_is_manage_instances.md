@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-08"
+lastupdated: "2026-09-09"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -532,6 +532,99 @@ curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/instance_id/reini
 ```
 {: pre}
 
+## Reloading the OS by using Terraform
+{: #reloading-os-software-vpc-terraform}
+{: terraform}
+
+You can reload the OS by using Terraform with the `ibm_is_instance_reinitialize` resource. This resource performs a one-time reinitialization of an existing instance, which replaces the boot source, wiping local disks, and replacing initialization data such as SSH keys and user data.
+
+Before you reload the OS, you must add a `lifecycle` block to your `ibm_is_instance` resource to ignore the attributes that reinitialization can change. Without this change, Terraform plans a destroy and re-create of the instance on the next `terraform plan` or `terraform refresh` because `image` is `ForceNew`.
+
+Use one of the following options to reinitialize an existing instance.
+
+   - Reinitialize by using a new image.
+
+     ```terraform
+     resource "ibm_is_instance" "my_instance" {
+       name    = "my-instance"
+       image   = var.image_id
+       profile = "bx2-2x8"
+       vpc     = ibm_is_vpc.my_vpc.id
+       zone    = "us-south-1"
+       keys    = [var.ssh_key_ids]
+
+       primary_network_attachment {
+         name = "my-primary-network"
+         virtual_network_interface {
+           subnet = ibm_is_subnet.my_subnet.id
+         }
+       }
+
+       lifecycle {
+         ignore_changes = [
+           image,
+           user_data,
+           default_trusted_profile,
+         ]
+       }
+     }
+
+     resource "ibm_is_instance_reinitialize" "my_instance_reinit" {
+       depends_on  = [ibm_is_instance.my_instance]
+       instance_id = ibm_is_instance.my_instance.id
+       image       = var.reinit_image_id
+
+       # Optional: replace SSH keys
+       keys = [var.reinit_ssh_key_ids]
+
+       # Optional: replace user data
+       user_data = var.reinit_user_data
+     }
+     ```
+     {: codeblock}
+
+   - Reinitialize by using a snapshot
+
+     ```terraform
+     resource "ibm_is_instance" "my_instance" {
+       name    = "my-instance"
+       image   = var.image_id
+       profile = "bx2-2x8"
+       vpc     = ibm_is_vpc.my_vpc.id
+       zone    = "us-south-1"
+       keys    = [var.ssh_key_ids]
+
+       primary_network_attachment {
+         name = "my-primary-network"
+         virtual_network_interface {
+           subnet = ibm_is_subnet.my_subnet.id
+         }
+       }
+
+       lifecycle {
+         ignore_changes = [
+           image,
+           user_data,
+           default_trusted_profile,
+         ]
+       }
+     }
+
+     resource "ibm_is_instance_reinitialize" "my_instance_reinit" {
+       depends_on  = [ibm_is_instance.my_instance]
+       instance_id = ibm_is_instance.my_instance.id
+
+       boot_volume_attachment {
+         volume {
+           source_snapshot {
+             id = var.reinit_snapshot_id
+           }
+           name = "my-boot-volume-reinitialized"
+         }
+       }
+     }
+     ```
+     {: codeblock}
 
 ## Deleting a virtual server instance in the console
 {: #delete-virtual-server-instances-ui}
