@@ -719,6 +719,7 @@ toc:
           id: block-storage-for-vpc
           label: Block storage
           topics:
+          - block_storage_vpc_planning.md
           - block_storage_vpc_s2s_auth.md
           - topicgroup:
               id: creating-block-volumes
