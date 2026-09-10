@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-10"
 
 keywords: File Storage, snapshots, cross-regional copy, backup, restore share
 
@@ -82,7 +82,7 @@ The cost for snapshots is calculated based on GB capacity that is used during th
 
 When a snapshot is deleted, only the data blocks that are no longer needed by another snapshot are freed on the storage. The size of individual snapshots is dynamic, dependent on the existence of past or future snapshots, and the current state of the file share. Due to its dynamic nature, the actual amount of space that can be reclaimed by deleting snapshots cannot be easily determined. The change in the amount of space that is used is reflected in the metrics within 15 minutes after the snapshot is deleted.
 
-[Select availability]{: tag-green} In this release of regional file shares, the change in used space is not reflected in the metrics within the same timeframe.
+[Select availability]{: tag-green} In this release of regional file shares, the change in used space is not reflected in the metrics within the same time frame.
 
 ## Can I use share snapshots for disaster recovery?
 {: faq}
@@ -98,10 +98,12 @@ To help ensure that snapshots are able to survive the loss of an availability zo
 
 All the snapshots that are present in the share are visible as subdirectories inside a hidden `/.snapshot` (zonal file share) or `/.snap` (regional file share) directory. The snapshot directories are named the same as the snapshot fingerprint ID that you see in the console, from the CLI, or with the API. These snapshots are the snapshots that you took manually or that were created automatically by the backup service.
 
-For zonal file shares, you can also see special replication snapshots that are named by using the word "replication" and the associated creation timestamp rather than the fingerprint of the snapshot. These snapshots are created by the system and are used to mirror data to the replica share. The replication snapshots are automatically released and deleted when they are no longer needed.
+For zonal file shares, you can also see special replication snapshots that are prefixed with `replication` and include the associated creation timestamp rather than the fingerprint of the snapshot. These snapshots are created by the system and are used to mirror data to the replica share. The replication snapshots are automatically released and deleted when they are no longer needed.
 
 Snapshots of regional file shares are stored in the `.snap` directory. In this release of regional file shares, you cannot create cross-regional replicas. So no special replication snapshots appear in that directory.
 {: note}
+
+
 
 ## Can I automate the creation of snapshots?
 {: faq}
@@ -114,3 +116,9 @@ You can use the Backup for VPC service to schedule the creation and deletion of 
 {: #faq-fs-snapshots-accessorshares}
 
 Yes. Accessor shares have access to all the data within the origin share and that includes the snapshots of the origin share, too.
+
+## Can I copy or replicate my snapshot to another region?
+{: faq}
+{: #faq-fs-snapshots-copy}
+
+Snapshots are replicated automatically with their parent share when the share is replicated. You can't copy or replicate a snapshot independently.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-10"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -287,6 +287,7 @@ You can create access management tags and then apply them to new or existing fil
 For your zonal file shares, you can create read-only replicas in another zone within your VPC, or in a different region if your account has multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes.
 
 In this release, cross-regional replication is not supported yet for regional file shares with the `rfs` profile.
+
 {: preview}
 
 For cross-region replication, you must configure [service to service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) before the replica file share can be created.

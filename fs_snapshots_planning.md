@@ -30,7 +30,7 @@ Consider the following topics and prerequisites before you create snapshots.
 | - [ ] **Naming conventions** | Select a unique name for your snapshot. It's easier to filter and search for them later. For more information, see [Naming snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning#fs-snapshots-naming). |
 | - [ ] **Snapshots retention** | Evaluate how many snapshots to retain, how long you need to retain them, and when to delete snapshots. Review the [snapshots limitations](/docs/vpc?topic=vpc-fs-snapshots-about#fs-snapshots-limitations) before you perform these actions. |
 | - [ ] **Restoring a share** | Consider when you might want to create a share from a snapshot. If you need to revert to an earlier version of the share, plan which snapshot you want to use to create the share. |
-| - [ ] **Billing** | Think about the number of snapshots that you want to keep. You're charged for the storage that is used. |
+|- [ ] **Billing** | Think about the number of snapshots that you want to keep. You're charged for the storage that is used. |
 {: caption="Checklist for planning snapshots of shares" caption-side="bottom"}
 
 ## Naming snapshots
