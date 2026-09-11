@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-09-11"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -271,8 +271,6 @@ r174-b8cac978-a990-4824-a15c-604856982efe   snapshot-no-2   stable   r174-0641e5
 r174-7311f226-8259-46be-9bfa-5b2cd08bdf2f   snapshot-no-1   stable   r174-bf595773-9922-4dd4-9a3c-998b10022e0c   false      Default          2023-09-05T23:14:40+05:30
 ```
 {: screen}
-
-For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 

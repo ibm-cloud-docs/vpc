@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-09-10"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -104,6 +104,8 @@ Table 2 shows the available IOPS ranges, based on share size.
 {: caption="dp2 file share profile IOPS and capacity ranges." caption-side="top"}
 
 ¹ For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one client is limited to 48,000 IOPS.
+
+
 
 ## Tiered and custom file storage profiles
 {: #fs-v2-profiles}
