@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-09"
+lastupdated: "2026-09-11"
 
 keywords:
 
@@ -174,8 +174,8 @@ Application Load Balancers (ALBs) for VPC support mutual Transport Layer Securit
 
 Third-party license and entitlement service
 :  You can now provision virtual server instances from catalog images with vendor-managed software licensing. This feature enables dynamic license acquisition and management for third-party software running on instances, allowing vendors to control and track license usage on a per-instance basis.
-
-   Software attachments now exist for virtual server instances created from resources sourced from a catalog offering with a software billing plan, and represent software instances created from these plans. These software attachments contain license information when the plan is associated with vendor-managed software licensing. This feature enables you to track and manage licensed software running on your infrastructure resources. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
+Software attachment
+   s now exist for virtual server instances created from resources sourced from a catalog offering with a software billing plan, and represent software instances created from these plans. These software attachments contain license information when the plan is associated with vendor-managed software licensing. This feature enables you to track and manage licensed software running on your infrastructure resources. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
 
    - [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances)
 
