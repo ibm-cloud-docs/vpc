@@ -640,6 +640,7 @@ provider "ibm" {
 
 ### Viewing all volumes with Terraform
 {: #viewall-vol-terraform}
+{: terraform}
 
 Import the list of volumes that belong to an account as a read-only data source. You can filter by volume name, zone name, attachment state, encryption type, operating system family (applicable for boot volumes) or operating system architecture (applicable for boot volumes).
 
@@ -655,6 +656,7 @@ For more information, see [ibm_is_volumes](https://registry.terraform.io/provide
 
 ### Viewing volume details with Terraform
 {: #viewvol-details-terraforn}
+{: terraform}
 
 Import the details of a volume as a read-only data source. You must identify the volume by ID or name.
 
