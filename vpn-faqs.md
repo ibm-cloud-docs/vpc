@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-28"
+lastupdated: "2026-09-15"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -250,7 +250,7 @@ To send all traffic from the VPC side to the on-premises side, set peer CIDRs to
 
 When a connection is created successfully, the VPN service adds a CIDR `0.0.0.0/0` through the `<VPN gateway private IP>` route into the default routing table of the VPC. However, this new route can cause routing issues, such as virtual servers in different subnets not being able to communicate with each other, and VPN gateways not communicating with on-premises VPN gateways.
 
-   To troubleshoot routing issues, see [Why aren't my VPN gateways or virtual server instances communicating?](/docs/vpc?topic=vpc-troubleshoot-routing-issues).
+   To troubleshoot routing issues, see [Why do routing and reachability issues exist with my site-to-site VPN?](/docs/vpc?topic=vpc-troubleshoot-vpn-routing-reachability).
 
 ## What is the difference between static and dynamic route-based VPN connection types?
 {: #faq-vpn-32}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-09-15"
 
 keywords:
 
@@ -157,6 +157,8 @@ Existing events include a new attribute:
 
 `is.endpoint-gateway.endpoint-gateway.{list,read}`
 :    Includes an `allow_dns_resolution_binding property` and its boolean value in response data.
+
+
 
 ### Floating IP events
 {: #events-network-floatingIP}
