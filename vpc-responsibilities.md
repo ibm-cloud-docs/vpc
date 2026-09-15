@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-15"
 
 keywords: responsibilities, ha, high availability, disaster recovery
 
@@ -61,6 +61,8 @@ Incident and operations management includes tasks such as monitoring, event mana
 | Workloads | {{site.data.keyword.IBM_notm}} provides tools and features for customer use. | The Customer uses the provided tools and features to configure and deploy their highly available and resilient workloads by setting up permissions, integrating with other services, externally serving and monitoring health, as well as saving, backing up, and restoring data. |
 | Flow logs | {{site.data.keyword.IBM_notm}} provides the ability to collect flow log data from various endpoints. | The Customer understands the IBM Cloud Flow Logs for VPC data retention process and ensures that their destination Cloud Object Storage bucket is properly secured and encrypted. |
 {: caption="Responsibilities for incidents and operations" caption-side="bottom"}
+
+
 
 ### Change management
 {: #change-management}
