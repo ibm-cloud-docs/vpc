@@ -618,7 +618,7 @@ See the following example.
 ```
 {: codeblock}
 
-### Viewing {{site.data.keyword.block_storage_is_short}} volumes with Terraform
+## Viewing {{site.data.keyword.block_storage_is_short}} volumes with Terraform
 {: #viewing-block-storage-terraform}
 {: terraform}
 
