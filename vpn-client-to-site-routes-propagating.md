@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-05-03"
+  years: 2022, 2026
+lastupdated: "2026-09-15"
 
 keywords: network, encryption, client VPN, server VPN
 
@@ -56,5 +56,4 @@ Existing VPN server customers who use a `translate` VPN server route can choose 
 {: #propagating-routes-c2s}
 
 * [Use case 3: Integrating with a transit gateway](/docs/vpc?topic=vpc-vpn-client-to-site-overview#vpn-client-to-site-use-cases)
-* [Why did the advertised route creation fail in my Client VPN for VPC?](/docs/vpc?topic=vpc-troubleshoot-c2s-advertise-routes-over-quota)
-* [Why isn't route advertisement to ingress sources working?](/docs/vpc?topic=vpc-troubleshoot-advertise-route-not-work-c2s)
+* [Why do routing and reachability issues exist with my client-to-site VPN connection?](/docs/vpc?topic=vpc-troubleshoot-c2s-traffic-flow)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-09-15"
 
 keywords:
 
@@ -92,4 +92,4 @@ Integrate with a site-to-site VPN gateway if you want to access your on-premises
 * [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpn-server-clis)
 * [VPC API reference](/docs/apis/vpc)
 * [FAQs for client-to-site VPN servers](/docs/vpc?topic=vpc-faqs-vpn-server)
-* [Troubleshooting client-to-site VPN servers](/docs/vpc?topic=vpc-troubleshooting-authentication-error)
+* [Troubleshooting client-to-site VPN servers](/docs/vpc?group=tbs-client-to-site-vpn)

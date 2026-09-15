@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-09-15"
 
 keywords: network, VPN, VPN gateways, encryption
 
@@ -114,5 +114,4 @@ The ingress routing table in the transit VPC advertises on-premises CIDR ranges 
 {: #propagating-routes-s2s-related}
 
 * [Use case 4: Integrating with a site-to-site VPN gateway](/docs/vpc?topic=vpc-vpn-client-to-site-overview#integrating-with-site-to-site-vpn-gateway)
-* [Why is the route advertisement to ingress sources not working?](/docs/vpc?topic=vpc-troubleshoot-advertise-route-does-not-work-s2s)
-* [Why can't I access my classic virtual server instance privately after I configure route propagation for VPN gateways?](/docs/vpc?topic=vpc-troubleshoot-s2s-cannot-access-classic-vsi)
+* [Troubleshooting site-to-site VPN gateways](/docs/vpc?group=tbs-site-to-site-vpn-gateways)
