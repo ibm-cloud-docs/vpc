@@ -1060,6 +1060,7 @@ For more information, see [ibm_is_snapshots](https://registry.terraform.io/provi
 
 ### Listing details of a snapshot with Terraform
 {: #snapshots-vpc-view-snap-terraform}
+{: terraform}
 
 Import the details of a snapshot as a read-only data source. You can specify either the snapshot ID or the snapshot name.
 
@@ -1083,6 +1084,7 @@ For more information, see [ibm_is_snapshot](https://registry.terraform.io/provid
 
 ### Listing all fast restore snapshot clones
 {: #snapshots-clone-view-terraform}
+{: terraform}
 
 Import the details of all the fast restore clones of a snapshot as a read-only data source.
 
@@ -1097,6 +1099,7 @@ For more information, see [ibm_is_snapshot_clones](https://registry.terraform.io
 
 ### Listing details of a fast restore clone with Terraform
 {: #snapshots-view-zonal-clones-terraform}
+{: terraform}
 
 Import the details of a snapshot's fast restore clone in a zone as a read-only data source.
 
@@ -1112,6 +1115,7 @@ For more information, see [ibm_is_snapshot_clone](https://registry.terraform.io/
 
 ### Listing all consistency groups with Terraform
 {: #snapshots-vpc-view-consistency-groups-terraform}
+{: terraform}
 
 Import the details of a collection of consistency groups as a read-only data source.
 
@@ -1126,6 +1130,7 @@ For more information, see [ibm_is_consistency_groups](https://registry.terraform
 
 ### Listing details of a consistency group with Terraform
 {: #snapshots-vpc-view-consistency-group_details-terraform}
+{: terraform}
 
 Import the details of a snapshot consistency group as a read-only data source. You can specify the consistency group by either the ID or the name of the consistency group.
 
