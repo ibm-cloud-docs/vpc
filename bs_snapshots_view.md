@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-09-11"
+lastupdated: "2026-09-15"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -1025,7 +1025,7 @@ A successful response looks like the following example.
 ```
 {: screen}
 
-## Viewing snapshots with Terraform
+### Viewing snapshots with Terraform
 {: #snapshots-vpc-view-terraform}
 {: terraform}
 

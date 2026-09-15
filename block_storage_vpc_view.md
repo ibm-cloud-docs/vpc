@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-09-15"
 
 keywords: Block Storage, virtual private cloud, view volumes, volume details, volume status, volume health, encryption, IOPS, boot volume, data volume, snapshots, backup policy, volume jobs, software attachments
 
@@ -618,7 +618,7 @@ See the following example.
 ```
 {: codeblock}
 
-## Viewing {{site.data.keyword.block_storage_is_short}} volumes with Terraform
+### Viewing {{site.data.keyword.block_storage_is_short}} volumes with Terraform
 {: #viewing-block-storage-terraform}
 {: terraform}
 
