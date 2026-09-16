@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-09-16"
 
 keywords:
 
@@ -28,10 +28,6 @@ Known issues for security groups and network ACLs are as follows:
        - The [IBM Cloud VPC Go SDK](https://github.com/IBM/vpc-go-sdk). For troubleshooting information, see the [known issues](https://github.com/IBM/vpc-go-sdk/blob/master/known-issues.md).
        - The `vpc-infrastructure` plugin for the [IBM Cloud CLI](/docs/cli). To prevent errors, update to the latest version of the `vpc-infrastructure` plugin.
        - The [Terraform provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs){: external} for VPC. For troubleshooting, see [Terraform on IBM Cloud FAQs](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-faqs&interface=cli).
-* Security Group and Network ACL rules with ESP protocol issue:
-    * Network traffic with the ESP protocol is currently supported by instances with [generation 2 profiles](/docs/vpc?topic=vpc-profiles#x86-64-instance-profile-families). Instances with newer generation profiles, and all bare metal servers, do not currently support ESP traffic.
-    * Configuring a security group rule with a `protocol` value of `esp` or `any` will not allow ESP traffic when the security group targets a network interface for an instance with a newer generation profile or a bare metal server.
-    * To avoid confusion about where ESP traffic is supported, the ESP protocol is not shown in the IBM Cloud console options for security group and network ACL rules. Support for ESP traffic on newer generation instance profiles and on bare metal servers may be available in a future release.
 * Known issues for vpc-go-sdk: 
     * Security Group rules and Network ACL rules backward compatibility issue
         * **Publication date:** 2025-12-18
