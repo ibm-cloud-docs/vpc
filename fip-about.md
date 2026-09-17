@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-17"
 
 keywords: floating ip, about, public gateway
 
@@ -20,6 +20,9 @@ Floating IP addresses are IP addresses that are provided by the system and are r
 
 You can reserve a floating IP address from the pool of available addresses that are provided by IBM, and you can associate it with a network interface of any instance in the same zone. That interface will also have a private IP address. Each floating IP address can be associated with only one interface or public gateway. Currently, floating IP supports only IPv4 addresses.
 
+
+When a virtual server instance with an attached floating IP is deleted, reclaimed, or canceled, the floating IP isn't automatically released. The floating IP remains in your account as a billable resource until you manually release it. To avoid unexpected charges, release any floating IPs that are no longer needed. For more information, see [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=ui).
+{: important}
 
 ## External connectivity
 {: #fip-external-conn}

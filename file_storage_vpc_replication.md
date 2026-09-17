@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-17"
+lastupdated: "2026-09-17"
 
 keywords: file share, file storage, replication, replica,
 
@@ -46,13 +46,15 @@ While you can't create snapshots of a replica share manually or programmatically
 
 When you replicate across regions, the data is crossing VPC boundaries. For zonal file share replication, both VPCs and file shares must belong to the same account, and you need to [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file services of the two regions.
 
-The data is encrypted in transit while it's moving between file shares. Charges for data transfer between the two file shares are calculated with a flat rate in GB increments. The charges are based on the amount of data that was transferred during the entire billing period.
+The data is encrypted in transit while it's moving between file shares. Charges for data transfer between the two file shares are calculated with a flat rate in GiB increments. The charges are based on the amount of data that was transferred during the entire billing period.
 
 When you replicate data across regions, consider the local data residency laws because moving data across borders can have legal implications.
 
 Replication is an asynchronous operation and it's not instantaneous. You can use the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-syncinfo) to see the duration of the replication process and the transfer rate. By reviewing the replication sync information, you can adjust your replication schedule, and balance your costs with how often you need the data to be refreshed on the replica. By viewing the job logs and the transfer rates, you can also determine whether the size of the data that needs to be transferred fits within the replication window.
 
 You need to have sufficient unused capacity in your file share for replication to complete. During the replication process, new data from the source is copied to the replica volume. The old data is not overwritten immediately, but removed after the copy operation completes. For example, if your share is at 95% capacity and the rate of change is 10%, the replica might not have enough space to hold the changes. If the replica does not have enough space to hold the updates, the replication process fails. You can monitor the file share capacity in the console, and configure alerts for utilization. For more information, see [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
+
+
 
 Data on the replica share is read-only. You can obtain read/write access to the data in two ways:
 

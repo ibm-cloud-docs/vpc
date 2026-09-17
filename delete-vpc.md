@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-04-30"
+  years: 2019, 2026
+lastupdated: "2026-09-17"
 
 keywords: delete, resources
 
@@ -23,18 +23,20 @@ The following table summarizes the types of VPC resources and the relationships 
 | Resource | Before it can be deleted... | After it is deleted... |
 | ---------------- | ----------------------------------------- | --------------------------- |
 | VPC | All subnets and public gateways in the VPC must be deleted. | All security groups and address prefixes are deleted automatically. |
-| Subnet | All instances and any network interfaces in subnet must be deleted. | Any public gateway that serves the subnet is detached. Any network ACL associated with the subnet is detached. |
-| Instance | ---- | All network interfaces are deleted automatically and the boot volume is deleted with the instance. Secondary data volumes are preserved unless the default setting is changed to auto-delete. A floating IP address must be unassociated or released before the instance is deleted.  |
+| Subnet | All instances, VPN servers, and any network interfaces in the subnet must be deleted. | Any public gateway that serves the subnet is detached. Any network ACL associated with the subnet is detached. |
+| Instance | ---- | All network interfaces are deleted automatically and the boot volume is deleted with the instance. Secondary data volumes are preserved unless the default setting is changed to auto-delete. A floating IP address must be unassociated or released before the instance is deleted. |
 | Network interface | ---- | Any floating IP attached to the network interface is released. |
-| Key | ---- | After you delete a key, it can no longer be used to provision a new instance, or to perform an OS reload on an existing instance. However, the key is still available on any instances that you provisioned with it, and you can continue to use it to log in.  |
+| Virtual network interface | All target attachments (for example, instance network attachments or file share mount targets) must be removed before deletion. | Any reserved IP is released if `auto_release` is set to `true`. |
+| Key | ---- | After you delete a key, it can no longer be used to provision a new instance, or to perform an OS reload on an existing instance. However, the key is still available on any instances that you provisioned with it, and you can continue to use it to log in. |
 | Image | ---- | The image cannot be used to provision a new instance, but existing instances with the image are not affected. |
 | Volume | The volume must be detached from all instances. | ---- |
-| Network ACL | The network ACL must be detached from all subnets. Default network ACLs for a VPC cannot be deleted.  | ---- |
-| Security group | The security group must be detached from all network interfaces. The default security group for a VPC cannot be deleted. | ---- |
+| Network ACL | The network ACL must be detached from all subnets. Default network ACLs for a VPC cannot be deleted. | ---- |
+| Security group | The security group must be detached from all network interfaces and VPN servers. The default security group for a VPC cannot be deleted. | ---- |
 | Floating IP | The floating IP must be detached from any network interface. | ---- |
-| Public gateway | The public gateway must be detached from all subnets. |  ---- |
+| Public gateway | The public gateway must be detached from all subnets. | ---- |
 | Load balancer | ---- | ---- |
-| VPN gateway | ---- | Because IKE and IPsec policies can be shared between gateways, these policies are not deleted when a VPN Gateway is deleted. These policies must be removed manually. |
+| VPN gateway (site-to-site) | ---- | Because IKE and IPsec policies can be shared between gateways, these policies are not deleted when a VPN gateway is deleted. These policies must be removed manually. |
+| VPN server (client-to-site) | The VPN server must be deleted before the subnet it occupies can be deleted. | All VPN client sessions are terminated automatically. |
 {: caption="Types of resources and relationships that affect deletions" caption-side="bottom"}
 
 ## VPC resources cannot be deleted in a transient state
@@ -105,6 +107,15 @@ No prerequisites are required for deleting an instance. When the instance is del
 | Network interface | --- | Subnets, floating IP, security groups | No | Yes | Yes |
 {: caption="Information for deleting instances" caption-side="bottom"}
 
+### Virtual network interface
+{: #deleting-vni}
+
+A virtual network interface (VNI) is a standalone resource that can be attached to a target such as an instance network attachment or a file share mount target. Before you can delete a virtual network interface, all target attachments must be removed. A VNI cannot be deleted while it is still bound to a target.
+
+When a virtual network interface is deleted, any reserved IP addresses associated with it are released if the `auto_release` property is set to `true`.
+
+VNIs that are auto-created by a file share mount target (with `security_group` access control mode) are deleted automatically when the mount target is deleted. Standalone VNIs that you create and attach to instances or mount targets must be deleted separately.
+
 ### Load Balancer
 {: #deleting-lb}
 
@@ -113,7 +124,7 @@ No prerequisites are required for deleting a load balancer. When the load balanc
 Deleting a load balancer can take up to 30 minutes. The delete request immediately changes the provisioning status of the load balancer to `deleting`. However, the load balancer is not deleted until it disappears from the list query.
 {: important}
 
-### VPN
+### VPN gateway (site-to-site)
 {: #deleting-vpn}
 
 No prerequisites are required for deleting a VPN gateway. When the VPN gateway is deleted, its associated connections are also deleted automatically. IKE and IPsec policies are not deleted when a VPN gateway is deleted.
@@ -121,12 +132,21 @@ No prerequisites are required for deleting a VPN gateway. When the VPN gateway i
 Deleting a VPN gateway can take up to 30 minutes. The delete request immediately changes the provisioning status of the VPN gateway to `deleting`. However, the VPN gateway is not deleted until it disappears from the list query.
 {: important}
 
+### VPN server (client-to-site)
+{: #deleting-vpn-server}
+
+A VPN server (client-to-site) must be deleted before any subnet that it occupies can be deleted. When you delete a VPN server, all connected VPN client sessions are terminated automatically. You cannot delete a security group that is attached to a VPN server.
+
+Deleting a VPN server can take a few minutes. The delete request immediately changes the provisioning status of the VPN server to `deleting`. However, the VPN server is not deleted until it disappears from the list query.
+{: important}
+
 ### Floating IP
 {: #deleting-floating-ip}
 
-A floating IP exists outside of a VPC, at the account level. If the floating IP is bound to an instance, the floating IP must be released before the floating IP can be deleted.
+A floating IP exists outside of a VPC, at the account level. If the floating IP is bound to an instance, the floating IP must be unassociated before the floating IP can be deleted. For more information, see [About floating IPs](/docs/vpc?topic=vpc-fip-about).
 
-If you delete a resource to which the floating IP is bound, such as an instance's network interface, the floating IP is released automatically.
+Canceling or reclaiming a VSI does not automatically release any attached floating IP. The floating IP remains allocated to your account and continues to accrue charges until you manually release it. To avoid unexpected charges, release any floating IPs that are no longer needed by using the console, CLI, or API.
+{: important}
 
 ### Volume
 {: #deleting-volume}
@@ -151,7 +171,7 @@ A Block Storage volume can be attached to only one virtual server at a time.
 ### Security groups
 {: #deleting-secgroup}
 
-A security group cannot be deleted if it is being used by a network interface, or if it is the default security group of a VPC. Before you delete the security group, remove all network interfaces from that security group. Also, make sure that the security group is not being used as the default security group of the VPC.
+A security group cannot be deleted if it is being used by a network interface or a VPN server, or if it is the default security group of a VPC. Before you delete the security group, remove all network interfaces and VPN servers from that security group. Also, make sure that the security group is not being used as the default security group of the VPC.
 
 Deleting a VPC deletes all security groups in that VPC, automatically.
 

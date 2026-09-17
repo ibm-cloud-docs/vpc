@@ -1170,6 +1170,7 @@ toc:
               topics:
               - fip-ts-connection-troubleshoot.md
               - fip-ts-incomplete-ips-on-bare-metal-server.md
+              - fip-ts-unexpected-charges.md
           - topicgroup:
               id: tbs-flow-log-collectors
               label: Troubleshooting flow log collectors

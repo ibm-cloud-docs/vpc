@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-08"
+lastupdated: "2026-09-16"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -316,7 +316,7 @@ For more information about available command options, see [`ibmcloud is instance
 
 
 
-### Detaching a volume from the CLI
+### Detaching a volume from a virtual server instance from the CLI
 {: #detach-vol-attachment-cli}
 {: help}
 {: support}
@@ -348,6 +348,9 @@ For more information about available command options, see [`ibmcloud is instance
 
 A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `auto-delete` option in the volume attachment is set to `false`.
 {: note}
+
+
+
 
 ## Managing {{site.data.keyword.block_storage_is_short}} with the API
 {: #managing-block-storage-api}
@@ -565,7 +568,7 @@ A successful response looks like the following example.
 ```
 {: screen}
 
-### Detaching a volume with the API
+### Detaching a volume from a virtual server instance with the API
 {: #detach-vol-attachment-api}
 
 Make a `DELETE /instances/{instance_id}/volume_attachments/{id}` request and specify the volume attachment ID to delete a volume attachment. Deleting a volume attachment detaches a volume from an instance.
@@ -581,6 +584,8 @@ A boot volume cannot be detached from an instance while the instance exists. If 
 {: note}
 
 Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}` call.
+
+
 
 ## Managing {{site.data.keyword.block_storage_is_short}} with Terraform
 {: #managing-block-storage-terraform}

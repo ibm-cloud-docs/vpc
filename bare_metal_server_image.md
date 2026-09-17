@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-13"
+lastupdated: "2026-09-16"
 
 keywords:
 
@@ -151,6 +151,8 @@ To install the most recent driver on a Linux distribution:
    ```
 
    The module is installed into `/usr/lib/modules/${uname -r}/updates/eth/ionic/ionic.ko`. If you upgrade your kernel, you need to repeat these steps.
+
+
 
 ## Next steps
 {: #bare-metal-images-next-steps}

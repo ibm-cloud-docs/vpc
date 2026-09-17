@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-09-16"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -104,6 +104,8 @@ A {{site.data.keyword.block_storage_is_short}} volume can be attached to only on
 {: #faq-block-storage-3}
 
 You can attach 12 {{site.data.keyword.block_storage_is_short}} data volumes per instance, plus the boot volume.
+
+
 
 ## How am I charged for usage?
 {: faq}
