@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-09-23"
+  years: 2023, 2026
+lastupdated: "2026-09-18"
 
 keywords: secure boot, secure boot for virtual servers
 
@@ -55,6 +55,8 @@ Keep the following limitations in mind when you use secure boot.
    - mx3d-128x1280
    - mx3d-176x1760
    - bx3d-176x880
+
+
 
 If you resize a virtual server that has secure boot-enabled to a profile that is secure boot-disabled (and vice-versa), the topology of PCIe devices changes. Depending on the operating system, this topology change can rename devices and realign the PCI address. The I/O performance can also change.
 
