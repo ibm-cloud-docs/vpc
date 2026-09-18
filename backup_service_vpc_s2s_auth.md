@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-09-18"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -229,10 +229,10 @@ Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with speci
      {
        "type": "authorization",
        "subject": {
-           {"attributes": [
+           "attributes": [
                 {"name": "accountId", "value": "ACCOUNT_ID"},
                 {"name": "serviceName", "value": "is"},
-                {"name": "resourceType", "value": "backup-policy"}]}},
+                {"name": "resourceType", "value": "backup-policy"}]},
        "roles": [
            {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}],
        "resources": [
@@ -240,19 +240,21 @@ Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with speci
                 {"name": "accountId", "value": "ACCOUNT_ID"},
                 {"name": "serviceName", "operator": "stringEquals", "value": "is"},
                 {"name": "instanceId", "operator": "stringEquals", "value": "*"}]}]
-       }
+     }
      ```
      {: codeblock}
+
+
 
    * Block Storage volume service:
      ```json
      {
        "type": "authorization",
        "subject": {
-           {"attributes": [
+           "attributes": [
                 {"name": "accountId", "value": "ACCOUNT_ID"},
                 {"name": "serviceName", "value": "is"},
-                {"name": "resourceType", "value": "backup-policy"}]}},
+                {"name": "resourceType", "value": "backup-policy"}]},
        "roles": [
            {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}],
        "resources": [
@@ -269,10 +271,10 @@ Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with speci
      {
        "type": "authorization",
        "subject": {
-           {"attributes": [
+           "attributes": [
                 {"name": "accountId", "value": "ACCOUNT_ID"},
                 {"name": "serviceName", "value": "is"},
-                {"name": "resourceType", "value": "backup-policy"}]}},
+                {"name": "resourceType", "value": "backup-policy"}]},
        "roles": [
            {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}],
        "resources": [
@@ -289,10 +291,10 @@ Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with speci
       {
        "type": "authorization",
        "subject": {
-           {"attributes": [
+           "attributes": [
                 {"name": "accountId", "value": "ACCOUNT_ID"},
                 {"name": "serviceName", "value": "is"},
-                {"name": "resourceType", "value": "backup-policy"}]}},
+                {"name": "resourceType", "value": "backup-policy"}]},
        "roles": [
            {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}],
        "resources": [
@@ -564,6 +566,8 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies'
 ```
 {: pre}
 
+
+
 ```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 -H 'Authorization: Bearer $TOKEN' \
@@ -758,6 +762,8 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
     ```
     {: pre}
 
+
+
    * Authorize `is.backup-policy` (source) to interact with `is.instance` (target) with the _operator_ role.
 
    ```json
@@ -936,6 +942,8 @@ Enterprise account admins can programmatically [create and assign authorization 
      }'
     ```
     {: pre}
+
+
 
    * Authorize `is.backup-policy` (source) to interact with `is.instance` (target) with the _operator_ role.
 

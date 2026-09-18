@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-09-18"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -20,6 +20,8 @@ Restore boot or data volumes from backup snapshots to create fully provisioned s
 
 The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
+
+
 
 You can restore volumes from backup snapshots in the console, from the CLI, with the API, or Terraform.
 
@@ -67,6 +69,8 @@ You can restore a volume from a backup snapshot of a data volume in multiple way
 - You can restore a data volume when you provision an instance. During provisioning, you can select a nonbootable backup snapshot to create a data volume that is then attached to the instance as auxiliary storage.
 - You can restore a data volume when you want to add more storage to an existing instance.
 - You can restore a data volume to create a stand-alone volume, which you can attach to an instance later.
+
+
 
 ## Restoring a volume from a backup snapshot in the console
 {: #baas-vpc-restore-ui}

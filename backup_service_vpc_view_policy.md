@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-09-18"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -318,6 +318,8 @@ Created at              2023-02-21T18:37:17+00:00
 ```
 {: screen}
 
+
+
 The following example lists the properties of an Enterprise backup policy. The scope shows the enterprise account's CRN.
 
 ```sh
@@ -604,6 +606,8 @@ curl -X GET\
 }
 ```
 {: codeblock}
+
+
 
 For more information about the values of the `health_state` and `lifecycle_state` fields, see [Monitoring backup policy health states, lifecycle status, and events](/docs/vpc?topic=vpc-backup-vpc-monitoring).
 
