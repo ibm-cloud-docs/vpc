@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-09-18"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -593,6 +593,8 @@ The following flex profiles are available.
 | mxf-48x384       | 48   | 384          | 80  |
 | mxf-64x512       | 64   | 512          | 80  |
 {: caption="Flex profile options for virtual servers" caption-side="bottom"}
+
+
 
 ### Burstable-supported Flex profiles
 {: #burstable-supported-flex-profiles}
