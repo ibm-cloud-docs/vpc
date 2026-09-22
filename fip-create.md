@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-22"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -108,7 +108,6 @@ First, get the instance to retrieve the network interface name:
 
 
 Next, create a floating IP that targets that instance and the NIC:
-
 
 
 
