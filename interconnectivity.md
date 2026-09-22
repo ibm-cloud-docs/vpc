@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-09-22"
 
-keywords: peering, interconnectivity, interconnect
+keywords: peering, interconnectivity, direct link, transit gateway
 
 subcollection: vpc
 
