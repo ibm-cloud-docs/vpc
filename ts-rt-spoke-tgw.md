@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-11-06"
+  years: 2020, 2026
+lastupdated: "2026-09-22"
 
-keywords: route, route table, advertise, direct link, transit gateway
+keywords: route, route table, advertise
 
 subcollection: vpc
 
