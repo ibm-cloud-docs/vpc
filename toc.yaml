@@ -709,12 +709,26 @@ toc:
               - vnf-deploy-nlb.md
               - vnf-configure-custom-routes.md
       - topicgroup:
+          id: direct-link
+          label: Direct Link
+          topics:
+          - link:
+              label: Getting started with IBM Cloud Direct Link
+              href: /dl/dl-get-started-with-ibm-cloud-dl
+      - topicgroup:
           id: dns-services
           label: DNS Services
           topics:
           - link:
               label: Getting started with IBM Cloud DNS Services
               href: /dns-svcs/dns-svcs-getting-started
+      - topicgroup:
+          id: transit-gateway
+          label: Transit Gateway
+          topics:
+          - link:
+              label: Getting started with IBM Cloud Transit Gateway
+              href: /transit-gateway/transit-gateway-getting-started
       - topicgroup:
           id: block-storage-for-vpc
           label: Block storage
