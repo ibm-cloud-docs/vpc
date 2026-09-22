@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-09-18"
+lastupdated: "2026-09-22"
 
 keywords: secure boot, secure boot for virtual servers
 
@@ -44,7 +44,9 @@ In the current release of {{site.data.keyword.block_storage_is_short}} offering,
 ## Disabling secure boot requirements
 {: #disabling-secure-boot-vpc}
 
-When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can choose to disable secure boot when you create the virtual server instance. To disable secure boot for an existing virtual server instance, you must first stop your virtual server instance. You can then disable the secure boot option. After disabling secure boot, you can then restart your virtual server instance. For more information, see [Managing virtual server instances: Disable or enable secure boot](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#disable-secure-boot-ui).
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. 
+
+You can choose to disable secure boot when you create the virtual server instance. To disable secure boot for an existing virtual server instance, you must first stop your virtual server instance. You can then disable the secure boot option. After disabling secure boot, you can then restart your virtual server instance. For more information, see [Managing virtual server instances: Disable or enable secure boot](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#disable-secure-boot-ui).
 
 ## Limitations
 {: #confidential-computing-secure-boot-limitations-vpc}
@@ -55,8 +57,6 @@ Keep the following limitations in mind when you use secure boot.
    - mx3d-128x1280
    - mx3d-176x1760
    - bx3d-176x880
-
-
 
 If you resize a virtual server that has secure boot-enabled to a profile that is secure boot-disabled (and vice-versa), the topology of PCIe devices changes. Depending on the operating system, this topology change can rename devices and realign the PCI address. The I/O performance can also change.
 

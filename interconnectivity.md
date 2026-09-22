@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-09-22"
 
-keywords: peering, interconnectivity, interconnect
+keywords: peering, interconnectivity, direct link, transit gateway
 
 subcollection: vpc
 
@@ -275,4 +275,6 @@ Using IANA ranges works only with custom routes that have the `Delegate-VPC` act
 ## Related links
 {: #interconnectivity-related-links}
 
-[What's the difference between VPN for VPC, Transit Gateway, and Direct Link?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-2)
+* [What's the difference between VPN for VPC, Transit Gateway, and Direct Link?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-2)
+* [Getting started with {{site.data.keyword.dl_full_notm}}](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl)
+* [Getting started with {{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-getting-started)
