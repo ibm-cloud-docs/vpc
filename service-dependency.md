@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-07-10"
+lastupdated: "2026-09-21"
 
 keywords:
 
@@ -49,7 +49,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud Virtual Private Cloud - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
@@ -67,7 +67,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | {{site.data.keyword.cloud-shell_full}} | Availability, Instance control, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Log Analysis Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
+| IBM Cloud Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | IBM Cloud Global Search and Tagging | Availability, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.atracker_full}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.monitoringlong}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
@@ -107,7 +107,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | IBM Cloud Databases | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | IBM Cloud Object Storage (IaaS) | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud Backup for VPC - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
@@ -164,7 +164,7 @@ The following dependencies apply to the following deployment locations: Chennai 
 | IBM Cloud Databases | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | ngdc-data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | ngdc-data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | ngdc-data-plane |  Same region  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, Disaster recovery, Instance control | No | ngdc-data-plane |  Same region  |
 | IBM Cloud Object Storage (IaaS) | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | ngdc-data-plane |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud Backup for VPC - Data plane deployment for NGDC service dependency information - Critical dependencies" caption-side="top"}
@@ -292,17 +292,14 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data and Control plane deployment
 {: #data-and-control-plane-deployment}
 
-The following dependencies apply to the following deployment locations: Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Osaka (jp-osa), Sao Paulo (br-sao), Sydney (au-syd), Tokyo (jp-tok), Washington DC (us-east).
+The following dependencies apply to the following deployment locations: Dallas 10, Dallas 12, Dallas 13, Dallas 14, Frankfurt 02, Frankfurt 04, Frankfurt 05, London 02, London 04, London 05, London 06, Madrid 02, Madrid 04, Madrid 05, Osaka 21, Osaka 22, Osaka 23, Sao Paulo 01, Sao Paulo 04, Sao Paulo 05, Sydney 01, Sydney 04, Sydney 05, Tokyo 02, Tokyo 04, Tokyo 05, Toronto 01, Toronto 04, Toronto 05, Washington DC 04, Washington DC 06, Washington DC 07.
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| IBM Cloud Virtual Server for VPC | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same zone  |
-| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control | No | Both |  Same region  |
-| {{site.data.keyword.dns_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
-| IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
-| {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Virtual Private Endpoint for VPC - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
@@ -313,29 +310,37 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| corporate-uptycs | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Business Support Services | Availability, Change management, Instance control | No | Both |  Same region  |
+| IBM Cloud CLI  | Availability, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.cloud-shell_full}} | Availability, Instance control, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| {{site.data.keyword.logs_full}} | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
-| IBM Cloud Business Support Services | Availability, Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | IBM Cloud Global Search and Tagging | Availability, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.atracker_full}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
-| corporate-qradar | Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Log Analysis Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
-| {{site.data.keyword.metrics_router_full}} | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
-| {{site.data.keyword.monitoringlong}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | OSS Platform | Availability, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud CLI  | Availability, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM GitHub Enterprise | Availability, Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| {{site.data.keyword.pag_full}} | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
-| IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
-| {{site.data.keyword.cloud-shell_full}} | Availability, Instance control, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Console | Availability, Instance control, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.pag_full}} | Availability, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.metrics_router_full}} | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
+| SOS SIEM | Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-uptycs | Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-magna | Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloud Virtual Private Endpoint for VPC - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
 {: tab-group="service-dependency-data-for-is-endpoint-gateway-Data-and-Control-plane-deployment"}
 {: class="comparison-tab-table"}
 {: #significant-service-dependencies-for-is-endpoint-gateway-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| PagerDuty| Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+{: row-headers}
+{: caption="IBM Cloud Virtual Private Endpoint for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
+{: tab-title="Minimal dependencies"}
+{: tab-group="service-dependency-data-for-is-endpoint-gateway-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #minimal-service-dependencies-for-is-endpoint-gateway-Data-and-Control-plane-deployment}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 ## Data and Control plane deployment NGDC
@@ -346,14 +351,50 @@ The following dependencies apply to the following deployment locations: Montreal
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control | No | Both |  Same region  |
-| {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Virtual Private Endpoint for VPC - Data and Control plane deployment NGDC service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
 {: tab-group="service-dependency-data-for-is-endpoint-gateway-Data-and-Control-plane-deployment-NGDC"}
 {: class="comparison-tab-table"}
 {: #critical-service-dependencies-for-is-endpoint-gateway-Data-and-Control-plane-deployment-NGDC}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| IBM Cloud Business Support Services | Availability, Change management, Instance control | No | Both |  Same region  |
+| IBM Cloud CLI  | Availability, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.cloud-shell_full}} | Availability, Instance control, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
+| IBM Cloud Global Search and Tagging | Availability, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.atracker_full}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
+| OSS Platform | Availability, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.pag_full}} | Availability, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.metrics_router_full}} | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
+| SOS SIEM | Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-uptycs | Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-magna | Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+{: row-headers}
+{: caption="IBM Cloud Virtual Private Endpoint for VPC - Data and Control plane deployment NGDC service dependency information - Significant dependencies" caption-side="top"}
+{: tab-title="Significant dependencies"}
+{: tab-group="service-dependency-data-for-is-endpoint-gateway-Data-and-Control-plane-deployment-NGDC"}
+{: class="comparison-tab-table"}
+{: #significant-service-dependencies-for-is-endpoint-gateway-Data-and-Control-plane-deployment-NGDC}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| PagerDuty| Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+{: row-headers}
+{: caption="IBM Cloud Virtual Private Endpoint for VPC - Data and Control plane deployment NGDC service dependency information - Minimal dependencies" caption-side="top"}
+{: tab-title="Minimal dependencies"}
+{: tab-group="service-dependency-data-for-is-endpoint-gateway-Data-and-Control-plane-deployment-NGDC"}
+{: class="comparison-tab-table"}
+{: #minimal-service-dependencies-for-is-endpoint-gateway-Data-and-Control-plane-deployment-NGDC}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 ## IBM Cloud Flow Logs for VPC
@@ -431,7 +472,7 @@ The following dependencies apply to the following deployment locations: Chennai 
 | {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Disaster recovery, Instance control, Operations, Security compliance | No | Both |  Same region  |
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, configuration-management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, configuration-management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud Virtual Server for VPC - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
@@ -447,14 +488,14 @@ The following dependencies apply to the following deployment locations: Chennai 
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 | IBM Cloud Global Search and Tagging | Availability | No | Both |  Same region  |
 | ServiceNow | Availability, Change management, Operations | No | Both |  Same region  |
-| IBM Cloud Hyper Protect Crypto | Availability, Change management, configuration-management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Hyper Protect Crypto Services | Availability, Change management, configuration-management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Cloud Console | Availability, Instance control, Operations | No | Both |  Same region  |
 | {{site.data.keyword.keymanagementservicefull}} | Availability, Change management, configuration-management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.registrylong}} | Availability, Disaster recovery | No | Both |  Same region  |
 | {{site.data.keyword.secrets-manager_full}} | Availability, configuration-management | No | Both |  Same region  |
 | OSS Platform | Availability, configuration-management | No | Both |  Same region  |
 | {{site.data.keyword.pag_full}} | Availability, configuration-management | No | Both |  Same region  |
-| IBM Log Analysis Log Routing | Availability, configuration-management | No | Both |  Same region  |
+| IBM Cloud Log Routing | Availability, configuration-management | No | Both |  Same region  |
 | {{site.data.keyword.metrics_router_full}} | Availability, configuration-management | No | Both |  Same region  |
 | PagerDuty | Availability, configuration-management | No | Both |  Same region  |
 {: row-headers}
@@ -470,7 +511,7 @@ The following dependencies apply to the following deployment locations: Chennai 
 | {{site.data.keyword.messagehub_full}}| Operations, Security compliance | No | Both |  Same region  |
 | VPC Regional Infrastructure API Service| none | No | Both |  Same region  |
 | OSS Platform| Operations | No | Both |  Same region  |
-| VPC Zonal Control Plane| none | No | Both |  Same region  |
+| VPC IaaS NextGen control plane (genctl)| none | No | Both |  Same region  |
 | {{site.data.keyword.monitoringlong}}| Operations | No | Both |  Same region  |
 | {{site.data.keyword.vpc_full}}| none | Yes | Both |  Same region  |
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | Both |  Same region  |
@@ -503,7 +544,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.iamlong}} | Availability, Change management, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 {: row-headers}
@@ -600,8 +641,8 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.messagehub_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
-| IBM Cloud Hyper Protect Crypto | Availability | Yes | Both |  Same region  |
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| IBM Cloud Hyper Protect Crypto Services | Availability | Yes | Both |  Same region  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
@@ -701,7 +742,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 |:---|:---|:---|:---|:---|
 | VPC Regional Infrastructure API Service | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  ibm-intranet  |
-| IBM Cloud Hyper Protect Crypto | Availability | Yes | Both |  Same region  |
+| IBM Cloud Hyper Protect Crypto Services | Availability | Yes | Both |  Same region  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
@@ -730,7 +771,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | Both |  us-east  |
 | IBM Cloud Business Support Services| none | No | Both |  Same zone  |
-| IBM Cloud Hyper Protect Crypto| none | No | Both |  Same region  |
+| IBM Cloud Hyper Protect Crypto Services| none | No | Both |  Same region  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | Both |  Same data center  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | Both |  Same region  |
 | {{site.data.keyword.logs_full}}| Access management, Operations, Security compliance | No | Both |  Same region  |
@@ -754,7 +795,7 @@ The following dependencies apply to the following deployment locations: Chennai 
 |:---|:---|:---|:---|:---|
 | VPC Regional Infrastructure API Service | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | ngdc-data-plane |  ibm-intranet  |
-| IBM Cloud Hyper Protect Crypto | Availability | Yes | ngdc-data-plane |  Same region  |
+| IBM Cloud Hyper Protect Crypto Services | Availability | Yes | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | ngdc-data-plane |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data plane deployment for NGDC service dependency information - Critical dependencies" caption-side="top"}
@@ -783,7 +824,7 @@ The following dependencies apply to the following deployment locations: Chennai 
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | ngdc-data-plane |  us-east  |
 | IBM Cloud Business Support Services| none | No | ngdc-data-plane |  Same zone  |
-| IBM Cloud Hyper Protect Crypto| none | No | ngdc-data-plane |  Same region  |
+| IBM Cloud Hyper Protect Crypto Services| none | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same data center  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.logs_full}}| Access management, Operations, Security compliance | No | ngdc-data-plane |  Same region  |
@@ -917,7 +958,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | {{site.data.keyword.messagehub_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | control-plane |  Same data center  |
 | IBM Cloud File Storage for Virtual Private Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same zone  |
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
 | VPC Regional Infrastructure API Service | Availability, Change management, Disaster recovery, Instance control | No | control-plane |  Same region  |
 | {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  us-south  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
@@ -948,7 +989,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.atracker_full}}| Change management, Operations, Security compliance | No | control-plane |  Same region  |
-| IBM Log Analysis Log Routing| Change management, Operations | No | control-plane |  Same region  |
+| IBM Cloud Log Routing| Change management, Operations | No | control-plane |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud VPN for VPC Site to Site Gateway - Control plane deployment service dependency information - Medium dependencies" caption-side="top"}
 {: tab-title="Medium dependencies"}
@@ -1014,7 +1055,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | {{site.data.keyword.secrets-manager_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | data-plane |  Same region  |
 | IBM Cloud Business Support Services | Availability, Instance control | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Log Analysis Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | data-plane |  Same region  |
+| IBM Cloud Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | data-plane |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud VPN for VPC Client to Site Server - Data plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -1060,7 +1101,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
 | {{site.data.keyword.vpc_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same zone  |
 | IBM Cloud File Storage for Virtual Private Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same zone  |
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud and ROVS | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
 | {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  us-south  |
 | {{site.data.keyword.messagehub_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
@@ -1083,7 +1124,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | IBM Cloud Global Search and Tagging | Availability, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | OSS Platform | Availability, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.pag_full}} | Access management, Availability, Instance control, Operations, Security compliance | No | control-plane |  ibm-intranet  |
-| IBM Log Analysis Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | control-plane |  Same region  |
+| IBM Cloud Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | control-plane |  Same region  |
 | IBM Cloud Console | Availability, Instance control, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloud VPN for VPC Client to Site Server - Control plane deployment service dependency information - Significant dependencies" caption-side="top"}

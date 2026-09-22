@@ -594,8 +594,6 @@ The following flex profiles are available.
 | mxf-64x512       | 64   | 512          | 80  |
 {: caption="Flex profile options for virtual servers" caption-side="bottom"}
 
-
-
 ### Burstable-supported Flex profiles
 {: #burstable-supported-flex-profiles}
 
