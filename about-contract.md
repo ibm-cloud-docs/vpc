@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-09-24"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -735,12 +735,12 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
    | Image version| Certificate link | Encryption cert expiry date | Deprecation date |
    | -------- | ----------- | ----------- | ----------- |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-30` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-30/ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt){: external} | 06 July 2027 | 06 February 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-29` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-29/ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt){: external} | 06 July 2027 | 06 February 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-28` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-28/ibm-hyper-protect-container-runtime-1-0-s390x-28-encrypt.crt){: external} | 24 February 2027 | 24 September 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-26` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-26/ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt){: external} | 24 February 2027 | 24 September 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-25` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-25/ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt){: external} | 06 August 2026  | 31 March 2026 |
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
-
 
 
    **Note**
@@ -794,11 +794,11 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    ```
    {: codeblock}
 
-3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt`:
+3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt`:
 
    ```yaml
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt>"
    ```
    {: pre}
 
@@ -808,7 +808,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    ```
    {: pre}
 
-5. Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated and being replaced by the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt`:
+5. Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated and being replaced by the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt`:
 
    - Using `rsautl` (deprecated):
 
@@ -869,11 +869,11 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: codeblock}
 
-2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt`:
 
    ```yaml
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt>"
    ```
    {: pre}
 
@@ -884,7 +884,7 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: pre}
 
-4. Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated and being replaced by the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt`:
+4. Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated and being replaced by the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt`:
 
    - `rsautl` (deprecated):
 
@@ -1060,11 +1060,11 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: codeblock}
 
-7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt`:
+7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt`:
 
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt>"
    ```
    {: pre}
 
@@ -1075,7 +1075,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: pre}
 
-9. Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated and being replaced by the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt`:
+9. Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated and being replaced by the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt`:
 
     - Using `rsautl` (deprecated):
 

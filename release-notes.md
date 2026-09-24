@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-22"
+lastupdated: "2026-09-24"
 
 keywords:
 
@@ -26,6 +26,23 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2026
 {: #vpc-sep26}
+
+### 25 September 2026
+{: #vpc-sep2526}
+{: release-note}
+
+Log format enhancement
+:   Log messages for disk encryption verification have been enhanced. The HPL13003I message now reports the mount point and LUKS key slot information per volume, providing clearer visibility into the encryption state of both the root disk and attached data disks. For example, see [Verifying disk encryption statusss](/docs/vpc?topic=vpc-hpvs-disks-encryption-validate).
+
+Security and bug fixes for IBM Hyper Protect Virtual Servers
+:   This release includes important security fixes and bug fixes that improve system stability.
+
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-30` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-30`, new certificates are available.
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
+
 
 
 

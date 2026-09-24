@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-09-24"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -30,15 +30,14 @@ Download the following certificates:
 
 From 25 March 2025, the certificate links are changed.
 {: note}
-
    | Image version| Certificate link | Expiry date |
    | -------- | ----------- | ----------- |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-30` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-30/ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt){: external} | 03 August 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-29` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-29/ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt){: external} | 03 August 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-28` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-28/ibm-hyper-protect-container-runtime-1-0-s390x-28-intermediate.crt){: external} | 03 August 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-26` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-26/ibm-hyper-protect-container-runtime-1-0-s390x-26-intermediate.crt){: external} | 03 August 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-25` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-25/ibm-hyper-protect-container-runtime-1-0-s390x-25-intermediate.crt){: external} | 03 August 2027 |
    {: caption="Intermediate certificate expiry dates" caption-side="bottom"}
-
 
 
 
@@ -59,51 +58,47 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
 2. Use the following command to verify the signing key certificate:
 
    ```sh
-   openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt
+   openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt
    ```
    {: pre}
 
    If the `OpenSSL` command fails to execute, download the [CRL](http://crl3.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl) and manually verify the certificate by using the following command:
 
    ```sh
-   openssl verify -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem -CRLfile DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt
+   openssl verify -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem -CRLfile DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt
    ```
    {: pre}
-
 
 3. Complete the following steps to verify the signature of the encryption certificate document:
 
    1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
 
       ```sh
-      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt -pubkey -noout >  pubkey.pem
+      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt -pubkey -noout >  pubkey.pem
       ```
       {: pre}
-
 
    2. Extract the encryption key signature from the encryption certificate document. To download the encryption certificate, visit [Downloading the encryption certificate and extracting the public key](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert).
       The following command returns the offset value of the signature:
 
       ```sh
-      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt | tail -1 | cut -d : -f 1
+      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt | tail -1 | cut -d : -f 1
       ```
       {: pre}
 
       Consider that the output of the command is `<offset_value>`. Use this `<offset_value>` to extract the encryption key signature into a file called signature:
 
       ```sh
-      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt -out signature -strparse <offset_value> -noout
+      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt -out signature -strparse <offset_value> -noout
       ```
       {: pre}
-
 
    3. Extract the body of the encryption certificate document into a file called body.
 
       ```sh
-      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt -out body -strparse 4 -noout
+      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt -out body -strparse 4 -noout
       ```
       {: pre}
-
 
    4. Verify the signature by using the signature and body files:
       ```sh
@@ -114,19 +109,17 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
 4. Verify the certificates issuer. Compare the output of the following two commands. The output needs to match.
 
    ```sh
-   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt  -issuer -noout
-   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt -subject -noout
+   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt  -issuer -noout
+   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt -subject -noout
    ```
    {: pre}
-
 
 5. Verify that the encryption certificate document is valid by checking the output of the following command:
 
    ```sh
-   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt -dates -noout
+   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt -dates -noout
    ```
    {: pre}
-
 
 ## Validating the attestation certificate
 {: #validate_attest_cert}
@@ -143,50 +136,46 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
 2. Use the following command to verify the signing key certificate:
 
    ```sh
-   openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt
+   openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt
    ```
    {: pre}
 
    If the `OpenSSL` command fails to execute, download the [CRL](http://crl3.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl) and manually verify the certificate by using the following command:
 
    ```sh
-   openssl verify -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem -CRLfile DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt
+   openssl verify -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem -CRLfile DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt
    ```
    {: pre}
-
 
 3. Complete the following steps to verify the signature of the attestation certificate document:
    1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
 
       ```sh
-      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt -pubkey -noout >  pubkey.pem
+      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt -pubkey -noout >  pubkey.pem
       ```
       {: pre}
-
 
    2. Extract the attestation key signature from the attestation certificate document. For downloading the attestation certificate, visit [Attestation](/docs/vpc?topic=vpc-about-attestation).
       The following command returns the offset value of the signature:
 
       ```sh
-      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-29-attestation.crt | tail -1 | cut -d : -f 1
+      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-30-attestation.crt | tail -1 | cut -d : -f 1
       ```
       {: pre}
 
       Consider that the output of the command is `<offset_value>`. Use this `<offset_value>` to extract the attestation key signature into a file called signature:
 
       ```sh
-      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-29-attestation.crt -out signature -strparse <offset_value> -noout
+      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-30-attestation.crt -out signature -strparse <offset_value> -noout
       ```
       {: pre}
-
 
    3. Extract the body of the attestation certificate document into a file called body.
 
       ```sh
-      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-29-attestation.crt -out body -strparse 4 -noout
+      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-30-attestation.crt -out body -strparse 4 -noout
        ```
       {: pre}
-
 
    4. Verify the signature by using the signature and body files:
       ```sh
@@ -197,19 +186,17 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
 4. Verify the certificates issuer. Compare the output of the following two commands. The output needs to match.
 
    ```sh
-   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-attestation.crt -issuer -noout
-   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt -subject -noout
+   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-attestation.crt -issuer -noout
+   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt -subject -noout
    ```
    {: pre}
-
 
 5. Verify that the attestation certificate document is still valid by checking the output of the following command:
 
    ```sh
-   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-attestation.crt -dates -noout
+   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-attestation.crt -dates -noout
    ```
    {: pre}
-
 
 ## Certificate revocation list
 {: #certificate-revocation-list}
@@ -219,12 +206,11 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
 1. Extract and download the CRL URL from the attestation or encryption certificate:
 
    ```Sh
-   openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt" -noout -ext crlDistributionPoints
+   openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt" -noout -ext crlDistributionPoints
    crl_url=https://ibm.biz/hyper-protect-container-runtime-0b8907-crl-1 # (example)
    curl --location --silent "$crl_url" --output "ibm-hyper-protect-container-runtime.crl"
    ```
    {: pre}
-
 
 2. Verify that the CRL is valid (check valid dates and issuer):
 
@@ -236,7 +222,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
 3. Verify the CRL signature:
 
    ```sh
-   openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt" -pubkey -noout -out pubkey
+   openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt" -pubkey -noout -out pubkey
    bbegin="$(openssl asn1parse -in "ibm-hyper-protect-container-runtime.crl" | head -2 | tail -1 | cut -d : -f 1)"
    bend="$(openssl asn1parse -in "ibm-hyper-protect-container-runtime.crl" | tail -1 | cut -d : -f 1)"
    openssl asn1parse -in "ibm-hyper-protect-container-runtime.crl" -out signature -strparse $bend -noout
@@ -245,12 +231,11 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
    ```
    {: codeblock}
 
-
 4. Verify that the encryption certificate document is valid:
    1. Extract the serial from the encryption certificate:
 
       ```sh
-      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt -noout -serial
+      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-encrypt.crt -noout -serial
       ```
       {: pre}
 
@@ -267,7 +252,6 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       export serial=C775927D9F86D27D369FAC42B05144AA
       ```
       {: pre}
-
 
 
       You can verify if the value is set by running the following command:
@@ -288,7 +272,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
    1. Extract the serial from the attestation certificate:
 
       ```sh
-      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-attestation.crt -noout -serial
+      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-30-attestation.crt -noout -serial
 
       ```
       {: pre}
@@ -296,17 +280,16 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       See the following output example:
 
       ```sh
-      serial=B659E74BC091042416960F5AB9410D3F
+      serial=1E092517DAFBDAD0BFF3D0EAFEC38D00
       ```
       {: pre}
 
    2. Export the value of 'serial' by running the following command:
 
       ```sh
-      export serial=B659E74BC091042416960F5AB9410D3F
+      export serial=1E092517DAFBDAD0BFF3D0EAFEC38D00
       ```
       {: pre}
-
 
 
       You can verify if the value is set by running the following command:

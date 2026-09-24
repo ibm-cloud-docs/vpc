@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-09-24"
 
 keywords:
 
@@ -55,6 +55,11 @@ When a beta `version` query parameter of `2025-07-14` or earlier from bare metal
 {: #memory-statistics-confidential-computing-vpc-known-issues}
 
 **Issue:** By design, memory-related statistics for the confidential computing virtual server instances aren't available due to the encrypted memory architecture that protects data confidentiality. This is different from conventional virtual server instances where memory metrics are available for monitoring and observability.
+
+### Disk encryption log messages may display a syslog priority prefix
+{: #hpcr-disk-encryption-log-prefix-known-issues}
+
+**Issue:** Log messages for disk encryption verification may display a numeric syslog priority prefix in angle brackets, for example `<6>HPL13003I`. This is a known cosmetic issue in the log output and does not indicate an error or affect functionality.
 
 ## Image known issues
 {: #image-vpc-known-issues}
