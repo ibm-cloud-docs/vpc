@@ -777,6 +777,7 @@ toc:
               label: Managing snapshots and consistency groups
               topics:
               - bs_snapshots_rename.md
+              - bs_snapshots_software_attachments.md
               - bs_snapshots_allowed_use.md
               - bs_snapshots_share.md
               - bs_snapshots_tags.md

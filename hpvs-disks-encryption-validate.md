@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-09-24"
 
 keywords: confidential computing, secure execution, security claims, disks encryption
 
@@ -29,12 +29,13 @@ The disk encryption status check daemon checks the crypto headers of the root di
 The following example shows the disk encryption check related messages within the log.
 
 ```text
+​...
+Sep 22 07:18:04 hpvs211vsi verify-disk-encryption: HPL13000I: Verify LUKS Encryption
 ...
-Nov 29 10:24:07 hpvs211vsi verify-disk-encryption info HPL13000I: Verify LUKS Encryption...
-Nov 29 10:24:07 hpvs211vsi systemd info verify-disk-encryption-invoker.service: Succeeded.
+Sep 22 07:18:04 hpvs211vsi verify-disk-encryption: <6>HPL13003I: Checked for mount point /mnt/data, LUKS encryption with 1 key slot found
 ...
-Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info Checked for mount point /mnt/data, LUKS encryption with 1 key slot found
-Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info HPL13001I: Root disk and all the data disks are encrypted
+Sep 22 07:18:04 hpvs211vsi verify-disk-encryption: <6>HPL13003I: Checked for mount point /, LUKS encryption with N/A key slot found
+Sep 22 07:18:04 hpvs211vsi verify-disk-encryption: <6>HPL13001I: Boot volume and all the mounted data volumes are encrypted
 ...
 ```
 {: codeblock}
