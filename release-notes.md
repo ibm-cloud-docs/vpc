@@ -43,6 +43,24 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
    - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
+### 24 September 2026
+{: #vpc-sep2426}
+{: release-note}
+
+Third-party license and entitlement service for volumes and snapshots
+:  You can now retrieve the `software_attachments` property and child resources for block storage boot volumes and snapshots. Software attachments created for instances when using the third-party license and entitlement feature now appear with their associated boot volumes and with snapshots created from such volumes. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
+
+   - Volume software attachments
+      - [Viewing a volume software attachment](/docs/vpc?topic=vpc-viewing-block-storage&interface=cli#ifv-view-volume-software-attachments-cli)
+      - [Updating a volume software attachment](/docs/vpc?topic=vpc-managing-block-storage&interface=cli#ifv-update-volume-software-attachment-cli)
+      - [Retrieving a volume software attachment](/docs/vpc?topic=vpc-managing-block-storage&interface=cli#ifv-retrieve-volume-software-attachment-manage-cli)
+
+   - Snapshot software attachments
+      - [Viewing snapshot software attachment](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-software-attachments-cli)
+      - [Updating a snapshot software attachment](/docs/vpc?topic=vpc-snapshots-vpc-software-attachments&interface=cli#updating-snapshots-vpc-software-attachments-cli)
+      - [Retrieving a snapshot software attachment](/docs/vpc?topic=vpc-snapshots-vpc-software-attachments&interface=cli#snapshots-vpc-retrieve-software-attachment-cli)
+
+   For more information on the API changes, see the [VPC API change log entry for 24 September 2026](/docs/vpc?topic=vpc-api-change-log#24-september-2026-all-version-dates).
 
 
 

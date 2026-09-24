@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-15"
+lastupdated: "2026-09-24"
 
 keywords:
 
@@ -725,6 +725,9 @@ The following table lists the actions that are related to volume resources and t
 | `volume`  | `is.volume.volume.delete`  | The volume was deleted  |
 | `volume`  | `is.volume.volume.read`    | One or more volumes were retrieved  |
 | `volume` | `is.volume.volume.operate` | Volume ID was specified |
+| `volume` | `is.volume.software-attachment.list` | Software attachments were listed for a volume |
+| `volume` | `is.volume.software-attachment.read` | A software attachment was retrieved for a volume |
+| `volume` | `is.volume.software-attachment.update` | A software attachment was updated for a volume |
 {: caption="Actions that generate events for Block Storage resources" caption-side="bottom"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event's description.
@@ -744,6 +747,9 @@ The following table lists the actions that are related to snapshots resources an
 | `snapshot`  | `is.snapshot.snapshot.read`    | One or more snapshots were retrieved  |
 | `snapshot`  | `is.snapshot.snapshot.restore` | Volume was restored from a snapshot |
 | `snapshot`  | `is.snapshot.snapshot.operate` | Source snapshot ID was specified |
+| `snapshot` | `is.snapshot.software-attachment.list` | Software attachments were listed for a snapshot |
+| `snapshot` | `is.snapshot.software-attachment.read` | A software attachment was retrieved for a snapshot |
+| `snapshot` | `is.snapshot.software-attachment.update` | A software attachment was updated for a snapshot |
 {: caption="Actions that generate events for snapshot resources" caption-side="bottom"}
 
 ### Consistency group events
