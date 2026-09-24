@@ -47,8 +47,6 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: #vpc-sep2426}
 {: release-note}
 
-
-
 Third-party license and entitlement service for volumes and snapshots
 :  You can now retrieve the `software_attachments` property and child resources for block storage boot volumes and snapshots. Software attachments created for instances when using the third-party license and entitlement feature now appear with their associated boot volumes and with snapshots created from such volumes. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
 
@@ -63,6 +61,8 @@ Third-party license and entitlement service for volumes and snapshots
       - [Retrieving a snapshot software attachment](/docs/vpc?topic=vpc-snapshots-vpc-software-attachments&interface=cli#snapshots-vpc-retrieve-software-attachment-cli)
 
    For more information on the API changes, see the [VPC API change log entry for 24 September 2026](/docs/vpc?topic=vpc-api-change-log#24-september-2026-all-version-dates).
+
+
 
 ### 03 September 2026
 {: #vpc-sep0326}
