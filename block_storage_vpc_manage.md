@@ -347,7 +347,7 @@ Volume attachment one-true-pairing is deleted.
 For more information about available command options, see [`ibmcloud is instance-volume-attachment-detach`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-detach).
 
 A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `auto-delete` option in the volume attachment is set to `false`.
-{: note}<vpcimg-226-software-attachments-storage>
+{: note}
 
 ## Updating a volume software attachment with the CLI
 {: #ifv-update-volume-software-attachment-cli}
@@ -622,7 +622,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$
 A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `delete_volume_on_instance_delete` property in the volume attachment is set to `false`.
 {: note}
 
-Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}` call.<vpcimg-226-software-attachments-storage>
+Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}` call.
 
 ## Retrieving a volume software attachment with the API
 {: #get-volume-software-attachment-api}

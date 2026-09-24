@@ -43,6 +43,9 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
    - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
+### 24 September 2026
+{: #vpc-sep2426}
+{: release-note}
 
 
 
