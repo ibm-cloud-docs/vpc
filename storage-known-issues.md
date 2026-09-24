@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-09-23"
 
 keywords:
 
@@ -55,6 +55,8 @@ When you create a virtual server instance with multiple volumes, the provisionin
 {: #snapshot-slowness-after-resize-known-issue}
 
 After a volume's capacity is increased, snapshot operations such as cross-region copy, volume restoration, and snapshot deletion can be slower than before the size update.
+
+
 
 ## File Storage shares and snapshots
 {: #file-storage-known-issue}

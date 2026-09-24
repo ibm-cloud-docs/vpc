@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-09-10"
+lastupdated: "2026-09-22"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -31,7 +31,7 @@ When a snapshot is deleted, only the data blocks that are no longer needed by ot
 
 The lifecycle of snapshots is tied to the lifecycle of the shares that they belong to. When the share is deleted, the snapshots are also deleted automatically.
 
-The cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original share, the snapshot capacity does not vary.
+Snapshot costs are based on GB-hours of storage used. If a snapshot exists for a full billing cycle, you are charged the monthly rate. If you create a snapshot partway through the month, you are charged only for the hours it is active — prorated to the end of the billing cycle. Because snapshot capacity is based on the provisioned capacity of the original share, the snapshot size does not vary.
 
 Before you take a snapshot, make sure that all cached data is present on disk. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: attention}
