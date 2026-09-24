@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-16"
+lastupdated: "2026-09-24"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -347,10 +347,49 @@ Volume attachment one-true-pairing is deleted.
 For more information about available command options, see [`ibmcloud is instance-volume-attachment-detach`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-detach).
 
 A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `auto-delete` option in the volume attachment is set to `false`.
-{: note}
+{: note}<vpcimg-226-software-attachments-storage>
 
+## Updating a volume software attachment with the CLI
+{: #ifv-update-volume-software-attachment-cli}
+{: cli}
 
+You can update the name of a volume software attachment from the CLI.
 
+To update the name of a volume software attachment, use [`ibmcloud is volume-software-attachment-update`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment-update). The `VOLUME` variable is the ID or name of the volume. The `SWAC` variable is the volume software attachment ID or name. The `--name` value is the new name of the volume software attachment.
+
+```sh
+ibmcloud is volume-software-attachment-update VOLUME SWAC --name NEW_NAME [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+The following example renames the software attachment `my-volume-software-attachment` to `my-renamed-volume-software-attachment` for the volume `my-volume`.
+
+```sh
+ibmcloud is volume-software-attachment-update my-volume my-volume-software-attachment --name my-renamed-volume-software-attachment
+```
+{: pre}
+
+## Retrieving a volume software attachment with the CLI
+{: #ifv-retrieve-volume-software-attachment-manage-cli}
+{: cli}
+
+You can retrieve a specific volume software attachment by ID or name from the CLI. Use [`ibmcloud is volume-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment). The `VOLUME` variable is the ID or name of the volume. The `SWAC` variable is the volume software attachment ID or name.
+
+```sh
+ibmcloud is volume-software-attachment VOLUME SWAC [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+- To retrieve a volume software attachment by ID, specify the software attachment ID as the `SWAC` variable.
+
+   The following example retrieves the software attachment with ID `r134-ce6ce92a-cb86-4340-adb3-226825673619` for the volume `cli-vol`.
+
+   ```sh
+   ibmcloud is volume-software-attachment cli-vol r134-ce6ce92a-cb86-4340-adb3-226825673619
+   ```
+   {: pre}
+
+For more information about available command options, see [`ibmcloud is volume-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment).
 
 ## Managing {{site.data.keyword.block_storage_is_short}} with the API
 {: #managing-block-storage-api}
@@ -583,9 +622,37 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$
 A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `delete_volume_on_instance_delete` property in the volume attachment is set to `false`.
 {: note}
 
-Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}` call.
+Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}` call.<vpcimg-226-software-attachments-storage>
 
+## Retrieving a volume software attachment with the API
+{: #get-volume-software-attachment-api}
+{: api}
 
+Make a `GET /volumes/{volume_id}/software_attachments/{id}` request and specify the software attachment ID and volume ID. This request retrieves a single volume software attachment that is specified by an identifier in the URL.
+
+The following example retrieves a specific software attachment with an ID of `$software_attachment_id` for a volume with a volume ID of `$volume_id`.
+
+```sh
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volumes/$volume_id/software_attachments/$software_attachment_id?version=2026-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+For more information, see [Retrieve a volume software attachment](/docs/apis/vpc/latest#get-volume-software-attachment) in the VPC API.
+
+## Updating a volume software attachment with the API
+{: #update-volume-software-attachment-api}
+{: api}
+
+Make a `PATCH /volumes/{volume_id}/software_attachments/{id}` request and specify the software attachment ID and volume ID. This request updates a volume software attachment with the information that is provided in a volume software attachment patch object.
+
+The following example updates a software attachment with an ID of `$software_attachment_id` for a volume with a volume ID of `$volume_id`.
+
+```sh
+curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/volumes/$volume_id/software_attachments/$software_attachment_id?version=2026-06-23&generation=2" -H "accept: application/json" -H "Content-Type: application/merge-patch+json" -H "Authorization: Bearer $iam_token" -d "{\"name\":\"my-renamed-volume-software-attachment\"}"
+```
+{: pre}
+
+For more information, see [Update a volume software attachment](/docs/apis/vpc/latest##update-volume-software-attachment) in the VPC API.
 
 ## Managing {{site.data.keyword.block_storage_is_short}} with Terraform
 {: #managing-block-storage-terraform}
