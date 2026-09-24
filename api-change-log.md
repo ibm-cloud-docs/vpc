@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-09-24"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,20 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 24 September 2026
+{: #24-september-2026}
+
+### For all version dates
+{: #24-september-2026-all-version-dates}
+
+**Volume and snapshot support for third-party license and entitlement service.** For volumes and snapshots created from catalog images with associated software plans, the `software_attachments` property is now also available on volumes and snapshots, extending the third-party license and entitlement service already available for instances.
+
+A new child resource collection, `software_attachments`, has been added to volumes. You can [retrieve](/docs/apis/vpc/latest#get-volume-software-attachment) or [list](/docs/apis/vpc/latest#list-volume-software-attachments) software attachments for a volume, and [update a volume software attachment](/docs/apis/vpc/latest#update-volume-software-attachment) to change its `name`. The `software_attachments` property is also included when [retrieving](/docs/apis/vpc/latest#get-volume) or [listing](/docs/apis/vpc/latest#list-volumes) volumes.
+
+Similarly, a new child resource collection, `software_attachments`, has been added to snapshots. You can [retrieve](/docs/apis/vpc/latest#get-snapshot-software-attachment) or [list](/docs/apis/vpc/latest#list-snapshot-software-attachments) software attachments for a snapshot, and [update a snapshot software attachment](/docs/apis/vpc/latest#update-snapshot-software-attachment) to change its `name`. The `software_attachments` property is also included when [retrieving](/docs/apis/vpc/latest#get-snapshot) or [listing](/docs/apis/vpc/latest#list-snapshots) snapshots.
+
+For more information, see [Managing block storage volumes](/docs/vpc?topic=vpc-managing-block-storage&interface=api) and [snapshots software attachmnets](/docs/vpc?topic=vpc-snapshots-vpc-software-attachments&interface=api).
 
 ## 1 September 2026
 {: #1-september-2026}
