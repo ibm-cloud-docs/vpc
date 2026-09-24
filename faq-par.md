@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-09-24"
 
 subcollection: vpc
 
@@ -43,7 +43,7 @@ You can reserve ranges with the following prefix sizes:
 
 After reserving a range, you can't change its size. Make sure to reserve a range that's large enough to meet your current and future needs.
 
-If you require a prefix size larger than `/28`, [contact support](/unifiedsupport/cases/form){: external} to request a quota increase.
+If you require a prefix size larger than `/28`, review [Public address range quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [contact support](/unifiedsupport/cases/form){: external} to request a quota increase.
 
 IPs in different public address ranges aren't guaranteed to be contiguous.
 {: note}
