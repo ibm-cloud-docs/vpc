@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-24"
 
 keywords:
 
@@ -208,3 +208,6 @@ curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&ge
 {: pre}
 
 For more information about setting up your security group with the API, see [Security groups](/docs/apis/vpc/latest#list-security-groups){: external}.
+
+## Related links
+{: #sg-related-links}
