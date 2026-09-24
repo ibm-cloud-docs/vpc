@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-24"
 
 keywords: vpc, public address ranges, planning, considerations, limitations
 
@@ -34,6 +34,7 @@ Review the following considerations before creating a public address range.
    * `/30` = 4 addresses
    * `/31` = 2 addresses
    * `/32` = 1 address
+   * 
 * If an overlap exists between a public address range and the private address prefix in a VPC, the private address prefix takes precedence.
 * When a public address range is bound to a zone in a VPC, traffic originating from any virtual server or bare metal server in that zone can use a source IP from the public address range. Such traffic can communicate with public and private destinations. To limit this behavior, you can:
 
