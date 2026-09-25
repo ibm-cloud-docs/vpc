@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-09-22"
+lastupdated: "2026-09-25"
 
 keywords: secure boot, secure boot for virtual servers
 
@@ -53,7 +53,7 @@ You can choose to disable secure boot when you create the virtual server instanc
 
 Keep the following limitations in mind when you use secure boot.
 
-* Secure boot is available on only third-generation Sapphire Rapids-based virtual servers except the following profiles.
+* For third-generation Sapphire Rapids-based virtual servers, secure boot is available with the exception of the following profiles.
    - mx3d-128x1280
    - mx3d-176x1760
    - bx3d-176x880
