@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-09-23"
+lastupdated: "2026-09-25"
 
 keywords:
 
@@ -56,7 +56,10 @@ When you create a virtual server instance with multiple volumes, the provisionin
 
 After a volume's capacity is increased, snapshot operations such as cross-region copy, volume restoration, and snapshot deletion can be slower than before the size update.
 
+### Cross-regional snapshot copy and volume migration are not supported in Chennai - Airtel and Mumbai - Airtel
+{: #cross-regional-snapshot-copy-volume-migration-india}
 
+Cross-regional copy of Gen 2 block volume snapshots and volume migration are not supported in the Chennai - Airtel (`in-che`) and Mumbai - Airtel (`in-mum`) region at this time.
 
 ## File Storage shares and snapshots
 {: #file-storage-known-issue}

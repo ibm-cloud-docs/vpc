@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-17"
+lastupdated: "2026-09-25"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup
 
@@ -29,7 +29,7 @@ Pay for only the capacity that you need. You can start with a smaller volume, an
 
 You can specify your own performance limits, and adjust them later if your requirements change. You can adjust IOPS up or down, for greater performance or when you want to reduce costs.
 
-   * The second-generation volume profile, `sdp` provides the most flexibility, as you can specify your capacity, IOPS, and throughput maximum values. You can create boot and data volumes with maximum storage capacity of 32,000 GB, a performance level of 64,000 IOPS, and maximum throughput of 1024 MBps. The capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance. [Select availability]{: tag-green} The `sdp` profile is available to allowlisted accounts in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+   * The second-generation volume profile, `sdp` provides the most flexibility, as you can specify your capacity, IOPS, and throughput maximum values. You can create boot and data volumes with maximum storage capacity of 32,000 GB, a performance level of 64,000 IOPS, and maximum throughput of 1024 MBps. The capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance. [Select availability]{: tag-green} The `sdp` profile is available to allowlisted accounts in the Chennai - Airtel, Dallas, Frankfurt, London, Madrid, Mumbai - Airtel, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
    * You can create first-generation block storage volumes with maximum storage capacity of 16,000 GB, a performance level of 48,000 IOPS, and maximum throughput of 1024 MBps. You can create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS value per volume ranges from 100 IOPS to 48,000 IOPS, based on volume size.
 
@@ -39,7 +39,7 @@ The following table provides a comparison between the different generations of b
 
 | Features            | First-generation volumes | Second-generation volumes |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | [Select availability]{: tag-green} Available to allowlisted accounts in most MZRs, except Chennai - Airtel, Mumbai - Airtel and Montreal. Existing volumes are not impacted.|
+| Availability        | Generally available in all VPC regions for all customers. | [Select availability]{: tag-green} Available to allowlisted accounts in most MZRs, except Montreal. Existing volumes are not impacted.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.|
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
@@ -68,17 +68,17 @@ Snapshots are independent of the source block storage volumes. You can delete th
 
 You can create a snapshot consistency group that contains snapshots of multiple Block Storage volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. The snapshot consistency group has its own lifecycle, and it keeps references to the member snapshots. So if a member snapshot is deleted or renamed, the consistency group is also updated.
 
-Second-generation snapshots are available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
+Second-generation snapshots are available in Chennai - Airtel, Dallas, Frankfurt, London, Madrid, Mumbai - Airtel, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
 
 You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile.
 
 | Features            | First-generation snapshots | Second-generation snapshots |
 |---------------------|----------------------------|-----------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except Chennai - Airtel, Mumbai - Airtel, and Montreal.|
+| Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except Montreal.|
 | On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region.|
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region. |
-| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. |Yes, the feature is available in most regions, except Chennai - Airtel, Mumbai - Airtel, and Montreal. You can cache a copy of your snapshot in any zone of the region. |
-| Cross-regional copy | The feature is available in all regions. You can create one cross-regional copy per snapshot per region. | The feature is available in most regions, except Chennai - Airtel, Mumbai - Airtel, and Montreal. You can create one cross-regional copy per snapshot per region.|
+| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. |Yes, the feature is available in most regions, except Montreal. You can cache a copy of your snapshot in any zone of the region. |
+| Cross-regional copy | The feature is available in all regions. You can create one cross-regional copy per snapshot per region. | The feature is available in most regions, except Montreal. You can create one cross-regional copy per snapshot per region.|
 | Consistency group   | Multi-volume snapshots are supported. | Multi-volume snapshots are supported. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 

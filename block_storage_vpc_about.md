@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-09-25"
 
 keywords: block storage, VPC, boot volume, data volume, IOPS, NVMe, encryption, SSD, sdp profile, volume profiles
 
@@ -86,7 +86,7 @@ Volume profiles define the capacity and performance characteristics of storage v
 ### SSD Defined Performance profile
 {: #block-storage-sdp-intro}
 
-The SSD Defined Performance (`sdp`) profile is available to select customers in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. You can specify custom capacity, custom throughput limit, and custom IOPS for your second-generation volumes. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
+The SSD Defined Performance (`sdp`) profile is available to select customers in most regions. You can specify custom capacity, custom throughput limit, and custom IOPS for your second-generation volumes. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
 
 The following limitations apply to this release:
@@ -100,7 +100,7 @@ The following limitations apply to this release:
 * Creating a custom image from a boot volume with customer-managed encryption is not supported.
 * Creating a custom image from a boot volume that is larger than 250 GB is not supported.
 * Migration of volumes across zones is not supported.
-* The `sdp` profile is not available in Chennai - Airtel (`in-che`), Mumbai - Airtel (`in-mum`), and Montreal (`ca-mon`) regions.
+* The `sdp` profile is not available in the Montreal (`ca-mon`) region.
 
 ### Traditional volume profiles
 {: #block-storage-gen1-profiles}

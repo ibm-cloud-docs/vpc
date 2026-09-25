@@ -31,6 +31,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-sep2526}
 {: release-note}
 
+Gen 2 volumes and snapshots now available in Chennai - Airtel and Mumbai - Airtel (select availability)
+:   The `sdp` profile and snapshots for second-generation block storage volumes are now available for allow-listed customers in the Chennai - Airtel (`in-che`) and Mumbai - Airtel (`in-mum`) regions. For more information, see [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro) and [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui). For current regional limitations, see [Known issues with IBM Cloud storage services for VPC](/docs/vpc?topic=vpc-storage-known-issues#cross-regional-snapshot-copy-volume-migration-india).
+
 Hyper Protect Virtual Servers log format enhancement
 :   Enhanced log messages to include additional details per volume, providing clearer visibility into the encryption state of both the root disk and attached data disks. For example, see [Verifying disk encryption status](/docs/vpc?topic=vpc-hpvs-disks-encryption-validate).
 
