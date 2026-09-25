@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-24"
+lastupdated: "2026-09-25"
 
 keywords:
 
@@ -31,8 +31,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-sep2526}
 {: release-note}
 
-Log format enhancement
-:   Log messages for disk encryption verification have been enhanced. The HPL13003I message now reports the mount point and LUKS key slot information per volume, providing clearer visibility into the encryption state of both the root disk and attached data disks. For example, see [Verifying disk encryption status](/docs/vpc?topic=vpc-hpvs-disks-encryption-validate).
+Hyper Protect Virtual Servers log format enhancement
+:   Enhanced log messages to include additional details per volume, providing clearer visibility into the encryption state of both the root disk and attached data disks. For example, see [Verifying disk encryption status](/docs/vpc?topic=vpc-hpvs-disks-encryption-validate).
 
 Security and bug fixes for IBM Hyper Protect Virtual Servers
 :   This release includes important security fixes and bug fixes that improve system stability.
