@@ -38,7 +38,8 @@ Learn about the management responsibilities that you have when you use {{site.da
 | Physical servers and memory | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | Shared | Shared | {{site.data.keyword.IBM_notm}} |
 | Physical storage | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} |
 | Physical network and devices | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} |
-| Facilities and data centers | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | 
+| Facilities and data centers | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} |
+
 {: caption="Responsibilities by resource" caption-side="bottom"}
 
 ## Tasks for shared responsibilities by area
@@ -59,8 +60,7 @@ Incident and operations management includes tasks such as monitoring, event mana
 | Monitoring | {{site.data.keyword.IBM_notm}} provides built-in virtual server instance monitoring and IBM Cloud Monitoring. | The Customer monitors the health of their workload by using either the built-in virtual server instance monitoring or IBM Cloud Monitoring. |
 | Logs | {{site.data.keyword.IBM_notm}} provides access to logs for debugging purposes. | The Customer uses {{site.data.keyword.logs_full_notm}} to check logs, as needed. |
 | Workloads | {{site.data.keyword.IBM_notm}} provides tools and features for customer use. | The Customer uses the provided tools and features to configure and deploy their highly available and resilient workloads by setting up permissions, integrating with other services, externally serving and monitoring health, as well as saving, backing up, and restoring data.  |
-| Flow logs | {{site.data.keyword.IBM_notm}} provides the ability to collect flow log data from various endpoints. | The Customer understands the IBM Cloud Flow Logs for VPC data retention process and ensures that their destination Cloud Object Storage bucket is properly secured and encrypted. |
-
+| Flow logs | {{site.data.keyword.IBM_notm}} provides the ability to collect flow log data from various endpoints. | The Customer understands the IBM Cloud Flow Logs for VPC data retention process and ensures that their destination Cloud Object Storage bucket is properly secured and encrypted. | 
 {: caption="Responsibilities for incidents and operations" caption-side="bottom"}
 
 
@@ -72,8 +72,7 @@ Change management includes tasks such as deployment, configuration, upgrades, pa
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | -------- | --------------------- | --------------------- |
-| OS-based update repositories | {{site.data.keyword.IBM_notm}} provides private network access to OS-based update repositories. | The Customer maintains OS patches, version updates, and security updates. |
-
+| OS-based update repositories | {{site.data.keyword.IBM_notm}} provides private network access to OS-based update repositories. | The Customer maintains OS patches, version updates, and security updates. | 
 {: caption="Responsibilities for change management" caption-side="bottom"}
 
 ### Identity and access management
@@ -83,8 +82,7 @@ Identity and access management includes tasks such as authentication, authorizat
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | -------- | --------------------- | --------------------- |
-| IBM Cloud IAM | {{site.data.keyword.IBM_notm}} enables customers to restrict access to resources through the {{site.data.keyword.cloud_notm}} console and REST APIs. | The Customer is responsible for managing access to resources through {{site.data.keyword.iamlong}} (IAM). |
-
+| IBM Cloud IAM | {{site.data.keyword.IBM_notm}} enables customers to restrict access to resources through the {{site.data.keyword.cloud_notm}} console and REST APIs. | The Customer is responsible for managing access to resources through {{site.data.keyword.iamlong}} (IAM). | 
 {: caption="Responsibilities for identity and access management" caption-side="bottom"}
 
 ### Security and regulation compliance
@@ -102,8 +100,7 @@ Security and regulation compliance includes tasks such as security control imple
 | Public Network Access | {{site.data.keyword.IBM_notm}} provides options to use a public gateway, floating IPs, or public address ranges.  | The Customer chooses how to connect their workload to the public internet, if applicable, either through a public gateway, floating IP, or public address range. |
 | Access restriction | {{site.data.keyword.IBM_notm}} provides security measures for customers to restrict access to resources and resource groups. | The Customer restricts user access to the appropriate resources and resource groups. |
 | Activity tracking | {{site.data.keyword.IBM_notm}} provides logging and monitoring tools. | The Customer integrates {{site.data.keyword.atracker_full_notm}} and {{site.data.keyword.monitoringlong_notm}} data into their auditing and monitoring processes. |
-| Encryption | {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. \n \n {{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. | The Customer ensures that their connection is encrypted end-to-end, if required. |
-
+| Encryption | {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. \n \n {{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. | The Customer ensures that their connection is encrypted end-to-end, if required. | 
 {: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 
 ### Disaster recovery
@@ -113,6 +110,5 @@ Disaster recovery includes tasks such as providing dependencies on disaster reco
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | -------- | --------------------- | --------------------- |
-| Load balancer and VPN disaster recovery | IBM Cloud Load Balancer and {{site.data.keyword.vpn_vpc_short}} have off-site storage and replication of configuration data in an out-of-region disaster recovery node with daily backups. This data is fully managed by {{site.data.keyword.cloud_notm}} and no customer input is required to ensure service recovery, although there can be up to a 24-hour loss of configuration data. | The Customer sets up their backup and recovery strategies for workload data. |
-
+| Load balancer and VPN disaster recovery | IBM Cloud Load Balancer and {{site.data.keyword.vpn_vpc_short}} have off-site storage and replication of configuration data in an out-of-region disaster recovery node with daily backups. This data is fully managed by {{site.data.keyword.cloud_notm}} and no customer input is required to ensure service recovery, although there can be up to a 24-hour loss of configuration data. | The Customer sets up their backup and recovery strategies for workload data. | 
 {: caption="Responsibilities for disaster recovery" caption-side="bottom"}
