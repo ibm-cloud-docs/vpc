@@ -329,7 +329,7 @@ Application Load Balancer (ALB) for VPC Active-Passive pools support more than 2
 {: release-note}
 
 Image partial availability
-:   A new, temporary status of `partially_available` is now available for the image lifecycle. This status indicates an image was imported into at least one zone but is not yet available in all zones. The image eventually reaches the `available` status without additional user action. An image in `partially_available` status can be used for virtual server instances or bare metal servers, as well as be exported into {{site.data.keyword.cos_full_notm}}. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
+:   A new, temporary status of `partially_available` is now available for the image lifecycle. This status indicates that an image was imported into at least one zone but is not yet available in all zones. The image eventually reaches the `available` status without additional user action. An image in `partially_available` status can be used for virtual server instances or bare metal servers, as well as be exported into {{site.data.keyword.cos_full_notm}}. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
 ### 07 April 2026
 {: #vpc-apr0726}
@@ -343,8 +343,7 @@ Instance profile information now includes zones
 {: release-note}
 
 New high frequency profile family (select availability)
-
-:   The high frequency profile family is available in the Dallas (us-south) and Sydney (au-syd) regions. High Frequency profiles provide CPUs with a high frequency, generally enabling higher performance per core than other profiles within the same hardware generation. The high frequency profile provides AMD® 5th Generation Epyc 9575F processor-based virtual server instances. This processor offers all core boost speed up to 4.5 GHz and max turbo speed of 5 GHz. AMD® 5th Generation Epyc 9575F is Chiplet-based architecture and uses distributed L3 cache. Distributed L3 cache ensures more dedicated L3 per CPUs. High Frequency profiles are Gen 4 profiles. Instead of dividing the total network bandwidth across the attached vNICs, the bandwith is pooled which allows each vNIC to use its full capability. The virtual server instance can never exceed it's overall bandwidth, but each individual vNIC can achieve a full 32 Gbps as long as the aggregated bandwidth doesn't exceed the overall bandwidth. For more information, see [x86-64 instance profiles > High Frequency profiles](/docs/vpc?topic=vpc-profiles&interface=ui#high-frequency-profiles), [Profiles details > High Frequency profiles](/docs/vpc?topic=vpc-high-frequency-profile-family), and [About bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).
+:   The high frequency profile family is available in the Dallas (us-south) and Sydney (au-syd) regions. High Frequency profiles provide CPUs with a high frequency, generally enabling higher performance per core than other profiles within the same hardware generation. The high frequency profile provides AMD® 5th Generation Epyc 9575F processor-based virtual server instances. This processor offers all core boost speed up to 4.5 GHz and max turbo speed of 5 GHz. AMD® 5th Generation Epyc 9575F is Chiplet-based architecture and uses distributed L3 cache. Distributed L3 cache ensures more dedicated L3 per CPUs. High Frequency profiles are Gen 4 profiles. Instead of dividing the total network bandwidth across the attached vNICs, the bandwidth is pooled which allows each vNIC to use its full capability. The virtual server instance can never exceed its overall bandwidth, but each individual vNIC can achieve a full 32 Gbps as long as the aggregated bandwidth doesn't exceed the overall bandwidth. For more information, see [x86-64 instance profiles > High Frequency profiles](/docs/vpc?topic=vpc-profiles&interface=ui#high-frequency-profiles), [Profiles details > High Frequency profiles](/docs/vpc?topic=vpc-high-frequency-profile-family), and [About bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).
 
 ## March 2026
 {: #vpc-mar26}
@@ -382,7 +381,7 @@ Dedicated {{site.data.keyword.keymanagementserviceshort}} (select availability)
 {: release-note}
 
 SSH keys authorized only for Linux default user accounts
-:   Previously, the SSH key associated with a virtual server instance was also added to the root user account by default. This behavior has changed. SSH keys are authorized now for only the default user account for all Linux images. The name of the default user account depends on the operating system image being used. For a list of all Linux operating system default user accounts, see [Determining the default user account](/docs/vpc?topic=vpc-vsi_is_connecting_linux#determining-default-user-account)
+:   Previously, the SSH key associated with a virtual server instance was also added to the root user account by default. This behavior is changed. SSH keys are authorized now for only the default user account for all Linux images. The name of the default user account depends on the operating system image that is being used. For a list of all Linux operating system default user accounts, see [Determining the default user account](/docs/vpc?topic=vpc-vsi_is_connecting_linux#determining-default-user-account)
 
 ### 09 March 2026
 {: #vpc-mar0926}
@@ -392,7 +391,7 @@ Introducing the `pkeyutl` encryption command
 :   Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends that you use the `pkeyutl` sub command. For more information, see [Creating the encrypted workload section of a contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt_workload) and [Creating the encrypted env section of a contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt_env).
 
 Seed policy update
-:   The minimum length of seed value must be 15 characters from now. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes).
+:   The minimum length of the seed value must be 15 characters from now. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes).
 
 Encryption and Attestation certificate expiry warning logs
 :   HPVS now logs warning messages to the configured logging service to alert users about upcoming and expired encryption and attestation certificates. For more information, see [Encryption and Attestation certificate expiry warning logs](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_sign_wlogs).
@@ -408,7 +407,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: release-note}
 
 Advertised routes per VPC quota increased (combined total limit applies)
-:   The advertised routes per VPC quota has increased from 30 to 70. The quota of advertised routes per VPC and address prefixes per VPC cannot exceed 120.
+:   The advertised routes per VPC quota have increased from 30 to 70. The quota of advertised routes per VPC and address prefixes per VPC cannot exceed 120.
 
 ### 03 March 2026
 {: #vpc-mar0326}
@@ -443,7 +442,7 @@ Service deprecation: IBM Cloud LinuxONE and Hyper Protect Virtual Server offerin
    - [IBM Cloud Hyper Protect Virtual Server for VPC](https://www.ibm.com/products/confidential-computing-container-runtime)
    - [IBM Cloud Wazi as a Service](https://www.ibm.com/products/wazi-as-a-service)
 
-   The End of Marketing (EOM) date is 28 February 2026. From EOM, IBM will disable the provisioning of new instances; however, any instances that were provisioned before this date will continue to be supported until the End of Service date.
+   The End of Marketing (EOM) date is 28 February 2026. From EOM, IBM disables the provisioning of new instances; however, any instances that were provisioned before this date continues to be supported until the End of Service date.
 
    The End of Service (EOS) date is 20 February 2027, on which IBM will terminate all active instances.
 
@@ -461,7 +460,7 @@ Spot instances (GA)
 {: release-note}
 
 4th generation instance profiles available in Dallas (`us-south`) region (select availability)
-:   The 4th generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available in the Dallas (`us-south`) region. This new generation features virtual server profile families hosted exclusively on 6th Generation Intel&reg; Xeon&reg; Scalable processors. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). General purpose profiles are available in the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced-intel-x86-64-gen4), [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute-intel-x86-64-gen4), and [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory-intel-x86-64-gen4) families. 4th generation dedicated host profiles are also available. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui#general-purpose-dh-profiles-gen4).
+:   The 4th generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available in the Dallas (`us-south`) region. This new generation features virtual server profile families that are hosted exclusively on 6th Generation Intel&reg; Xeon&reg; Scalable processors. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). General purpose profiles are available in the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced-intel-x86-64-gen4), [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute-intel-x86-64-gen4), and [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory-intel-x86-64-gen4) families. 4th generation dedicated host profiles are also available. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui#general-purpose-dh-profiles-gen4).
 
 ## January 2026
 {: #vpc-jan26}
@@ -485,14 +484,14 @@ BYOL available for x86 SUSE Linux Enterprise Server (SLES) versions 15 and 16
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC is available in Dallas (select availability)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is now available in the Dallas (us-south) region. This region is in addition to the existing Washington DC (us-east) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is now available in the Dallas (us-south) region. This region is in addition to the existing Washington DC (us-east) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are used by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
 ### 09 January 2026
 {: #vpc-jan0926}
 {: release-note}
 
-Local-access virtual private endpoint gateway support for DNS sharing VPC topology
-:   You can now create local-access Virtual Private Endpoints (VPEs) in DNS-shared VPCs when using a DNS sharing VPC topology for Cloud Object Storage. This feature lets you send network traffic locally between the DNS-shared VPC where the local-access VPE gateway is created and the service endpoint, improving performance and allowing finer control of Context-Based Restrictions (CBR) and security rules. For more information, see [Local-access VPE gateway support](/docs/vpc?topic=vpc-about-vpe#multi-tenant-endpoint-support).
+Local-access virtual private endpoint gateway support for DNS-sharing VPC topology
+:   You can now create local-access Virtual Private Endpoints (VPEs) in DNS-shared VPCs when using a DNS-sharing VPC topology for Cloud Object Storage. You can send network traffic locally between the DNS-shared VPC where the local-access VPE gateway is created and the service endpoint, improving performance and allowing finer control of Context-Based Restrictions (CBR) and security rules. For more information, see [Local-access VPE gateway support](/docs/vpc?topic=vpc-about-vpe#multi-tenant-endpoint-support).
 
 ## December 2025
 {: #vpc-dec25}
