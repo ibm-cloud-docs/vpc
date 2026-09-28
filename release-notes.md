@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords:
 
@@ -51,7 +51,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: release-note}
 
 Third-party license and entitlement service for volumes and snapshots
-:  You can now retrieve the `software_attachments` property and child resources for block storage boot volumes and snapshots. Software attachments created for instances when using the third-party license and entitlement feature now appear with their associated boot volumes and with snapshots created from such volumes. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
+:  You can now retrieve the `software_attachments` property and child resources for block storage boot volumes and snapshots. Software attachments created for instances when using the third-party license and entitlement feature now appear with their associated boot volumes and with snapshots that are created from such volumes. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
 
    - Volume software attachments
       - [Viewing a volume software attachment](/docs/vpc?topic=vpc-viewing-block-storage&interface=cli#ifv-view-volume-software-attachments-cli)
@@ -118,7 +118,7 @@ HPCS to Key Protect key migration support for VPC services (GA)
 {: release-note}
 
 Capacity information for Bare Metal Servers on VPC
-:   You can query the available capacity of a given bare metal profile in a specific region or zone using the UI, CLI, API, and Terraform. Profiles that don't have available inventory are disabled. You can query capacity by profile name, zone name, or both. The information returned with this command is informational only and does not allocate capacity. Capacity information is displayed and only includes available nodes. Nodes that are allocated elsewhere or are otherwise unavailable are not included in the capacity information. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui)
+:   You can query the available capacity of a given bare metal profile in a specific region or zone by using the UI, CLI, API, and Terraform. Profiles that don't have available inventory are disabled. You can query capacity by profile name, zone name, or both. The information that is returned with this command is informational only and does not allocate capacity. Capacity information is displayed and only includes available nodes. Nodes that are allocated elsewhere or are otherwise unavailable are not included in the capacity information. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui)
 
 ## July 2026
 {: #vpc-jul26}
@@ -138,7 +138,7 @@ Workload update for IBM Hyper Protect Secure Build
 {: release-note}
 
 Operating system (OS) reload for virtual servers (GA)
-:   IBM Cloud VPC Virtual Servers now supports operating system reloads. You can reload the operating system on a device at any time to restore a device to its original working order. Or, you can reconfigure a device with a different operating system. An OS reload removes all data from the device and applies a "like new" configuration, as specified during the configuration process of the OS reload setup. For more information, see [Reloading the OS](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#reload-operating-system-instances).
+:   IBM Cloud VPC Virtual Servers now support operating system reloads. You can reload the operating system on a device at any time to restore a device to its original working order. Or, you can reconfigure a device with a different operating system. An OS reload removes all data from the device and applies a "like new" configuration, as specified during the configuration process of the OS reload setup. For more information, see [Reloading the OS](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#reload-operating-system-instances).
 
 ### 24 July 2026
 {: #vpc-jul2426}
@@ -185,7 +185,7 @@ Workload update for IBM Hyper Protect Secure Build
 :   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-28`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create an IBM Hyper Protect Secure Build server.
 
 Chennai - Airtel region now available for Hopper 1 cluster network
-:   The Chennai - Airtel region is now available for provisioning Hopper 1 cluster networks with NVIDIA H200 instance profile.  You can create cluster networks with NVIDIA H200 instance profile in this region to run workloads, such as AI training and large-scale simulations. For more information, see [Cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network).
+:   The Chennai - Airtel region is now available for provisioning Hopper 1 cluster networks with NVIDIA H200 instance profile. You can create cluster networks with NVIDIA H200 instance profile in this region to run workloads, such as AI training and large-scale simulations. For more information, see [Cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network).
 
 Regional file shares are now available in Mumbai - Airtel MZR (select availability)
 :   The new `rfs` share profile is now available for customers with special access in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Mumbai - Airtel, Osaka, Sydney, Tokyo, Toronto, and Washington, DC. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
@@ -194,11 +194,10 @@ Regional file shares are now available in Mumbai - Airtel MZR (select availabili
 {: #vpc-june2526}
 {: release-note}
 
-New hx4da and hx4a profiles for the High Frequency profile family (select availablity)
-
+New hx4da and hx4a profiles for the High Frequency profile family (select availability)
 :   New hx4da and hx4a profiles are now available. The Gen 4 High Frequency 1.4 TB RAM hx4da profiles are available only in the Dallas (us-south) region. All other hx4a and hx4da profiles are available in both the Dallas (us-south) and Sydney (au-syd) regions. All profiles have the AMD 5th Generation Epyc 9575F processor-base to provision virtual server instances. You can customize the `threads_per_core` value for these profiles from the CLI, with API, or Terraform. For more information on the profiles, see [High Frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family&interface=ui). For more information on the `threads_per_core` value, see [Editing Threads per core] (/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#edit-threads-per-core-ui-vpc). For more information on the API changes, see the [VPC API change log entry for 23 June 2026](/docs/vpc?topic=vpc-api-change-log#23-june-2026-all-version-dates).
 
-VPC ingress routing tables now supports VPN connection as next hop
+VPC ingress routing tables now support VPN connection as next hop
 :   You can now use a VPN connection as the next hop in VPC ingress routing tables. This capability allows route-based VPNs to forward traffic that is received through Transit Gateway by using local VPN connections. This feature enables hybrid and spoke-to-on-prem connectivity through a transit hub without requiring BGP configuration, simplifying enterprise migration scenarios and improving routing flexibility.  For more information, see [Setting up a transit gateway with static route-based VPN for VPC](/docs/vpc?topic=vpc-advertise-routes-s2s#setup-tg-with-static-vpn-vpc).
 
 ### 23 June 2026
@@ -211,11 +210,11 @@ Application Load Balancers (ALBs) for VPC support mutual Transport Layer Securit
 Third-party license and entitlement service
 :  You can now provision virtual server instances from catalog images with vendor-managed software licensing. This feature enables dynamic license acquisition and management for third-party software running on instances, allowing vendors to control and track license usage on a per-instance basis.
 
-   Software attachments now exist for virtual server instances created from resources sourced from a catalog offering with a software billing plan, and represent software instances created from these plans. These software attachments contain license information when the plan is associated with vendor-managed software licensing. This feature enables you to track and manage licensed software running on your infrastructure resources. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
+   Software attachments now exist for virtual server instances that are created from resources that are sourced from a catalog offering with a software billing plan, and represent software instances that are created from these plans. These software attachments contain license information when the plan is associated with vendor-managed software licensing. You can track and manage licensed software running on your infrastructure resources. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
 
    - [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances)
 
-   The VPC Identity service now supports an optional `nonce` parameter to get a token. You can pass a known value in, then decode the resulting token, and verify the value of the `nonce` property inside the token to help ensure the token is valid and secure before using it to call the metadata API. For more information on the `nonce` property, see the following content.
+   The VPC Identity service now supports an optional `nonce` parameter to get a token. You can pass a known value in, then decode the resulting token, and verify the value of the `nonce` property inside the token to help ensure the token is valid and secure before you use it to call the metadata API. For more information on the `nonce` property, see the following content.
 
    - [Summary of metadata for software attachments](/docs/vpc?topic=vpc-imd-metadata-summary&interface=api#imd-software-attachments-summary)
    - [Verify token requests with a nonce](/docs/vpc?topic=vpc-imd-security-best-practices&interface=api#imd-verify-nonce)
@@ -249,7 +248,7 @@ Application Load Balancer (ALB) HTTP Bundle (GA)
 {: release-note}
 
 Multi-volume snapshots for second-generation block storage volumes
-:   Snapshot consistency groups are now supported for second-generation block storage volumes that use the `sdp` profile. You can create snapshots of multiple volumes attached to the same virtual server instance at the same point in time to preserve data consistency. When a virtual server instance has both first-generation and second-generation volumes attached, the backup service creates separate consistency groups for each generation. You can filter consistency groups by backup job ID to locate snapshots created by the same backup job. For more information, see [About snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about#multi-volume-snapshots), [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups), and [Managing snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups). See also [Known issues for storage services](/docs/vpc?topic=vpc-storage-known-issues#multi-volume-restore-from-snapshot-fail).
+:   Snapshot consistency groups are now supported for second-generation block storage volumes that use the `sdp` profile. You can create snapshots of multiple volumes that are attached to the same virtual server instance at the same point in time to preserve data consistency. When a virtual server instance has both first-generation and second-generation volumes that are attached, the backup service creates separate consistency groups for each generation. You can filter consistency groups by backup job ID to locate snapshots created by the same backup job. For more information, see [About snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about#multi-volume-snapshots), [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups), and [Managing snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups). See also [Known issues for storage services](/docs/vpc?topic=vpc-storage-known-issues#multi-volume-restore-from-snapshot-fail).
 
 ### 03 June 2026
 {: #vpc-june0326}
@@ -273,7 +272,7 @@ Multiple IKE and IPsec policy support for VPN gateways
 {: release-note}
 
 Security and stability improvements for IBM Hyper Protect Virtual Servers
-:   This release includes important security fixes that address potential vulnerabilities, bug fixes that improve system stability and performance, and enhanced log sanitization to ensure sensitive information is properly protected in application logs.
+:   This release includes important security fixes that address potential vulnerabilities, bug fixes that improve system stability and performance, and enhanced log sanitization to ensure that sensitive information is properly protected in application logs.
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-27` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-27`, new certificates are available.
@@ -316,7 +315,7 @@ Enabling access to Private Path VPEs using Transit Gateway and Direct Link
 {: release-note}
 
 Accelerated B300 profile available in Washington DC (us-east) (select availability)
-:   The `gx4d-232x3840x8b300` profile is now available in the Washington DC (us-east) region for select customers. When you use the B300 virtual server profile it is powered by the [NVIDIA HGX B300](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and provides high-performance GPU capabilities for AI workloads such as fine tuning and large-scale training. For more information, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated (GPU) instance profiles - Gen 4](/docs/vpc?topic=vpc-accelerated-profile-family-gen4). If you are interested in purchasing and using this offering, create a [support case](/docs/support?topic=support-open-case&interface=ui).
+:   The `gx4d-232x3840x8b300` profile is now available in the Washington DC (us-east) region for select customers. , it is powered by the [NVIDIA HGX B300](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and provides high-performance GPU capabilities for AI workloads such as fine tuning and large-scale training. For more information, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated (GPU) instance profiles - Gen 4](/docs/vpc?topic=vpc-accelerated-profile-family-gen4). If you are interested in purchasing and using this offering, create a [support case](/docs/support?topic=support-open-case&interface=ui).
 
 ### 28 April 2026
 {: #vpc-apr2826}
