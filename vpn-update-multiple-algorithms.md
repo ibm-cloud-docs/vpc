@@ -133,7 +133,7 @@ Read-only indicators
       "encryption_algorithm": "aes128"
    }
    ```
-   {: codeblock}
+   {: screen}
 
 Property mixing restriction
 :   Do not mix singular and array-based properties for the same algorithm category in a single request. Choose one approach per request.
