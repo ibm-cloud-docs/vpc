@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-24"
+lastupdated: "2026-09-28"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -373,7 +373,7 @@ ibmcloud is volume-software-attachment-update my-volume my-volume-software-attac
 {: #ifv-retrieve-volume-software-attachment-manage-cli}
 {: cli}
 
-You can retrieve a specific volume software attachment by ID or name from the CLI. Use [`ibmcloud is volume-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment). The `VOLUME` variable is the ID or name of the volume. The `SWAC` variable is the volume software attachment ID or name.
+You can retrieve a specific volume software attachment by ID or name from the CLI. Use [`ibmcloud is volume-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment-view). The `VOLUME` variable is the ID or name of the volume. The `SWAC` variable is the volume software attachment ID or name.
 
 ```sh
 ibmcloud is volume-software-attachment VOLUME SWAC [--output JSON] [-q, --quiet]
@@ -389,7 +389,7 @@ ibmcloud is volume-software-attachment VOLUME SWAC [--output JSON] [-q, --quiet]
    ```
    {: pre}
 
-For more information about available command options, see [`ibmcloud is volume-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment).
+For more information about available command options, see [`ibmcloud is volume-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment-view).
 
 ## Managing {{site.data.keyword.block_storage_is_short}} with the API
 {: #managing-block-storage-api}

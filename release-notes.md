@@ -532,7 +532,7 @@ Cross-regional copy of snapshots that are larger than 10 TB (GA)
 {: release-note}
 
 Names for security group rules
-:   You can now assign a name to a security group rule. Each rule must have a name that is unique within its security group. If you don’t provide one, the system generates a default name that you can update later. Existing rules (and the default rules created with a new VPC) now have system-assigned names. For more information, see [Defining security group rules](/docs/vpc?topic=vpc-using-security-groups#defining-security-group-rules).
+:   You can now assign a name to a security group rule. Each rule must have a name that is unique within its security group. If you don’t provide one, the system generates a default name that you can update later. Existing rules (and the default rules that are created with a new VPC) now have system-assigned names. For more information, see [Defining security group rules](/docs/vpc?topic=vpc-using-security-groups#defining-security-group-rules).
 
 ### 04 December 2025
 {: #vpc-dec0425}
@@ -611,7 +611,7 @@ Updated seed policies
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC is available in Frankfurt (select availability)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is now available in the Frankfurt (eu-de) region. This region is in addition to the existing Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Frankfurt (eu-de) or Washington DC (us-east) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south).
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is now available in the Frankfurt (eu-de) region. This region is in addition to the existing Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are used by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Frankfurt (eu-de) or Washington DC (us-east) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south).
 
 ## September 2025
 {: #vpc-sep25}
@@ -638,7 +638,7 @@ Public address ranges (GA)
 :   You can now create and manage public address ranges. A public address range is a contiguous block of public IP addresses that can be bound to a specific zone in a VPC. Ranges can be bound at creation or updated later to associate with a different zone or VPC. To enable inbound traffic from the internet, you must configure VPC routes to direct traffic to resources in the bound zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par).
 
 New targets for Private Path network load balancer pools
-:   You can now add reserved IP addresses as members of a back-end pool attached to a Private Path Network Load Balancer. A reserved IP member can be bound to a bare metal server, primary or secondary interface of a virtual server instance, or a virtual network interface. You still have the options to add an application load balancer or virtual server instances as members of a back-end pool. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
+:   You can now add reserved IP addresses as members of a back-end pool that is attached to a Private Path Network Load Balancer. A reserved IP member can be bound to a bare metal server, primary or secondary interface of a virtual server instance, or a virtual network interface. You still have the options to add an application load balancer or virtual server instances as members of a back-end pool. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
 
 ### 23 September 2025
 {: #vpc-sep2325}
@@ -689,7 +689,7 @@ Manage BGP route selection in VPC
 {: release-note}
 
 Removing limit on rules targeting remote security groups
-:   The service limit of 15 unique remote security groups across all rules per security group, targeting remote security groups, has been removed. With this change, customers can maintain consistent security policies for all the security groups of a VPC. For more information, see [Service limits for VPC services](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services).
+:   The service limit of 15 unique remote security groups across all rules per security group, targeting remote security groups, is removed. With this change, customers can maintain consistent security policies for all the security groups of a VPC. For more information, see [Service limits for VPC services](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services).
 
 ## August 2025
 {: #vpc-aug25}
@@ -738,7 +738,7 @@ Burstable Flex virtual servers (beta)
 {: release-note}
 
 UI enhancement for bare metal servers: Filter instance profiles by business scenario
-:   When creating a bare metal server, you can now use the By scenario tab on the Select a server profile page to narrow the results to include only applicable bare metal server profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; and Storage optimized. When a specific filter is selected, the profile results display only the profiles related to the defined business scenario.
+:   When creating a bare metal server, you can now use the By scenario tab on the Select a server profile page to narrow the results to include only applicable bare metal server profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; and Storage optimized. When a specific filter is selected, the profile results display only the profiles that are related to the defined business scenario.
 
 ## July 2025
 {: #vpc-jul25}
@@ -768,14 +768,14 @@ Mount Helper utility supports mounting regional file shares with stunnel
 {: release-note}
 
 Secure boot for Virtual Servers for VPC is now optional
-:   When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), Secure boot for Virtual Servers for VPC is selected automatically. You now have the option to disable secure boot and still utilize the confidential computing profile. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc) and [Managing virtual server instances: Disable or enable secure boot](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#disable-secure-boot-ui).
+:   When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), Secure boot for Virtual Servers for VPC is selected automatically. You now have the option to disable secure boot and still use the confidential computing profile. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc) and [Managing virtual server instances: Disable or enable secure boot](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#disable-secure-boot-ui).
 
 ### 17 July 2025
 {: #vpc-july1725}
 {: release-note}
 
 UI enhancement: Profile tables now include categories that are collapsible and expandable
-:   When provisioning a virtual server or bare metal server, you can now view profiles by category within the table on the Select a profile page. Click the category heading to expand or collapse the section. For virtual server profiles you can view profiles in the following categories: Balanced, Compute, Memory, GPU & Accelerated, Storage optimized, and High memory. For bare metal servers profiles you can view profiles in the following categories: Balanced, Compute, Memory, and Ultra high memory. For more information about profile families, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
+:   When provisioning a virtual server or bare metal server, you can now view profiles by category within the table on the Select a profile page. Click the category heading to expand or collapse the section. For virtual server profiles, you can view profiles in the following categories: Balanced, Compute, Memory, GPU and Accelerated, Storage optimized, and High memory. For bare metal server profiles, you can view profiles in the following categories: Balanced, Compute, Memory, and Ultra high memory. For more information about profile families, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
 ### 15 July 2025
 {: #vpc-jul1525}
@@ -926,7 +926,7 @@ Public address ranges (beta release)
 {: release-note}
 
 Private path connectivity from IBM Cloud to on-premises locations (select availability)
-:   Accounts with special approval can now connect a consumer service running in IBM Cloud to an on-premises provider service by using an ALB as a member of a Private Path NLB pool. This allows you to target on-premises resources while maintaining a private path across IBM Cloud. For more information, see [Using an ALB with a Private Path NLB to host services outside a VPC](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
+:   Accounts with special approval can now connect a consumer service running in IBM Cloud to an on-premises provider service by using an ALB as a member of a Private Path NLB pool. You can target on-premises resources while maintaining a private path across IBM Cloud. For more information, see [Using an ALB with a Private Path NLB to host services outside a VPC](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
 
 ### 08 April 2025
 {: #vpc-apr825}
@@ -951,7 +951,7 @@ Policy based layer-4 load balancing for application load balancers
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (select availability)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available only in the Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de).
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available only in the Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are used by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de).
 
 ### 25 March 2025
 {: #vpc-mar2525}
@@ -1053,7 +1053,7 @@ GPU H200 profile now available in Washington DC (`us-east`) and Frankfurt (`eu-d
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (beta release)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are used by the firmware and hardware to provide confidentiality and integrity. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
 ## December 2024
 {: #vpc-dec24}
@@ -1205,8 +1205,8 @@ IBM log analysis is deprecated
 Block Storage for VPC snapshots for cross-account restore
 :   You can now share a snapshot with another account and allow the other account to create volumes with the snapshot. To do so, you must set up [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth) in {{site.data.keyword.iamshort}}, and share the CRN of the snapshot with the other account. The other account's authorized storage administrator can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform. For more information, see [Sharing a snapshot with another account in the console](/docs/vpc?topic=vpc-snapshots-vpc-share) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
-Defined performance profile for Block Storage for VPC
-:   select availability: Customers with special approval to preview the defined performance profile can now provision block storage volumes with the `sdp` profile in WDC and LON MZRs. For more information, see [The defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+Defined performance profile for Block Storage for VPC (select availablity)
+:   Customers with special approval to preview the defined performance profile can now provision block storage volumes with the `sdp` profile in WDC and LON MZRs. For more information, see [The defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 ### 23 September 2024
 {: #vpc-sep2324}
@@ -1254,7 +1254,7 @@ Hyper Protect Secure Build
 {: release-note}
 
 Zone Maps and Universal Names for Zones
-:   Account specific zone mapping has been introduced in all regions. Zones have an extra name that can serve as a global, cross-account identifier. A zone's universal name is documented per region and can be viewed when you view or retrieve a zone. For more information, see [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
+:   Account-specific zone mapping is introduced in all regions. Zones have an extra name that can serve as a global, cross-account identifier. A zone's universal name is documented per region and can be viewed when you view or retrieve a zone. For more information, see [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
 
 ### 05 September 2024
 {: #vpc-sep0524}
@@ -1298,7 +1298,7 @@ IBM Wazi as a Service available in Frankfurt (`eu-de`) region
 {: release-note}
 
 UI enhancement: Filter instance profiles by business scenario
-:   When provisioning a virtual server, you can now use the **By scenario** tab on the Select an instance profile page to narrow the results to include only applicable instance profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; AI, Deep learning & Machine learning; Visualizations, VDI; and Storage optimized. When a specific filter is selected, the profile results display only the profiles related to the defined business scenario.
+:   When provisioning a virtual server, you can now use the **By scenario** tab on the Select an instance profile page to narrow the results to include only applicable instance profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; AI, Deep learning & Machine learning; Visualizations, VDI; and Storage optimized. When a specific filter is selected, the profile results display only the profiles that are related to the defined business scenario.
 
 ### 05 August 2024
 {: #vpc-aug0524}
@@ -1364,14 +1364,14 @@ Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles (select availabil
 {: release-note}
 
 Sharing file share data between accounts and services
-:   With this new feature, administrators with the correct [authorizations](/docs/vpc?topic=vpc-file-s2s-auth) can share an NFS file system across multiple accounts. It's useful for customers who manage multiple accounts and need to share data across different VPCs. Customer can also share their {{site.data.keyword.filestorage_vpc_short}} shares with the [IBM watsonX](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-cross-account-mount).
+:   With this new feature, administrators with the correct [authorizations](/docs/vpc?topic=vpc-file-s2s-auth) can share an NFS file system across multiple accounts. It's useful for customers who manage multiple accounts and need to share data across different VPCs. Customer can also share their {{site.data.keyword.filestorage_vpc_short}} shares with the [IBM watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-cross-account-mount).
 
 ### 24 June 2024
 {: #vpc-jun2424}
 {: release-note}
 
 Update firmware on Bare Metal Servers for VPC (GA)
-:  The new Update firmware action on Bare Metal Servers for VPC is now generally available. You can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the console, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
+:  The new Update firmware action on Bare Metal Servers for VPC is now generally available. You can see whether a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the console, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
 
 ### 20 June 2024
 {: #vpc-jun2024}

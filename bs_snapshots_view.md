@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-09-24"
+lastupdated: "2026-09-28"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -280,7 +280,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 
 You can view the software attachments of a snapshot from the CLI.
 
-- To list all software attachments for a snapshot, use [`ibmcloud is snapshot-software-attachments`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachments). The `SNAPSHOT` variable is the ID or name of the snapshot.
+- To list all software attachments for a snapshot, use [`ibmcloud is snapshot-software-attachments`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachments-list). The `SNAPSHOT` variable is the ID or name of the snapshot.
 
    ```sh
    ibmcloud is snapshot-software-attachments SNAPSHOT [--output JSON] [-q, --quiet]
