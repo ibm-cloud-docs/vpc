@@ -1253,7 +1253,6 @@ toc:
               topics:
               - vni-ts1.md
               - vni-ts2.md
-              - vni-ts3.md
           - topicgroup:
               id: tbs-load-balancers
               label: Troubleshooting load balancers
