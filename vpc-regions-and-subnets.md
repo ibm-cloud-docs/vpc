@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-29"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -18,6 +18,9 @@ subcollection: vpc
 
 You can bring your own IPv4 address ranges (public and private) from your on-premises deployment to your {{site.data.keyword.vpc_full}} (VPC) by creating address prefixes. You can then create subnets within these IP ranges.
 {: shortdesc}
+
+[IPv4 BYOIP Beta]{: tag-cyan}This topic covers bringing your own **private** IP address ranges for use as subnet address space within a VPC. If you want to bring your own **public** IPv4 address ranges to use with VPC resources on the internet, see [Creating a custom authorized CIDR (BYOIP)](/docs/vpc?topic=vpc-provision-custom-authorized-cidr).
+{: note}
 
 
 

@@ -21,7 +21,7 @@ subcollection: vpc
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone.
 {: shortdesc}
 
-You can create public address ranges by using IBM-managed public IP address pools.
+You can create public address ranges by using IBM-managed public IP address pools.[IPv4 BYOIP Beta]{: tag-cyan} You can also create public address ranges from custom authorized CIDRs, which allow you to use your own IP address ranges in the VPC. When you use a custom authorized CIDR, you define the public address range by selecting a CIDR block from your IP address range instead of specifying the number of IPs.
 
 You can use ingress routing only with IPv4 public address ranges to route traffic to a target resource in the VPC, such as a virtual server instance, virtual network function (VNF), or other compute resource.
 
@@ -54,7 +54,8 @@ Before you begin, review [Planning considerations for public address ranges](/do
 
 Follow these steps to get started with IPv4 public address ranges.
 
-1. Ensure that you have [created a VPC](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc) and all the needed resources (if not already present).
+1. Ensure that you have [created a VPC](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc) and all the needed resources (if not already present).[IPv4 BYOIP Beta]{: tag-cyan}
+1. Optionally, [create a custom authorized CIDR](/docs/vpc?topic=vpc-provision-custom-authorized-cidr&interface=ui) to bring your own public IPv4 address range for use with public address ranges.
 1. [Create your public address range](/docs/vpc?topic=vpc-par-creating&interface=ui).
 1. [Bind, unbind, and move public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui) after creating a public address range.
 1. [Configure an ingress routing table for your VPC](/docs/vpc?topic=vpc-about-custom-routes&interface=ui) by adding routes that direct traffic to the next-hop IP of the target appliance, using the public IP address range as the destination. These routes direct public internet traffic to a next-hop within the VPC, such as a Network Functions Virtualization (NFV) instance, router, firewall, or load balancer.
@@ -70,7 +71,7 @@ Follow these steps to get started with IPv4 public address ranges.
 * [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
 * [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
-
+* [IPv4 BYOIP Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
 
 
 ## Reference and support

@@ -67,6 +67,17 @@ Review the following considerations before creating a public address range.
 
 
 
+## Custom authorized CIDR considerations [IPv4 BYOIP Beta]{: tag-cyan}
+{: #par-planning-byoip}
+
+When creating a public address range from a custom authorized CIDR:
+
+* The public address range must use an unallocated CIDR block within the custom authorized CIDR.
+* Each allocation consumes address space and reduces the available CIDR blocks for future allocations.
+* To allocate a public address range from an authorized CIDR, you must have the `is.public-address-range-authorized-cidr.authorized-cidr.operate` IAM action.
+* Ingress routing must be configured before traffic can reach the target resource.
+
+For the full set of BYOIP planning requirements, including regional scope, the allocation model, account quotas, and provisioning, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip#ips_important_considerations).
 
 
 
@@ -76,3 +87,4 @@ Review the following considerations before creating a public address range.
 
 * [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+* [IPv4 BYOIP Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).

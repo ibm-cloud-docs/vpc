@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-29"
 
 keywords:
 
@@ -83,7 +83,7 @@ To create a virtual network interface in the console, follow these steps:
     * **Auto release**: Click the switch to enable or disable auto release for this virtual network interface.
 1. In the Floating IPs section (optional), click **Attach**. In the side panel that appears, you can either select from the existing list of floating IP addresses, or select **Reserve new Floating IP** and complete the information that is requested.
 
-    
+    [IPv4 BYOIP Beta]{: tag-cyan}When reserving a new floating IP, you can select **Custom authorized CIDRs** under **Public address source** to allocate an IP from your own authorized range instead of IBM-managed pools. Select the authorized CIDR and choose a reserving method. For more information, see [Creating floating IPs from a custom authorized CIDR](/docs/vpc?topic=vpc-byoip-fip-create).
 
     If a floating IP is attached, the virtual network interface will not be accepted as file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
     {: note}

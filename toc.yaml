@@ -506,6 +506,16 @@ toc:
           - par-planning.md
           - par-use-cases.md
           - par-creating.md
+          - topicgroup:
+              id: byoip
+              label: Custom authorized CIDRs (BYOIP)
+              topics:
+              - byoip.md
+              - byoip-create-cidr.md
+              - byoip-view-cidr.md
+              - byoip-fip-create.md
+              - byoip-deprovision-cidr.md
+              - byoip-loa.md
           - par-binding.md
           - par-viewing.md
           - par-deleting.md
@@ -1200,6 +1210,12 @@ toc:
               topics:
               - par-troubleshooting1.md
               - par-troubleshooting2.md
+              - byoip-ts-cidr-not-visible.md
+              - byoip-ts-par-create-fails.md
+              - byoip-ts-no-traffic.md
+              - byoip-ts-cannot-deprovision.md
+              - byoip-ts-fip-not-reachable.md
+              - byoip-ts-pgw-wrong-ip.md
           - topicgroup:
               id: tbs-ingress-routes
               label: Troubleshooting public ingress routes
