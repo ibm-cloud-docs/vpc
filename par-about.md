@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-29"
 
 keywords: vpc, public address ranges, getting started
 
@@ -11,6 +11,9 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
+[IPv4 BYOIP is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
 
 # Getting started with public address ranges
 {: #about-par}
