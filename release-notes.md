@@ -1,8 +1,8 @@
----
+﻿---
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-09-29"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2026
 {: #vpc-sep26}
+
+### 29 September 2026
+{: #vpc-sep2926}
+{: release-note}
+
+Custom authorized CIDRs (BYOIP) for public address ranges (beta)
+:   Customers with special access can now bring your own publicly routable IPv4 address ranges into {{site.data.keyword.vpc_short}} by provisioning a custom authorized CIDR. A custom authorized CIDR acts as a pool of public IP addresses that you own and control. After provisioning, you can allocate CIDR blocks from it as public address ranges or reserve individual addresses as floating IPs to attach to virtual network interfaces or public gateways. By using your own IP ranges, you can retain your established IP reputation, preserve existing firewall allowlists, and maintain addressing continuity when you migrate workloads to VPC. For more information, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip).
 
 ### 25 September 2026
 {: #vpc-sep2526}

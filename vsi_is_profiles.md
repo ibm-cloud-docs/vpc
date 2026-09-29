@@ -399,7 +399,7 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 | ux2d-36x1008 | 36 / 18 | 1008 | 64 | 1x1080 |
 | ux2d-48x1344| 48 / 24 | 1344 | 80 | 2x720 |
 | ux2d-72x2016 | 72 / 36 |  2016 | 80 | 2x1080 |
-| ux2d-96x2800 | 100 / 50 | 2800 | 80 | 2x1500 |
+| ux2d-100x2800 | 100 / 50 | 2800 | 80 | 2x1500 |
 | ux2d-200x5600 | 200 / 100 | 5600 | 80 | 2x3000 |
 {: caption="Ultra High Memory profiles options for x86-64 instances" caption-side="bottom"}
 {: #uhmemory-intel-x86-64}
