@@ -155,34 +155,7 @@ curl -sX POST "$vpc_api_endpoint/v1/floating_ips?version=$api_version&generation
 The address must be an unallocated IP within a custom authorized CIDR in your account.
 {: important}
 
-## Creating a floating IP from a custom authorized CIDR with Terraform
-{: #byoip-fip-create-terraform}
-{: terraform}
 
-To reserve a floating IP from a custom authorized CIDR with Terraform, specify the `address` argument:
-
-```terraform
-resource "ibm_is_floating_ip" "byoip_fip" {
-  name    = "my-byoip-fip"
-  address = "192.168.0.4"
-  zone    = "us-south-2"
-}
-```
-{: codeblock}
-
-To reserve and bind to a virtual network interface:
-
-```terraform
-resource "ibm_is_floating_ip" "byoip_fip_bound" {
-  name    = "my-byoip-fip"
-  address = "192.168.0.4"
-  target  = ibm_is_virtual_network_interface.example.id
-}
-```
-{: codeblock}
-
-The address must be an unallocated IP within a custom authorized CIDR in your account.
-{: important}
 
 ## Next steps
 {: #byoip-fip-create-related}

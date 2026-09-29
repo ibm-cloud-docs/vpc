@@ -123,15 +123,7 @@ curl -sX DELETE "$vpc_api_endpoint/v1/public_address_range/authorized_cidrs/$cid
 
 IBM processes the request and removes the CIDR from your account. This process takes a minimum of two weeks.
 
-## Deprovisioning a custom authorized CIDR with Terraform
-{: #deprovision-custom-authorized-cidr-terraform}
-{: terraform}
 
-To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
-
-Before you remove the resource, delete all public address ranges allocated from the CIDR.
-
-To deprovision a custom authorized CIDR with Terraform, remove the corresponding `ibm_is_public_address_range_authorized_cidr` resource from your configuration and run `terraform apply`. Deprovisioning is performed by IBM; removing the resource submits the request to IBM, and you cannot complete the operation yourself. IBM processes the request and removes the CIDR from your account. This process takes a minimum of two weeks.
 
 ## Next steps
 {: #next-steps-deprovision-byoip}
