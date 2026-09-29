@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-29"
 
 keywords:
 
@@ -35,7 +35,7 @@ To attach a floating IP to an existing virtual network interface, follow these s
     * Click **Reserve new floating IP** to open the Reserve floating IP panel and complete the following:
       1. In the **Location** section, select the zone where you want to create the floating IP.
       1. In the **Details** section, enter a **Name**, select a **Resource group**, and optionally add **Tags** or **Access management tags**.
-      1.  Click **Reserve**.
+      1. [IPv4 BYOIP Beta]{: tag-cyan}Optionally, under **Public address source**, select **Custom authorized CIDRs** to allocate an IP from your own authorized range instead of IBM-managed pools. For more information, see [Creating floating IPs from a custom authorized CIDR](/docs/vpc?topic=vpc-byoip-fip-create). Click **Reserve**.
 1. Click **Attach** to attach the floating IP to your virtual network interface, or click **Cancel**.
 
 ## Attaching a floating IP to a virtual network interface from the CLI

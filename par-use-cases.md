@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-29"
 
 keywords: vpc, public address ranges, use cases, secure workloads, high availability, BYOIP
 
@@ -37,6 +37,10 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 
 ![Deploying highly-available and resilient workloads in VPC](images/par_use_case_2.svg "Deploy highly-available and resilient workloads in VPC"){: caption="Deploy highly-available and resilient workloads in VPC" caption-side="bottom"}
 
+## Retaining your own public IP addresses in VPC [IPv4 BYOIP Beta]{: tag-cyan}
+{: #byoip-public-address-range}
+
+If your organization has existing public IP address ranges that are already known to your customers, partners, or DNS infrastructure, you can bring those IPs into IBM Cloud VPC instead of replacing them with IBM-provided addresses. For a full walkthrough of this use case, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip#byoip-use-case-retain-ips).
 
 
 
@@ -45,3 +49,4 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 {: #par-use-cases-related-links}
 
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+* [IPv4 BYOIP Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).

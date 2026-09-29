@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-09-29"
 
 keywords:
 
@@ -25,7 +25,7 @@ Only one public gateway per zone is allowed in a VPC, but that public gateway ca
 
 In addition to applying a public gateway to your VPC, you can assign floating IP addresses to any of your virtual server instances to enable them to be reachable from the internet, independent of whether its subnet is attached to a public gateway.
 
-
+[IPv4 BYOIP Beta]{: tag-cyan}If you have an IPv4 custom authorized CIDR, you can also reserve a floating IP from it and attach it to a public gateway. For more information, see [Creating floating IPs from a custom authorized CIDR](/docs/vpc?topic=vpc-byoip-fip-create).
 
 A single public gateway can grant multiple virtual server instances external connectivity for the same cost as one floating IP address.
 {: note}

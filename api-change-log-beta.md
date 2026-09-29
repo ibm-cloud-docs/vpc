@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2025-12-16"
+lastupdated: "2026-09-29"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,22 @@ Compatibility with earlier versions is not guaranteed as a feature progresses th
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 29 September 2026
+{: #29-september-2026-beta}
+
+### For all version dates
+{: #29-september-2026-all-version-dates-beta}
+
+**Bring your own public IPv4 addresses to VPC.** Accounts that have been granted special approval to preview this feature can now import their own public IPv4 address spaces to the {{site.data.keyword.cloud}} network for VPCs. To get started, open a support case to authorize IBM to route your public address space to a VPC region. You can then [list](/docs/apis/vpc-beta#list-public-address-range-authorized-cidrs) and [retrieve](/docs/apis/vpc-beta#get-public-address-range-authorized-cidr-allocatio) your public address range authorized CIDRs.
+
+You can allocate a range of addresses from an authorized CIDR by [creating a public address range](/docs/apis/vpc-beta#create-public-address-range) with a `cidr` value that specifies an unallocated range in the authorized CIDR.
+
+You can allocate a floating IP from an authorized CIDR by [reserving a floating IP](/docs/apis/vpc-beta#create-floating-ip) with an `address` value that specifies an unallocated address in the authorized CIDR.
+
+The public address ranges and floating IPs allocated from an authorized CIDR can be retrieved by [listing the allocations](/docs/apis/vpc-beta#list-public-address-range-authorized-cidr-allocati) for the authorized CIDR.
+
+For more information, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip).
 
 ## 16 December 2025
 {: #16-december-2025-beta}

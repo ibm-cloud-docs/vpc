@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-09-29"
 
 keywords: viewing, deleting, public address range
 
@@ -27,6 +27,9 @@ To delete public address ranges in the IBM Cloud console, follow these steps:
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**. The Public address ranges for VPC page appears.
 1. Highlight the row of the address range in the table, then click **Delete** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 1. Click **Delete** to confirm that you want to delete this address range from the VPC.
+
+[IPv4 BYOIP Beta]{: tag-cyan}If the public address range was allocated from a custom authorized CIDR, deleting it returns that address space to the authorized CIDR for reuse.
+{: note}
 
 
 
@@ -76,6 +79,9 @@ ibmcloud is public-address-range-delete $par-id
 ```
 {: pre}
 
+[IPv4 BYOIP Beta]{: tag-cyan}If the public address range was allocated from a custom authorized CIDR, deleting it returns that address space to the authorized CIDR for reuse.
+{: note}
+
 
 
 
@@ -98,6 +104,12 @@ To delete a public address range, follow these steps:
             -H "Authorization: Bearer $iam_token"
    ```
    {: pre}
+
+[IPv4 BYOIP Beta]{: tag-cyan}
+Alternatively, you can send the `DELETE` request directly without unbinding first. The API automatically unbinds the public address range before deletion. If the public address range was allocated from a custom authorized CIDR, you must also have the `is.public-address-range.authorized-cidr.operate` IAM action on the authorized CIDR.
+
+A successful deletion request returns HTTP `202`. If the public address range was allocated from a custom authorized CIDR, deleting it returns that address space to the authorized CIDR for reuse.
+{: note}
 
 
 

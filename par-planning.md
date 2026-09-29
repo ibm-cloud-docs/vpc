@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-24"
+lastupdated: "2026-09-29"
 
 keywords: vpc, public address ranges, planning, considerations, limitations
 
@@ -11,6 +11,9 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
+[IPv4 BYOIP is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
 
 # Planning considerations for public address ranges
 {: #par-planning}
@@ -64,6 +67,17 @@ Review the following considerations before creating a public address range.
 
 
 
+## Custom authorized CIDR considerations [IPv4 BYOIP Beta]{: tag-cyan}
+{: #par-planning-byoip}
+
+When creating a public address range from a custom authorized CIDR:
+
+* The public address range must use an unallocated CIDR block within the custom authorized CIDR.
+* Each allocation consumes address space and reduces the available CIDR blocks for future allocations.
+* To allocate a public address range from an authorized CIDR, you must have the `is.public-address-range-authorized-cidr.authorized-cidr.operate` IAM action.
+* Ingress routing must be configured before traffic can reach the target resource.
+
+For the full set of BYOIP planning requirements, including regional scope, the allocation model, account quotas, and provisioning, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip#ips_important_considerations).
 
 
 
@@ -73,3 +87,4 @@ Review the following considerations before creating a public address range.
 
 * [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+* [IPv4 BYOIP Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
