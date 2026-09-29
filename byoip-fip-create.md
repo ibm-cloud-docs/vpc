@@ -15,7 +15,7 @@ subcollection: vpc
 # Reserving floating IPs from a custom authorized CIDR
 {: #byoip-fip-create}
 
-[IPv4 BYOIP is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You can reserve a floating IP address from a custom authorized CIDR instead of from IBM-managed IP pools. This setup allows you to use your own publicly routable IP addresses as floating IPs that are attached to virtual network interfaces or public gateways in your VPC.

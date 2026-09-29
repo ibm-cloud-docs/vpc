@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-[IPv4 BYOIP is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 # Planning considerations for public address ranges
@@ -67,7 +67,7 @@ Review the following considerations before creating a public address range.
 
 
 
-## Custom authorized CIDR considerations [IPv4 BYOIP Beta]{: tag-cyan}
+## Custom authorized CIDR considerations [BYOIP (IPv4) Beta]{: tag-cyan}
 {: #par-planning-byoip}
 
 When creating a public address range from a custom authorized CIDR:
@@ -87,4 +87,4 @@ For the full set of BYOIP planning requirements, including regional scope, the a
 
 * [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
-* [IPv4 BYOIP Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
+* [BYOIP (IPv4) Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).

@@ -15,7 +15,7 @@ subcollection: vpc
 # Viewing custom authorized CIDRs
 {: #view-custom-authorized-cidr}
 
-[IPv4 BYOIP is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 After IBM approves your provisioning request, view your custom authorized CIDR to monitor how the address space is being used.

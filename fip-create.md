@@ -18,7 +18,7 @@ subcollection: vpc
 You can reserve a floating IP address, then add it to a network interface to allow traffic from the internet to access your VPC public gateway, virtual server instance, or Bare Metal server.
 {: shortdesc}
 
-By default, IBM assigns a floating IP address from its managed pool. [IPv4 BYOIP Beta]{: tag-cyan} You can also reserve a floating IP by specifying an exact IP address from your own publicly routable range using a custom authorized CIDR (BYOIP). This requires a custom authorized CIDR to be provisioned in your account. For more information, see [Creating floating IPs from a custom authorized CIDR](/docs/vpc?topic=vpc-byoip-fip-create).
+By default, IBM assigns a floating IP address from its managed pool. [BYOIP (IPv4) Beta]{: tag-cyan} You can also reserve a floating IP by specifying an exact IP address from your own publicly routable range using a custom authorized CIDR (BYOIP). This requires a custom authorized CIDR to be provisioned in your account. For more information, see [Creating floating IPs from a custom authorized CIDR](/docs/vpc?topic=vpc-byoip-fip-create).
 
 
 ## Adding floating IP addresses to network interfaces with the console
@@ -86,7 +86,7 @@ To associate multiple floating IPs to a network interface, verify that both **Al
 1. In the Attach floating IP side panel, choose one of the following options:
 
    * Select an existing floating IP address from the menu, then click **Attach**.
-   * Click **Reserve new floating IP** to open the Reserve floating IP panel. Complete the location and details fields, then click **Reserve**.[IPv4 BYOIP Beta]{: tag-cyan} You can select **Custom authorized CIDRs** under **Public address source** to reserve an IP from your own authorized range. For more information, see [Creating floating IPs from a custom authorized CIDR](/docs/vpc?topic=vpc-byoip-fip-create).
+   * Click **Reserve new floating IP** to open the Reserve floating IP panel. Complete the location and details fields, then click **Reserve**.[BYOIP (IPv4) Beta]{: tag-cyan} You can select **Custom authorized CIDRs** under **Public address source** to reserve an IP from your own authorized range. For more information, see [Creating floating IPs from a custom authorized CIDR](/docs/vpc?topic=vpc-byoip-fip-create).
 
 ## Adding floating IP addresses to network interfaces with the CLI
 {: #fip-add-ni-cli}

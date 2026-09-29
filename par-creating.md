@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating public address ranges
 {: #par-creating}
 
-You can create a public address range by defining its size and optionally, specifying a VPC to associate with it in any availability zone within the account.[IPv4 BYOIP Beta]{: tag-cyan} Addresses can be allocated from IBM-managed IP pools or from a custom authorized CIDR if you want to use your own publicly routable IP range.
+You can create a public address range by defining its size and optionally, specifying a VPC to associate with it in any availability zone within the account.[BYOIP (IPv4) Beta]{: tag-cyan} Addresses can be allocated from IBM-managed IP pools or from a custom authorized CIDR if you want to use your own publicly routable IP range.
 {: shortdesc}
 
 If the VPC is deleted while it is bound to a public address range, the address range continues to exist and can be bound later to a different VPC in any availability zone.
@@ -52,7 +52,7 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
       After you create a public address range, you can't change the resource group.
       {: note}
 
-   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can always add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).[IPv4 BYOIP Beta]{: tag-cyan}
+   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can always add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).[BYOIP (IPv4) Beta]{: tag-cyan}
 
    * **Public address source**: Select one of the following:
 
@@ -101,7 +101,7 @@ To create public address ranges from the command line, follow these steps:
    ibmcloud is public-address-range-create --ipv4-address-count IPV4_ADDRESS_COUNT [--name NAME] [--vpc VPC --zone ZONE] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
 
-   [IPv4 BYOIP Beta]{: tag-cyan}
+   [BYOIP (IPv4) Beta]{: tag-cyan}
    ```sh
    ibmcloud is public-address-range-create (--ipv4-address-count IPV4_ADDRESS_COUNT | --cidr CIDR) [--name NAME] [--vpc VPC --zone ZONE] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
@@ -113,9 +113,9 @@ To create public address ranges from the command line, follow these steps:
    Where:
 
    `--ipv4-address-count`
-   :   The total number of public IPv4 addresses required. Must be a power of 2.[IPv4 BYOIP Beta]{: tag-cyan} Mutually exclusive with `--cidr`.
+   :   The total number of public IPv4 addresses required. Must be a power of 2.[BYOIP (IPv4) Beta]{: tag-cyan} Mutually exclusive with `--cidr`.
 
-   [IPv4 BYOIP Beta]{: tag-cyan}
+   [BYOIP (IPv4) Beta]{: tag-cyan}
    `--cidr`
    :   The public IPv4 range for this public address range expressed in CIDR format. Must be an unallocated block within a custom authorized CIDR in your account. Mutually exclusive with `--ipv4-address-count`.
    
@@ -175,7 +175,7 @@ ibmcloud is public-address-range-create --name public-address-range-3 --ipv4-add
 ```
 {: pre}
 
-[IPv4 BYOIP Beta]{: tag-cyan}Create a public address range from a custom authorized CIDR, bound to a VPC and zone:
+[BYOIP (IPv4) Beta]{: tag-cyan}Create a public address range from a custom authorized CIDR, bound to a VPC and zone:
 
 ```sh
 ibmcloud is public-address-range-create --name public-address-range-3 --cidr 46.16.186.112/28 --vpc cli-test-vpc --zone us-south-2 --resource-group-name Default
@@ -238,7 +238,7 @@ Select one of the following options:
    ```
    {: pre}
 
-[IPv4 BYOIP Beta]{: tag-cyan}
+[BYOIP (IPv4) Beta]{: tag-cyan}
 * Create a public address range from a custom authorized CIDR (requires `is.public-address-range.authorized-cidr.operate` IAM action on the authorized CIDR):
 
    ```sh
@@ -265,7 +265,7 @@ If you need to change the size of the address range or the resource group, you m
 ## Next steps
 {: #after-create-par}
 
-* [IPv4 BYOIP Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
+* [BYOIP (IPv4) Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
 
 
 * [Bind the public address range to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding).
