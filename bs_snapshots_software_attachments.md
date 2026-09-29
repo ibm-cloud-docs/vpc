@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-24"
+lastupdated: "2026-09-28"
 
 keywords: snapshots, Block Storage snapshots, software attachment, snapshot software attachment, update software attachment, rename software attachment, vendor-managed licensing, catalog image, boot volume
 
@@ -53,7 +53,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 {: #snapshots-vpc-retrieve-software-attachment-cli}
 {: cli}
 
-You can retrieve a specific software attachment of a snapshot by ID or name from the CLI. Use [`ibmcloud is snapshot-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachment). The `SNAPSHOT` variable is the ID or name of the snapshot. The `SWAC` variable is the snapshot software attachment ID or name.
+You can retrieve a specific software attachment of a snapshot by ID or name from the CLI. Use [`ibmcloud is snapshot-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachment-view). The `SNAPSHOT` variable is the ID or name of the snapshot. The `SWAC` variable is the snapshot software attachment ID or name.
 
 ```sh
 ibmcloud is snapshot-software-attachment SNAPSHOT SWAC [--output JSON] [-q, --quiet]
@@ -78,7 +78,7 @@ ibmcloud is snapshot-software-attachment SNAPSHOT SWAC [--output JSON] [-q, --qu
    ```
    {: pre}
 
-For more information about available command options, see [`ibmcloud is snapshot-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachment).
+For more information about available command options, see [`ibmcloud is snapshot-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachment-view).
 
 ## Updating a snapshot software attachment with the API
 {: #snapshots-vpc-software-attachments-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-09-28"
 
 keywords: VPN, IKE policy, IPsec policy, multiple algorithms, migration, deprecated, authentication algorithms, encryption algorithms, dh groups
 
@@ -119,7 +119,7 @@ Read-only indicators
       "encryption_algorithm": "multiple"
    }
    ```
-   {: codeblock}
+   {: screen}
 
    If only one algorithm is configured in an array-based property, the singular property returns the configured value instead of `"multiple"`.
 
@@ -133,7 +133,7 @@ Read-only indicators
       "encryption_algorithm": "aes128"
    }
    ```
-   {: codeblock}
+   {: screen}
 
 Property mixing restriction
 :   Do not mix singular and array-based properties for the same algorithm category in a single request. Choose one approach per request.
@@ -373,7 +373,7 @@ The following example shows how `PATCH` requests affect both singular and array 
       "resource_type": "ike_policy"
       }
    ```
-   {: codeblock}
+   {: screen}
 
 #### Example 2: Multiple algorithms to single
 {: #vpn-ike-policy-patch-example-2}
@@ -450,7 +450,7 @@ The following example shows how `PATCH` requests affect both singular and array 
       "resource_type": "ike_policy"
       }
    ```
-   {: codeblock}
+   {: screen}
 
 ## Updating IPsec policies with the API
 {: #update-ipsec-policies-api}
@@ -576,7 +576,7 @@ The following example shows how `PATCH` requests affect both singular and array 
       "transform_protocol": "esp"
       }
    ```
-   {: codeblock}
+   {: screen}
 
 #### Example 2: Multiple algorithms to single
 {: #vpn-ipsec-policy-patch-example-2}
@@ -655,7 +655,7 @@ The following example shows how `PATCH` requests affect both singular and array 
       "transform_protocol": "esp"
       }
    ```
-   {: codeblock}
+   {: screen}
 
 ## Related links
 {: #related-links-vpn-multiple-algorithms}

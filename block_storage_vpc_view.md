@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-24"
+lastupdated: "2026-09-28"
 
 keywords: Block Storage, virtual private cloud, view volumes, volume details, volume status, volume health, encryption, IOPS, boot volume, data volume, snapshots, backup policy, volume jobs, software attachments
 
@@ -269,7 +269,7 @@ For more information about available command options, see [`ibmcloud is volume`]
 
 You can view the software attachments of a volume using the CLI.
 
-- To list all software attachments for a volume, use [`ibmcloud is volume-software-attachments`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachments). The variable `VOLUME` is the ID or name of the volume.
+- To list all software attachments for a volume, use [`ibmcloud is volume-software-attachments`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachments-list). The variable `VOLUME` is the ID or name of the volume.
 
    ```sh
    ibmcloud is volume-software-attachments VOLUME [--output JSON] [-q, --quiet]
@@ -283,7 +283,7 @@ You can view the software attachments of a volume using the CLI.
    ```
    {: pre}
 
-- To view the details of a specific software attachment for a volume, use [`ibmcloud is volume-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment). The `VOLUME` variable is the ID or name of the volume. The `SWAC` variable is the volume software attachment ID or name.
+- To view the details of a specific software attachment for a volume, use [`ibmcloud is volume-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment-view). The `VOLUME` variable is the ID or name of the volume. The `SWAC` variable is the volume software attachment ID or name.
 
    ```sh
    ibmcloud is volume-software-attachment VOLUME SWAC [--output JSON] [-q, --quiet]

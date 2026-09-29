@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-03"
+lastupdated: "2026-09-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -151,6 +151,8 @@ No. If you update your backup policy plan to create copies of your automated bac
 {: #faq-baas-cross-regional-retention}
 
 How long the copy is kept depends on how often your backup plan generates backup snapshots and the number you chose to keep. For example, if your plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make space for the new snapshot copy.
+
+The retention limit applies only to snapshots in a `stable` state. This applies to backup snapshots, cross-regional copies, and fast-restore clones. Snapshots that are in a transitional (`pending`) or unstable state are not included in the retention count or the retention-period calculation.
 
 Keep in mind, a remote snapshot copy is independent from the source volume or the parent snapshot. If those resources are inaccessible or deleted, the snapshot copy in the remote region is not affected. If a backup snapshot is deleted due to reaching the end of its retention period, its remote copy is not deleted automatically.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-18"
+lastupdated: "2026-09-28"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -386,7 +386,7 @@ The 3rd generation profile with the vx3d prefix is available in the Chennai - Ai
 ## Ultra High Memory
 {: #uhmemory}
 
-Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM and is optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
+Ultra High Memory profiles are hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server hosts. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM and is optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
 The following Ultra High Memory profiles are available for x86-64 processors:
 
@@ -481,7 +481,7 @@ When you create a virtual server by using a GPU or accelerated profile, keep the
 ## Storage Optimized
 {: #storageopt}
 
-Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU and is optimized for running data lake and other workloads that require more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
+Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU. The profile family is optimized for running data lake and other workloads that require more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 
 Storage Optimized profiles use the `Storage optimized (ox2) instance storage` quota, for instance, storage quota tracking. Unlike other profiles, which use the `Instance storage` quota. For more information, see [Quotas](/docs/vpc?topic=vpc-quotas#vpcquotas).
 
