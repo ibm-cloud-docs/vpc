@@ -24,7 +24,7 @@ The following questions are commonly asked about public address ranges. If you h
 {: faq}
 {: support}
 
-[IPv4 BYOIP Beta]{: tag-cyan}
+[BYOIP (IPv4) Beta]{: tag-cyan}
 Yes. You can bring your own publicly routable IPv4 address range to {{site.data.keyword.vpc_short}} through custom authorized CIDRs. To get started, see [Creating a custom authorized CIDR (BYOIP)](/docs/vpc?topic=vpc-provision-custom-authorized-cidr) and open a support case. IBM verifies ownership and configures the range as an authorized CIDR in your account. After the range is available, you can allocate public address ranges and floating IPs from it.
 
 

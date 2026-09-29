@@ -137,7 +137,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 | ------ | --- |
 | Maximum number of IPv4 public address ranges per account per region | 5 |
 | Prefix size | `/32` to `/28` |
-| [IPv4 BYOIP Beta]{: tag-cyan}Maximum number of custom authorized CIDRs per account per region | 5 |
+| [BYOIP (IPv4) Beta]{: tag-cyan}Maximum number of custom authorized CIDRs per account per region | 5 |
 |  |  |
 |  |  |
 |  |  |

@@ -29,7 +29,7 @@ The Public address ranges for VPC page shows the following information:
 - **Name:** The name of the public address range object.
 - **Status:** States whether the address range is bound or unbound to the specified VPC.
 - **Lifecycle state:** States whether the binding or unbinding of the address range is successful, and if it is stable or not.
-- **IP range:** The range of IP addresses included in the address range.[IPv4 BYOIP Beta]{: tag-cyan}
+- **IP range:** The range of IP addresses included in the address range.[BYOIP (IPv4) Beta]{: tag-cyan}
 
    Public address ranges that were created from a custom authorized CIDR display an icon indicating "Created from an authorized CIDR".
    {: note}
@@ -38,7 +38,7 @@ The Public address ranges for VPC page shows the following information:
 - **Zone:** States the zone that the address range is bound to (if applicable).
 - **Target resource:** States the VPC that the address range is bound to in the previous zone (if applicable).
 
-[IPv4 BYOIP Beta]{: tag-cyan}To view details of a public address range, click the name to open the details page. The details page shows:
+[BYOIP (IPv4) Beta]{: tag-cyan}To view details of a public address range, click the name to open the details page. The details page shows:
 
 - Name, Resource group, Location, IP range, Size, IP version, VPC, ID, CRN, Created date, and Lifecycle state.
 - Authorized CIDR: If the public address range was created from a custom authorized CIDR, the linked name of the authorized CIDR is displayed. Click the link to navigate to the CIDR details page.
@@ -65,7 +65,7 @@ To view public address ranges from the command line, follow these steps:
    ```sh
    ibmcloud is public-address-range PUBLIC_ADDRESS_RANGE [--output JSON] [-q, --quiet]
    ```
-   [IPv4 BYOIP Beta]{: tag-cyan}
+   [BYOIP (IPv4) Beta]{: tag-cyan}
 
    ```sh
    ibmcloud is public-address-ranges [--profile-name PROFILE_NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--output JSON] [-q, --quiet]
@@ -81,7 +81,7 @@ To view public address ranges from the command line, follow these steps:
    `PUBLIC_ADDRESS_RANGE`
    :   The ID or name of the public address range to view.
 
-   [IPv4 BYOIP Beta]{: tag-cyan}
+   [BYOIP (IPv4) Beta]{: tag-cyan}
 
    `--profile-name`
    :   Filter the list by profile name. Use this option to view only public address ranges from IBM-managed IP pools or only those from custom authorized CIDRs.
@@ -125,7 +125,7 @@ ibmcloud is public-address-ranges
 
 
 
-[IPv4 BYOIP Beta]{: tag-cyan}Filter public address ranges by profile name:
+[BYOIP (IPv4) Beta]{: tag-cyan}Filter public address ranges by profile name:
 
 ```sh
 ibmcloud is public-address-ranges --profile-name provider-ipv4
@@ -155,7 +155,7 @@ Select one of the following options:
    ```
    {: pre}
 
-[IPv4 BYOIP Beta]{: tag-cyan}
+[BYOIP (IPv4) Beta]{: tag-cyan}
 * Filter by profile name to view only custom authorized CIDR-based ranges:
 
    ```sh
