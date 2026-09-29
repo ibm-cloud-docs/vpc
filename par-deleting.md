@@ -28,7 +28,9 @@ To delete public address ranges in the IBM Cloud console, follow these steps:
 1. Highlight the row of the address range in the table, then click **Delete** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 1. Click **Delete** to confirm that you want to delete this address range from the VPC.
 
-[IPv4 BYOIP Beta]{: tag-cyan}If the public address range was allocated from a custom authorized CIDR, deleting it returns that address space to the authorized CIDR for reuse.
+[IPv4 BYOIP Beta]{: tag-cyan}
+
+If the public address range was allocated from a custom authorized CIDR, deleting it returns that address space to the authorized CIDR for reuse.
 {: note}
 
 
@@ -79,7 +81,9 @@ ibmcloud is public-address-range-delete $par-id
 ```
 {: pre}
 
-[IPv4 BYOIP Beta]{: tag-cyan}If the public address range was allocated from a custom authorized CIDR, deleting it returns that address space to the authorized CIDR for reuse.
+[IPv4 BYOIP Beta]{: tag-cyan}
+
+If the public address range was allocated from a custom authorized CIDR, deleting it returns that address space to the authorized CIDR for reuse.
 {: note}
 
 
