@@ -25,43 +25,67 @@ After IBM approves your provisioning request, view your custom authorized CIDR t
 {: #view-custom-authorized-cidr-console}
 {: ui}
 
-After IBM approves your request and provisions the CIDR, you can find it on the **Custom authorized CIDRs (BYOIP)** tab. The table shows the CIDR name, IP range, IP version, availability mode (regional or zonal), and allocated resources.
+To view custom authorized CIDRs in the console:
+
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**.
+1. Click the **Custom authorized CIDRs (BYOIP)** tab.
+
+The **Custom authorized ranges** table displays the following information:
+
+| Column | Description |
+| --- | --- |
+| Name | The name of the authorized CIDR. Click the name to open the details page. |
+| CIDR | The authorized IP prefix (for example, `46.16.185.48/28`). |
+| IP version | The IP version (for example, `IPv4`). |
+| Availability mode | The availability scope: `Regional` (customer-provided BYOIP) or `Zonal` (IBM Classic migrated). |
+| Allocated resources | The number of resources currently allocated from this authorized CIDR. |
+{: caption="Custom authorized ranges table columns" caption-side="bottom"}
 
 To view details for a specific CIDR, click the CIDR name in the table. The details page includes two tabs:
 
-### Viewing CIDR details and utilization
+### Viewing CIDR details
 {: #view-cidr-overview-tab}
 
-On the **Overview** tab, you can review the following information:
+On the **Overview** tab, you can review the following information in the **CIDR details** section:
 
-- **CIDR details**: Name, ID, IP range, IP version, availability mode, location, type (user-provided), and created date.
-- **CIDR utilization**: Address space (for example, `192.168.0.0 to 192.168.0.256`), available addresses, space used, and allocated resources. The graphical view shows how the address space is divided across floating IPs, public address ranges, and available IPs.
+- **Name**: The name of the custom authorized CIDR.
+- **ID**: The unique identifier of the authorized CIDR. Click the copy icon to copy the ID to your clipboard.
+- **IP range**: The CIDR block allocated for this authorized range.
+- **IP version**: The IP version (`IPv4`).
+- **Resource group**: The resource group assigned to this authorized CIDR.
+- **Availability mode**: `Regional` or `Zonal`.
+- **Location**: The region (for example, `us-south`) or zone where the CIDR is provisioned.
+- **Type**: The CIDR ownership type (for example, `User-provided` or `IBM-provided`).
+- **CRN**: The Cloud Resource Name for the authorized CIDR. Click the copy icon to copy the CRN to your clipboard.
 
-Click **View allocated resources** to review the resources allocated from the CIDR.
+To deprovision the authorized CIDR, click the **Actions...** menu in the header and select **Deprovision**.
 
 ### Viewing allocated resources
 {: #view-cidr-allocated-resources-tab}
 
-On the **Allocated resources** tab, you can see all resources that are allocated from the authorized CIDR, and available (unallocated) address space. To filter by resource type, use the **Resource type** menu (options: All, Floating IP, Public address range).
+On the **Allocated resources** tab, you can view all resources allocated from the authorized CIDR.
 
-The following table describes each column:
+Use the **Resource type** dropdown filter (options: `All`, `Floating IP`, `Public address range`) or the search field to filter the list of allocated resources.
+
+The table displays the following columns:
 
 | Column | Description |
 | --- | --- |
-| Resource | The name of the allocated resource, or "Available" for unallocated addresses |
-| CIDR or IP | The CIDR block for public address ranges, the IP address for floating IPs, or the unallocated address block for available address space |
-| Status | Bound, Unbound, or Available |
-| Resource type | Floating IP, Public address range, or blank for available addresses |
-| Targeted resource | The VNI, instance, or VPC that the resource is attached to (if bound) |
-| Target type | Virtual server instance, Virtual network interface, or other target type |
+| Resource | The name of the allocated resource (for example, floating IP or public address range). |
+| CIDR or IP | The individual IP address (for floating IPs) or the CIDR block (for public address ranges). |
+| Status | The binding status (`Bound` with a green indicator or `Unbound` with a yellow warning indicator). |
+| Resource type | The type of resource allocated (`Floating IP` or `Public address range`). |
+| Targeted resource | The name of the targeted resource (such as a VNI or VPC) that the resource is attached to, or `—` if unbound. |
+| Target type | The target type (such as `Virtual network interface`), or `—` if unbound. |
 {: caption="Allocated resources table columns" caption-side="bottom"}
 
-### Creating resources from the allocated resources table
+### Creating resources from the authorized CIDR
 {: #create-resources-from-cidr-details}
 
-You can reserve floating IPs and create public address ranges directly from the CIDR details page:
+You can reserve floating IPs and create public address ranges directly from the **Allocated resources** tab:
 
-Click **Create** at the top of the page and select **Floating IP** or **Public address range**. The Reserve floating IP page opens with the authorized CIDR pre-selected.
+1. Click **Create** on the **Allocated resources** tab.
+1. Select **Floating IP** or **Public address range**. The provisioning page opens with the custom authorized CIDR pre-selected.
 
 This flow applies to both regional (customer-brought) CIDRs and zonal (IBM Classic migrated) CIDRs. For zonal CIDRs, only the zone that is associated with the CIDR is available during creation.
 {: note}
