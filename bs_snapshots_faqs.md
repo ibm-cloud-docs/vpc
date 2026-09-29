@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-03"
+lastupdated: "2026-09-29"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -57,9 +57,11 @@ You can copy a snapshot from one region to another region, and later use that sn
 {: faq}
 {: #faq-snapshot-crc-retention}
 
-How long the copy is kept in another regions depends on how often your backup plan generates backup snapshots and the number of copies that you chose to keep. When you create your backup policy plan with the option to create remote clones, you must specify where you want to create those copies. You must also specify the maximum number of snapshot copies that you want to keep.
+How long the copy is kept in another region depends on how often your backup plan generates backup snapshots and the number of copies that you chose to keep. When you create your backup policy plan with the option to create remote clones, you must specify where you want to create those copies. You must also specify the retention criteria — either the maximum number of snapshot copies to keep, the number of days to retain them, or both. If both are configured, age-based retention runs first, and count-based retention applies to the remaining snapshots. For more information, see [Backup plans](/docs/vpc?topic=vpc-backup-service-about#backup-service-plans).
 
 For example, if your backup plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make room for the new snapshot copy.
+
+The retention limit applies only to snapshots in a `stable` state. This applies to backup snapshots, cross-regional copies, and fast-restore clones. Snapshots that are in a transitional (`pending`) or unstable state are not included in the retention count or the retention-period calculation.
 
 Manually created copies remain in the other region until you delete them.
 

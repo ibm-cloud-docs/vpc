@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2026
-lastupdated: "2026-09-18"
+lastupdated: "2026-09-29"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -127,6 +127,8 @@ In a backup plan, you schedule the frequency of your backups. When you create a 
 You can specify the retention period or the total number of backups before the oldest is deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days, but you can set the retention period value anywhere between 1 and 1000 days. You can also set the total number of backups to retain up to 750 per first-generation volume. The maximum number of backup snapshots for second-generation volumes is 512. When the maximum number is exceeded, the oldest backups are deleted.
 
 If you specify both the age and the number of backups, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
+
+The retention limit applies only to snapshots in a `stable` state. This applies to backup snapshots, cross-regional copies, and fast-restore clones. Snapshots that are in a transitional (`pending`) or unstable state are not included in the retention count or the retention-period calculation.
 
 Consider the following examples:
 - Example 1 - You create a daily plan with a retention period of 14 days, and no maximum number of snapshots to keep. You're going to keep 14 backups and the oldest is going to be 2 weeks old.
