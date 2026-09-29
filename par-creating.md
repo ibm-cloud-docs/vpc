@@ -260,43 +260,6 @@ Select one of the following options:
 If you need to change the size of the address range or the resource group, you must delete and recreate the address range.
 {: important}
 
-## Creating public address ranges with Terraform
-{: #par-create-terraform}
-{: terraform}
-
-To create a public address range with Terraform, use the following example:
-
-```terraform
-resource "ibm_is_public_address_range" "example" {
-  ipv4_address_count = 8
-  name               = "my-public-address-range"
-  resource_group {
-    id = data.ibm_resource_group.example.id
-  }
-  target {
-    vpc {
-      id = ibm_is_vpc.example.id
-    }
-    zone {
-      name = "us-south-1"
-    }
-  }
-}
-```
-{: codeblock}
-
-[IPv4 BYOIP Beta]{: tag-cyan}To create a public address range from a custom authorized CIDR, specify the `cidr` argument instead of `ipv4_address_count`:
-
-```terraform
-resource "ibm_is_public_address_range" "from_byoip" {
-  cidr = "192.0.2.192/28"
-  name = "my-par-from-byoip"
-}
-```
-{: codeblock}
-
-
-
 
 
 ## Next steps

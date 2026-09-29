@@ -195,28 +195,7 @@ curl -sX GET "$vpc_api_endpoint/v1/public_address_range/authorized_cidrs/$author
 ```
 {: pre}
 
-## Viewing authorized CIDRs with Terraform
-{: #view-custom-authorized-cidr-terraform}
-{: terraform}
 
-To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
-
-To retrieve all authorized CIDRs in your account, use the `ibm_is_public_address_range_authorized_cidrs` data source:
-
-```terraform
-data "ibm_is_public_address_range_authorized_cidrs" "example" {
-}
-```
-{: codeblock}
-
-To retrieve details of a specific authorized CIDR, use the `ibm_is_public_address_range_authorized_cidr` data source:
-
-```terraform
-data "ibm_is_public_address_range_authorized_cidr" "example" {
-  authorized_cidr_id = var.authorized_cidr_id
-}
-```
-{: codeblock}
 
 ## Next steps
 {: #related-links-view-cidr}
