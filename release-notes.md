@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-05"
 
 keywords:
 
@@ -23,6 +23,13 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+### 01 Oct 2026
+{: #vpc-oct-0126}
+{: release-note}
+
+Workload update for IBM Hyper Protect Secure Build
+:   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-30`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a IBM Hyper Protect Secure Build server.
 
 ## September 2026
 {: #vpc-sep26}

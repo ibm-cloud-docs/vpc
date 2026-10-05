@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-10-01"
 
 keywords: block storage, VPC, boot volume, data volume, IOPS, NVMe, encryption, SSD, sdp profile, volume profiles
 
@@ -111,7 +111,9 @@ For more information, see [{{site.data.keyword.block_storage_is_short}} profiles
 
 
 You can migrate your volume from a traditional volume profile to the allowlisted SSD Defined Performance profile. For more information, see [Migrating block storage volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
-{: tip}A {{site.data.keyword.block_storage_is_short}} data volume can be attached to one compute resource at a time.
+{: tip}
+
+A {{site.data.keyword.block_storage_is_short}} data volume can be attached to one compute resource at a time.
 
 ## Securing your data
 {: #bs-data-security}
