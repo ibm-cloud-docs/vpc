@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-10-05"
 
 keywords: flow logs, ordering, logging
 
@@ -109,6 +109,8 @@ The following table outlines the message IDs that are generated for dedicated ho
 
 A log is generated when each Dedicated Host event occurs.
 {: note}
+
+
 
 ### File share cross-account access
 {: #logging-file-share-accessor}
