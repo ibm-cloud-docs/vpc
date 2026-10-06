@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-10-06"
 
 keywords: Block Storage, volume migration, volume jobs, storage generations, volume conversion
 
@@ -39,6 +39,7 @@ If you are not satisfied with the migrated volume’s performance or features, c
 {: #volume-migration-limitations}
 
 * Boot volumes that were created from images that are encrypted with customer-managed keys can't be migrated in this release.
+* Boot volumes can't be migrated if the source image that was used to create the boot volume is deleted. The source image must be available when the volume is migrated.
 * Within a 24-hour period, an account can initiate a maximum of 10 migrations per region.
 * If an offline migration is in progress, any new volume attachment request fails. To proceed with the attachment, you must cancel the migration process.
 * If an online migration is in progress, initiating a volume detachment can cancel the migration process.
