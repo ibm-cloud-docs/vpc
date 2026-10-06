@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-10-05"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -948,7 +948,7 @@ A successful response shows information that is similar to the following example
     "remote": {
     	"region": {
     	   "name": "us-south",
-    	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
+    	   "href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
     },
     "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
@@ -960,7 +960,7 @@ A successful response shows information that is similar to the following example
     "remote": {
     	"region": {
     	   "name": "us-south",
-    	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
+    	   "href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
     },
     "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-511a798c-5816-4082-8ecb-554a440f83de",
