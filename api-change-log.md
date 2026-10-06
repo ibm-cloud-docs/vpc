@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-24"
+lastupdated: "2026-10-06"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,22 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 6 October 2026
+{: #6-october-2026}
+
+### For all version dates
+{: #6-october-2026-all-version-dates}
+
+This release introduces the following updates for accounts that have special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) will be visible to all accounts.
+
+**Regional VPN gateways.** When [creating](/docs/apis/vpc/latest#create-vpn-gateway) a route-based VPN gateway, you can now specify the `availability_mode` property as `regional` and provide a `members` array with two subnet specifications, one for each VPN gateway member. When [retrieving](/docs/apis/vpc/latest#get-vpn-gateway) or [listing](/docs/apis/vpc/latest#list-vpn-gateways) VPN gateways, the response now includes the `availability_mode` property and enhanced `members` details, including member subnet information.
+
+**Regional deployment mode.** The new `availability_mode` property denotes whether a route-based VPN gateway is `zonal` or `regional`. Zonal gateways are unchanged and continue to use the top-level `subnet` property. Regional gateways use a `members` array, instead of `subnet`, with members deployable in the same or different zones within the region.
+
+**New VPN gateway member methods.** You can now [retrieve](/docs/apis/vpc/latest#get-vpn-gateway-member) or [list](/docs/apis/vpc/latest#list-vpn-gateway-members) VPN gateway members and [update a VPN gateway member private IP](/docs/apis/vpc/latest#replace-vpn-gateway-member-private-ip). An update operation recreates the selected route-based VPN gateway member in the specified subnet and can be used to move the member to another subnet or zone.
+
+**Migration to regional mode.** You can now update a zonal route-based VPN gateway to regional mode by calling the [update VPN gateway](/docs/apis/vpc/latest#update-vpn-gateway) method and setting the `availability_mode` property to `regional`. If needed, you can [update](/docs/apis/vpc/latest#replace-vpn-gateway-member-private-ip) the VPN gateway member's private IP to move that member to a different subnet. Migration from `regional` back to `zonal` is not supported.
 
 ## 24 September 2026
 {: #24-september-2026}
