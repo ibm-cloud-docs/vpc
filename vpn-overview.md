@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-17"
+  years: 2021, 2026
+lastupdated: "2026-10-08"
 
 keywords:
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # VPNs for VPC overview
 {: #vpn-overview}
 
-IBM Cloud has two VPN services. _VPN for VPC_ offers site-to-site gateways, which connect your on-premises network to the IBM Cloud VPC network. _Client VPN for VPC_ offers client-to-site servers, which allow clients on the internet to connect to VPN servers, while still maintaining secure connectivity.
+IBM Cloud has two VPN services. _VPN for VPC_ (site-to-site VPN gateways), which connect your on-premises network to the IBM Cloud VPC network. _Client VPN for VPC_ (client-to-site VPN servers), which allow clients on the internet to connect to VPN servers, while still maintaining secure connectivity.
 {: shortdesc}
 
-## Site-to-site gateways
+## Site-to-site VPN gateways
 {: #site-to-site-vpn-gateway}
 
 IBM Cloud VPN for VPC provides a simple, yet powerful solution for highly scalable, and robust site-to-site VPN gateways. With this service, you can create site-to-site VPN tunnels for secure, encrypted connectivity. Connect from on-premises sites to IBM Cloud through a VPN gateway on an IBM Cloud VPC, and a peer gateway on-premises. 
@@ -56,7 +56,7 @@ The following features are included in a site-to-site VPN gateway:
 * Pre-defined and custom encryption proposals - Choose from multiple pre-defined proposals for a quick, secure VPN configuration with customizable Internet Key Exchange (IKE) Phase 1 and Phase 2 encryption settings.
 * Monitoring - View the monitoring dashboard to see the current status of all tunnels and connections. You can also suspend and restart your individual VPN connections at any time.
 
-## Client-to-site servers
+## Client-to-site VPN servers
 {: #client-to-site-vpn-server}
 
 IBM Cloud Client VPN for VPC provides an open-source compatible client-to-site VPN solution that allows users to connect to IBM Cloud resources through secure, encrypted connections. 

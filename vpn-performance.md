@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-10-08"
 
 keywords: VPN, vpn gateways, performance, best practices
 
@@ -98,7 +98,7 @@ The following table summarizes benchmark throughput values that are tested withi
 
 |VPN mode                     | AES only         | AES-GCM          |
 |-----------------------------|------------------|------------------|
-| Route-based distributed     | ~1.6 Gbps        | ~1.6 Gbps        |
+| Route-based distributed     | ~1.1 Gbps        | ~1.6 Gbps        |
 | Route-based non-distributed | ~674 Mbps        | ~1.11 Gbps       |
 | Policy-based                | ~598 Mbps        | ~1.11 Gbps       |
 {: caption="Example benchmark throughput for route-based and policy-based VPN with AES and GCM cipher suites." caption-side="bottom"}

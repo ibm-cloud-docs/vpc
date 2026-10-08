@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-08"
 
 keywords:
 
@@ -187,7 +187,7 @@ The combined total of the advertised routes quota and the [address prefixes quot
 | IP addresses | 8 per virtual network interface |
 {: caption="Quotas for virtual network interfaces" caption-side="bottom"}
 
-### VPN for VPC (site-to-site)
+### VPN for VPC (site-to-site VPN gateways)
 {: #vpn-quotas}
 
 | Resource | Quota | Supports Policy Mode | Supports Route Mode |
@@ -203,7 +203,7 @@ The combined total of the advertised routes quota and the [address prefixes quot
 [^fn2]: A single VPC supports a maximum of one route-mode VPN per zone.
 [^fn3]: This resource and quota is applicable only to dynamic route-based VPN connection.
 
-### Client VPN for VPC (client-to-site)
+### Client VPN for VPC (client-to-site VPN servers)
 {: #vpn-server-quotas}
 
 | Resource | Quota |
