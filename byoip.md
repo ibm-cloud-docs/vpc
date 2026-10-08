@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-08"
 
 keywords:
 
@@ -99,8 +99,8 @@ For example, an enterprise migrating workloads to VPC can bring a `/28` block fr
 
 The following considerations highlight how BYOIP differs from IBM-provided public IPs and what to plan for when using your own address ranges:
 
-- BYOIP is IPv4 only. You bring your own publicly routable IPv4 range. There is no equivalent for IPv6. IBM-provided IPv6 authorized CIDRs use the same authorized CIDR infrastructure but are not BYOIP. For more information, see [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
-- BYOIP is optional. You can create public address ranges from IBM-managed IP pools without using BYOIP.
+- BYOIP supports IPv4 addresses. You can bring your own publicly routable IPv4 range.
+- BYOIP is optional. You can also create public address ranges using IBM-managed IP pools.
 - Authorized CIDRs are scoped to a single region. To use the same IP range in another region, you must remove it and onboard it again in the new region.
 - BYOIP uses a CIDR-based allocation model. Rather than having addresses assigned from an IBM-managed pool, you control how your address space is subdivided and allocated.
 - Public address ranges require ingress routing to be configured after binding, unlike floating IPs which route traffic directly without additional configuration.
