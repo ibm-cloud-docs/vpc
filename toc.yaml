@@ -634,7 +634,7 @@ toc:
           - vpn-overview.md
           - topicgroup:
               id: site-to-site-gateways
-              label: Site-to-site gateways
+              label: Site-to-site VPN gateways
               topics:
               - vpn-using.md
               - vpn-planning.md
@@ -674,7 +674,7 @@ toc:
                 navtitle: Prepare your automation for changes to VPN gateways in VPC API
           - topicgroup:
               id: client-to-site-servers
-              label: Client-to-site-servers
+              label: Client-to-site VPN servers
               topics:
               - vpn-client-to-site.md
               - vpn-client-to-site-planning.md
