@@ -19,7 +19,7 @@ Regional VPN gateways introduce schema changes that can affect integrations that
 {: shortdesc}
 
 ## Before you begin
-{: #vpn-regional-api-migration-prereqs}
+{: #vpn-regional-migration-prereqs}
 
 Review the following information before you create or migrate a VPN gateway to regional mode.
 
@@ -515,8 +515,7 @@ Lifecycle state    pending
 {: screen}
 
 ## Related links
-{: #vpn-regional-api-migration-related}
+{: #vpn-regional-migration-related}
 
-- [Move a regional VPN gateway member to a different subnet](/docs/vpc?topic=vpc-vpn-update-regional-member-subnet) - Learn how to move a gateway member to a different subnet within the same zone or across zones.
-- [Create a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway) - Learn how to create a zonal or regional VPN gateway.
+
 - [VPN gateway API reference](/docs/apis/vpc/latest#list-vpn-gateways) - View the full API reference for VPN gateway operations, including the new member endpoints.
