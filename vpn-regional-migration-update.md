@@ -12,8 +12,6 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-[Regional VPN start]{: tag-purple}
-
 # Migration considerations for updating to regional VPN
 {: #vpn-gateway-regional-migration-update}
 
@@ -522,5 +520,3 @@ Lifecycle state    pending
 - [Move a regional VPN gateway member to a different subnet](/docs/vpc?topic=vpc-vpn-update-regional-member-subnet) - Learn how to move a gateway member to a different subnet within the same zone or across zones.
 - [Create a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway) - Learn how to create a zonal or regional VPN gateway.
 - [VPN gateway API reference](/docs/apis/vpc/latest#list-vpn-gateways) - View the full API reference for VPN gateway operations, including the new member endpoints.
-
-[Regional VPN end]{: tag-purple}
