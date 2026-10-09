@@ -644,6 +644,7 @@ toc:
               - vpn-create-ipsec-policy.md
               - vpn-upgrade-ciphers.md
               - vpn-update-multiple-algorithms.md
+              - vpn-regional-migration-update.md
               - vpn-site-to-site-routes-propagating.md
               - vpn-onprem.md
               - vpn-onprem-aws.md
