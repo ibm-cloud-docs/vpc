@@ -85,7 +85,7 @@ Third-party license and entitlement service for volumes and snapshots
 
 ### 03 September 2026
 {: #vpc-sep0326}
-{: release-note}
+{: release-note}<BSVPC-339-Mumbai>
 
 Gen 2 volumes and snapshots now available in Mumbai - Airtel MZR (select availability)
 :   The `sdp` profile and snapshots for second-generation block storage volumes are now available for allow-listed customers in the Mumbai - Airtel (`in-mum`) region. For more information, see [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro) and [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui).</BSVPC-339-Mumbai>
