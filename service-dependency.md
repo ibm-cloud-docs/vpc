@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-09-21"
+lastupdated: "2026-10-12"
 
 keywords:
 
@@ -1174,14 +1174,15 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data and Control plane deployment
 {: #data-and-control-plane-deployment}
 
-The following dependencies apply to the following deployment locations: Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Montreal (ca-mon), Osaka (jp-osa), Sao Paulo (br-sao), Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
+The following dependencies apply to the following deployment locations: Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Osaka (jp-osa), Sao Paulo (br-sao), Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.cis_full}} | Availability, Disaster recovery, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
-| {{site.data.keyword.iamlong}} | Access management, Availability, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
+| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloud Load Balancer for VPC - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
@@ -1193,7 +1194,15 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.secrets-manager_full}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
+| IBM Cloud Global Search and Tagging | Availability | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.registrylong}} | Availability, Disaster recovery, Instance control, Operations, Security compliance | No | Both |  Same region  |
+| IBM Cloud Business Support Services | Availability, Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.atracker_full}} | Availability, Change management, Operations, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.monitoringlong}} | Availability | No | Both |  Same region  |
+| {{site.data.keyword.keymanagementservicefull}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| OSS Platform | Availability, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.pag_full}} | Availability, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Load Balancer for VPC - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -1204,9 +1213,21 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| IBM Cloud Security and Compliance Center| Change management, Instance control, Security compliance | No | Both |  Same region  |
-| SOS Vault| Change management, Instance control, Security compliance | No | Both |  Same region  |
 | SOS SIEM| Change management, Security compliance | No | Both |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud Load Balancer for VPC - Data and Control plane deployment service dependency information - Medium dependencies" caption-side="top"}
+{: tab-title="Medium dependencies"}
+{: tab-group="service-dependency-data-for-is-load-balancer-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #medium-service-dependencies-for-is-load-balancer-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| corporate-qradar| Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-uptycs| Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Log Routing| Operations, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.metrics_router_full}}| Operations, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Load Balancer for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
