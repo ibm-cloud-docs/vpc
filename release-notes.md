@@ -1,4 +1,4 @@
-﻿---
+---
 
 copyright:
   years: 2019, 2026
@@ -80,8 +80,6 @@ Third-party license and entitlement service for volumes and snapshots
       - [Retrieving a snapshot software attachment](/docs/vpc?topic=vpc-snapshots-vpc-software-attachments&interface=cli#snapshots-vpc-retrieve-software-attachment-cli)
 
    For more information on the API changes, see the [VPC API change log entry for 24 September 2026](/docs/vpc?topic=vpc-api-change-log#24-september-2026-all-version-dates).
-
-
 
 ### 03 September 2026
 {: #vpc-sep0326}
