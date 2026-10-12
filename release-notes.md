@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-05"
+lastupdated: "2026-10-12"
 
 keywords:
 
@@ -39,8 +39,8 @@ Workload update for IBM Hyper Protect Secure Build
 {: release-note}
 
 Custom authorized CIDRs (BYOIP) for public address ranges (beta)
-:   Customers with special access can now bring your own publicly routable IPv4 address ranges into {{site.data.keyword.vpc_short}} by provisioning a custom authorized CIDR. A custom authorized CIDR acts as a pool of public IP addresses that you own and control. After provisioning, you can allocate CIDR blocks from it as public address ranges or reserve individual addresses as floating IPs to attach to virtual network interfaces or public gateways. By using your own IP ranges, you can retain your established IP reputation, preserve existing firewall allowlists, and maintain addressing continuity when you migrate workloads to VPC. 
-   
+:   Customers with special access can now bring your own publicly routable IPv4 address ranges into {{site.data.keyword.vpc_short}} by provisioning a custom authorized CIDR. A custom authorized CIDR acts as a pool of public IP addresses that you own and control. After provisioning, you can allocate CIDR blocks from it as public address ranges or reserve individual addresses as floating IPs to attach to virtual network interfaces or public gateways. By using your own IP ranges, you can retain your established IP reputation, preserve existing firewall allowlists, and maintain addressing continuity when you migrate workloads to VPC.
+
    API support is available, with UI and CLI support coming soon. For more information, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip).
 
 ### 25 September 2026
@@ -86,6 +86,9 @@ Third-party license and entitlement service for volumes and snapshots
 ### 03 September 2026
 {: #vpc-sep0326}
 {: release-note}
+
+Gen 2 volumes and snapshots now available in Mumbai - Airtel MZR (select availability)
+:   The `sdp` profile and snapshots for second-generation block storage volumes are now available for allow-listed customers in the Mumbai - Airtel (`in-mum`) region. For more information, see [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro) and [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui).</BSVPC-339-Mumbai>
 
 NVIDIA B300 accelerated virtual server profile now available in Dallas region (select availability)
 :   NVIDIA B300 accelerated virtual server profile is now available for select customers in the Dallas (`us-south`) region in universal zone `us-south-dal12-a`. For more information, see [Accelerated (GPU) instance profiles - Gen 4](/docs/vpc?topic=vpc-accelerated-profile-family-gen4).
