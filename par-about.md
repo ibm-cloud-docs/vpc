@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-09"
 
 keywords: vpc, public address ranges, getting started
 
@@ -54,8 +54,8 @@ Before you begin, review [Planning considerations for public address ranges](/do
 
 Follow these steps to get started with IPv4 public address ranges.
 
-1. Ensure that you have [created a VPC](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc) and all the needed resources (if not already present).[BYOIP (IPv4) Beta]{: tag-cyan}
-1. Optionally, [create a custom authorized CIDR](/docs/vpc?topic=vpc-provision-custom-authorized-cidr&interface=ui) to bring your own public IPv4 address range for use with public address ranges.
+1. Ensure that you have [created a VPC](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc) and all the needed resources (if not already present).
+1. [BYOIP (IPv4) Beta]{: tag-cyan}Optionally, [create a custom authorized CIDR](/docs/vpc?topic=vpc-provision-custom-authorized-cidr&interface=ui) to bring your own public IPv4 address range for use with public address ranges.
 1. [Create your public address range](/docs/vpc?topic=vpc-par-creating&interface=ui).
 1. [Bind, unbind, and move public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui) after creating a public address range.
 1. [Configure an ingress routing table for your VPC](/docs/vpc?topic=vpc-about-custom-routes&interface=ui) by adding routes that direct traffic to the next-hop IP of the target appliance, using the public IP address range as the destination. These routes direct public internet traffic to a next-hop within the VPC, such as a Network Functions Virtualization (NFV) instance, router, firewall, or load balancer.
