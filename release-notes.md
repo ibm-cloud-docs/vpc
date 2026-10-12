@@ -1,4 +1,4 @@
-﻿---
+---
 
 copyright:
   years: 2019, 2026
@@ -23,6 +23,9 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+
+
 
 ### 01 Oct 2026
 {: #vpc-oct-0126}
