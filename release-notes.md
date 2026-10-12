@@ -24,9 +24,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
-
-
-
 ### 01 Oct 2026
 {: #vpc-oct-0126}
 {: release-note}
@@ -83,8 +80,6 @@ Third-party license and entitlement service for volumes and snapshots
       - [Retrieving a snapshot software attachment](/docs/vpc?topic=vpc-snapshots-vpc-software-attachments&interface=cli#snapshots-vpc-retrieve-software-attachment-cli)
 
    For more information on the API changes, see the [VPC API change log entry for 24 September 2026](/docs/vpc?topic=vpc-api-change-log#24-september-2026-all-version-dates).
-
-
 
 ### 03 September 2026
 {: #vpc-sep0326}
