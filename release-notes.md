@@ -24,6 +24,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
+## October 2026
+{: #vpc-oct26}
+
+
+
 ### 01 Oct 2026
 {: #vpc-oct-0126}
 {: release-note}
