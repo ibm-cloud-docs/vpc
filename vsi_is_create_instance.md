@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-10-13"
 
 keywords:
 
@@ -614,7 +614,24 @@ Use the following steps to create a basic virtual server instance from a stock i
    ```
    {: screen}
 
-3. Request a floating IP address to associate to your instance by using the following command. The name that is specified for the floating IP is `my-floatingip`. `0717-4db768bb-65c3-4045-8712-523e62eeabd2` is the ID of the network interface for the virtual server instance that displayed in the previous step.
+3. Request a floating IP address to associate to your instance by using the following command. For `FLOATING_IP_NAME` specify a name for your floating IP, and for `TARGET_INTERFACE` specify the ID of the instance network interface that you identified in the previous step. For a virtual network interface (VNI), you would need to add --vni followed by the name or ID of the VNI.
+
+   ```sh
+   ibmcloud is floating-ip-reserve \
+       FLOATING_IP_NAME \
+       --nic TARGET_INTERFACE
+   ```
+   {: pre}
+   
+   VNI:
+   ```sh
+   ibmcloud is floating-ip-reserve \
+       FLOATING_IP_NAME \
+       --vni VNI_NAME_OR_ID
+   ```
+   {: pre}
+
+The name that is specified for the floating IP is `my-floatingip`. `0717-4db768bb-65c3-4045-8712-523e62eeabd2` is the ID of the network interface for the virtual server instance that displayed in the previous step.
 
    ```sh
    ibmcloud is floating-ip-reserve \
