@@ -35,14 +35,16 @@ Check and resolve the issue by adding the following outbound rules to the securi
 
 
 1. Add the following back-end health probe rule to permits the application load balancer (ALB) to send the actual HTTP/TCP health check probes directly to the resolved back-end destination:
-• Protocol: 6 TCP
-• Destination Type: CIDR block
-• Destination: <Attached FQDN's subnet range>
-• Port (Min/Max): <Attached FQDN's health check port>
+
+- Protocol: 6 TCP
+- Destination Type: CIDR block
+- Destination: <Attached FQDN's subnet range>
+- Port (Min/Max): <Attached FQDN's health check port>
 
 
 1. Add the following delegated DNS proxy rule to authorize the ALB to communicate with IBM Cloud’s core regional infrastructure DNS proxies to resolve external delegated FQDN domains:
-• Protocol: 17 UDP
-• Destination Type: CIDR block
-• Destination: 161.26.0.0/16
-• Port (Min/Max): 53
+
+- Protocol: 17 UDP
+- Destination Type: CIDR block
+- Destination: `161.26.0.0/16`
+- Port (Min/Max): 53
