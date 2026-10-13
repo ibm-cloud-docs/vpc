@@ -1288,6 +1288,7 @@ toc:
               - lb-ts-mtls-listener.md
               - lb-ts-mtls-pool.md
               - ppnlb-ts.md
+              - lb-ts-fqdn-load-balancer.md
           - topicgroup:
               id: tbs-pps
               label: Troubleshooting Private Path services
