@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-10-13"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -90,6 +90,11 @@ To create and configure {{site.data.keyword.nlb_full}} with routing mode with th
 1. Click **New listener** and specify the back-end pool to which this listener forwards traffic.
 
    The protocol for receiving incoming requests, as well as the listening port on which requests are received, are already selected for you.
+   {: note}
+
+1. For Security groups, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your NLB.
+
+   Ensure that the security group allows for load-balancing traffic (listener, targets, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
    {: note}
 
 1. An order summary shows pricing estimates. Review the Cloud Services terms. Then, click **Create** to complete your order.
