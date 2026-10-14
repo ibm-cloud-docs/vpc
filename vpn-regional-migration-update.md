@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-09"
+lastupdated: "2026-10-14"
 
 keywords: VPN, VPN gateway, regional VPN, API migration, subnet, availability mode, members
 
@@ -43,8 +43,8 @@ Regional VPN gateways introduce the following API changes:
     "name": "my-vpn-gateway",
     "availability_mode": "zonal"
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
   ```json
   {
@@ -52,12 +52,12 @@ Regional VPN gateways introduce the following API changes:
     "name": "my-vpn-gateway",
     "availability_mode": "regional"
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
 - For zonal VPN gateways, subnet information is returned in the top-level `subnet` property. For regional VPN gateways, the top-level `subnet` property is not returned. Instead, subnet information is available in each member's `private_ip.subnet` property (`members[].private_ip.subnet`).
 
-  **Zonal gateway response:**
+   **Zonal gateway response:**
 
   ```json
   {
@@ -70,10 +70,10 @@ Regional VPN gateways introduce the following API changes:
       "resource_type": "subnet"
     }
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
-  **Regional gateway response:**
+   **Regional gateway response:**
 
   ```json
   {
@@ -81,8 +81,8 @@ Regional VPN gateways introduce the following API changes:
     "name": "my-regional-vpn-gateway",
     "availability_mode": "regional"
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
 - Subnet information for regional gateways must be read from each gateway member by using the `members[].private_ip.subnet` property.
 
@@ -113,8 +113,8 @@ Regional VPN gateways introduce the following API changes:
       }
     ]
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
 ## Handling API responses for zonal and regional gateways
 {: #vpn-regional-api-availability-mode}
@@ -128,20 +128,20 @@ Zonal gateways
 Regional gateways
 :   When `availability_mode` is `regional`, the top-level `subnet` property is absent from the API response. Each member contains a `private_ip.subnet` object with the subnet details for that member. Subnet information can be retrieved either from the inline `members` array in `GET /vpn_gateways/{id}` or by calling `GET /vpn_gateways/{id}/members`.
 
-  If your integration currently reads `gateway.subnet`, update it to read the subnet from the appropriate member when `availability_mode` is `regional`.
+   If your integration currently reads `gateway.subnet`, update it to read the subnet from the appropriate member when `availability_mode` is `regional`.
 
 Regional VPN gateway member operations
 :   The following API operations are available for regional VPN gateway members:
 
-  | Method | Path | Operation ID |
-  | --- | --- | --- |
-  | `GET` | `/vpn_gateways/{vpn_gateway_id}/members` | `list_vpn_gateway_members` |
-  | `GET` | `/vpn_gateways/{vpn_gateway_id}/members/{id}` | `get_vpn_gateway_member` |
-  | `PUT` | `/vpn_gateways/{vpn_gateway_id}/members/{id}` | `replace_vpn_gateway_member` |
-  {: caption="Regional VPN gateway member operations" caption-side="bottom"}
+   | Method | Path | Operation ID |
+   | --- | --- | --- |
+   | `GET` | `/vpn_gateways/{vpn_gateway_id}/members` | `list_vpn_gateway_members` |
+   | `GET` | `/vpn_gateways/{vpn_gateway_id}/members/{id}` | `get_vpn_gateway_member` |
+   | `PUT` | `/vpn_gateways/{vpn_gateway_id}/members/{id}` | `replace_vpn_gateway_member` |
+   {: caption="Regional VPN gateway member operations" caption-side="bottom"}
 
-  The `replace_vpn_gateway_member` operation is not available for zonal gateways.
-  {: note}
+   The `replace_vpn_gateway_member` operation is not available for zonal gateways.
+   {: note}
 
 ## API response examples
 {: #vpn-regional-api-response-examples}
@@ -159,8 +159,8 @@ For a zonal gateway, the `GET /vpn_gateways/{id}` response includes the top-leve
 
   ```sh
   GET /v1/vpn_gateways/{id}
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
 - The following example shows the response with the relevant fields:
 
@@ -190,8 +190,8 @@ For a zonal gateway, the `GET /vpn_gateways/{id}` response includes the top-leve
       }
     ]
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
 ### Case 2: Regional gateway
 {: #vpn-regional-api-example-regional}
@@ -203,8 +203,8 @@ For a regional gateway, the API response to `GET /vpn_gateways/{id}` does not in
 
   ```sh
   GET /v1/vpn_gateways/{id}
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
 - The following example shows the response. Notice that no top-level `subnet` field exists and subnet information is available inline from each member:
 
@@ -244,15 +244,15 @@ For a regional gateway, the API response to `GET /vpn_gateways/{id}` does not in
       }
     ]
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
 - Alternatively, the following example shows the request to retrieve the same subnet information by calling the members endpoint directly:
 
   ```sh
   GET /v1/vpn_gateways/{id}/members
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
 - The following example shows the response with each member's subnet details:
 
@@ -289,15 +289,15 @@ For a regional gateway, the API response to `GET /vpn_gateways/{id}` does not in
       }
     ]
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
 - The following example shows the request to retrieve subnet information for a specific member:
 
   ```sh
   GET /v1/vpn_gateways/{id}/members/{member_id}
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
 - The following example shows the response with the subnet details for that member:
 
@@ -316,8 +316,8 @@ For a regional gateway, the API response to `GET /vpn_gateways/{id}` does not in
     "health_state": "ok",
     "lifecycle_state": "stable"
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
 ### Case 3: Regional gateway in pending status
 {: #vpn-regional-api-example-pending}
@@ -329,8 +329,8 @@ When a gateway is being provisioned, a private IP address is not assigned to its
 
   ```sh
   GET /v1/vpn_gateways/{id}/members
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
 - The following example shows the response when the gateway is in pending status. Notice that the `private_ip` address is `0.0.0.0` until provisioning is complete.
 
@@ -353,8 +353,8 @@ When a gateway is being provisioned, a private IP address is not assigned to its
       }
     ]
   }
-  ```
-  {: screen}
+   ```
+   {: screen}
 
 ## CLI changes for regional VPN gateways
 {: #vpn-regional-cli-changes}
@@ -371,15 +371,15 @@ Regional gateways
 Regional VPN gateway member CLI commands
 :   The following CLI commands are available for regional VPN gateway members:
 
-  | Command | Description |
-  | --- | --- |
-  | `ibmcloud is vpn-gateway-members VPN_GATEWAY` | List all members of a VPN gateway. |
-  | `ibmcloud is vpn-gateway-member VPN_GATEWAY --member MEMBER` | Get details for a specific member. |
-  | `ibmcloud is vpn-gateway-member-replace VPN_GATEWAY --member MEMBER --private-ip-subnet SUBNET` | Move a member to a different subnet. |
-  {: caption="CLI commands for regional VPN gateway members" caption-side="bottom"}
+   | Command | Description |
+   | --- | --- |
+   | `ibmcloud is vpn-gateway-members VPN_GATEWAY` | List all members of a VPN gateway. |
+   | `ibmcloud is vpn-gateway-member VPN_GATEWAY --member MEMBER` | Get details for a specific member. |
+   | `ibmcloud is vpn-gateway-member-replace VPN_GATEWAY --member MEMBER --private-ip-subnet SUBNET` | Move a member to a different subnet. |
+   {: caption="CLI commands for regional VPN gateway members" caption-side="bottom"}
 
-  The `ibmcloud is vpn-gateway-member-replace` command is not available for zonal gateways.
-  {: note}
+   The `ibmcloud is vpn-gateway-member-replace` command is not available for zonal gateways.
+   {: note}
 
 ## CLI output examples
 {: #vpn-regional-cli-output-examples}

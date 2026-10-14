@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-13"
+lastupdated: "2026-10-14"
 
 keywords: windows server, stock images, faq, lifecycle, support, updates, patch tuesday, microsoft
 
@@ -66,10 +66,10 @@ New Windows Server versions become available as stock images after Microsoft Win
 
 * For Microsoft Windows Server software that is purchased natively on {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}} Support is the first point of contact for any issue with a Microsoft Windows Server software-related issue. If Microsoft Windows Server involvement is required to solve a potential issue, {{site.data.keyword.cloud_notm}} Support engages Microsoft Windows Server support.
 * For custom images, it is the client's responsibility to resolve any issues that are related to the custom image, such as driver mismatch, licensing, or additional software installations.
-* If clients desire a direct support relationship with Microsoft, then purchasing support directly from Microsoft is the best option. Visit the [Microsoft website](https://support.microsoft.com/){: external} for more information.
+* If clients want a direct support relationship with Microsoft, then purchasing support directly from Microsoft is the best option. Visit the [Microsoft website](https://support.microsoft.com/){: external} for more information.
 * For Windows Server Datacenter edition, {{site.data.keyword.cloud_notm}} Support covers the base operating system, but not customer-specific configurations or services layered on top of it, such as Active Directory, Domains, or Hyper-V. If there is an issue with enabling a feature such as Hyper-V, {{site.data.keyword.cloud_notm}} Support can assist in obtaining support where possible. However, troubleshooting or supporting the Hyper-V configuration itself is not supported.
 * {{site.data.keyword.cloud_notm}} Support covers the core operating system installed by IBM Cloud automation. Under the shared responsibility model, issues related to Active Directory, Group Policy Object, Hyper-V, SQL, and similar components are the client's responsibility and are not covered by {{site.data.keyword.cloud_notm}} Support. Similarly, issues resulting from settings or customizations made by the client are the client's responsibility and are not covered by {{site.data.keyword.cloud_notm}} Support.
-+ Before opening a support case, perform an initial investigation. When opening a support case, include findings from the initial investigation along with any specific questions.
+* Before opening a support case, perform an initial investigation. When opening a support case, include findings from the initial investigation along with any specific questions.
 
 ## How do clients update the software on their Windows Server instances?
 {: #windows-server-software-updates}
