@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-13"
 
 keywords: viewing, deleting, public address range
 
@@ -28,7 +28,7 @@ The Public address ranges for VPC page shows the following information:
 
 - **Name:** The name of the public address range object.
 - **Status:** States whether the address range is bound or unbound to the specified VPC.
-- **Lifecycle state:** States whether the binding or unbinding of the address range is successful, and if it is stable or not.
+- **Lifecycle status:** States whether the binding or unbinding of the address range is successful, and if it is stable or not.
 - **IP range:** The range of IP addresses included in the address range.[BYOIP (IPv4) Beta]{: tag-cyan}
 
    Public address ranges that were created from a custom authorized CIDR display an icon indicating "Created from an authorized CIDR".
@@ -37,6 +37,7 @@ The Public address ranges for VPC page shows the following information:
 
 - **Zone:** States the zone that the address range is bound to (if applicable).
 - **Target resource:** States the VPC that the address range is bound to in the previous zone (if applicable).
+- **Target type:** States the type of resource that the address range is bound to (if applicable).
 
 [BYOIP (IPv4) Beta]{: tag-cyan}To view details of a public address range, click the name to open the details page. The details page shows:
 

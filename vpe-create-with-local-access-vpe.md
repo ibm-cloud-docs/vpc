@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-20"
+lastupdated: "2026-10-13"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -203,11 +203,12 @@ To create a local-access endpoint gateway with the API, follow these steps:
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \
       "$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2" \
-      -d {
-      "name": endpoint-gateway-1",
-      "vpc": {"id":"'$VpcId'"},
+      -d '{
+      "name": "endpoint-gateway-1",
+      "resource_group": {"id": "'$ResourceGroupId'"},
+      "vpc": {"id": "'$VpcId'"},
       "target": {
-      "crn": "$TargetCrn",
+      "crn": "'$TargetCrn'",
       "resource_type": "provider_cloud_service"
       },
       "security_groups": [
@@ -228,19 +229,20 @@ To create a local-access endpoint gateway with the API, follow these steps:
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \
       "$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2" \
-      -d {
-      "name": endpoint-gateway-1",
-      "vpc": {"id":"'$VpcId'"},
+      -d '{
+      "name": "endpoint-gateway-1",
+      "resource_group": {"id": "'$ResourceGroupId'"},
+      "vpc": {"id": "'$VpcId'"},
       "target": {
-      "crn": "$TargetCrn",
+      "crn": "'$TargetCrn'",
       "resource_type": "provider_cloud_service"
       },
       "security_groups": [
       {"id": "'$sg'"}
       ],
       "ips": [
-      {"subnet": { "id": "$SubnetId" } }
-      ],
+      {"subnet": {"id": "'$SubnetID'"}}
+      ]
       }'
       ```
       {: codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-08"
+lastupdated: "2026-10-14"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -774,21 +774,37 @@ The response indicates that all backup plans are deleted.
 {: #backup-delete-plan-terraform}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently delete a remote object such as a single backup plan or backup policy. The following example erases the `example-backup-policy-plan`.
+The preferred way to delete a backup plan or backup policy that is managed by Terraform is to remove its `ibm_is_backup_policy_plan` or `ibm_is_backup_policy` resource block from your configuration and run `terraform apply`. Terraform detects the missing resource and destroys it, keeping your configuration and state in sync.
 
-```terraform
-terraform destroy --target ibm_is_backup_policy_plan.example.id
+1. Open your Terraform configuration file and delete the `ibm_is_backup_policy_plan` or `ibm_is_backup_policy` resource block.
+2. Run `terraform apply` to apply the change.
+
+   ```sh
+   terraform apply
+   ```
+   {: pre}
+
+   Terraform displays a plan that shows the resource is marked for destruction. Confirm the plan to proceed.
+
+If you want to destroy a specific backup plan or policy without editing your configuration, you can use `terraform destroy --target` instead.
+
+The following example targets a single backup plan by its Terraform address:
+
+```sh
+terraform destroy --target ibm_is_backup_policy_plan.example
 ```
-{: codeblock}
+{: pre}
 
-The following example deletes the `example-backup-policy`.
+The following example targets a single backup policy by its Terraform address:
 
-```terraform
-terraform destroy --target ibm_is_backup_policy.example.id
+```sh
+terraform destroy --target ibm_is_backup_policy.example
 ```
-{: codeblock}
+{: pre}
 
-For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+Using this method preserves the resource block in your configuration, which creates a drift between your configuration and your infrastructure state. Remove the resource block from your configuration after you confirm that the resource is deleted.
+
+For more information, see [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply){: external} and [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 ## Next steps
 {: #backup-next-steps-manage}

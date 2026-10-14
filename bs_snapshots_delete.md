@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-10-14"
 
 keywords: snapshots, Block Storage snapshots, delete snapshots, remove snapshots
 
@@ -198,14 +198,28 @@ You can delete any snapshot for a volume or all snapshots for a volume with Terr
 {: #snapshots-vpc-delete-terraform}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently delete a remote object such as a single snapshot. The following example deletes `my-snapshot`.
+The preferred way to delete a snapshot that is managed by Terraform is to remove its `ibm_is_snapshot` resource block from your configuration and run `terraform apply`. Terraform detects the missing resource and destroys it, keeping your configuration and state in sync.
 
-```terraform
-terraform destroy --target ibm_is_snapshot.my-snapshot
+1. Open your Terraform configuration file and delete the `ibm_is_snapshot` resource block for the snapshot.
+2. Run `terraform apply` to apply the change.
+
+   ```sh
+   terraform apply
+   ```
+   {: pre}
+
+   Terraform displays a plan that shows the resource is marked for destruction. Confirm the plan to proceed.
+
+If you want to destroy a specific snapshot without editing your configuration, you can use `terraform destroy --target` instead. The following example targets a single resource by its Terraform address:
+
+```sh
+terraform destroy --target ibm_is_snapshot.example
 ```
-{: codeblock}
+{: pre}
 
-For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+Using this method preserves the resource block in your configuration, which creates a drift between your configuration and your infrastructure state. Remove the resource block from your configuration after you confirm that the snapshot is deleted.
+
+For more information, see [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply){: external} and [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 ### Deleting all snapshots for a volume with Terraform
 {: #snapshots-vpc-delete-all-snaphots-terraform}

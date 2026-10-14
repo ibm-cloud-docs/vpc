@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating virtual server instances
 {: #creating-virtual-servers}
 
-You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform.
+You can create one or more virtual server instances (VSIs) in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform.
 {: shortdesc}
 
 When you create a virtual server, you specify information such as the location and name for your virtual server. You specify an operating system image, a profile that defines the combination of vCPU and RAM, and SSH keys to securely connect to your virtual server. You can add data volumes in addition to the boot volume. You can also specify the type of network interface that is created for your virtual server. Finally, you can select from advanced options for your virtual server configuration.
@@ -24,7 +24,7 @@ When you create a virtual server, you specify information such as the location a
 {: #creating-virtual-servers-ui}
 {: ui}
 
-Use the following steps to create a virtual server instance.
+Use the following steps to create a VSI.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
@@ -32,8 +32,8 @@ Use the following steps to create a virtual server instance.
 
    | Field | Value |
    |-------|-------|
-   | Location | Locations are composed of regions (specific geographic areas) and zones (fault-tolerant data centers within a region). Select the location where you want to create your virtual server instance. |
-   | Name  | A name is required for your virtual server instance. |
+   | Location | Locations are composed of regions (specific geographic areas) and zones (fault-tolerant data centers within a region). Select the location where you want to create your VSI. |
+   | Name  | A name is required for your VSI. |
    | Resource group | Select a resource group for the instance. |
    | Tags | You can assign a user tag to the instance so that you can easily filter instance resources in your resource list. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
@@ -48,12 +48,12 @@ Use the following steps to create a virtual server instance.
 
    Table 2 describes image, snapshot, and existing volume options. Then, select a profile. To select from all available vCPU and RAM combinations, click **Change profile**. Table 3 describes profile selection. {: #select-image-and-profile}
 
-   Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+   Allowed-use expressions: The image that you select determines the profiles that are available to create the VSI. During the creation of a VSI with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential VSI to determine whether that image can be used to create the VSI. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
    {: note}
 
    | Field | Value |
    |-------|-------|
-   | Stock image | Select from available stock images and click **Save**. \n For more information about available stock images, see:  \n   * [x86 virtual server images](/docs/vpc?topic=vpc-about-images)  \n   * [Deprecated]{: tag-deprecated} [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images) \n The s390x architecture is deprecated. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information about deprecation, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).  \n - All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post-provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances. \n - If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about). |
+   | Stock image | Select from available stock images and click **Save**. \n For more information about available stock images, see:  \n   * [x86 virtual server images](/docs/vpc?topic=vpc-about-images)  \n   * [Deprecated]{: tag-deprecated} [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images) \n The s390x architecture is deprecated. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information about deprecation, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).  \n - All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post-provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS VSIs. \n - If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about). |
    | Custom image  | Select from available custom images and click **Save**. If no custom images are available, click **Create**. \n - A custom image can be an image that you customize and upload to {{site.data.keyword.cos_full_notm}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images). \n - You can also use a custom image that was created from a boot volume. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n - You can also select either an RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about). |
    | Catalog image | After you select an available catalog image, click **Select version and pricing plan**, choose the version and pricing plan, and then click **Save**. \n - A catalog image is a custom image that is imported into a private catalog. For more information about catalog images, see [VPC considerations for custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui). \n **Note:** If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in the console](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#private-catalog-image-reference-vpc-ui). \n - To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).|
    | Snapshot | Select either **Import existing snapshot** or **Import snapshot by CRN**. Then, choose a snapshot of a boot volume, and click **Save**. If no snapshots are available, click **Create**. \n - Filter the list of snapshots for [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore). With this option, you can create the boot volume quickly by using a snapshot that is cached in a different zone of your region. For more information about restoring a volume from a snapshot, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). \n - If you're using the CRN of a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) are in place. |
@@ -83,11 +83,11 @@ You can provision an instance from an `available`, `partially_available` (image 
    | Field | Value |
    |-------|-------|
    | SSH keys | You must select an existing public SSH key or click **Create an SSH key** to create one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. \n **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can be either RSA or ED25519. You can create only RSA SSH keys. For an ED25519 SSH key, you must upload the key information. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. \n For more information, see the [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys) topic. |
-   | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS virtual server instance is 245 GB. Some Linux stock images can be installed on a boot volume with capacity of at least 10 GB, while some Windows stock images require a minimum of 40 GB. \n If you're importing a custom image, its minimum provisioned size can be 10 - 250 GB. Images that are smaller than 10 GB are rounded up to 10 GB. \n Boot volumes with a Gen 1 volume profile can be increased to 250 GB. Boot volumes with the Gen 2 `sdp` profile can be increased up to 32,000 GB. \n In the console, you see three tiles with possible capacity values and one custom option. The default selection for most compute profiles is 100 GB. When the Flex profile is selected the default selection is the minimum provision size of the selected image or snapshot. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") in the Custom tile to modify the boot volume's attributes in the side panel. \n \n You can change the name of the boot volume by specifying a unique, meaningful name. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique to the entire VPC infrastructure. You can edit the name later if you want to. \n \n You can toggle the auto-delete option off for the boot volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. \n \n You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). \n \n Provider-managed encryption is enabled by default. To use your own encryption key, click the toggle in the **Encryption** section to enable customer-managed encryption. If you already have a KMS instance and root key, the system autoselects it for you. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change to another key or instance. For more information, see [Provisioning instances with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption#provision-byok-ui). \n \n You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity, IOPS, and bandwidth. \n Note: Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is needed, select one of the `tiered` profiles or the `custom` profile. |
+   | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS VSI is 245 GB. Some Linux stock images can be installed on a boot volume with capacity of at least 10 GB, while some Windows stock images require a minimum of 40 GB. \n If you're importing a custom image, its minimum provisioned size can be 10 - 250 GB. Images that are smaller than 10 GB are rounded up to 10 GB. \n Boot volumes with a Gen 1 volume profile can be increased to 250 GB. Boot volumes with the Gen 2 `sdp` profile can be increased up to 32,000 GB. \n In the console, you see three tiles with possible capacity values and one custom option. The default selection for most compute profiles is 100 GB. When the Flex profile is selected the default selection is the minimum provision size of the selected image or snapshot. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") in the Custom tile to modify the boot volume's attributes in the side panel. \n \n You can change the name of the boot volume by specifying a unique, meaningful name. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique to the entire VPC infrastructure. You can edit the name later if you want to. \n \n You can toggle the auto-delete option off for the boot volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. \n \n You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). \n \n Provider-managed encryption is enabled by default. To use your own encryption key, click the toggle in the **Encryption** section to enable customer-managed encryption. If you already have a KMS instance and root key, the system autoselects it for you. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change to another key or instance. For more information, see [Provisioning instances with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption#provision-byok-ui). \n \n You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity, IOPS, and bandwidth. \n Note: Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is needed, select one of the `tiered` profiles or the `custom` profile. |
    | Data volumes | You can create one or more secondary data volumes to be attached when you provision the instance. Click **Create** in the Data volumes section to open the side panel where you can define the volume. \n \n Specify a unique, meaningful name. The same specifications apply as for the boot volume. \n \n You can toggle the auto-delete option on for the data volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. \n \n You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). \n \n Provider-managed encryption is enabled by default. To use your own encryption key, click the toggle in the **Encryption** section to enable customer-managed encryption. If you already have a KMS instance and root key, the system autoselects it for you. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change to another key or instance. For more information, see [Provisioning instances with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption#provision-byok-ui). \n \n You can select the [Storage volume profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity and IOPS. For more information, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).|
    | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a VPC. To create a VPC, click **New VPC**. |
    | Add to cluster network | If you select the H100 GPU profile, `gx3d-160x1792x8h100`, you see the option to **Add to cluster network**. You can set **Add to cluster network** to on to enable the virtual server to access the power of a high-performance network that supports Remote Direct Memory Access (RDMA). When **Add to cluster network** is set to on and a cluster network is available, the {{site.data.keyword.cloud_notm}} console includes default selections for configuring the virtual server for the cluster network. If no cluster network is available, you can click **Create cluster network**. When a cluster network is selected, only the VPC where the cluster network is provisioned is displayed in the **Virtual private cloud** drop-down menu. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network&interface=ui). |
-   | Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **Create**. You can create and assign up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces). \n \n With the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the traditional option **Instance network interface**. Whichever type of network interface option that you select when you provision the virtual server persists through the lifecycle of the virtual server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).  |
+   | Network interfaces | By default the VSI is created with a single primary network interface. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **Create**. You can create and assign up to 15 network interfaces for your VSI, depending on the vCPU count that is included in the instance profile. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces). \n \n With the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the traditional option **Instance network interface**. Whichever type of network interface option that you select when you provision the virtual server persists through the lifecycle of the virtual server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).  |
    {: caption="Selections to complete instance provisioning" caption-side="bottom"}
 
    The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
@@ -97,17 +97,17 @@ You can provision an instance from an `available`, `partially_available` (image 
 
    | Field | Value |
    |-------|-------|
-   | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). For more information about using a contract to specify user data when you create an {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, see [About the contract](/docs/vpc?topic=vpc-about-contract_se). User data is not supported for z/OS virtual server instances. |
-   | Metadata | Disabled by default. Click the toggle to enable. This setting informs the instance to collect the instance configuration information and user data. For more information, see [About metadata for VPC](/docs/vpc?topic=vpc-imd-about). Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances. |
+   | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). For more information about using a contract to specify user data when you create an {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, see [About the contract](/docs/vpc?topic=vpc-about-contract_se). User data is not supported for z/OS VSIs. |
+   | Metadata | Disabled by default. Click the toggle to enable. This setting informs the instance to collect the instance configuration information and user data. For more information, see [About metadata for VPC](/docs/vpc?topic=vpc-imd-about). Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS VSIs. |
    | Trusted profile (optional) | If you enable the metadata service, you can select a trusted profile and link it to this instance. Click **Select a trusted profile**. In the side panel, select a trusted profile and click **Select trusted profile** to link it to the instance. A message displays if none exist or if you don't have access to link it. For more information, see [Create a trusted profile](/docs/iam?topic=iam-trustedprofile-compute-tutorial#trusted-profile-compute-create). For more information about acquiring access, see [IAM authorizations for linking trusted profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui#imd-iam-auth). |
-   | Add to dedicated host | This selection is disabled by default. To create the virtual server instance in a single-tenant space, click the toggle to enable the dedicated host. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). |
+   | Add to dedicated host | This selection is disabled by default. To create the VSI in a single-tenant space, click the toggle to enable the dedicated host. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). |
    | Add to placement group | Placement groups are disabled by default. Click the toggle to enable placement groups. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
    | Dynamic volume bandwidth allocation | Click the toggle to enable [Pooled volume bandwidth allocation](/docs/vpc?topic=vpc-block-storage-bandwidth#pooled-vol-bandwidth) for attached data volumes. This feature is supported for select [compute profiles](/docs/vpc?group=profile-details).|
-   | Add to reservation | If you have an active reservation, click the toggle to add the virtual server instance to that reservation. For more information, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
+   | Add to reservation | If you have an active reservation, click the toggle to add the VSI to that reservation. For more information, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
    | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui) |
-   | Activity tracking | Audit event collection is disabled by default. Click the toggle to enable activity tracking for the virtual server instance. Activity tracking is recommended for optimal troubleshooting and reducing downtime. For more information, see [Activity tracking events](/docs/vpc?topic=vpc-at_events). |
-   | Logging | Logging is disabled by default. Click the toggle to enable logging for the virtual server instance. Logging is helpful for troubleshooting and reducing downtime. When enabled, you can select an existing {{site.data.keyword.logs_routing_full_notm}} target or create a new one to route platform logs. For more information, see [Getting started with IBM Cloud Logs Routing](/docs/logs-router?topic=logs-router-getting-started){: external}. |
-   | Monitoring | Monitoring is disabled by default. Click the toggle to enable monitoring for the virtual server instance. Monitoring is helpful for optimal troubleshooting and reducing downtime. When enabled, you can select an existing {{site.data.keyword.metrics_router_full_notm}} target or create a new one to route platform metrics. For more information, see [Getting started with IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-getting-started){: external}. |
+   | Activity tracking | Audit event collection is disabled by default. Click the toggle to enable activity tracking for the VSI. Activity tracking is recommended for optimal troubleshooting and reducing downtime. For more information, see [Activity tracking events](/docs/vpc?topic=vpc-at_events). |
+   | Logging | Logging is disabled by default. Click the toggle to enable logging for the VSI. Logging is helpful for troubleshooting and reducing downtime. When enabled, you can select an existing {{site.data.keyword.logs_routing_full_notm}} target or create a new one to route platform logs. For more information, see [Getting started with IBM Cloud Logs Routing](/docs/logs-router?topic=logs-router-getting-started){: external}. |
+   | Monitoring | Monitoring is disabled by default. Click the toggle to enable monitoring for the VSI. Monitoring is helpful for optimal troubleshooting and reducing downtime. When enabled, you can select an existing {{site.data.keyword.metrics_router_full_notm}} target or create a new one to route platform metrics. For more information, see [Getting started with IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-getting-started){: external}. |
    | Cloud security posture management | When you select this option, a workload protection instance is created with the configurations to provide CSPM to all the resources. If a workload protection instance exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui). |
    {: caption="Instance provisioning advanced options selections" caption-side="bottom"}
 
@@ -129,7 +129,7 @@ If you have an existing instance with a floating IP address, it isn't necessary 
 
 You can create instances by using the command-line interface (CLI). If you would like to use user tags or access management tags to manage your resources, see [Working with tags](/docs/account?topic=account-tag&interface=cli).
 
-[Deprecated]{: tag-deprecated} {{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
+[Deprecated]{: tag-deprecated} {{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) VSIs.
 {: note}
 
 ### Before you begin
@@ -156,7 +156,7 @@ Gather the following information by using the associated commands.
 | --------------------- | -------------------------------- | ---------------------------- |
 | Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list) |
 | Boot volume | `ibmcloud is volumes` | [List all volumes](/docs/vpc?topic=vpc-vpc-reference#volumes-list) |
-| Profile | `ibmcloud is instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instance-profiles-list) |
+| Profile | `ibmcloud is instances` | [List all VSIs](/docs/vpc?topic=vpc-vpc-reference#instance-profiles-list) |
 | Profile | `ibmcloud is image-instance-profiles` | [List instance profiles that are compatible with an image](/docs/vpc?topic=vpc-vpc-reference#image-instance-profiles-list)|
 | Profile | `ibmcloud is volume-instance-profiles` | [List instance profiles that are compatible with a volume.](/docs/vpc?topic=vpc-vpc-reference#volume-instance-profiles-list) |
 | Profile | `ibmcloud is snapshot-instance-profiles` | [List instance profiles that are compatible with a snapshot](/docs/vpc?topic=vpc-vpc-reference#snapshot-instance-profiles-list) |
@@ -286,7 +286,7 @@ You can use various image options with {{site.data.keyword.vpc_short}} included 
 - [List all available boot volumes](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-available-boot-volumes-images-cli)
 - [List all available snapshots](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-snapshots-images-cli)
 
-You can use allowed-use expressions with images source resources to define the capabilities and restrictions with stock images, custom images, images that are shared with your account from a private catalog, boot volumes, and snapshots and help you find compatible image and profile combinations during server creation. During the creation of a virtual server instance with images that have an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance. The information is used to determine whether can image can be used to create the virtual server instance. Allowed-used expressions are already set for stock images. You must define them for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+You can use allowed-use expressions with images source resources to define the capabilities and restrictions with stock images, custom images, images that are shared with your account from a private catalog, boot volumes, and snapshots and help you find compatible image and profile combinations during server creation. During the creation of a VSI with images that have an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential VSI. The information is used to determine whether can image can be used to create the VSI. Allowed-used expressions are already set for stock images. You must define them for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 Depending on the image that you are using, you can use one of the following commands to verify whether a profile is compatible with an image, volume, or snapshot.
 
@@ -474,7 +474,7 @@ Use the following information to create an instance with the CLI.
 
 After you know the needed values, use them to run the **`ibmcloud is instance-create`** command. You also need to specify a unique name for the instance.
 
-Use the following steps to create a basic virtual server instance from a stock image from the CLI. By default, a boot volume is attached to the instance when the instance is created. For most virtual server instances, the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
+Use the following steps to create a basic VSI from a stock image from the CLI. By default, a boot volume is attached to the instance when the instance is created. For most VSIs, the default boot volume size is 100 GB. The default boot volume size for a z/OS VSI is 250 GB.
 
 1. Create an instance by using the following command.
 
@@ -563,7 +563,7 @@ Use the following steps to create a basic virtual server instance from a stock i
 
    For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
-2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. `0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0` is the virtual server instance ID that was assigned when the instance was created in the previous step.
+1. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. `0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0` is the VSI ID that was assigned when the instance was created in the previous step.
 
    ```sh
    ibmcloud is instance 0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
@@ -614,7 +614,7 @@ Use the following steps to create a basic virtual server instance from a stock i
    ```
    {: screen}
 
-3. Request a floating IP address to associate to your instance by using the following command. For `FLOATING_IP_NAME` specify a name for your floating IP, and for `TARGET_INTERFACE` specify the ID of the instance network interface that you identified in the previous step. For a virtual network interface (VNI), you would need to add --vni followed by the name or ID of the VNI.
+1. Request a floating IP address for your instance by running the following command. Replace `FLOATING_IP_NAME` with a name for the floating IP, and replace `TARGET_INTERFACE` with the ID of the instance network interface that you identified in the previous step. If your instance uses a virtual network interface (VNI), use the `--vni` option instead of `--nic`, and specify the name or ID of the VNI, as shown in the second example.
 
    ```sh
    ibmcloud is floating-ip-reserve \
@@ -631,7 +631,7 @@ Use the following steps to create a basic virtual server instance from a stock i
    ```
    {: pre}
 
-The name that is specified for the floating IP is `my-floatingip`. `0717-4db768bb-65c3-4045-8712-523e62eeabd2` is the ID of the network interface for the virtual server instance that displayed in the previous step.
+The name that is specified for the floating IP is `my-floatingip`. `0717-4db768bb-65c3-4045-8712-523e62eeabd2` is the ID of the network interface for the VSI that displayed in the previous step.
 
    ```sh
    ibmcloud is floating-ip-reserve \
@@ -672,7 +672,7 @@ Need more help? You can always run `ibmcloud is instance-create --help` to displ
 
 After you know the needed values, use them to run the **`ibmcloud is instance-create`** command. You also need to specify a unique name for the instance.
 
-Use the following steps to create a virtual server instance from a private catalog offering or a catalog offering version from the CLI.
+Use the following steps to create a VSI from a private catalog offering or a catalog offering version from the CLI.
 
 1. Create an instance by using the following command.
 
@@ -717,12 +717,12 @@ Use the following steps to create a virtual server instance from a private catal
 
    Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the `ibmcloud is instance INSTANCE` command as described in the following step.
 
-   The status of the virtual server instance displays *pending* until the instance is created.
+   The status of the VSI displays *pending* until the instance is created.
    {: note}
 
    For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
-2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE`, specify the ID that was assigned to your new virtual server instance in the previous step.
+1. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE`, specify the ID that was assigned to your new VSI in the previous step.
 
    ```sh
    ibmcloud is instance INSTANCE
@@ -731,12 +731,20 @@ Use the following steps to create a virtual server instance from a private catal
 
    The status now shows *running*. Check the Network Interfaces section to locate the ID of the network interface.
 
-3. Request a floating IP address to associate to your instance by using the following command. For `FLOATING_IP_NAME` specify a name for your floating IP, and for `TARGET_INTERFACE` specify the ID of the network interface that you identified in the previous step.
+1. Request a floating IP address for your instance by running the following command. Replace `FLOATING_IP_NAME` with a name for the floating IP, and replace `TARGET_INTERFACE` with the ID of the network interface that you identified in the previous step. If your instance uses a virtual network interface (VNI), use the `--vni` option instead of `--nic`, and specify the name or ID of the VNI, as shown in the second example.
 
    ```sh
    ibmcloud is floating-ip-reserve \
        FLOATING_IP_NAME \
        --nic TARGET_INTERFACE
+   ```
+   {: pre}
+
+   VNI:
+   ```sh
+   ibmcloud is floating-ip-reserve \
+       FLOATING_IP_NAME \
+       --vni VNI_NAME_OR_ID
    ```
    {: pre}
 
@@ -753,7 +761,7 @@ Need more help? You can always run `ibmcloud is instance-create --help` to displ
 
 After you know the needed values, use them to run the `instance-create` command. You also need to specify a unique name for the instance.
 
-Use the following steps to create a virtual server instance from a bootable volume, and that includes a volume attachment.
+Use the following steps to create a VSI from a bootable volume, and that includes a volume attachment.
 
 1. Create an instance by using the following command.
 
@@ -794,7 +802,7 @@ Use the following steps to create a virtual server instance from a bootable volu
 
    For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
-2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE`, specify the ID that was assigned to your new virtual server instance in the previous step.
+1. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE`, specify the ID that was assigned to your new VSI in the previous step.
 
    ```sh
    ibmcloud is instance INSTANCE
@@ -803,12 +811,20 @@ Use the following steps to create a virtual server instance from a bootable volu
 
    The status now shows *running*. Check the Network Interfaces section to locate the ID of the network interface.
 
-3. Request a floating IP address to associate to your instance by using the following command. For `FLOATING_IP_NAME` specify a name for your floating IP, and for `TARGET_INTERFACE` specify the ID of the network interface that you identified in the previous step.
+1. Request a floating IP address for your instance by running the following command. Replace `FLOATING_IP_NAME` with a name for the floating IP, and replace `TARGET_INTERFACE` with the ID of the network interface that you identified in the previous step. If your instance uses a virtual network interface (VNI), use the `--vni` option instead of `--nic`, and specify the name or ID of the VNI, as shown in the second example.
 
    ```sh
    ibmcloud is floating-ip-reserve \
        FLOATING_IP_NAME \
        --nic TARGET_INTERFACE
+   ```
+   {: pre}
+
+   VNI:
+   ```sh
+   ibmcloud is floating-ip-reserve \
+       FLOATING_IP_NAME \
+       --vni VNI_NAME_OR_ID
    ```
    {: pre}
 
@@ -830,7 +846,7 @@ You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snap
 
 Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. For most compute profiles, the `--volume-bandwidth-qos-mode` property defaults to `weighted`. When `weighted` is used, the volume bandwidth is proportionally allocated between the data volumes. By specifying the `pooled` value, you enable dynamic bandwidth allocation.
 
-The following example uses the `ibmcloud is instance-create` command to create the virtual server instance and specifies the option `--volume-bandwidth-qos-mode` with the value `pooled`.
+The following example uses the `ibmcloud is instance-create` command to create the VSI and specifies the option `--volume-bandwidth-qos-mode` with the value `pooled`.
 
 ```sh
 ibmcloud is instance-create my-virtual-server my-vpc us-south-2 cx3d-8x20 my-subnet --image r006-534ef2ac-6158-45b3-9657-57629fa85305 --keys r006-68f8333a-1169-42da-ba01-75268bac8362 --volume-attach @/Users/myname/myvolume-attachment.json --volume-bandwidth-qos-mode pooled
@@ -879,7 +895,7 @@ After you know the needed values, use them to run the `ibmcloud is instance-crea
 
 For `confidential-compute-mode`, you need to specify either `sgx` or `tdx` for the option.
 
-Use the following steps to create a basic virtual server instance that enables confidential compute.
+Use the following steps to create a basic VSI that enables confidential compute.
 
 Create an instance by using the following command.
 
@@ -936,7 +952,7 @@ After you know the needed values, use them to run the `ibmcloud is instance-crea
 
 For `enable-secure-boot`, you need to specify either `true` or `false`. The default value is `false`.
 
-Use the following steps to create a basic virtual server instance that enables secure boot.
+Use the following steps to create a basic VSI that enables secure boot.
 
 Create an instance by using the following command.
 
@@ -984,7 +1000,7 @@ For example, the following `instance-create` command uses the sample values that
 {: #next-step-after-creating-virtual-servers-cli}
 {: cli}
 
-A series of emails is sent to your administrator: Acknowledgment of the virtual server instance order, order approval and processing, and a message that the instance is created.
+A series of emails is sent to your administrator: Acknowledgment of the VSI order, order approval and processing, and a message that the instance is created.
 
 If you choose a GPU profile, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
@@ -1152,7 +1168,7 @@ curl -X GET "$vpc_api_endpoint/v1/volumes?version=2023-02-08&generation=2?attach
 -H "Authorization: Bearer $iam_token"
 ```
 
-By default, a boot volume that is created as part of provisioning a virtual server instance is deleted when the instance is deleted. You can change this behavior by setting the `delete_volume_on_instance_delete` property to `false` when you create the instance or update the boot volume attachment.
+By default, a boot volume that is created as part of provisioning a VSI is deleted when the instance is deleted. You can change this behavior by setting the `delete_volume_on_instance_delete` property to `false` when you create the instance or update the boot volume attachment.
 
 Use the [`POST /instances`](/docs/apis/vpc/latest#create-instance) method to create an instance with the information you gathered. The following call is an example of provisioning an instance by using an existing boot volume.
 
@@ -1250,7 +1266,7 @@ For more information about restoring a volume with the API, see [Restore a volum
 {: #create-instance-with-dynamic-storage-qos}
 {: api}
 
-Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. You can programmatically provision a virtual server instance with multiple data volumes by calling the `instances` method as shown in the following sample request. The example creates a virtual server in *us-south-2* zone with a 250-GB boot volume and three 3-TB data volumes. The `storage_qos_mode` is set to `pooled` to enable dynamic volume bandwidth allocation.
+Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. You can programmatically provision a VSI with multiple data volumes by calling the `instances` method as shown in the following sample request. The example creates a virtual server in *us-south-2* zone with a 250-GB boot volume and three 3-TB data volumes. The `storage_qos_mode` is set to `pooled` to enable dynamic volume bandwidth allocation.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-07-12&generation=2" \
@@ -1436,7 +1452,7 @@ You can provision an instance from an `available`, `partially_available` (image 
 Verify the profile that you use is available in the zone where you plan to create the instance.
 
 
-    Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+    Allowed-use expressions: The image that you select determines the profiles that are available to create the VSI. During the creation of a VSI with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential VSI to determine whether that image can be used to create the VSI. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
     {: note}
 
    * Select a stock image or custom image from your account for your instance.
@@ -1546,7 +1562,7 @@ To use Terraform, download the Terraform CLI and configure the {{site.data.keywo
 
 Create the instance by using one of the following examples. For more information, see the Terraform documentation on [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance){: external}.
 
-Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+Allowed-use expressions: The image that you select determines the profiles that are available to create the VSI. During the creation of a VSI with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential VSI to determine whether that image can be used to create the VSI. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 {: note}
 
 Run one of the following Terraform commands based on the image that you plan to use.

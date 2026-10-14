@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-10-13"
 
 keywords: public address range, bind, unbind
 
@@ -32,6 +32,8 @@ Review the following requirements and considerations before binding, unbinding, 
 {: ui}
 
 You can bind, unbind, and move a public address range to a VPC in an availability zone in the console.
+
+
 
 ### Binding a public address range in the console
 {: #bind-par-ui}

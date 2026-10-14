@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-10-14"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup, delete consistency group
 
@@ -77,14 +77,28 @@ curl -X DELETE\
 {: #delete-consistencygroup-terraform}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently delete a remote object such as a snapshot consistency group. The following example deletes `my-snapshot-consistency-group`.
+The preferred way to delete a snapshot consistency group that is managed by Terraform is to remove its `ibm_is_snapshot_consistency_group` resource block from your configuration and run `terraform apply`. Terraform detects the missing resource and destroys it, keeping your configuration and state in sync.
 
-```terraform
-terraform destroy --target ibm_is_snapshot_consistency_group.my-snapshot-consistency-group
+1. Open your Terraform configuration file and delete the `ibm_is_snapshot_consistency_group` resource block for the consistency group.
+2. Run `terraform apply` to apply the change.
+
+   ```sh
+   terraform apply
+   ```
+   {: pre}
+
+   Terraform displays a plan that shows the resource is marked for destruction. Confirm the plan to proceed.
+
+If you want to destroy a specific consistency group without editing your configuration, you can use `terraform destroy --target` instead. The following example targets a single resource by its Terraform address:
+
+```sh
+terraform destroy --target ibm_is_snapshot_consistency_group.example
 ```
-{: codeblock}
+{: pre}
 
-For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+Using this method preserves the resource block in your configuration, which creates a drift between your configuration and your infrastructure state. Remove the resource block from your configuration after you confirm that the consistency group is deleted.
+
+For more information, see [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply){: external} and [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 ## Activity Tracking events
 {: #consistency-groups-at-events-delete}

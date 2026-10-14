@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-10-14"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -1314,16 +1314,30 @@ A `DELETE /shares/$share_id` call can optionally include an `If-Match` header th
 {: #delete-file-share-terraform}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently delete a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target, use their IDs with the same command.
+The preferred way to delete a file share or mount target that is managed by Terraform is to remove its `ibm_is_share` or `ibm_is_share_mount_target` resource block from your configuration and run `terraform apply`. Terraform detects the missing resource and destroys it, keeping your configuration and state in sync.
 
-```terraform
-terraform destroy --target ibm_is_share.example.id
+1. Open your Terraform configuration file and delete the `ibm_is_share` or `ibm_is_share_mount_target` resource block for the resource.
+2. Run `terraform apply` to apply the change.
+
+   ```sh
+   terraform apply
+   ```
+   {: pre}
+
+   Terraform displays a plan that shows the resource is marked for destruction. Confirm the plan to proceed.
+
+If you want to destroy a specific file share without editing your configuration, you can use `terraform destroy --target` instead. The following example targets a single resource by its Terraform address:
+
+```sh
+terraform destroy --target ibm_is_share.example
 ```
-{: codeblock}
+{: pre}
+
+Using this method preserves the resource block in your configuration, which creates a drift between your configuration and your infrastructure state. Remove the resource block from your configuration after you confirm that the file share is deleted.
 
 If the file share has snapshots, those snapshots are deleted along with the file share.
 
-For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+For more information, see [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply){: external} and [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 If you want to remove an accessor share binding by using Terraform, you can use the `ibm_is_share_delete_accessor_binding` resource.
 

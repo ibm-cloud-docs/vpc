@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-10-14"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -877,14 +877,28 @@ To verify that the volume is deleted, list the volumes by making a `GET /volumes
 {: help}
 {: support}
 
-Use the `terraform destroy` command to conveniently remove a remote object such as a block volume. The following example shows the syntax for deleting a volume. Substitute the actual ID of the volume in for `ibm_is_volume.example.id`.
+The preferred way to delete a block volume that is managed by Terraform is to remove its `ibm_is_volume` resource block from your configuration and run `terraform apply`. Terraform detects the missing resource and destroys it, keeping your configuration and state in sync.
 
-```terraform
-terraform destroy --target ibm_is_volume.example.id
+1. Open your Terraform configuration file and delete the `ibm_is_volume` resource block for the volume.
+2. Run `terraform apply` to apply the change.
+
+   ```sh
+   terraform apply
+   ```
+   {: pre}
+
+   Terraform displays a plan that shows the resource is marked for destruction. Confirm the plan to proceed.
+
+If you want to destroy a specific volume without editing your configuration, you can use `terraform destroy --target` instead. The following example targets a single resource by its Terraform address:
+
+```sh
+terraform destroy --target ibm_is_volume.example
 ```
-{: codeblock}
+{: pre}
 
-For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+Using this method preserves the resource block in your configuration, which creates a drift between your configuration and your infrastructure state. Remove the resource block from your configuration after you confirm that the volume is deleted.
+
+For more information, see [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply){: external} and [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 ## Next steps
 {: #next-step-managing-block-storage}

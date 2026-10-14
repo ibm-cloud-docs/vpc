@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-10-12"
+lastupdated: "2026-10-13"
 
 keywords:
 
@@ -199,14 +199,14 @@ The following dependencies apply to the following deployment locations: Chennai 
 ## Data and Control plane deployment
 {: #data-and-control-plane-deployment}
 
-The following dependencies apply to the following deployment locations: Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Osaka (jp-osa), Sao Paulo (br-sao), Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Montreal (ca-mon), Mumbai - Airtel (in-mum), Osaka (jp-osa), Sao Paulo (br-sao), Sydney (au-syd), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Security compliance | No | Both |  Same region  |
-| IBM Cloud Classic DNS Servers | Access management, Availability | No | Both |  Same data center  |
-| IBM Cloud Classic Infrastructure Resource Management | Availability, Instance control, Operations | No | Both |  Same data center  |
+| IBM Cloud Classic DNS Servers | Access management, Availability | No | Both |  Same zone  |
+| IBM Cloud Classic Infrastructure Resource Management | Availability, Instance control, Operations | No | Both |  Same zone  |
 | IBM Cloud Public IP Address Management | Access management, Availability | No | Both |  Same region  |
 | {{site.data.keyword.cos_full}} | Availability, Operations | No | Both |  Same region  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Instance control, Security compliance | No | Both |  Same region  |
@@ -225,7 +225,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | {{site.data.keyword.monitoringlong}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | OSS Platform | Availability, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.atracker_full}} | Availability, Operations, Security compliance | No | Both |  Same region  |
-| IBM Cloud Classic NTP Servers | Availability, Operations | No | Both |  Same data center  |
+| IBM Cloud Classic NTP Servers | Availability, Operations | No | Both |  Same zone  |
 | IBM Cloud Global Search and Tagging | Availability | No | Both |  Same region  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.logs_full}} | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
@@ -239,8 +239,27 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| corporate-qradar| Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.secrets-manager_full}}| Change management, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.keymanagementservicefull}}| Change management, Security compliance | No | Both |  Same region  |
+| IBM Cloud Log Routing| Change management, Operations | No | Both |  Same region  |
+| {{site.data.keyword.metrics_router_full}}| Change management, Operations | No | Both |  Same region  |
+| OSS Platform| Change management, Operations | No | Both |  Same region  |
+| {{site.data.keyword.pag_full}}| Change management, Operations | No | Both |  Same region  |
+| IBM Cloud Console| Change management, Operations | No | Both |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud Bare Metal Servers for VPC - Data and Control plane deployment service dependency information - Medium dependencies" caption-side="top"}
+{: tab-title="Medium dependencies"}
+{: tab-group="service-dependency-data-for-is-bare-metal-server-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #medium-service-dependencies-for-is-bare-metal-server-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| corporate-palo-alto| Security compliance | No | Both |  Same region  |
 | corporate-uptycs| Security compliance | No | Both |  Same region  |
+| SOS Health-Check, Vulnerability Scanning and Patching| Security compliance | No | Both |  Same region  |
+| corporate-on-call-manager| Operations | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Bare Metal Servers for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
@@ -741,8 +760,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | VPC Regional Infrastructure API Service | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
-| {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  ibm-intranet  |
-| IBM Cloud Hyper Protect Crypto Services | Availability | Yes | Both |  Same region  |
+| {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
@@ -755,8 +773,11 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | IBM Cloud Global Search and Tagging | Availability, Instance control, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.keymanagementservicefull}} | Availability, Security compliance | No | Both |  Same region  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | Both |  Same region  |
 | {{site.data.keyword.keymanagementservicefull}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.secrets-manager_full}} | Availability, Security compliance | No | Both |  Same region  |
+| IBM Cloud Console | Availability, Operations | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -767,16 +788,39 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
+| OSS Platform| Change management, Operations | No | Both |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data and Control plane deployment service dependency information - Medium dependencies" caption-side="top"}
+{: tab-title="Medium dependencies"}
+{: tab-group="service-dependency-data-for-is-volume-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #medium-service-dependencies-for-is-volume-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
 | {{site.data.keyword.monitoringlong}}| Operations | No | Both |  Same region  |
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | Both |  us-east  |
 | IBM Cloud Business Support Services| none | No | Both |  Same zone  |
-| IBM Cloud Hyper Protect Crypto Services| none | No | Both |  Same region  |
-| {{site.data.keyword.block_storage_is_full}}| none | No | Both |  Same data center  |
+| {{site.data.keyword.block_storage_is_full}}| none | No | Both |  Same zone  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | Both |  Same region  |
 | {{site.data.keyword.logs_full}}| Access management, Operations, Security compliance | No | Both |  Same region  |
-| corporate-qradar| Security compliance | No | Both |  Same data center  |
-| corporate-uptycs| Security compliance | No | Both |  Same data center  |
+| corporate-palo-alto| Security compliance | No | Both |  Same zone  |
+| corporate-uptycs| Security compliance | No | Both |  Same zone  |
+| SOS Health-Check, Vulnerability Scanning and Patching| Security compliance | No | Both |  Same zone  |
+| SOS File Integrity Monitoring| Security compliance | No | Both |  Same zone  |
+| SOS Inventory Management| Security compliance | No | Both |  Same zone  |
+| SOS Privileged Identity Management| Security compliance | No | Both |  Same zone  |
+| SOS Container Security| Security compliance | No | Both |  Same zone  |
+| SOS Compliance Reporting| Security compliance | No | Both |  Same zone  |
+| SOS Tenable| Security compliance | No | Both |  Same zone  |
+| {{site.data.keyword.pag_full}}| Operations, Security compliance | No | Both |  Same region  |
+| IBM Cloud Log Routing| Operations, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.metrics_router_full}}| Operations | No | Both |  Same region  |
+| corporate-on-call-manager| Operations | No | Both |  Same zone  |
+| IBM Cloud Acadia Storage Platform| none | No | Both |  Same zone  |
+| IBM Cloud Acadia Storage Platform| none | No | Both |  Same zone  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
@@ -794,8 +838,7 @@ The following dependencies apply to the following deployment locations: Chennai 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | VPC Regional Infrastructure API Service | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | ngdc-data-plane |  Same region  |
-| {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | ngdc-data-plane |  ibm-intranet  |
-| IBM Cloud Hyper Protect Crypto Services | Availability | Yes | ngdc-data-plane |  Same region  |
+| {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | ngdc-data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | ngdc-data-plane |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data plane deployment for NGDC service dependency information - Critical dependencies" caption-side="top"}
@@ -808,8 +851,11 @@ The following dependencies apply to the following deployment locations: Chennai 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | IBM Cloud Global Search and Tagging | Availability, Instance control, Security compliance | No | ngdc-data-plane |  Same region  |
+| {{site.data.keyword.keymanagementservicefull}} | Availability, Security compliance | No | ngdc-data-plane |  Same region  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.keymanagementservicefull}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | ngdc-data-plane |  Same region  |
+| {{site.data.keyword.secrets-manager_full}} | Availability, Security compliance | No | ngdc-data-plane |  Same region  |
+| IBM Cloud Console | Availability, Operations | No | ngdc-data-plane |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data plane deployment for NGDC service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -820,16 +866,38 @@ The following dependencies apply to the following deployment locations: Chennai 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
+| OSS Platform| Change management, Operations | No | ngdc-data-plane |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data plane deployment for NGDC service dependency information - Medium dependencies" caption-side="top"}
+{: tab-title="Medium dependencies"}
+{: tab-group="service-dependency-data-for-is-volume-Data-plane-deployment-for-NGDC"}
+{: class="comparison-tab-table"}
+{: #medium-service-dependencies-for-is-volume-Data-plane-deployment-for-NGDC}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
 | {{site.data.keyword.monitoringlong}}| Operations | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | ngdc-data-plane |  Same region  |
-| {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | ngdc-data-plane |  us-east  |
 | IBM Cloud Business Support Services| none | No | ngdc-data-plane |  Same zone  |
-| IBM Cloud Hyper Protect Crypto Services| none | No | ngdc-data-plane |  Same region  |
-| {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same data center  |
+| {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same zone  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.logs_full}}| Access management, Operations, Security compliance | No | ngdc-data-plane |  Same region  |
-| corporate-qradar| Security compliance | No | ngdc-data-plane |  Same data center  |
-| corporate-uptycs| Security compliance | No | ngdc-data-plane |  Same data center  |
+| corporate-palo-alto| Security compliance | No | ngdc-data-plane |  Same zone  |
+| corporate-uptycs| Security compliance | No | ngdc-data-plane |  Same zone  |
+| SOS Health-Check, Vulnerability Scanning and Patching| Security compliance | No | ngdc-data-plane |  Same zone  |
+| SOS File Integrity Monitoring| Security compliance | No | ngdc-data-plane |  Same zone  |
+| SOS Inventory Management| Security compliance | No | ngdc-data-plane |  Same zone  |
+| SOS Privileged Identity Management| Security compliance | No | ngdc-data-plane |  Same zone  |
+| SOS Container Security| Security compliance | No | ngdc-data-plane |  Same zone  |
+| SOS Compliance Reporting| Security compliance | No | ngdc-data-plane |  Same zone  |
+| SOS Tenable| Security compliance | No | ngdc-data-plane |  Same zone  |
+| {{site.data.keyword.pag_full}}| Operations, Security compliance | No | ngdc-data-plane |  Same region  |
+| IBM Cloud Log Routing| Operations, Security compliance | No | ngdc-data-plane |  Same region  |
+| {{site.data.keyword.metrics_router_full}}| Operations | No | ngdc-data-plane |  Same region  |
+| corporate-on-call-manager| Operations | No | ngdc-data-plane |  Same zone  |
+| IBM Cloud Acadia Storage Platform| none | No | ngdc-data-plane |  Same zone  |
+| IBM Cloud Acadia Storage Platform| none | No | ngdc-data-plane |  Same zone  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data plane deployment for NGDC service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
