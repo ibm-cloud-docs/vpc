@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-14"
+lastupdated: "2026-10-15"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -899,6 +899,50 @@ terraform destroy --target ibm_is_volume.example
 Using this method preserves the resource block in your configuration, which creates a drift between your configuration and your infrastructure state. Remove the resource block from your configuration after you confirm that the volume is deleted.
 
 For more information, see [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply){: external} and [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+
+## Updating a volume software attachment with Terraform
+{: #update-volume-software-attachment-terraform}
+{: terraform}
+
+You can't directly create a software attachment. The software attachment is automatically created when a volume is created from a catalog image with an associated software billing plan.
+
+You use the `ibm_is_volume_software_attachment` resource to manage an existing attachment by adopting it and setting its name. The `volume_id` argument is the volume identifier. The `name` argument is the name to set on the volume software attachment.
+
+The following example sets the name of the software attachment.
+
+```terraform
+resource "ibm_is_volume_software_attachment" "is_volume_software_attachment_instance" {
+  name = "my-software-attachment"
+  volume_id = "volume_id"
+}
+```
+{: codeblock}
+
+After you define the resource, run `terraform apply` to adopt the attachment and apply the name.
+
+To update the name of an existing software attachment, update the `name` argument and run `terraform plan` to preview the changes, then run `terraform apply` to apply them.
+
+You can't delete a software attachment by using Terraform. The lifecycle of a software attachment is linked to the volume that it is associated with. Running `terraform destroy` on the `ibm_is_volume_software_attachment` resource removes it only from the Terraform state.
+
+For more information, see [ibm_is_volume_software_attachment](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume_software_attachment){: external}.
+
+## Retrieving a volume software attachment with Terraform
+{: #retrieve-volume-software-attachment-manage-terraform}
+{: terraform}
+
+You can use Terraform to retrieve the software attachments of a volume.
+
+To retrieve a specific volume software attachment by ID, use the `ibm_is_volume_software_attachment` data source. Specify the `volume_id` and `is_volume_software_attachment_id` arguments.
+
+```terraform
+data "ibm_is_volume_software_attachment" "is_volume_software_attachment_instance" {
+volume_id                        = ibm_is_volume_software_attachment.is_volume_software_attachment_instance.volume_id
+is_volume_software_attachment_id = ibm_is_volume_software_attachment.is_volume_software_attachment_instance.is_volume_software_attachment_id
+}
+```
+{: codeblock}
+
+For more information, see [ibm_is_volume_software_attachment](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_volume_software_attachment){: external}.
 
 ## Next steps
 {: #next-step-managing-block-storage}

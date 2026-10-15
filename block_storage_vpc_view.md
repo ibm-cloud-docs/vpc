@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-10-15"
 
 keywords: Block Storage, virtual private cloud, view volumes, volume details, volume status, volume health, encryption, IOPS, boot volume, data volume, snapshots, backup policy, volume jobs, software attachments
 
@@ -741,6 +741,26 @@ data "ibm_is_volume" "example1" {
 The attributes that are exported include the total count of volumes and the list of volumes. The nested attributes include volume ID, name, creation date, size, IOPS, CRN, access and user tags, profile, encryption type and key, lifecycle state, health state and reason, operating system, and other attributes.
 
 For more information, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_volume){: external}.
+
+### Viewing a volume software attachment with Terraform
+{: #ifv-view-volume-software-attachments-terraform}
+{: terraform}
+
+You can use Terraform to view the software attachments of a volume.
+
+You use the `ibm_is_volume_software_attachment` resource to manage an existing attachment. The `volume_id` argument is the volume identifier. The `name` argument is the name to set on the volume software attachment.
+
+The following example views the volume software attachment.
+
+```terraform
+resource "ibm_is_volume_software_attachment" "is_volume_software_attachment_instance" {
+  name = "my-software-attachment"
+  volume_id = "volume_id"
+}
+```
+{: codeblock}
+
+For more information, see [ibm_is_volume_software_attachment](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume_software_attachment){: external}.
 
 ### Extra Terraform properties for boot volumes
 {: #viewvol-boot-terraform}

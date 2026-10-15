@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-10-15"
 
 keywords: snapshots, Block Storage snapshots, software attachment, snapshot software attachment, update software attachment, rename software attachment, vendor-managed licensing, catalog image, boot volume
 
@@ -113,6 +113,59 @@ curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/snapshot/$snapshot_id/softwa
 {: pre}
 
 For more information, see [Retrieve a snapshot software attachment](/docs/apis/vpc/latest#get-snapshot-software-attachment) in the VPC API.
+
+## Updating a snapshot software attachment with Terraform
+{: #snapshots-vpc-software-attachments-terraform}
+{: terraform}
+
+You can't directly create a software attachment. The software attachment is automatically created when a snapshot is created from a boot volume that has an associated software billing plan.
+
+You use the `ibm_is_snapshot_software_attachment` resource to manage an existing attachment by adopting it and setting its name. The `snapshot_id` argument is the snapshot identifier. The `name` argument is the name to set on the snapshot software attachment.
+
+The following example sets the name of the software attachment.
+
+```terraform
+resource "ibm_is_snapshot_software_attachment" "is_snapshot_software_attachment_instance" {
+  name = "my-software-attachment"
+  snapshot_id = "snapshot_id"
+}
+```
+{: codeblock}
+
+After you define the resource, run `terraform apply` to adopt the attachment and apply the name.
+
+To update the name of an existing software attachment, update the `name` argument and run `terraform plan` to preview the changes, then run `terraform apply` to apply them.
+
+You can't delete a software attachment by using Terraform. The lifecycle of a software attachment is linked to the snapshot that it is associated with. Running `terraform destroy` on the `ibm_is_snapshot_software_attachment` resource removes it only from the Terraform state.
+
+For more information, see [ibm_is_snapshot_software_attachment](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot_software_attachment){: external}.</
+
+## Retrieving a snapshot software attachment with Terraform
+{: #retrieve-snapshot-software-attachment-manage-terraform}
+{: terraform}
+
+You can use Terraform to retrieve the software attachments of a snapshot.
+
+- To retrieve a specific snapshot software attachment by ID, use the `ibm_is_snapshot_software_attachment` data source. Specify the `snapshot_id` and `is_snapshot_software_attachment_id` arguments.
+
+   ```terraform
+   data "ibm_is_snapshot_software_attachment" "is_snapshot_software_attachment_instance" {
+     snapshot_id                        = ibm_is_snapshot_software_attachment.is_snapshot_software_attachment_instance.snapshot_id
+     is_snapshot_software_attachment_id = ibm_is_snapshot_software_attachment.is_snapshot_software_attachment_instance.is_snapshot_software_attachment_id
+   }
+   ```
+   {: codeblock}
+
+- To list all software attachments for a snapshot, use the `ibm_is_snapshot_software_attachments` data source. Specify the `snapshot_id` argument.
+
+   ```terraform
+   data "ibm_is_snapshot_software_attachments" "is_snapshot_software_attachments_instance" {
+     snapshot_id = ibm_is_snapshot_software_attachment.is_snapshot_software_attachment_instance.snapshot_id
+   }
+   ```
+   {: codeblock}
+
+For more information, see [ibm_is_snapshot_software_attachment](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_snapshot_software_attachment){: external}.
 
 ## Next steps
 {: #snapshots-vpc-software-attachments-next-steps}
