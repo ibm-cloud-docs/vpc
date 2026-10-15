@@ -160,6 +160,7 @@ toc:
               topics:
               - file_storage_vpc_about.md
               - file_storage_vpc_profiles.md
+              - file_storage_vpc_nfsv4_acls.md
           - fs_snapshots_about.md
           - backup_service_vpc_about.md
           - vsi_instance_storage.md

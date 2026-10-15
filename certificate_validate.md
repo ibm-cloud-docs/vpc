@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-24"
+lastupdated: "2026-10-15"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -30,6 +30,7 @@ Download the following certificates:
 
 From 25 March 2025, the certificate links are changed.
 {: note}
+
    | Image version| Certificate link | Expiry date |
    | -------- | ----------- | ----------- |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-30` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-30/ibm-hyper-protect-container-runtime-1-0-s390x-30-intermediate.crt){: external} | 03 August 2027 |
@@ -38,8 +39,6 @@ From 25 March 2025, the certificate links are changed.
    | `ibm-hyper-protect-container-runtime-1-0-s390x-26` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-26/ibm-hyper-protect-container-runtime-1-0-s390x-26-intermediate.crt){: external} | 03 August 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-25` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-25/ibm-hyper-protect-container-runtime-1-0-s390x-25-intermediate.crt){: external} | 03 August 2027 |
    {: caption="Intermediate certificate expiry dates" caption-side="bottom"}
-
-
 
 * Make sure that you use the certificates that corresponds to the hyper protect container runtime image for contract encryption and attestation.
 
