@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-10-15"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, amd, turin, chiplet, epyc
 subcollection: vpc
@@ -95,14 +95,14 @@ The following table lists available AMD hx4da and hx4a profiles.
 | hx4da-16x32 |	16 / 8 | 32 |	32 | 520 | - |
 | hx4da-16x64 |	16 / 8 | 64 |	32 |	520 | - |
 | hx4da-16x128 | 16 / 8 |	128 |	32 | 520 | - |
-| hx4da-64x680 | 32/64 | 680 | 200 | 2600 | 2 |
-| hx4da-128x680 | 64/128 | 680 | 200 | 2600 |	2 |
-| hx4da-192x680 |	96/192 | 680 | 200 | 2600 | 2 |
+| hx4da-64x680 | 64 / 32 | 680 | 200 | 2600 | 2 |
+| hx4da-128x680 | 128 / 64 | 680 | 200 | 2600 |	2 |
+| hx4da-192x680 |	192 / 96 | 680 | 200 | 2600 | 2 |
 | hx4da-248x680 | 248 / 124 | 680 | 200 | 1x2600 | 2 |
-| hx4da-64x1408	| 32/64	| 1408 | 200 | 2600 | 2 |
-| hx4da-128x1408 | 64/128 |	1408 | 200 | 2600 | 2 |
-| hx4da-192x1408 | 96/192 |	1408 | 200 | 2600 | 2 |
-| hx4da-248x1408 | 124/248 | 1408 | 200 | 2600 | 2 |
+| hx4da-64x1408	| 64 / 32	| 1408 | 200 | 2600 | 2 |
+| hx4da-128x1408 | 128 / 64 |	1408 | 200 | 2600 | 2 |
+| hx4da-192x1408 | 192 / 96 |	1408 | 200 | 2600 | 2 |
+| hx4da-248x1408 | 248 / 124 | 1408 | 200 | 2600 | 2 |
 {: class="simple-tab-table"}
 {: caption="High Frequency profiles (hx4da) for compatible virtual server instances" caption-side="bottom"}
 {: tab-group="high-frequency-profiles"}
