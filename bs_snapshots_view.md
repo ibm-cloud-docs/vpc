@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-05"
+lastupdated: "2026-10-15"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -1112,6 +1112,26 @@ provider "ibm" {
 }
 ```
 {: screen}
+
+### Viewing snapshot a software attachment with Terraform
+{: #snapshots-vpc-view-software-attachments-terraform}
+{: terraform}
+
+You can use Terraform to view the software attachments of a snapshot.
+
+You use the `ibm_is_snapshot_software_attachment` resource to manage an existing attachment. The `snapshot_id` argument is the snapshot identifier. The `name` argument is the name to set on the snapshot software attachment.
+
+The following example views the snapshot software attachment.
+
+```terraform
+resource "ibm_is_snapshot_software_attachment" "is_snapshot_software_attachment_instance" {
+  name = "my-software-attachment"
+  snapshot_id = "snapshot_id"
+}
+```
+{: codeblock}
+
+For more information, see [ibm_is_snapshot_software_attachment](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot_software_attachment){: external}.
 
 ### Listing all snapshots with Terraform
 {: #snapshots-vpc-view-all-terraform}

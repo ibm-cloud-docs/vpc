@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-03"
+lastupdated: "2026-10-14"
 
 subcollection: vpc
 
@@ -36,8 +36,8 @@ The following operating systems are available as stock images when you create a 
 | RHEL AI 3.x for Intel | x86-64 |
 | Rocky Linux 8.x, 9.x, 10.x | x86-64 |
 | SUSE Linux Enterprise Server 15.x, 16.x | x86-64 |
-| SUSE Linux Enterprise Server for SAP 15.x | x86-64 |
-| Ubuntu 22.04.x, 24.04.x | x86-64 |
+| SUSE Linux Enterprise Server for SAP 15.x, 16.x | x86-64 |
+| Ubuntu 22.04.x, 24.04.x, 26.04.x | x86-64 |
 | Windows 2016, 2019, 2022, 2025 | x86-64 |
 {: caption="Supported x86_64 stock image operating systems" caption-side="top"}
 
