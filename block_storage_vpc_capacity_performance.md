@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-12"
+lastupdated: "2026-10-16"
 
 keywords: Block Storage, virtual private cloud, IOPS, throughput, capacity, SSD, volume performance, sdp profile, storage profile, bandwidth, I/O size, tiered profile, custom profile
 
@@ -31,6 +31,8 @@ The `sdp` profile is available to select customers. To request access, submit an
 When you choose the second-generation `sdp` profile, you can provision second-generation data volumes up to 32,000 GB.
 
 When you select a first-generation [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), you can specify 10-16,000 GB of capacity in 1 GB increments.
+
+
 
 Boot volumes are 100 GB by default. You can install some Linux stock images on boot volumes as small as 10 GB, while Windows stock images require 40 GB or more. If you provision an instance with a custom image or a snapshot, you can specify a boot volume capacity in the range of 10 - 250 GB when you're using first-generation volume profiles, and in the range of 10 - 32,000 GB when you're using the `sdp` profile.
 

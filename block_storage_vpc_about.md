@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-01"
+lastupdated: "2026-10-16"
 
 keywords: block storage, VPC, boot volume, data volume, IOPS, NVMe, encryption, SSD, sdp profile, volume profiles
 
@@ -51,6 +51,8 @@ For other limits, see [Volume attachment limits](/docs/vpc?topic=vpc-attaching-b
 When you create an instance, you can specify if the boot volume is to be populated with a stock or custom image, or a snapshot. The capacity of the boot volume depends on the minimum provisioned size of the image or the size of the snapshot. It must be the same or larger than the size of the image or snapshot. Most stock images require a 100 GB boot volume. Some Linux stock images can be installed on a boot volume with capacity of as little as 10 GB, while some Windows stock images require a minimum of 40 GB. If you are importing a custom image, its minimum provisioned size can be 10 - 250 GB. Images that are smaller than 10 GB are rounded up to 10 GB.
 
 If you use the console to provision the instance, your default choice is the `general-purpose` volume profile. When you provision a boot volume from the CLI, with the API, or Terraform, you can specify any of the profiles from the `tiered`, `custom`, or `defined performance` volume profile families. Allowlisted customers can also use the `sdp` profile to provision boot volumes.
+
+
 
 Boot volumes can be expanded up to 250 GB when you're using one of the first-generation profiles. When you use a second-generation volume profile, such as `sdp`, you can increase the boot volume capacity up to 32,000 GB. After the boot volume capacity is increased, it can't be decreased.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-15"
+lastupdated: "2026-10-16"
 
 keywords: file share, file storage, access control mode, vpc access mode, security group, migration
 
@@ -383,14 +383,15 @@ For more information, see [Creating a mount target in the console](/docs/vpc?top
 {: #fs-migrate-create-targets-cli}
 {: cli}
 
-Run the `share-mount-target-create` command with the virtual network interface parameters. Replace `SHARE_ID` with the ID or name of the file share, `MOUNT_TARGET_NAME` with the name for the new mount target, `VPC_ID` with the ID or name of the VPC, `VNI_NAME` with the name for the virtual network interface, `SUBNET_ID` with the ID or name of the subnet, and `SECURITY_GROUP_ID` with the ID or name of the security group.
+Run the `share-mount-target-create` command with the virtual network interface parameters. Replace `SHARE_ID` with the ID or name of the file share, `MOUNT_TARGET_NAME` with the name for the new mount target, `VNI_NAME` with the name for the virtual network interface, `SUBNET_ID` with the ID or name of the subnet, and `SECURITY_GROUP_ID` with the ID or name of the security group.
 
 ```sh
 ibmcloud is share-mount-target-create SHARE_ID \
+  --access-protocol nfs4 \
+  --transit-encryption none \
   --name MOUNT_TARGET_NAME \
-  --vpc VPC_ID \
   --vni-name VNI_NAME \
-  --vni-subnet SUBNET_ID \
+  --subnet SUBNET_ID \
   --vni-sgs SECURITY_GROUP_ID
 ```
 {: pre}
@@ -399,10 +400,11 @@ See the following example:
 
 ```sh
 ibmcloud is share-mount-target-create my-file-share \
+  --access-protocol nfs4 \
+  --transit-encryption none \
   --name my-new-mount-target \
-  --vpc my-vpc \
   --vni-name my-vni \
-  --vni-subnet my-subnet \
+  --subnet my-subnet \
   --vni-sgs my-security-group
 ```
 {: pre}
@@ -420,7 +422,9 @@ curl -X POST \
 "$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2026-04-28&generation=2" \
 -H "Authorization: Bearer $iam_token" \
 -d '{
+  "access_protocol": "nfs4",
   "name": "my-new-mount-target",
+  "transit_encryption": "none",
   "virtual_network_interface": {
     "name": "my-vni",
     "subnet": {
@@ -446,12 +450,14 @@ Use the `ibm_is_share_mount_target` resource to create a mount target with a vir
 
 ```terraform
 resource "ibm_is_share_mount_target" "example" {
-  share = ibm_is_share.example.id
-  name  = "my-new-mount-target"
+  share              = ibm_is_share.example.id
+  name               = "my-new-mount-target"
+  access_protocol    = "nfs4"
+  transit_encryption = "none"
 
   virtual_network_interface {
-    name = "my-vni"
-    subnet = ibm_is_subnet.example.id
+    name            = "my-vni"
+    subnet          = ibm_is_subnet.example.id
     security_groups = [ibm_is_security_group.example.id]
   }
 }

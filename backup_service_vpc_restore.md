@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-18"
+lastupdated: "2026-10-16"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,6 +29,8 @@ You can restore volumes from backup snapshots in the console, from the CLI, with
 {: #baas-vpc-restore-concepts}
 
 Restoring a volume from a backup snapshot creates a boot or a data volume, depending on whether the snapshot is bootable or nonbootable.
+
+
 
    * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume capacity is limited to 10-250 GB for first-generation volumes. Second-generation volumes can be increased up to 32,000 GB. Your boot volume capacity can't be less than the size of the snapshot.
 

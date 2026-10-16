@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-10-16"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes, File shares, snapshots
 
@@ -42,6 +42,8 @@ For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 
 ## Storage capabilities
 {: #about-vpc-storage-capabilities}
+
+
 
 When you create an instance, a Block Storage volume is automatically attached as a primary boot volume. You can increase the capacity of the boot volume to 250 GB when you're using first-generation volume profiles, and 32,000 GB when you're using the `sdp` profile. To add secondary data storage to your instance, create {{site.data.keyword.block_storage_is_short}} volumes or {{site.data.keyword.filestorage_vpc_short}} shares.
 

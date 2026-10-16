@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-10-16"
 
 keywords: Block Storage, snapshots, restore volume, boot volume, data volume, fast restore, cross-regional copy, backup policy, sdp profile
 
@@ -24,9 +24,9 @@ The `sdp` profile is available to select customers. To request access, submit an
 ## How volume restoration works
 {: #snapshots-vpc-restore-concepts}
 
-Restoring a volume from a snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable.
+Restoring a volume from a snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable. 
 
-   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume capacity is limited to 10-250 GB.
+   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume capacity is limited to 10-250 GB for first-generation volume profiles.
 
    * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, storage generation, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile of the same storage generation, and a different CRK if you prefer.
 
@@ -85,7 +85,8 @@ You can also use the fast restore feature with the backup service. For more info
 {: #snapshots-vpc-restore-ui}
 {: ui}
 
-You can create volumes from various pages in the {{site.data.keyword.cloud_notm}} console. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. The boot volumes are limited to 250 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
+
+You can create volumes from various pages in the {{site.data.keyword.cloud_notm}} console. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. First-generation boot volumes are limited to 250 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
 
 ### Creating a volume from the list of snapshots in the console
 {: #snapshots-vpc-restore-snapshot-list-ui}
@@ -208,7 +209,7 @@ You can also create a data volume from a snapshot for an existing instance. Choo
 {: #snapshots-vpc-restore-CLI}
 {: cli}
 
-Restoring from a bootable snapshot creates a boot volume that you can use to provision a virtual server instance. The boot volume can't exceed 250 GB. Data volumes are created and can be attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
+Restoring from a bootable snapshot creates a boot volume that you can use to provision a virtual server instance. For first-generation volume profiles, the boot volume can't exceed 250 GB. Data volumes are created and can be attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
 
 ### Before you begin
 {: #snapshots-vpc-restore-prereq-CLI}
