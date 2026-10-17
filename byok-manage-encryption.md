@@ -100,7 +100,6 @@ When the CRK is suspended, it can't be used to encrypt new resources or unwrap (
 | Instance |  _available_ | Instance workloads continue to run with an _available_ status in the CLI and API, and with a _running_ status in the console. If you stop instances, they can't restart. |
 {: caption="Disabled root key" caption-side="bottom"}
 
-
 To see which root keys are disabled, look in the console list of resources. The status of volume and snapshot resources are _unusable_. File shares in a _stable_ state remain so. The UI tooltip displays "key suspended" for the resource. In the API response, you can see an _encryption_key_disabled_ reason code.
 
 
