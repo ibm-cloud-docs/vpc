@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-10-17"
 
 keywords: customer-managed encryption, root key, key rotation, disable key, delete key, restore key, Key Protect, BYOK, VPC encryption, IAM authorization
 
@@ -93,12 +93,16 @@ When the CRK is suspended, it can't be used to encrypt new resources or unwrap (
 | Custom image | _unusable_ | Images cannot be used for creating boot volumes during instance provisioning. |
 | Boot volume | _available_ | Boot volumes remain encrypted with the suspended key. If you stop the instance that uses that boot volume, it can't restart. |
 | Data volume |  _available_ | Data volumes remain encrypted, attached, and available until you stop the instance. Stand-alone data volumes that are encrypted by the suspended key can't be attached to an instance. |
+
 | Snapshot | _unusable_ | Snapshot cannot be used to restore a volume or file share. |
+
 | File share | _stable_ | Data on the file share is accessible but you can't create a file share with that key. |
 | Instance |  _available_ | Instance workloads continue to run with an _available_ status in the CLI and API, and with a _running_ status in the console. If you stop instances, they can't restart. |
 {: caption="Disabled root key" caption-side="bottom"}
 
+
 To see which root keys are disabled, look in the console list of resources. The status of volume and snapshot resources are _unusable_. File shares in a _stable_ state remain so. The UI tooltip displays "key suspended" for the resource. In the API response, you can see an _encryption_key_disabled_ reason code.
+
 
 For more information about disabling a root key, see [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#disable-ui).
 

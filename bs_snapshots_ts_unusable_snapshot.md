@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-10-17"
 
 keywords: Block Storage, snapshots, troubleshoot, unusable snapshot, encryption key, customer root key, health state, faulted
 
@@ -18,8 +18,9 @@ content-type: troubleshoot
 {: #snapshot_ts_unusable}
 {: troubleshoot}
 
-Snapshots become unusable when encryption keys are disabled or deleted. Enable or restore the root key within 30 days to make the snapshot available again.
+Snapshots become unusable when encryption keys are deleted. Enable or restore the root key within 30 days to make the snapshot available again.
 {: shortdesc}
+
 
 The snapshot is in an unusable state and the data can't be restored from the snapshot. In this case, the health state is faulted. You can see the API health reason `initializing_from_snapshot` and a message that the snapshot is in an unusable state.
 {: tsSymptoms}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-10-17"
 
 keywords: snapshots, Block Storage snapshots, snapshot status, lifecycle states, monitoring
 
@@ -34,6 +34,8 @@ The following table describes the snapshot states in the snapshot lifecycle. You
 | Deleting | The snapshot is being deleted. |
 | Deleted | The snapshot was deleted and is not available to restore volumes. |
 {: caption="Snapshot lifecycle states" caption-side="bottom"}
+
+
 
 ## Next steps
 {: #snapshots-vpc-monitoring-next-steps}
