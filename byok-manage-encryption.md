@@ -93,7 +93,6 @@ When the CRK is suspended, it can't be used to encrypt new resources or unwrap (
 | Custom image | _unusable_ | Images cannot be used for creating boot volumes during instance provisioning. |
 | Boot volume | _available_ | Boot volumes remain encrypted with the suspended key. If you stop the instance that uses that boot volume, it can't restart. |
 | Data volume |  _available_ | Data volumes remain encrypted, attached, and available until you stop the instance. Stand-alone data volumes that are encrypted by the suspended key can't be attached to an instance. |
-
 | Snapshot | _unusable_ | Snapshot cannot be used to restore a volume or file share. |
 
 | File share | _stable_ | Data on the file share is accessible but you can't create a file share with that key. |
