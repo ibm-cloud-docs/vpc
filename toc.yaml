@@ -509,7 +509,7 @@ toc:
           - par-creating.md
           - topicgroup:
               id: byoip
-              label: Custom authorized CIDRs (BYOIP)
+              label: Custom authorized CIDRs - BYOIP (beta)
               topics:
               - byoip.md
               - byoip-create-cidr.md

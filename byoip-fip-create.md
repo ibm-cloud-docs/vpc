@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-19"
 
 keywords: BYOIP, floating IP, custom authorized CIDR, reserve, bring your own IP
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Reserving floating IPs from a custom authorized CIDR
+# Reserving floating IPs from a custom authorized CIDR (beta)
 {: #byoip-fip-create}
 
 [BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.

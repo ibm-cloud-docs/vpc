@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-19"
 
 keywords: byoip, troubleshooting, authorized CIDR, deprovision, bring your own IP
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why can't I deprovision my authorized CIDR?
+# Why can't I deprovision my authorized CIDR? (beta)
 {: #ts-byoip-cannot-deprovision}
 {: troubleshoot}
 {: support}
