@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-15"
+lastupdated: "2026-10-19"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -294,7 +294,7 @@ You can view the software attachments of a snapshot from the CLI.
    ```
    {: pre}
 
-- To view the details of a specific snapshot software attachment, use [`ibmcloud is snapshot-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachment). The `SNAPSHOT` variable is the ID or name of the snapshot. The `SWAC` variable is the snapshot software attachment ID or name.
+- To view the details of a specific snapshot software attachment, use [`ibmcloud is snapshot-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachment-view). The `SNAPSHOT` variable is the ID or name of the snapshot. The `SWAC` variable is the snapshot software attachment ID or name.
 
    ```sh
    ibmcloud is snapshot-software-attachment SNAPSHOT SWAC [--output JSON] [-q, --quiet]

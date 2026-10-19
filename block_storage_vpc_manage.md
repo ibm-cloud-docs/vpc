@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-15"
+lastupdated: "2026-10-19"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -652,7 +652,7 @@ curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/volumes/$volume_id/softwar
 ```
 {: pre}
 
-For more information, see [Update a volume software attachment](/docs/apis/vpc/latest##update-volume-software-attachment) in the VPC API.
+For more information, see [Update a volume software attachment](/docs/apis/vpc/latest#update-volume-software-attachment) in the VPC API.
 
 ## Managing {{site.data.keyword.block_storage_is_short}} with Terraform
 {: #managing-block-storage-terraform}
