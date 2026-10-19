@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-19"
 
 keywords: byoip, troubleshooting, authorized CIDR, bring your own IP, CIDR not visible, ipv4
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why is my IPv4 authorized CIDR not visible after the support case was closed?
+# Why is my IPv4 authorized CIDR not visible after the support case was closed? (beta)
 {: #ts-byoip-cidr-not-visible}
 {: troubleshoot}
 {: support}

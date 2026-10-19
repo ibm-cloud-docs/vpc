@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-19"
 
 keywords: LoA, IPv4 prefixes
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Template: Letter of Authorization for IBM to announce IPv4 prefixes
+# Template: Letter of Authorization for IBM to announce IPv4 prefixes (beta)
 {: #ipv4-letter-of-authorization}
 
 [BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.

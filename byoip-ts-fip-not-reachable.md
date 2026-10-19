@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-19"
 
 keywords: byoip, troubleshooting, authorized CIDR, floating IP, not reachable, bring your own IP
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why is my floating IP from a custom authorized CIDR not reachable from the internet?
+# Why is my floating IP from a custom authorized CIDR not reachable from the internet? (beta)
 {: #ts-byoip-fip-not-reachable}
 {: troubleshoot}
 {: support}

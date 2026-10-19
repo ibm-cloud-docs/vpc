@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-19"
 
 keywords: byoip, troubleshooting, authorized CIDR, public gateway, floating IP, bring your own IP
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why is my public gateway not using an IP from my custom authorized CIDR?
+# Why is my public gateway not using an IP from my custom authorized CIDR? (beta)
 {: #ts-byoip-pgw-wrong-ip}
 {: troubleshoot}
 {: support}

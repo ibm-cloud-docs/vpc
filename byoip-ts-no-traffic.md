@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-19"
 
 keywords: byoip, troubleshooting, authorized CIDR, public address range, traffic, ingress routing, bring your own IP
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why is traffic not reaching my resources after creating a public address range from my authorized CIDR?
+# Why is traffic not reaching my resources after creating a public address range from my authorized CIDR? (beta)
 {: #ts-byoip-no-traffic}
 {: troubleshoot}
 {: support}
