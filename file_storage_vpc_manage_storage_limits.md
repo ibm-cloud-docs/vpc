@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-10-19"
+lastupdated: "2026-10-20"
 
 keywords: share, capacity, Block Storage
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing file share count and capacity limits
 {: #manage-fs-limit}
 
-Request an increase to the default 300 file share limit per account by submitting a [Support case](/unifiedsupport/cases/add){: external} with required details.
+Request an increase to the default 300 file share limit per region by submitting a [Support case](/unifiedsupport/cases/add){: external} with required details.
 {: shortdesc}
 
 ## File share count and storage limits checklist

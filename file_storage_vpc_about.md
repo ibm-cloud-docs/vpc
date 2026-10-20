@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-15"
+lastupdated: "2026-10-20"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -335,7 +335,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * For regional file shares (`rfs` profile), the maximum file size is 1 TB. Zonal file shares (`dp2` profile) don't have a file size limit.
 * No data retention policy exists for deleted file shares. You cannot undelete a file share after you delete it.
 * Up to 256 hosts per zone per VPC can be concurrently connected to a single file share.
-* You can create up to 300 file shares within your VPC.
+* You can create up to 300 file shares in a region.
 * Up to 100 accessor share bindings can be created when you share your zonal file share with another account or external service.
 * A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
 * Only {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023 support {{site.data.keyword.filestorage_vpc_short}}.

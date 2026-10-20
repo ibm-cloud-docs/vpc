@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-19"
+lastupdated: "2026-10-20"
 
 keywords:
 
@@ -228,14 +228,15 @@ The combined total of the advertised routes quota and the [address prefixes quot
 ### File shares and snapshots
 {: #file-storage-quotas}
 
-
 | Resource | Quota |
 | -------- | ----- |
-| File shares | 300 file shares per account, across all VPCs |
-| Mount targets | 256 per file share per account per zone. |
+| File shares | 300 file shares per account per region.  |
+| Mount targets | 1 mount target per file share per VPC. |
+| Hosts per mount target | 256 hosts can connect to a file share through each mount target. |
 | Accessor share bindings | A file share can have a maximum of 100 accessor bindings. |
-| Snapshots and backup snapshots | Zonal file shares can have up to 750 snapshots per share in a region. \n In the current release of Regional file shares, you can create up to 30 snapshots per share in a region. |
-| Snapshots and backup snapshots | The total snapshot size that is allocated to a Zonal file share can't exceed 8 times the size of the share. \n In the current release of Regional file shares, there are no limitations on snapshot size allocation. |
+| Replica file shares | A source file share can have 1 replica file share. Replicas can't be chained. [VERIFY: applies to current release] |
+| Snapshots and backup snapshots | Zonal file shares can have up to 750 snapshots per share. \n In the current release of Regional file shares, you can create up to 30 snapshots per share. |
+| Snapshot size | The total snapshot size that is allocated to a Zonal file share can't exceed 8.09 times the size of the share. \n In the current release of Regional file shares, there are no limitations on snapshot size allocation. |
 {: caption="Quotas for file shares" caption-side="bottom"}
 
 ### Backup policies and plans
