@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-10-20"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS
 
@@ -37,7 +37,7 @@ Some changes can require a secure live migration of a virtual server to update t
 
 When nondisruptive live migration occurs, the virtual server experiences a brief pause of around 10 seconds, and in some cases up to 30 seconds. You are not notified in advance of nondisruptive migration. The virtual server instance is not restarted as part of this process.
 
-In cases where a disruptive migration is required, you are notified 30 days in advance of the scheduled migration. The virtual server instance is restarted as part of this process.
+In cases where a disruptive migration is required, you are notified in advance of the scheduled migration. The virtual server instance is restarted as part of this process. For notification timelines, see [Getting advanced notice for disruptive maintenance](/docs/support?topic=support-viewing-notifications#iaas-offering).
 
 In limited cases, a virtual server restart might be required to complete the host or data center maintenance. This scenario can occur when specialized VMs are used or if the virtual server encounters a migration problem. In this case, a scheduled maintenance event occurs.
 
@@ -47,7 +47,7 @@ For more information about unscheduled migrations that result from an unexpected
 ## What to expect during a scheduled maintenance event
 {: #about-scheduled-maintenance}
 
-In scenarios where workloads cannot migrate automatically, a scheduled maintenance event occurs. When workloads can't migrate automatically, the account owner receives an email about the upcoming maintenance that requires their attention. The account owner has a maintenance period typically 30 days in length. Exceptional cases can necessitate different timelines as outlined in [Getting advanced notice for disruptive maintenance](/docs/support?topic=support-viewing-notifications#disruptive-notice-maintenance).
+In scenarios where workloads cannot migrate automatically, a scheduled maintenance event occurs. When workloads can't migrate automatically, the account owner receives an email about the upcoming maintenance that requires their attention. For notification timelines, see [Getting advanced notice for disruptive maintenance](/docs/support?topic=support-viewing-notifications#iaas-offering).
 
 To start the maintenance event, the account owner needs to power-off their virtual server and then power it back on. This power cycle can be initiated as soon as a maintenance notification is received. When the virtual server resumes, it starts on the updated infrastructure. By doing so, the customer can choose when to perform the maintenance anytime ahead of the scheduled window.
 
