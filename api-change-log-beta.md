@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-20"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,14 @@ Compatibility with earlier versions is not guaranteed as a feature progresses th
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 20 October 2026
+{: #20-october-2026-beta}
+
+### For all version dates
+{: #20-october-2026-all-version-dates-beta}
+
+**Dynamic Route Server for VPC.** Accounts that have been granted special permissions to preview this feature can now [create](/docs/apis/vpc-beta#create-dynamic-route-server), [retrieve](/docs/apis/vpc-beta#get-dynamic-route-server), [update](/docs/apis/vpc-beta#update-dynamic-route-server), and [delete](/docs/apis/vpc-beta#delete-dynamic-route-server) dynamic route servers to provide BGP-based dynamic routing for VPC networks. Dynamic route servers support peer groups for organizing BGP peers, peer group policies for controlling route advertisement and acceptance, and static routes. For more information, see [About Dynamic Route Server](/docs/vpc?topic=vpc-about-drs).
 
 ## 29 September 2026
 {: #29-september-2026-beta}
