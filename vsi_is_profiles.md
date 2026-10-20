@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-20"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -473,7 +473,7 @@ Make sure to install the appropriate driver and software for the profile you sel
 
 When you create a virtual server by using a GPU or accelerated profile, keep the following recommendations in mind.
 
-- During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
+- During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified in advance of any maintenance where the virtual server instance restarts. For notification timelines, see [Getting advanced notice for disruptive maintenance](/docs/support?topic=support-viewing-notifications#iaas-offering). For more information about maintenance, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the required software and drivers onto your virtual server instance. For more information, see [Managing GPUs and accelerators](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#block-storage-notes-for-profiles).
 - For GPU profiles that contain instance storage, those block devices are attached as native NVMe drives instead of virtio block devices. The ordering of the instance storage drives regarding storage volumes might differ.
