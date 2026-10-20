@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-08"
+lastupdated: "2026-10-19"
 
 keywords:
 
@@ -228,6 +228,7 @@ The combined total of the advertised routes quota and the [address prefixes quot
 ### File shares and snapshots
 {: #file-storage-quotas}
 
+
 | Resource | Quota |
 | -------- | ----- |
 | File shares | 300 file shares per account, across all VPCs |
@@ -247,6 +248,8 @@ The combined total of the advertised routes quota and the [address prefixes quot
 | Block volumes | The cumulative size of all backups for a first-generation storage volume can't exceed 10 TB. \n You can create backup snapshots of second-generation storage volumes up to 32 TB. |
 | Retention period | You can keep your backup snapshots for up to 1000 days. |
 {: caption="Quotas for file shares" caption-side="bottom"}
+
+
 
 ### Placement groups
 {: #placement-group-quotas}

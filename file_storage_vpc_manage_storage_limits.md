@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-07-30"
+lastupdated: "2026-10-19"
 
 keywords: share, capacity, Block Storage
 
@@ -33,7 +33,7 @@ Review the following checklist items and record your answers. Provide this infor
     >*"75% of the file shares are under 250 GB and 25% are up to 32,000 GB."*
 
 - **Which share profiles are used: `dp2` or `rfs`?**
-    >*We request the capacity increase for `dp2` shares.*   
+    >*We request the capacity increase for `dp2` shares.*
 
 - **What is the performance level that you require for the new shares?**
     >*"We plan to provision the smaller, 250-GB file shares with 5000 IOPS, and the large, 32-TB file shares with 48,000 IOPS."*
