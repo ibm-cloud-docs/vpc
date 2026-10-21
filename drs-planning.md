@@ -102,7 +102,7 @@ Review the following security considerations:
 * Dynamic route server appliances are managed by {{site.data.keyword.cloud_notm}} and run in isolated service-managed VPCs.
 * Communication between dynamic route server components and IBM Cloud services uses private networking and virtual private endpoints.
 * Security groups attached to VNIs must allow BGP traffic (TCP port `179`) and any additional peer-specific traffic that is required for routing control.
-* All dynamic route server configuration changes and lifecycle events are logged by using {{site.data.keyword.at_full}}.
+* All dynamic route server configuration changes and lifecycle events are logged by using {{site.data.keyword.at_full}}. For more information, see [Dynamic route server status and descriptions](/docs/vpc?topic=vpc-drs-status), [Dynamic route server events](/docs/vpc?topic=vpc-at_events#events-dynamic-route-server), and [Dynamic route server logging](/docs/vpc?topic=vpc-logging#logging-dynamic-route-server).
 
 ## Operational considerations
 {: #drs-operational-considerations}

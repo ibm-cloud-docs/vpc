@@ -127,7 +127,7 @@ To create a static route with the API, follow these steps:
      -H "Content-Type: application/json" \
      -d '{
        "name": "my-static-route",
-       "destination": "10.0.0.0/32",
+       "destination": "10.0.0.0/8",
        "next_hops": [
          {
            "id": "PEER_GROUP_ID"
@@ -144,5 +144,3 @@ To create a static route with the API, follow these steps:
      }'
    ```
    {: codeblock}
-
-
