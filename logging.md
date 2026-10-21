@@ -117,11 +117,11 @@ The following table outlines the message IDs that are generated for Dynamic Rout
 
 | Message ID | Type | Description |
 | ---------- | ---- | ----------- |
-| `dynamic-route-server.00001` | `info` | Dynamic route server `<DRS Name>` (`<DRS ID>`) was created in VPC `<VPC ID>`. |
-| `dynamic-route-server.00002` | `info` | Dynamic route server `<DRS Name>` (`<DRS ID>`) deletion was accepted. |
-| `dynamic-route-server.00003` | `info` | Dynamic route server member appliance (member `<Member ID>`, VSI `<VSI ID>`) for DRS `<DRS ID>` was provisioned successfully. |
-| `dynamic-route-server.00004` | `err` | Dynamic route server member appliance (member `<Member ID>`) for DRS `<DRS ID>` failed to provision: `<Reason>`. |
-| `dynamic-route-server.00005` | `info` | Dynamic route server member appliance (member `<Member ID>`) for DRS `<DRS ID>` was deleted. |
+| `dynamic-route-server.00001` | `info` | Dynamic route server `<Dynamic route server name>` (`<Dynamic route server ID>`) was created in VPC `<VPC ID>`. |
+| `dynamic-route-server.00002` | `info` | Dynamic route server `<Dynamic route server name>` (`<Dynamic route server ID>`) deletion was accepted. |
+| `dynamic-route-server.00003` | `info` | Dynamic route server member appliance (member `<Member ID>`, VSI `<VSI ID>`) for dynamic route server `<Dynamic route server ID>` was provisioned successfully. |
+| `dynamic-route-server.00004` | `err` | Dynamic route server member appliance (member `<Member ID>`) for dynamic route server `<Dynamic route server ID>` failed to provision: `<Reason>`. |
+| `dynamic-route-server.00005` | `info` | Dynamic route server member appliance (member `<Member ID>`) for dynamic route server `<Dynamic route server ID>` was deleted. |
 {: caption="Message IDs that are generated for Dynamic Route Server events" caption-side="bottom"}
 
 A log is generated when each Dynamic Route Server event occurs.
