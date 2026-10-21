@@ -61,12 +61,22 @@ To create a dynamic route server member in the console, follow these steps:
 1. Enter a name for the dynamic route server member, such as `my-drs-mem`.
 1. Select the location where the member is created.
 1. If you already have a VNI, select one from the list. If you don't have one, follow these steps:
-   - Click **Create** and enter a name for the virtual network interface.
-   - Select the resource group to which it belongs.
-   - Select the subnet that you want to use for the member.
-   - Add the Network and IP information
-1. Click **Next**
-1. Review the information in the Summary panel, and click **Create**.
+   - In the **Details** section, click **Create** and enter a name for the virtual network interface.
+     - Select the resource group to which it belongs.
+     - Select the subnet that you want to use for the member.
+     - Add the Network and IP information
+     - Click **Next**
+   - In the **Network configuration** section, complete the following information:
+      - **Allow IP spoofing**: Select the switch to disable IP spoofing.
+      - **Infrastructure NAT**: Select the switch to enable infrastructure NAT.
+
+         Infrastructure NAT is enabled when IP spoofing is enabled and must be enabled for the dynamic route server member.
+         {: note}
+
+      - [**Protocol state filtering mode**](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering): Select a radio button to set the mode. For the dynamic route server, it must be set to **Auto** or **Enabled**.
+      - **Security groups**: Select at least one and at most five security groups to control traffic at the networking level. You can select security groups from the list, or create one by clicking Create. For more information about creating a security group, see [Creating security groups](/docs/vpc?topic=vpc-using-security-groups).
+   - In the IP section, keep the default setting. A dynamic route server member VNI must have one primary IP address.
+   - Review the information in the Summary panel, and click **Create**.
 
 ## Creating a dynamic route server from the CLI
 {: #drs-create-cli}
