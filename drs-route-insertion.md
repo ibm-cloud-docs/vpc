@@ -140,7 +140,7 @@ The following table summarizes the key differences in how route entries are adde
 ## Route insertion for static routes
 {: #drs-route-insertion-static-routes}
 
-Static routes follow the same ingress and egress insertion rules described previously, but the inputs are different. For learned routes, the zone, priority, and IP address used in the ranking logic come from the peer configuration, and the dynamic route server derives those values automatically as peers establish BGP sessions. For static routes, those values are derived from the static route definition that you provide.
+Static routes follow the same ingress and egress insertion rules that are described previously, but the inputs are different. For learned routes, the zone, priority, and IP address that is used in the ranking logic come from the peer configuration, and the dynamic route server derives those values automatically as peers establish BGP sessions. For static routes, those values are derived from the static route definition that you provide.
 
 When you create a static route, you specify:
 
