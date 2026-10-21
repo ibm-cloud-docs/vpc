@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-21"
 
 keywords:
 
@@ -158,7 +158,41 @@ Existing events include a new attribute:
 `is.endpoint-gateway.endpoint-gateway.{list,read}`
 :    Includes an `allow_dns_resolution_binding property` and its boolean value in response data.
 
+### Dynamic route server events
+{: #events-dynamic-route-server}
 
+| Resource | Action | Description |
+|---|---|---|
+| dynamic-route-server | `is.dynamic-route-server.dynamic-route-server.create` | Dynamic route server was created |
+| dynamic-route-server | `is.dynamic-route-server.dynamic-route-server.read` | Dynamic route server was retrieved |
+| dynamic-route-server | `is.dynamic-route-server.dynamic-route-server.update` | Dynamic route server was updated |
+| dynamic-route-server | `is.dynamic-route-server.dynamic-route-server.delete` | Dynamic route server was deleted |
+| dynamic-route-server | `is.dynamic-route-server.dynamic-route-server.list` | Dynamic route servers were listed |
+| member | `is.dynamic-route-server.member.create` | Dynamic route server member was created |
+| member | `is.dynamic-route-server.member.read` | Dynamic route server member was retrieved |
+| member | `is.dynamic-route-server.member.delete` | Dynamic route server member was deleted |
+| member | `is.dynamic-route-server.member.list` | Dynamic route server members were listed |
+| peer-group | `is.dynamic-route-server.peer-group.create` | Peer group was created |
+| peer-group | `is.dynamic-route-server.peer-group.read` | Peer group was retrieved |
+| peer-group | `is.dynamic-route-server.peer-group.update` | Peer group was updated |
+| peer-group | `is.dynamic-route-server.peer-group.delete` | Peer group was deleted |
+| peer-group | `is.dynamic-route-server.peer-group.list` | Peer groups were listed |
+| peer-group-peer | `is.dynamic-route-server.peer-group-peer.create` | Peer group peer was created |
+| peer-group-peer | `is.dynamic-route-server.peer-group-peer.read` | Peer group peer was retrieved |
+| peer-group-peer | `is.dynamic-route-server.peer-group-peer.update` | Peer group peer was updated |
+| peer-group-peer | `is.dynamic-route-server.peer-group-peer.delete` | Peer group peer was deleted |
+| peer-group-peer | `is.dynamic-route-server.peer-group-peer.list` | Peer group peers were listed |
+| peer-group-policy | `is.dynamic-route-server.peer-group-policy.create` | Peer group policy was created |
+| peer-group-policy | `is.dynamic-route-server.peer-group-policy.read` | Peer group policy was retrieved |
+| peer-group-policy | `is.dynamic-route-server.peer-group-policy.update` | Peer group policy was updated |
+| peer-group-policy | `is.dynamic-route-server.peer-group-policy.delete` | Peer group policy was deleted |
+| peer-group-policy | `is.dynamic-route-server.peer-group-policy.list` | Peer group policies were listed |
+| static-route | `is.dynamic-route-server.static-route.create` | Static route was created |
+| static-route | `is.dynamic-route-server.static-route.read` | Static route was retrieved |
+| static-route | `is.dynamic-route-server.static-route.update` | Static route was updated |
+| static-route | `is.dynamic-route-server.static-route.delete` | Static route was deleted |
+| static-route | `is.dynamic-route-server.static-route.list` | Static routes were listed |
+{: caption="Actions that generate events for Dynamic Route Server" caption-side="bottom"}
 
 ### Floating IP events
 {: #events-network-floatingIP}

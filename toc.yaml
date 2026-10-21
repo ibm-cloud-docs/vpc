@@ -414,6 +414,26 @@ toc:
               - cn-view-details.md
               - cn-delete.md
       - topicgroup:
+          id: dynamic-routing-server
+          label: Dynamic route server
+          topics:
+          - drs-getting-started.md
+          - drs-architecture.md
+          - drs-use-cases.md
+          - drs-planning.md
+          - drs-create.md
+          - topicgroup:
+              id: managing-dynamic-route-server
+              label: Managing dynamic route server
+              topics:
+              - drs-create-peer-groups.md
+              - drs-attach-peer-to-groups.md
+              - drs-create-peer-group-policy.md
+              - drs-create-static-routes.md
+          - drs-status.md
+          - drs-health.md
+          - drs-route-insertion.md
+      - topicgroup:
           id: subnets
           label: Subnets
           topics:
@@ -1043,6 +1063,7 @@ toc:
               - file_storage_vpc_faqs.md
               - fs_snapshots_faqs.md
           - cn-faq.md
+          - drs-faq.md
           - fl-faq.md
           - topicgroup:
               id: faq-load-balancers

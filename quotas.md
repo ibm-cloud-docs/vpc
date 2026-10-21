@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-20"
+lastupdated: "2026-10-21"
 
 keywords:
 
@@ -95,6 +95,24 @@ The combined total of the address prefixes quota and the [advertised routes quot
 | Maximum number of cluster network subnet reserved IP addresses per account | 5000 |
 {: caption="Quotas for cluster networks" caption-side="bottom"}
 
+### Dynamic route server
+{: #dynamic-route-server-quotas}
+
+| Resource | Quota |
+| -------- | ----- |
+| Dynamic route servers per region | Max 10 per region |
+| Dynamic route server per VPC | 1 per VPC |
+| Dynamic route server member | 1-3 per dynamic server instance |
+| Virtual network interface | Up to 3 per dynamic server instance |
+| Peer groups per dynamic route server | 5 |
+| Peers per dynamic server peer group | 6 |
+| Learned routes per dynamic route server | 100 |
+| Advertised routes per dynamic route sevrer | 200 |
+| Security groups per dynamic route server | 1 |
+| Dynamic route servers per security group | 5 |
+| Transit Gateway connections to dynamic route server | 2 per zone, 4 per transit gateway |
+| Dynamic route server to Transit Gateway | 1 Transit Gateway per dynamic route server instance |
+{: caption="Quotas for cluster networks" caption-side="bottom"}
 
 
 ### Floating IPs
