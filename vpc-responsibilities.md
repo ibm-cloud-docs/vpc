@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-21"
 
 keywords: responsibilities, ha, high availability, disaster recovery
 
@@ -61,7 +61,8 @@ Incident and operations management includes tasks such as monitoring, event mana
 | Monitoring | {{site.data.keyword.IBM_notm}} provides built-in virtual server instance monitoring and IBM Cloud Monitoring. | The Customer monitors the health of their workload by using either the built-in virtual server instance monitoring or IBM Cloud Monitoring. |
 | Logs | {{site.data.keyword.IBM_notm}} provides access to logs for debugging purposes. | The Customer uses {{site.data.keyword.logs_full_notm}} to check logs, as needed. |
 | Workloads | {{site.data.keyword.IBM_notm}} provides tools and features for customer use. | The Customer uses the provided tools and features to configure and deploy their highly available and resilient workloads by setting up permissions, integrating with other services, externally serving and monitoring health, as well as saving, backing up, and restoring data. [BYOIP (IPv4) Beta]{: tag-cyan} This responsibility includes configuring routing, public address ranges, and connectivity associated with customer-owned IP address space. |
-| Flow logs | {{site.data.keyword.IBM_notm}} provides the ability to collect flow log data from various endpoints. | The Customer understands the IBM Cloud Flow Logs for VPC data retention process and ensures that their destination Cloud Object Storage bucket is properly secured and encrypted. | 
+| Flow logs | {{site.data.keyword.IBM_notm}} provides the ability to collect flow log data from various endpoints. | The Customer understands the IBM Cloud Flow Logs for VPC data retention process and ensures that their destination Cloud Object Storage bucket is properly secured and encrypted. |
+| [Beta]{: tag-cyan} Dynamic route server BGP session monitoring | IBM monitors BGP and BFD session state for all dynamic route server peers and alerts on session drops, route flaps, and GRE tunnel failures. | The Customer monitors BGP session state on their peer devices (firewall, NSX-T T0, or on-premises router) and investigates issues originating from their network. |
 {: caption="Responsibilities for incidents and operations" caption-side="bottom"}
 
 
@@ -75,7 +76,8 @@ Change management includes tasks such as deployment, configuration, upgrades, pa
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | -------- | --------------------- | --------------------- |
-| OS-based update repositories | {{site.data.keyword.IBM_notm}} provides private network access to OS-based update repositories. | The Customer maintains OS patches, version updates, and security updates. | 
+| OS-based update repositories | {{site.data.keyword.IBM_notm}} provides private network access to OS-based update repositories. | The Customer maintains OS patches, version updates, and security updates. |
+| [Beta]{: tag-cyan} Dynamic route server configuration updates | IBM patches, upgrades, and maintains the dynamic route server appliance software with rolling upgrades and published maintenance windows. | The Customer manages all BGP configuration changes on the dynamic route server, including peer groups, peers, routing policies, and static routes, and must remove all policies before deleting a dynamic route server instance. |
 {: caption="Responsibilities for change management" caption-side="bottom"}
 
 ### Identity and access management
@@ -85,7 +87,8 @@ Identity and access management includes tasks such as authentication, authorizat
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | -------- | --------------------- | --------------------- |
-| IBM Cloud IAM | {{site.data.keyword.IBM_notm}} enables customers to restrict access to resources through the {{site.data.keyword.cloud_notm}} console and REST APIs. | The Customer is responsible for managing access to resources through {{site.data.keyword.iamlong}} (IAM). | 
+| IBM Cloud IAM | {{site.data.keyword.IBM_notm}} enables customers to restrict access to resources through the {{site.data.keyword.cloud_notm}} console and REST APIs. | The Customer is responsible for managing access to resources through {{site.data.keyword.iamlong}} (IAM). |
+| [Beta]{: tag-cyan} Dynamic route server access control | IBM enforces IAM authorization on all dynamic route server API endpoints and manages internal service credentials through the IBM Cloud Secrets Manager. | The Customer creates and assigns IAM roles for dynamic route server provisioning actions and configures any required service-to-service IAM authorizations within their account. |
 {: caption="Responsibilities for identity and access management" caption-side="bottom"}
 
 ### Security and regulation compliance
@@ -103,7 +106,8 @@ Security and regulation compliance includes tasks such as security control imple
 | Public Network Access | {{site.data.keyword.IBM_notm}} provides options to use a public gateway, floating IPs, or public address ranges. [BYOIP (IPv4) Beta]{: tag-cyan} IBM provides public connectivity options through public gateways, floating IPs, and public address ranges that are allocated from either IBM-managed public IP pools or customer-owned authorized CIDRs. | The Customer chooses how to connect their workload to the public internet, if applicable, either through a public gateway, floating IP, or public address range. |
 | Access restriction | {{site.data.keyword.IBM_notm}} provides security measures for customers to restrict access to resources and resource groups. | The Customer restricts user access to the appropriate resources and resource groups. |
 | Activity tracking | {{site.data.keyword.IBM_notm}} provides logging and monitoring tools. | The Customer integrates {{site.data.keyword.atracker_full_notm}} and {{site.data.keyword.monitoringlong_notm}} data into their auditing and monitoring processes. |
-| Encryption | {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. \n \n {{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. | The Customer ensures that their connection is encrypted end-to-end, if required. | 
+| Encryption | {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. \n \n {{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. | The Customer ensures that their connection is encrypted end-to-end, if required. |
+| [Beta]{: tag-cyan} Dynamic route server security controls | IBM secures the dynamic route server appliance infrastructure, conducts vulnerability scanning, and emits Activity Tracker audit events for all dynamic route server control-plane API calls. | The Customer configures VPC security groups to permit BGP (TCP 179) and BFD traffic, enforces routing policies to prevent advertisement of unintended prefixes, and ensures peer ASNs do not use Transit Gateway reserved ASN ranges. |
 {: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 
 ### Disaster recovery
@@ -113,5 +117,6 @@ Disaster recovery includes tasks such as providing dependencies on disaster reco
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 | -------- | --------------------- | --------------------- |
-| Load balancer and VPN disaster recovery | IBM Cloud Load Balancer and {{site.data.keyword.vpn_vpc_short}} have off-site storage and replication of configuration data in an out-of-region disaster recovery node with daily backups. This data is fully managed by {{site.data.keyword.cloud_notm}} and no customer input is required to ensure service recovery, although there can be up to a 24-hour loss of configuration data. | The Customer sets up their backup and recovery strategies for workload data. | 
+| Load balancer and VPN disaster recovery | IBM Cloud Load Balancer and {{site.data.keyword.vpn_vpc_short}} have off-site storage and replication of configuration data in an out-of-region disaster recovery node with daily backups. This data is fully managed by {{site.data.keyword.cloud_notm}} and no customer input is required to ensure service recovery, although there can be up to a 24-hour loss of configuration data. | The Customer sets up their backup and recovery strategies for workload data. |
+| [Beta]{: tag-cyan} Dynamic route server high availability and failover | IBM designed the dynamic route server for multi-zone high availability with redundant GRE tunnels per availability zone and maintained a business continuity and disaster recovery (BCDR) plan with defined RTO/RPO targets for the dynamic route server platform layer. | The Customer deploys a redundant pair of dynamic route server instances (recommended), configures their peer devices for multi-path BGP failover, and tests end-to-end routing recovery from their network. |
 {: caption="Responsibilities for disaster recovery" caption-side="bottom"}

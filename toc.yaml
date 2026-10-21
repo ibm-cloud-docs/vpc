@@ -415,7 +415,7 @@ toc:
               - cn-delete.md
       - topicgroup:
           id: dynamic-routing-server
-          label: Dynamic route server
+          label: Dynamic route server (beta)
           topics:
           - drs-getting-started.md
           - drs-architecture.md
