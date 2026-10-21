@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-17"
+lastupdated: "2026-10-21"
 
 keywords: customer-managed encryption, root key, key rotation, disable key, delete key, restore key, Key Protect, BYOK, VPC encryption, IAM authorization
 
@@ -82,9 +82,9 @@ For more information about root key states from a KMS perspective, see [Key stat
 ### Disabling root keys
 {: #byok-disable-root-keys}
 
-When you disable a root key, you suspend its encryption and decryption operations. The encrypted resources become unusable for normal operations. Temporarily disabling a root key is good practice if you suspect possible security exposure, compromise, or data breach. You can enable a disabled root key when the security threat is no longer active.
+When you disable a root key, you suspend its encryption and decryption operations. Disabling a root key does not interrupt running workloads, but it prevents operations that require the key to decrypt — such as starting a stopped instance, attaching a data volume, or provisioning a new resource. Temporarily disabling a root key is good practice if you suspect a security exposure, compromise, or data breach. You can enable a disabled root key when the security threat is no longer active.
 
-When you disable a root key, workloads continue to run in virtual server instances, and boot volumes remain encrypted. Data volumes remain attached. File share data is encrypted. However, if you stop the virtual server instance, it can't be restarted. You also can't provision a resource by using a disabled key. Before you disable a key, it's best to verify which resources are being protected by it.
+When you disable a root key, workloads continue to run in virtual server instances, and boot volumes remain encrypted. Data volumes remain attached. File share data remains encrypted and accessible. However, if you stop the virtual server instance, it can't be restarted. You also can't provision a resource by using a disabled key. Before you disable a key, it's best to verify which resources are being protected by it.
 
 When the CRK is suspended, it can't be used to encrypt new resources or unwrap (decrypt) passphrases that are protecting existing resources.
 
@@ -94,7 +94,6 @@ When the CRK is suspended, it can't be used to encrypt new resources or unwrap (
 | Boot volume | _available_ | Boot volumes remain encrypted with the suspended key. If you stop the instance that uses that boot volume, it can't restart. |
 | Data volume |  _available_ | Data volumes remain encrypted, attached, and available until you stop the instance. Stand-alone data volumes that are encrypted by the suspended key can't be attached to an instance. |
 | Snapshot | _unusable_ | Snapshot cannot be used to restore a volume or file share. |
-
 | File share | _stable_ | Data on the file share is accessible but you can't create a file share with that key. |
 | Instance |  _available_ | Instance workloads continue to run with an _available_ status in the CLI and API, and with a _running_ status in the console. If you stop instances, they can't restart. |
 {: caption="Disabled root key" caption-side="bottom"}
