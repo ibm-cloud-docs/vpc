@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-05"
+lastupdated: "2026-10-21"
 
 keywords: flow logs, ordering, logging
 
@@ -110,7 +110,22 @@ The following table outlines the message IDs that are generated for dedicated ho
 A log is generated when each Dedicated Host event occurs.
 {: note}
 
+### Dynamic Route Server
+{: #logging-dynamic-route-server}
 
+The following table outlines the message IDs that are generated for Dynamic Route Server events:
+
+| Message ID | Type | Description |
+| ---------- | ---- | ----------- |
+| `dynamic-route-server.00001` | `info` | Dynamic route server `<DRS Name>` (`<DRS ID>`) was created in VPC `<VPC ID>`. |
+| `dynamic-route-server.00002` | `info` | Dynamic route server `<DRS Name>` (`<DRS ID>`) deletion was accepted. |
+| `dynamic-route-server.00003` | `info` | Dynamic route server member appliance (member `<Member ID>`, VSI `<VSI ID>`) for DRS `<DRS ID>` was provisioned successfully. |
+| `dynamic-route-server.00004` | `err` | Dynamic route server member appliance (member `<Member ID>`) for DRS `<DRS ID>` failed to provision: `<Reason>`. |
+| `dynamic-route-server.00005` | `info` | Dynamic route server member appliance (member `<Member ID>`) for DRS `<DRS ID>` was deleted. |
+{: caption="Message IDs that are generated for Dynamic Route Server events" caption-side="bottom"}
+
+A log is generated when each Dynamic Route Server event occurs.
+{: note}
 
 ### File share cross-account access
 {: #logging-file-share-accessor}
