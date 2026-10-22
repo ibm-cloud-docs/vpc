@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-22"
 
 keywords: dynamic route server, architecture, BGP, appliance, GRE, high availability
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Architecture
 {: #drs-architecture}
 
-Dynamic Route Server for VPC is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Dynamic Route Server for VPC](/docs/vpc?topic=vpc-release-notes#vpc-oct2126) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 Dynamic Route Server for VPC automates the management of routing in complex network topologies. Instead of manually maintaining static routes as workloads, firewalls, and connected networks change, you define routing policies once, and the dynamic route server keeps your VPC routing tables up to date automatically. It uses Border Gateway Protocol (BGP) to learn routes from connected peers and applies your policies to determine which routes are added to VPC routing tables, reflected to other peers, or advertised back to connected networks.

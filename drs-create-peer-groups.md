@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-22"
 
 keywords: dynamic route server
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating a peer group
 {: #drs-create-peer-group}
 
-Dynamic Route Server for VPC is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Dynamic Route Server for VPC](/docs/vpc?topic=vpc-release-notes#vpc-oct2126) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You can create a peer group to logically group related peers, define their routing roles, configure health monitoring, and control, which routes the dynamic route server processes from those peers. Policies are applied at the peer group level.
@@ -79,14 +79,29 @@ In the **Peers** section, click **Attach** to attach a peer. In the **Policies**
 {: #drs-create-peer-group-cli}
 {: cli}
 
-Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+To create a peer group for the dynamic route server from the CLI, follow these steps:
 
-To create a peer group for the dynamic route server from the CLI, run the following command:
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+1. Log in to your CLI environment. After you enter the password, the system prompts which account and region that you want to use:
 
-```sh
-ibmcloud is dynamic-route-server-peer-group-create DYNAMIC_ROUTE_SERVER (--roles next_hop | router | next_hop,router) (--peers PEERS_JSON | @PEERS_JSON_FILE) (--health-monitor-roles next_hop | router) [--health-monitor-mode bfd | bgp | none] [--name NAME] [--state disabled | enabled] [--excluded-prefixes EXCLUDED_PREFIXES_JSON | @EXCLUDED_PREFIXES_JSON_FILE] [--monitored-prefixes MONITORED_PREFIXES_JSON | @MONITORED_PREFIXES_JSON_FILE] [--output JSON] [-q, --quiet]
-```
-{: codeblock}
+   ```sh
+   ibmcloud login --sso
+   ```
+   {: pre}
+
+1. Enable the following feature flag:
+
+   ```sh
+   export IBMCLOUD_IS_FEATURE_DYNAMIC_ROUTE_SERVER=true
+   ```
+   {: pre}
+
+1. Run the following command:
+
+   ```sh
+   ibmcloud is dynamic-route-server-peer-group-create DYNAMIC_ROUTE_SERVER (--roles next_hop | router | next_hop,router) (--peers PEERS_JSON | @PEERS_JSON_FILE) (--health-monitor-roles next_hop | router) [--health-monitor-mode bfd | bgp | none] [--name NAME] [--state disabled | enabled] [--excluded-prefixes EXCLUDED_PREFIXES_JSON | @EXCLUDED_PREFIXES_JSON_FILE] [--monitored-prefixes MONITORED_PREFIXES_JSON | @MONITORED_PREFIXES_JSON_FILE] [--output JSON] [-q, --quiet]
+   ```
+   {: codeblock}
 
 Where:
 

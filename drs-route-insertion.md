@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-22"
 
 keywords: dynamic route server, routing table, zone priority, route insertion, ingress, egress
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Route insertion behavior for dynamic route server
 {: #drs-route-insertion}
 
-Dynamic Route Server for VPC is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Dynamic Route Server for VPC](/docs/vpc?topic=vpc-release-notes#vpc-oct2126) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 When a dynamic route server policy is configured to update a VPC routing table, the dynamic route server adds routes on behalf of healthy next-hop peers. The rules for which routes are added, and how many, depend on whether the target routing table is an ingress table or an egress table.
