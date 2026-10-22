@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-15"
+lastupdated: "2026-10-22"
 
 keywords:
 
@@ -26,6 +26,17 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## October 2026
 {: #vpc-oct26}
+
+### 21 October 2026
+{: #vpc-oct2126}
+{: release-note}
+
+Dynamic route server for VPC for scalable hybrid connectivity and dynamic routing (beta)
+:   You can now provision dynamic route servers in VPC, which enables dynamic route exchange between VPC networks, customer-managed routers, firewalls, and Transit Gateway connections by using BGP. The service automates route updates, supports route management, and helps improve resiliency for hybrid cloud networking environments. For more information, see [Getting started with dynamic route server](/docs/vpc?topic=vpc-about-drs).
+
+   The API is available now; UI and CLI support are coming soon.
+
+
 
 ### 01 Oct 2026
 {: #vpc-oct-0126}
@@ -81,6 +92,8 @@ Third-party license and entitlement service for volumes and snapshots
       - [Retrieving a snapshot software attachment](/docs/vpc?topic=vpc-snapshots-vpc-software-attachments&interface=cli#snapshots-vpc-retrieve-software-attachment-cli)
 
    For more information on the API changes, see the [VPC API change log entry for 24 September 2026](/docs/vpc?topic=vpc-api-change-log#24-september-2026-all-version-dates).
+
+
 
 ### 03 September 2026
 {: #vpc-sep0326}
