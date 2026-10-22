@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-22"
 
 keywords: dynamic route server
 
@@ -51,14 +51,29 @@ To create a static route in the console, follow these steps:
 {: #drs-create-static-route-cli}
 {: cli}
 
-Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+To create a static route from the CLI, follow these steps:
 
-To create a static route from the CLI, run the following command:
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+1. Log in to your CLI environment. After you enter the password, the system prompts which account and region that you want to use:
 
-```sh
-ibmcloud is dynamic-route-server-static-route-create DYNAMIC_ROUTE_SERVER --destination DESTINATION (--next-hops NEXT_HOPS_JSON | @NEXT_HOPS_JSON_FILE) (--routing-tables ROUTING_TABLES_JSON | @ROUTING_TABLES_JSON_FILE) [--name NAME] [--route-delete-delay ROUTE_DELETE_DELAY] [--output JSON] [-q, --quiet]
-```
-{: codeblock}
+   ```sh
+   ibmcloud login --sso
+   ```
+   {: pre}
+
+1. Enable the following feature flag:
+
+   ```sh
+   export IBMCLOUD_IS_FEATURE_DYNAMIC_ROUTE_SERVER=true
+   ```
+   {: pre}
+
+1. Run the following command:
+
+   ```sh
+   ibmcloud is dynamic-route-server-static-route-create DYNAMIC_ROUTE_SERVER --destination DESTINATION (--next-hops NEXT_HOPS_JSON | @NEXT_HOPS_JSON_FILE) (--routing-tables ROUTING_TABLES_JSON | @ROUTING_TABLES_JSON_FILE) [--name NAME] [--route-delete-delay ROUTE_DELETE_DELAY] [--output JSON] [-q, --quiet]
+   ```
+   {: codeblock}
 
 Where:
 

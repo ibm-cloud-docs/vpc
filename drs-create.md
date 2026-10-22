@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-22"
 
 keywords: dynamic route server
 
@@ -82,14 +82,29 @@ To create a dynamic route server member in the console, follow these steps:
 {: #drs-create-cli}
 {: cli}
 
-Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+To create a dynamic route server from the CLI, follow these steps:
 
-To create a dynamic route server from the CLI, run the following command:
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+1. Log in to your CLI environment. After you enter the password, the system prompts which account and region that you want to use:
 
-```sh
-ibmcloud is dynamic-route-server-create --local-asn LOCAL_ASN (--members MEMBERS_JSON | @MEMBERS_JSON_FILE) [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
-```
-{: codeblock}
+   ```sh
+   ibmcloud login --sso
+   ```
+   {: pre}
+
+1. Enable the following feature flag:
+
+   ```sh
+   export IBMCLOUD_IS_FEATURE_DYNAMIC_ROUTE_SERVER=true
+   ```
+   {: pre}
+
+1. Run the following command:
+
+   ```sh
+   ibmcloud is dynamic-route-server-create --local-asn LOCAL_ASN (--members MEMBERS_JSON | @MEMBERS_JSON_FILE) [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
+   ```
+   {: codeblock}
 
 Where:
 

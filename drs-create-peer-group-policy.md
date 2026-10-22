@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-22"
 
 keywords: dynamic route server
 
@@ -71,14 +71,29 @@ To create a peer group policy in the console, follow these steps:
 {: #drs-create-peer-group-policy-cli}
 {: cli}
 
-Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+To create a policy for a peer group from the CLI, follow these steps:
 
-To create a policy for a peer group from the CLI, run the following command:
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+1. Log in to your CLI environment. After you enter the password, the system prompts which account and region that you want to use:
 
-```sh
-ibmcloud is dynamic-route-server-peer-group-policy-create DYNAMIC_ROUTE_SERVER --peer-group PEER_GROUP (--type custom_routes | learned_routes | vpc_address_prefixes | vpc_routing_tables) [--name NAME] [--state enabled | disabled] [--custom-routes CUSTOM_ROUTES_JSON | @CUSTOM_ROUTES_JSON_FILE] [--peer-groups PEER_GROUPS_JSON | @PEER_GROUPS_JSON_FILE] [--next-hops NEXT_HOP_JSON | @NEXT_HOP_JSON_FILE] [--routing-tables ROUTING_TABLES_JSON | @ROUTING_TABLES_JSON_FILE] [--excluded-prefixes EXCLUDED_PREFIXES_JSON | @EXCLUDED_PREFIXES_JSON_FILE] [--route-delete-delay ROUTE_DELETE_DELAY] [--output JSON] [-q, --quiet]
-```
-{: codeblock}
+   ```sh
+   ibmcloud login --sso
+   ```
+   {: pre}
+
+1. Enable the following feature flag:
+
+   ```sh
+   export IBMCLOUD_IS_FEATURE_DYNAMIC_ROUTE_SERVER=true
+   ```
+   {: pre}
+
+1. Run the following command:
+
+   ```sh
+   ibmcloud is dynamic-route-server-peer-group-policy-create DYNAMIC_ROUTE_SERVER --peer-group PEER_GROUP (--type custom_routes | learned_routes | vpc_address_prefixes | vpc_routing_tables) [--name NAME] [--state enabled | disabled] [--custom-routes CUSTOM_ROUTES_JSON | @CUSTOM_ROUTES_JSON_FILE] [--peer-groups PEER_GROUPS_JSON | @PEER_GROUPS_JSON_FILE] [--next-hops NEXT_HOP_JSON | @NEXT_HOP_JSON_FILE] [--routing-tables ROUTING_TABLES_JSON | @ROUTING_TABLES_JSON_FILE] [--excluded-prefixes EXCLUDED_PREFIXES_JSON | @EXCLUDED_PREFIXES_JSON_FILE] [--route-delete-delay ROUTE_DELETE_DELAY] [--output JSON] [-q, --quiet]
+   ```
+   {: codeblock}
 
 Where:
 
@@ -201,5 +216,3 @@ To create a peer group policy with the API, follow these steps:
 
    For prefix exclusions, you can exclude only prefixes that match or are subnets of monitored prefixes that are configured on the peer groups referenced by a policy. For example, if a referenced peer group in the policy contains a monitored prefix of `10.0.0.0/8`, you can exclude `10.0.0.0/8`, `10.1.0.0/16`, or `10.1.1.0/24` because each prefix matches or is a subnet of the monitored prefix. However, you cannot exclude `172.16.0.0/16` because it is outside the monitored prefix range.
    {: note}
-
-
