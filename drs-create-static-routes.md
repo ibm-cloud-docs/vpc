@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating a static route
 {: #drs-create-static-routes}
 
-Dynamic Route Server for VPC is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Dynamic Route Server for VPC](/docs/vpc?topic=vpc-release-notes#vpc-oct2126) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 A static route on a dynamic route server is a manually defined network path that the dynamic route server manages in VPC routing tables on your behalf. Unlike a traditional VPC static route, a dynamic route server static route is health-aware: it is automatically added to or removed from the specified VPC routing tables based on the health of the peer group that serves as the next hop.

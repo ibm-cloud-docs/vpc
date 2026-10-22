@@ -15,7 +15,7 @@ subcollection: vpc
 # Attaching a peer to a peer group
 {: #drs-attach-peer-to-group}
 
-Dynamic Route Server for VPC is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Dynamic Route Server for VPC](/docs/vpc?topic=vpc-release-notes#vpc-oct2126) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You can attach a peer, such as firewalls, routers, SD-WAN devices, or a transit gateway, to a peer group to establish a BGP session between the dynamic route server and peer routing device.

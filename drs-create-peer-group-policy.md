@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating a peer group policy
 {: #drs-create-peer-group-policy}
 
-Dynamic Route Server for VPC is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Dynamic Route Server for VPC](/docs/vpc?topic=vpc-release-notes#vpc-oct2126) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 A peer group policy is a rule that controls how a dynamic route server handles routes for a peer group. Policies define whether the dynamic route server reflects learned routes to other peer groups, advertises VPC address prefixes or custom static routes to peers, or adds learned routes to VPC routing tables with a specified next hop. You can create multiple policy types for a peer group to build the routing behavior that your topology requires.

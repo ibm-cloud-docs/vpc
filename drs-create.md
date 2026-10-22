@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating a dynamic route server
 {: #drs-create}
 
-Dynamic Route Server for VPC is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Dynamic Route Server for VPC](/docs/vpc?topic=vpc-release-notes#vpc-oct2126) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You can create a dynamic route server to enable policy-driven, dynamic routing between your VPC and connected networks by exchanging routes with external peers by using BGP. You can add members to a dynamic route server to deploy routing appliances across availability zones, providing high availability and resilience for BGP route exchange.

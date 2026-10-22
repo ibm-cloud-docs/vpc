@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-22"
 
 keywords: dynamic route server
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Diagnosing dynamic route server health
 {: #drs-health}
 
-Dynamic Route Server for VPC is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Dynamic Route Server for VPC](/docs/vpc?topic=vpc-release-notes#vpc-oct2126) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 Use this table to identify the health of dynamic route servers, find the reasons for failure, and find solutions for recovery.

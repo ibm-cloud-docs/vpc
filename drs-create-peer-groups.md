@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating a peer group
 {: #drs-create-peer-group}
 
-Dynamic Route Server for VPC is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Dynamic Route Server for VPC](/docs/vpc?topic=vpc-release-notes#vpc-oct2126) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You can create a peer group to logically group related peers, define their routing roles, configure health monitoring, and control, which routes the dynamic route server processes from those peers. Policies are applied at the peer group level.
