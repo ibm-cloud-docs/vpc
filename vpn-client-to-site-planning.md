@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-24"
+  years: 2021, 2026
+lastupdated: "2026-10-23"
 
 keywords:
 
@@ -34,6 +34,7 @@ Review the following considerations before you create a VPN server.
    * In-house, customized OpenVPN clients
    * VPN client user self-service portal
 * When the VPN is used in client certificate authentication mode or with a client certificate plus user ID and passcode, authentication errors due invalid client certificates don't trigger activity tracking events.
+* Some countries or regions (such as Egypt) enforce internet filtering or regulatory restrictions that block OpenVPN traffic and protocols. Users who attempt to connect to a client-to-site VPN server from these locations might experience connection failures, such as TLS handshake timeouts or key negotiation errors. For more information, see [Regional restrictions on the use of OpenVPN products](https://support.openvpn.com/hc/en-us/articles/19196576161819-Regional-restrictions-on-the-use-of-OpenVPN-products){: external}.
 
 ## Existing VPC configuration considerations
 {: #existing-vpc-configuration-considerations}

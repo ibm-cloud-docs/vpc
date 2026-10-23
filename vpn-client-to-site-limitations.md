@@ -28,4 +28,3 @@ Known issues for client-to-site VPN servers are as follows:
    * VPN server auto scaling
    * In-house, customized OpenVPN client
    * VPN client user self-service portal
-  
