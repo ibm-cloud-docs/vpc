@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-22"
+lastupdated: "2026-10-23"
 
 keywords:
 
@@ -78,7 +78,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: #vpc-sep2426}
 {: release-note}
 
-Third-party license and entitlement service for volumes and snapshots
+Third-party license and entitlement service for volumes and snapshots (GA)
 :  You can now retrieve the `software_attachments` property and child resources for block storage boot volumes and snapshots. Software attachments created for instances when using the third-party license and entitlement feature now appear with their associated boot volumes and with snapshots that are created from such volumes. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
 
    - Volume software attachments
@@ -145,7 +145,7 @@ HPCS to Key Protect key migration support for VPC services (GA)
 {: #vpc-aug0426}
 {: release-note}
 
-Capacity information for Bare Metal Servers on VPC
+Capacity information for Bare Metal Servers on VPC (GA)
 :   You can query the available capacity of a given bare metal profile in a specific region or zone by using the UI, CLI, API, and Terraform. Profiles that don't have available inventory are disabled. You can query capacity by profile name, zone name, or both. The information that is returned with this command is informational only and does not allocate capacity. Capacity information is displayed and only includes available nodes. Nodes that are allocated elsewhere or are otherwise unavailable are not included in the capacity information. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui)
 
 ## July 2026
@@ -235,7 +235,7 @@ VPC ingress routing tables now support VPN connection as next hop
 Application Load Balancers (ALBs) for VPC support mutual Transport Layer Security (mTLS)
 :   ALBs for VPC now support mTLS, enabling authentication of both clients and servers. Providers can also use Certificate Revocation Lists (CRLs) to revoke or block compromised client certificates. For more information, see [About mutual TLS authentication for application load balancers](/docs/vpc?topic=vpc-alb-mtls-about).
 
-Third-party license and entitlement service
+Third-party license and entitlement service (GA)
 :  You can now provision virtual server instances from catalog images with vendor-managed software licensing. This feature enables dynamic license acquisition and management for third-party software running on instances, allowing vendors to control and track license usage on a per-instance basis.
 
    Software attachments now exist for virtual server instances that are created from resources that are sourced from a catalog offering with a software billing plan, and represent software instances that are created from these plans. These software attachments contain license information when the plan is associated with vendor-managed software licensing. You can track and manage licensed software running on your infrastructure resources. You can view, list, retrieve, and update software attachments from the CLI, with API, or Terraform. For more information on how to do this, see the following content.
