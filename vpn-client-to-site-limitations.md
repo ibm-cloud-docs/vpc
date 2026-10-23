@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-08-12"
+  years: 2023, 2026
+lastupdated: "2026-10-23"
 keywords:
 
 subcollection: vpc
@@ -28,4 +28,4 @@ Known issues for client-to-site VPN servers are as follows:
    * VPN server auto scaling
    * In-house, customized OpenVPN client
    * VPN client user self-service portal
-* In client certificate authentication mode or client certificate and User ID/passcode authentication mode, authentication failure due to an invalid client certificate will not generate an activity track event
+  
