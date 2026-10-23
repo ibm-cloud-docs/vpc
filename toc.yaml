@@ -415,7 +415,7 @@ toc:
               - cn-delete.md
       - topicgroup:
           id: dynamic-routing-server
-          label: Dynamic route server (beta)
+          label: Dynamic route servers (beta)
           topics:
           - drs-getting-started.md
           - drs-architecture.md
@@ -424,7 +424,7 @@ toc:
           - drs-create.md
           - topicgroup:
               id: managing-dynamic-route-server
-              label: Managing dynamic route server
+              label: Managing dynamic route servers
               topics:
               - drs-create-peer-groups.md
               - drs-attach-peer-to-groups.md

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-08-12"
+  years: 2023, 2026
+lastupdated: "2026-10-23"
 keywords:
 
 subcollection: vpc
@@ -28,4 +28,5 @@ Known issues for client-to-site VPN servers are as follows:
    * VPN server auto scaling
    * In-house, customized OpenVPN client
    * VPN client user self-service portal
-* In client certificate authentication mode or client certificate and User ID/passcode authentication mode, authentication failure due to an invalid client certificate will not generate an activity track event
+* In client certificate authentication mode or client certificate and User ID/passcode authentication mode, authentication failure due to an invalid client certificate does not generate an activity track event.
+* Some countries or regions (such as Egypt) enforce internet filtering or regulatory restrictions that block OpenVPN traffic and protocols. Users who attempt to connect to a client-to-site VPN server from these locations might experience connection failures, such as TLS handshake timeouts or key negotiation errors. For more information, see [Regional restrictions on the use of OpenVPN products](https://support.openvpn.com/hc/en-us/articles/19196576161819-Regional-restrictions-on-the-use-of-OpenVPN-products){: external}.
