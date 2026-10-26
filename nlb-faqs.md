@@ -82,8 +82,6 @@ The following default settings apply to NLB health check options:
 The health check response timeout value must be less than the health check interval value.
 {: tip}
 
-
-
 ### Is an NLB's IP address fixed?
 {: #is-the-network-load-balancer-ip-address-fixed}
 {: faq}
