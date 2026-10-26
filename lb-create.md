@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-10-26"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -211,7 +211,7 @@ To create an application load balancer from the CLI, follow these steps:
     ibmcloud is load-balancer-create alb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family application
     ```
     {: pre}
-
+    
     Sample output:
 
     ```sh
@@ -480,7 +480,7 @@ To create an application load balancer with the API, follow these steps:
           }'
     ```
     {: codeblock}
-
+    
     For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/docs/apis/vpc/latest#list-load-balancer-profiles).
 
     Sample output:
