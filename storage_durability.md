@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-10-26"
 
 keywords: storage durability, storage availability, high availability, block storage, file storage, VPC, AES-256, encryption, IOPS, SLO, disaster recovery
 
@@ -20,7 +20,7 @@ IBM Cloud VPC storage is engineered for high durability and availability, protec
 
 | {{site.data.keyword.block_storage_is_short}} Storage type | Use Case | Durability | Availability | Encryption |
 |--------------|----------|------------|--------------|------------|
-| SSD defined performance | The `sdp` profile is the most flexible block storage option. Customers can specify capacity between 10 - 32,000 MB, up to 64,000 IOPS with adjustable bandwidth up to 8192 Mbps. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+| SSD defined performance | The `sdp` profile is the most flexible block storage option. Customers can specify capacity between 10 - 32,000 GB, up to 64,000 IOPS with adjustable bandwidth up to 8192 Mbps. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 3 IOPS per GB tier| It is designed for general-purpose workloads such as workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 5 IOPS per GB tier| It is designed for high I/O intensity workloads that are characterized by a large percentage of active data, such as transactional and other performance-sensitive databases. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 10 IOPS per GB tier| It is designed for demanding storage workloads such as data-intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
@@ -31,8 +31,8 @@ IBM Cloud VPC storage is engineered for high durability and availability, protec
 
 | {{site.data.keyword.filestorage_vpc_short}} Storage type | Use Case | Durability | Availability | Encryption |
 |--------------|----------|------------|--------------|------------|
-| `dp2` | The most flexible zonal share profile option. Customers can specify capacity between 10 - 32,000 MB with adjustable IOPS ranging 100 - 96,000.Maximum bandwidth is 8192 Mbps. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
-| `rfs` | The most flexible regional share profile option. Customers can specify capacity between 10 - 32,000 MB with adjustable bandwidth up to 8192 Mbps. Maximum IOPS is 35,000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |</
+| `dp2` | The most flexible zonal share profile option. Customers can specify capacity between 10 - 32,000 GB with adjustable IOPS ranging 100 - 96,000.Maximum bandwidth is 8192 Mbps. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+| `rfs` | The most flexible regional share profile option. Customers can specify capacity between 10 - 32,000 GB with adjustable bandwidth up to 8192 Mbps. Maximum IOPS is 35,000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |</
 {: caption="{{site.data.keyword.filestorage_vpc_short}} Storage durability and availability chart." caption-side="bottom"}
 
 {{site.data.keyword.filestorage_vpc_short}} shares are encrypted by using provider-managed encryption or customer-managed encryption keys.

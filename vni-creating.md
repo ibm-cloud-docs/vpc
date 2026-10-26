@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-26"
 
 keywords:
 
@@ -51,8 +51,8 @@ To create a virtual network interface in the console, follow these steps:
 1. In the Details section, complete the following information:
    * **Name**: Enter a unique name for the virtual network interface, such as `my-virtual-network-interface`.
    * **Resource group**: Select a resource group for the virtual network interface.
-   * **Tags**: (optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
-   * **Access management tags**: (optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   * **Tags**: Optional: Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+   * **Access management tags**: Optional: Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
 1. In the Network configuration section, complete the following information:
    * **Virtual private cloud**: Select the VPC in which you want to create your virtual network interface. If you need to create a VPC, click **Create VPC**.
    * **Subnet**: Select a subnet in which to create the virtual network interface. If you need to create a subnet, click **Create**.
@@ -81,16 +81,16 @@ To create a virtual network interface in the console, follow these steps:
 1. In the Primary IP section, make the following selections.
     * **Reserving method**: Select whether you want a primary IP address created for you, or if you want to specify one manually. If you specify your own, type an existing reserved IP address for your virtual network interface, or select one from the existing reserved IP list menu.
     * **Auto release**: Click the switch to enable or disable auto release for this virtual network interface.
-1. In the Floating IPs section (optional), click **Attach**. In the side panel that appears, you can either select from the existing list of floating IP addresses, or select **Reserve new Floating IP** and complete the information that is requested.
+1. Optional: In the Floating IPs section, click **Attach**. In the side panel that opens, you can either select from the existing list of floating IP addresses, or select **Reserve new Floating IP** and complete the information that is requested.
 
     [BYOIP (IPv4) Beta]{: tag-cyan}When reserving a new floating IP, you can select **Custom authorized CIDRs** under **Public address source** to allocate an IP from your own authorized range instead of IBM-managed pools. Select the authorized CIDR and choose a reserving method. For more information, see [Creating floating IPs from a custom authorized CIDR](/docs/vpc?topic=vpc-byoip-fip-create).
 
-    If a floating IP is attached, the virtual network interface will not be accepted as file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
+    If a floating IP is attached, the virtual network interface cannot be accepted as a file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
     {: note}
 
 
 
-1. In the Secondary IP section (optional), click **Attach**. Select a reserving method, and specify whether auto release is enabled.
+1. Optional: In the Secondary IP section, click **Attach**. Select a reserving method, and specify whether auto release is enabled.
 
     A virtual network interface with secondary IPs attached cannot be accepted as a file share mount target.
     {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-10-26"
 
 keywords: public address ranges, limitations
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Known issues for public address ranges
 {: #par-known-issues}  
 
-As the rollout of Public Address Ranges for VPC continues, a few known issues and limitations have been identified. These are temporary and are scheduled to be addressed in upcoming updates.
+As the rollout of public address ranges for VPC continues, a few known issues and limitations have been identified. These are temporary and are scheduled to be addressed in upcoming updates.
 
 
 

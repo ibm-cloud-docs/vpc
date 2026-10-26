@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-26"
 
 keywords: public address range, create, bind
 
@@ -34,7 +34,7 @@ Make sure to review [planning considerations](/docs/vpc?topic=vpc-par-planning) 
 
 To create public address ranges in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public Address Ranges**. The Public Address Ranges for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**. The Public address ranges for VPC page is displayed.
 1. Click **Create** to go to the provisioning page.
 1. In the Location section, indicate the region where you want the public address range created.
 1. In the Details section, complete the following information:
@@ -46,13 +46,13 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
       {: note}
 
 
-   * **Name**: (Optional): Enter a name for the public address range, such as `my-public-address-range`.
+   * **Name**: Optional: Enter a name for the public address range, such as `my-public-address-range`.
    * **Resource group**: Select a resource group for the public address range.
 
       After you create a public address range, you can't change the resource group.
       {: note}
 
-   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can always add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).[BYOIP (IPv4) Beta]{: tag-cyan}
+   * **Tags**: Optional: Add tags to help you organize and find your resources. You can always add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).[BYOIP (IPv4) Beta]{: tag-cyan}
 
    * **Public address source**: Select one of the following:
 
@@ -72,14 +72,14 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
 
 
 
-1. (Optional) If you want to bind your public address range to an existing VPC, toggle the **Bind** switch to **On**. Then, select the VPC and availability zone that you want to bind to.
+1. Optional: If you want to bind your public address range to an existing VPC, toggle the **Bind** switch to **On**. Then, select the VPC and availability zone that you want to bind to.
 
    You can bind a public address range to any VPC in a single availability zone that already exists in your account. You can also bind the address range to a VPC later. For more information, see [Binding a public address range](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui#bind-par-ui).
    {: tip}
 
 1. Click **Create**. The public address range is requested for use.
 
-On the Public address ranges for VPC page, your address range appears in the table. It takes a few minutes for the status of the public address range to change from `Updating` to `Stable`. When in `Stable` status, the address range is ready for use.
+On the Public address ranges for VPC page, your address range is displayed in the table. It takes a few minutes for the status of the public address range to change from `Updating` to `Stable`. When in `Stable` status, the address range is ready for use.
 
 ## Creating public address ranges from the CLI
 {: #par-ordering-cli}
