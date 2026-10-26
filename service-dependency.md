@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-10-13"
+lastupdated: "2026-10-26"
 
 keywords:
 
@@ -71,7 +71,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | IBM Cloud Global Search and Tagging | Availability, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.atracker_full}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.monitoringlong}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
-| corporate-qradar | Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| corporate-magna | Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | OSS Platform | Availability, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM GitHub Enterprise | Availability, Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
