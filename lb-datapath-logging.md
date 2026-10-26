@@ -91,7 +91,6 @@ Note that:
 * `MSG_timestamp` is the timestamp in Coordinated Universal Time.
 * `SentByHost` is the VIP of the appliance. For public load balancers, this is the floating IP; for private load balancers, this is a private IP.
 * `MESSAGE` is the content of the log message.
-
 * `logSourceCRN` indicates which {{site.data.keyword.la_short}} instance to use to save the logs for the account.
 * `saveServiceCopy` is `false` (by default) and cannot be changed.
 

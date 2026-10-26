@@ -212,7 +212,6 @@ To create an application load balancer from the CLI, follow these steps:
     ```
     {: pre}
     
-
     Sample output:
 
     ```sh
@@ -481,7 +480,6 @@ To create an application load balancer with the API, follow these steps:
           }'
     ```
     {: codeblock}
-    
     For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/docs/apis/vpc/latest#list-load-balancer-profiles).
 
     Sample output:
