@@ -27,14 +27,12 @@ As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs
 
 This table shows a comparison of public versus private features.
 
-
 | Feature | Public load balancer | Private load balancer |
 |--------|-------|-------|
 | Accessible on the internet? |  Yes, with a fully qualified domain name (FQDN) | No, internal clients only, on same region and VPC |
 | Accepts all traffic? | Yes | Yes \n (The restriction to accept traffic only from the RFC-1918 address space is removed.) |
 | How is the domain name registered? | Public IP addresses | Private IP addresses |
 {: caption="Comparison of public and private load balancers" caption-side="bottom"}
-
 
 ### Public application load balancer
 {: #public-load-balancer}
@@ -243,57 +241,6 @@ WebSocket provides full-duplex communication channels over a single TCP connecti
 To make sure that High Availability (HA) works with your ALB, attach three subnets from different zones to the ALB and deploy appliances across these zones. To do this, you first select your subnets during the ALB creation process. You can select two subnets in different zones (such as `us-south-1` and `us-south-2`). Doing so creates the ALB's IP addresses (such as the appliance IPs) in two different subnets.
 
 You can also do this with already existing ALBs. Go to the **Attached Resources** section on your load balancer details page. From the **Subnet** section, click **Edit subnets**. Then, attach more subnets. The ALB goes into the “Migrating” state. When the migration completes, you get a new IP for the appliance from the subnet that you just attached. You now have two IP addresses from different subnets in different zones. 
-
-## VPC representation of an application load balancer
-{: #vpc-alb-representation}
-
-Figure 1 shows the VPC representation of a typical application load balancer setup. The ALB is provisioned on a VPC subnet. To configure the network data path on the ALB, a listener, a pool, and at least one member must be created. A _listener_ is the front-end port that the ALB is listening on for customer requests. These requests are forwarded to the targets in the pool that is associated with the listener. A _pool_ is a group of targets that are used to distribute the network requests coming into the ALB for a specific listener. A _member_ is a back-end server with a specified port that is configured to listen for requests.
-
-![Application load balancer work flow](images/alb-workflow-customer-view.svg "Application load balancer work flow"){: caption="Application load balancer work flow" caption-side="bottom"}
-
-
-## Use case 1: Public application load balancer
-{: #alb-use-case-1}
-
-Figure 2 illustrates how a public ALB works. The Consumer sends a request to the load balancer for data, and the load balancer forwards the request to a back-end target. The target generates a response and the response is sent to the Consumer.
-
-![Public application load balancer](images/alb_use_case_1.svg "Public application load balancer"){: caption="Public application load balancer" caption-side="bottom"}
-
-## Use case 2: Private application load balancer
-{: #alb-use-case-2}
-
-A private ALB is accessible only from within the VPC network, where the Consumer has reachability (for example, through Direct Link, Transit Gateway, or both).
-
-For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
-{: important}
-
-Figure 3 illustrates how a private ALB works. The Consumer sends a request for data to the load balancer through a direct link or transit gateway, and the load balancer forwards the request to a back-end target. The load balancer authenticates the client request using Transport Layer Security (TLS), then forwards the request to a back-end target. The target generates a response, and sends the response to the Private ALB. The Private ALB uses TLS to authenticate the server, before forwarding the response to the Consumer.
-
-![Private application load balancer](images/alb_use_case_2.svg "Private application load balancer"){: caption="Private application load balancer" caption-side="bottom"}
-
-## Use case 3: Application load balancer registers its hostname to CIS or private DNS
-{: #alb-use-case-3}
-
-Figure 4 illustrates how an ALB registers its hostname to CIS or private DNS. The Consumer sends a request to the load balancer for data through a direct link or transit gateway, and the load balancer forwards the request to a back-end target. ALB registers its hostname to CIS (public DNS resolution) or private DNS (for private DNS resolution). The target generates a response and the response is sent to the Consumer.
-
-![Application load balancer registers its hostname to CIS or private DNS](images/alb_use_case_3.svg "tbd"){: caption="Application load balancer registers its hostname to CIS or private DNS" caption-side="bottom"}
-
-## Use case 4: Multi-zone, high availability using an application load balancer
-{: #alb-use-case-4}
-
-Figure 5 illustrates how you can deploy an NLB to support multiple zones. This deployment scenario often requires the use of the global load balancer (GLB) option in [IBM Cloud Internet Services (CIS)](/docs/cis?topic=cis-configure-glb).
-
-Be aware that a [known limitation](/docs/vpc?topic=vpc-nlb-limitations#limitations-network-load-balancers) applies to this scenario: Two members with the same instance and port cannot exist at the same time, so use a different port with the same instance.
-{: important}
-
-It is recommended that you deploy your workloads in multiple zones to increase their availability in a High Availability (HA) environment.
-
-You can use this deployment scenario to obtain high availability and ensure workloads are available across multiple availability zones in case there is a load balancer failure. If a failure condition happens to a load balancer in one availability zone, then the GLB no longer sends traffic to that availability zone. For example, if a failure happens in availability zone 1, the GLB sends traffic to availability zone 2 or availability zone 3. Examples scenarios can include a large of failures, everything from a single NLB, all the way to an entire availability zone.
-
-![Multi-zone public network load balancer](images/alb_use_case_5.svg){: caption="Multi-zone network load balancer" caption-side="bottom}
-
-The requirement of one NLB per zone is only needed for Public and Private NLB. Private Path NLB is regional by nature, so there is no need to define one per zone.
-{: note}
 
 ## Related links
 {: #permissions-related-links-alb}

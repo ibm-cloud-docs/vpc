@@ -89,7 +89,6 @@ Note that:
 
 * `PRIORITY` is the log level that is associated with each message on the severity of the log. Currently, the only choice is `info`.
 * `MSG_timestamp` is the timestamp in Coordinated Universal Time.
-
 * `SentByHost` is the VIP of the appliance. For public load balancers, this is the floating IP; for private load balancers, this is a private IP.
 * `MESSAGE` is the content of the log message.
 

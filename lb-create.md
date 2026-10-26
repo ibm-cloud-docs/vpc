@@ -44,7 +44,6 @@ To create an ALB:
    * **Type**: Select the load balancer type.
      * A **Public** load balancer has a public IP address, which means that it can route requests from clients over the internet.
      * A **Private** load balancer has a private IP address, which means that it is accessible only to internal clients within the same region and VPC.
-   * 
    * **DNS type**: Select either **Public** or **Private**. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross-account access.
 
       **For Private type only**, click **Bind** to enter your DNS instance and zone information, then click **Bind**.
@@ -212,7 +211,6 @@ To create an application load balancer from the CLI, follow these steps:
     ibmcloud is load-balancer-create alb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family application
     ```
     {: pre}
-
     
 
     Sample output:
@@ -483,9 +481,7 @@ To create an application load balancer with the API, follow these steps:
           }'
     ```
     {: codeblock}
-
     
-
     For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/docs/apis/vpc/latest#list-load-balancer-profiles).
 
     Sample output:

@@ -100,8 +100,6 @@ curl -H "Authorization: Bearer $iam_token" -X POST
 ```
 {: codeblock}
 
-
-
 Sample output:
 
 ```sh

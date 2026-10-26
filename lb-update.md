@@ -29,7 +29,6 @@ To update an ALB in the {{site.data.keyword.cloud_notm}} console, perform the fo
 1. Select the load balancer that you want to update.
 1. Select **Back-end pools** if you need to edit a pool or virtual server instance parameters.
 1. Select **Front-end listeners** if you need to edit listener parameters. To update the Client/Server timeout values, select **Edit** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions") in the row of the Listener that you want to edit. You can select a timeout value between 50 seconds and 2 hours (7200 seconds). This value is for both the client and server. If you need more than 2 hours, you can [open a support case](/docs/support?topic=support-open-case&interface=ui) and provide a business requirement for the timeout value required.
-1. 
 1. After you're done editing, select **Save** to save your changes.
 
 The **Active** button on the upper left of your window now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes are applied.
@@ -195,8 +194,6 @@ Provision status          update_pending
 Created                   2025-04-15T14:11:06+05:30
 ```
 {: screen}
-
-
 
 ## Updating an application load balancer with the API
 {: #alb-updating-frontend-listener-port-api}

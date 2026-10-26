@@ -92,7 +92,6 @@ Property  | Description
 * If the rule type is `header`, the following characters are not allowed for `field` and `value`: `"(),/:;<=>?@[\]{}'`.
 * If the rule type is `body`, the following characters are not allowed for `field` and `value`: `"'=,()&` and space.
 * If the rule type is `query`, `field` and `value` must be a percent-encoded string.
-* 
 
 ## Examples: Creating policies and rules
 {: #layer-7-examples-create-policy-and-rules}
