@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-19"
+lastupdated: "2026-10-26"
 
 keywords: BYOIP, floating IP, custom authorized CIDR, reserve, bring your own IP
 
@@ -39,8 +39,8 @@ To reserve a floating IP from a custom authorized CIDR in the {{site.data.keywor
 1. In the **Details** section, complete the following fields:
    - **Name**: Enter a unique name for the floating IP using lowercase alphanumeric characters and hyphens only (without spaces).
    - **Resource group**: Select the resource group for the floating IP.
-   - **Tags** (optional): Add tags to help organize your resources. You can add more tags later.
-   - **Access management tags** (optional): Add access management tags in `key:value` format. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   - **Tags**: Optional: Add tags to help organize your resources. You can add more tags later.
+   - **Access management tags**: Optional: Add access management tags in `key:value` format. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
 1. In **Public address source**, select **Custom authorized CIDRs**.
 
    When you select **IBM CIDRs** (the default), the system assigns an IP address from IBM-managed pools. When you select **Custom authorized CIDRs**, you allocate an IP from your own authorized range.
@@ -51,7 +51,7 @@ To reserve a floating IP from a custom authorized CIDR in the {{site.data.keywor
    Only authorized CIDRs that are in `stable` status and associated with the selected zone are available.
    {: note}
 
-1. (Optional) In the **Binding** section, bind the floating IP to a resource:
+1. Optional: In the **Binding** section, bind the floating IP to a resource:
    - **Resource**: Select an instance, server, or virtual network interface from the dropdown.
    - **Network interface**: After you select a resource, choose the specific network interface to bind to.
 1. Review the **Total estimated cost** displayed at the bottom of the panel. VPC egress public bandwidth charges apply to data traffic transferred through the floating IP.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-04"
+lastupdated: "2026-10-26"
 
 keywords:
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-When you're using Public Address Ranges for VPC, traffic might fail to flow as expected due to issues in either the control path or the data path. These issues can manifest during the attachment of the public address range or during runtime routing of traffic to/from the VNF appliance.
+When you're using public address ranges for VPC, traffic might fail to flow as expected due to issues in either the control path or the data path. These issues can manifest during the attachment of the public address range or during runtime routing of traffic to/from the VNF appliance.
 {: shortdesc}
 
 You might notice that traffic that is intended for a VNF appliance does not reach its destination or response traffic is dropped. The problem typically presents in two ways:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-19"
+lastupdated: "2026-10-26"
 
 keywords: BYOIP, deprovision, custom authorized CIDR, bring your own IP
 
@@ -65,7 +65,7 @@ To deprovision multiple custom authorized CIDRs at the same time in the console,
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**.
 1. Click the **Custom authorized CIDRs (BYOIP)** tab.
 1. Select the checkboxes for all CIDRs that you want to deprovision.
-1. In the toolbar that appears, click **Deprovision CIDRs**.
+1. On the toolbar, click **Deprovision CIDRs**.
 1. The console checks each selected CIDR for allocated resources. If any CIDR still has allocated public address ranges, the deprovision request is blocked for that CIDR. Delete all allocated resources and try again.
 1. For each CIDR that has no allocated resources, review the **Deprovision IPv4 authorized CIDRs** window and click **Create support case**.
 1. In the support case form, include the following details in the **Description** field:
