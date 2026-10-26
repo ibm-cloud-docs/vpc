@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-10-26"
 
 keywords: load balancer, network, faqs
 
@@ -78,6 +78,8 @@ The following default settings apply to NLB health check options:
 * **Health check interval:** Five seconds, and the range is 2 - 60 seconds.
 * **Health check response timeout:** Two seconds, and the range is 1 - 59 seconds.
 * **Maximum retry attempts:** Two retry attempts, and the range is 1-10 retries.
+
+
 
 The health check response timeout value must be less than the health check interval value.
 {: tip}

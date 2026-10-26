@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-06-27"
+  years: 2020, 2026
+lastupdated: "2026-10-26"
 
 keywords: application load balancer, datapath logging
 
@@ -89,8 +89,10 @@ Note that:
 
 * `PRIORITY` is the log level that is associated with each message on the severity of the log. Currently, the only choice is `info`.
 * `MSG_timestamp` is the timestamp in Coordinated Universal Time.
+
 * `SentByHost` is the VIP of the appliance. For public load balancers, this is the floating IP; for private load balancers, this is a private IP.
 * `MESSAGE` is the content of the log message.
+
 * `logSourceCRN` indicates which {{site.data.keyword.la_short}} instance to use to save the logs for the account.
 * `saveServiceCopy` is `false` (by default) and cannot be changed.
 

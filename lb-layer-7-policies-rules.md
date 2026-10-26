@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-10-26"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -92,6 +92,7 @@ Property  | Description
 * If the rule type is `header`, the following characters are not allowed for `field` and `value`: `"(),/:;<=>?@[\]{}'`.
 * If the rule type is `body`, the following characters are not allowed for `field` and `value`: `"'=,()&` and space.
 * If the rule type is `query`, `field` and `value` must be a percent-encoded string.
+* 
 
 ## Examples: Creating policies and rules
 {: #layer-7-examples-create-policy-and-rules}

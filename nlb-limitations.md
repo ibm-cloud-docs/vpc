@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-10-26"
 
 keywords:
 
@@ -36,6 +36,7 @@ The following sections contain known issues for public, private, and Private Pat
    * The NLB and the VNF back-end targets must be in the same subnet.
 * For quotas and service limits, see [Quotas and service limits for Network load balancers](/docs/vpc?topic=vpc-quotas#nlb-quotas). To request an increase, [create a support case](/docs/support?topic=support-open-case).
 * When you create a listener for an NLB, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the NLB must use a unique `port`.
+* 
 * [Private NLB]{: tag-blue} The NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must configure an ingress custom routing table in the VPC that hosts the NLB with the appropriate traffic source.
 * [Private NLB]{: tag-blue} The required ingress routing table depends on client location:
 
