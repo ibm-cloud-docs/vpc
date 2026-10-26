@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-08"
+lastupdated: "2026-10-26"
 
 keywords:
 subcollection: vpc
@@ -50,8 +50,6 @@ Review the following considerations before you create a static route-based VPN c
 * If you plan to set a default route (`0.0.0.0/0`) in a VPC routing table to let egress traffic from your VPC resources pass through a VPN gateway, create your VPN gateway in a subnet different from the one associated with the routing table. Otherwise, this default route causes a routing conflict for the VPN gateway and can bring the VPN connection down.
 * IBM Cloud VPN for VPC supports only one route-based VPN per zone per VPC.
 
-
-
 ### Dynamic route-based VPN connection considerations
 {: #dynamic-route-based-connection-considerations}
 
@@ -64,7 +62,9 @@ Review the following considerations before you create a dynamic route-based VPN 
 * When you connect a transit gateway to a VPN, you can't change the ASN value until you remove the service connection.
 * Multiple VPN gateways can connect to the same transit gateway, but each VPN gateway can attach to only one transit gateway.
 * If you plan to use a non-RFC 1918 CIDR for your transit gateway connection that is not within the standard private IP ranges (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`), you must add a delegate-VPC route in your VPC's egress routing table. This route must point to the CIDR that you've chosen and must be associated with the VPN subnet in the same zone. See [VPN gateway connection considerations](/docs/transit-gateway?topic=transit-gateway-helpful-tips#vpn-connection-considerations) for transit gateway.
-* Each IBM VPN supports a maximum of 120 routes for each VPN peer in a dynamic routing setup. If this limit is exceeded, the BGP session for that peer automatically shuts down. To restore the session, reduce the number of routes advertised from your on-premises peer network to 120 or less, then toggle the connection in the IBM Cloud to reestablish the BGP session. For more information, see [How many routes does VPN for VPC support per VPN peer for a dynamic, route-based connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-39).
+* Each IBM VPN supports a maximum of 120 routes for each VPN peer in a dynamic routing setup. If this limit is exceeded, the BGP session for that peer automatically shuts down. To restore the session, reduce the number of routes advertised from your on-premises peer network to 120 or less, then toggle the connection in the IBM Cloud to reestablish the BGP session. For more information, see [How many routes does VPN for VPC support per VPN peer for a dynamic, route-based connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-41).
+
+
 
 ## IBM Power Virtual Servers: Automate the deployment of your workspace
 {: #vpn-s2s-automate-deployment-powervs-workspace}
