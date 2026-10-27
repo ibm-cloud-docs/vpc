@@ -153,8 +153,6 @@ lbid=0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727
 You can deploy load balancer appliances to multiple subnets. To achieve higher availability and redundancy, deploy the load balancer to subnets in different zones.
 {: tip}
 
-
-
 ## Step 2. Get details about the load balancer
 {: #step-2-get-details-about-the-alb}
 
@@ -176,7 +174,6 @@ Sample output:
   "created_at": "2018-07-13T22:22:24.489Z",
   "hostname": "dd754295-e9e0-4c9d-bf6c-58fbc59e5727.lb.appdomain.cloud",
   "is_public": true,
-  "ipv6_enabled": false,
   "logging": {
       "datapath": {
           "active": true
