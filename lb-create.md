@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-27"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -44,6 +44,16 @@ To create an ALB:
    * **Type**: Select the load balancer type.
      * A **Public** load balancer has a public IP address, which means that it can route requests from clients over the internet.
      * A **Private** load balancer has a private IP address, which means that it is accessible only to internal clients within the same region and VPC.
+   * **IPv6 support** (optional): If the load balancer profile supports IPv6, toggle **Enable IPv6**
+     to provide this load balancer with public IPv6 addresses alongside floating IPs. When enabled,
+     you can associate up to three IPv6 public address ranges (one per zone) with this load balancer
+     after it is created. Available only for public load balancers in the `application` family.
+
+     To verify whether a profile supports IPv6, retrieve it with the
+     [VPC API reference](/apidocs/vpc/latest#get-load-balancer-profile) and confirm that
+     `ipv6_supported.value` is `true`.
+     {: note}
+
    * **DNS type**: Select either **Public** or **Private**. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross-account access.
 
       **For Private type only**, click **Bind** to enter your DNS instance and zone information, then click **Bind**.
@@ -390,6 +400,53 @@ To create an application load balancer from the CLI, follow these steps:
     Created            2020-08-27T14:34:34.732-05:00
     ```
     {: screen}
+
+### Creating an IPv6-enabled application load balancer from the CLI
+{: #lb-cli-creating-ipv6-alb}
+{: cli}
+
+To create a public ALB with IPv6 support, use the `--ipv6-enabled` flag and supply both
+floating IPs and IPv6 public address ranges with `--public-ips`.
+
+Before you begin, create three floating IPs and three IPv6 `/128` public address ranges, one
+of each per zone. For more information, see
+[Creating public address ranges](/docs/vpc?topic=vpc-par-creating).
+{: note}
+
+```sh
+ibmcloud is load-balancer-create example-ipv6-alb public \
+  --subnet $subnet_zone1_id,$subnet_zone2_id,$subnet_zone3_id \
+  --family application \
+  --ipv6-enabled \
+  --public-ips $fip1_id,$fip2_id,$fip3_id,$par1_id,$par2_id,$par3_id
+```
+{: pre}
+
+Where:
+
+`--ipv6-enabled`
+:   Enables public IPv6 address support. Default is `false`. Requires a profile with
+    `ipv6_supported.value: true`.
+
+`--public-ips`
+:   A comma-separated list of up to three floating IP IDs and up to three IPv6 public address
+    range IDs. Each public address range must have `ip_version: ipv6`,
+    `network_prefix_length: 128`, and must reside in the same zone as the corresponding
+    floating IP.
+
+Sample output:
+
+```sh
+ID                 r006-ee123456-6357-42db-8b32-5d2c8aa62776
+Name               example-ipv6-alb
+Family             application
+Public IPs         169.11.111.115, 169.11.111.116, 169.11.111.117,
+                   2001:db8::/128, 2001:db8:1::/128, 2001:db8:2::/128
+IPv6 Enabled       true
+Provision status   create_pending
+Is public          true
+```
+{: screen}
 
 ## Creating an application load balancer with the API
 {: #lb-api-creating-application-load-balancer}

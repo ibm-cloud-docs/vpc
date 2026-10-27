@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-27"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -361,3 +361,105 @@ To update an application load balancer with the API, follow these steps:
 
 You can set a timeout value between 50 and 7200 seconds. If you need more than 2 hours (7200 seconds), you can [open a support case](/docs/support?topic=support-open-case&interface=ui).
 {: note}
+
+## Enabling public IPv6 addresses on an application load balancer
+{: #alb-updating-ipv6}
+
+You can enable public IPv6 support on an existing public ALB and associate IPv6 public address
+ranges alongside floating IPs. This requires a load balancer profile with `ipv6_supported.value: true`.
+
+### Enabling IPv6 in the console
+{: #alb-ipv6-console}
+{: ui}
+
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click
+   **Infrastructure** > **Network** > **Load balancers** and click the load balancer to update.
+1. In the **Overview** tab, locate **IPv6 support** and click **Edit**.
+1. Toggle **Enable IPv6** to on, then click **Save**.
+1. To associate IPv6 public address ranges, in the **Public IPs** section click **Edit**,
+   add up to three IPv6 `/128` public address ranges (one per zone), then click **Save**.
+
+Each public address range must reside in the same zone as the corresponding private IP.
+{: note}
+
+### Enabling IPv6 from the CLI
+{: #alb-ipv6-cli}
+{: cli}
+
+Enable IPv6 on the load balancer:
+
+```sh
+ibmcloud is load-balancer-update $lb_id --ipv6-enabled true
+```
+{: pre}
+
+Update `public_ips` to include IPv6 public address ranges alongside existing floating IPs:
+
+```sh
+ibmcloud is load-balancer-update $lb_id \
+  --public-ips $fip1_id,$fip2_id,$fip3_id,$par1_id,$par2_id,$par3_id
+```
+{: pre}
+
+Specifying `--public-ips` replaces the entire existing public IP list. Include all current
+floating IPs you want to retain alongside the new public address ranges.
+{: important}
+
+### Enabling IPv6 with the API
+{: #alb-ipv6-api}
+{: api}
+
+```sh
+curl -H "Authorization: Bearer $iam_token" -X PATCH \
+  "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2" \
+  -d '{
+    "ipv6_enabled": true,
+    "public_ips": [
+      { "id": "'$fip1_id'" },
+      { "id": "'$fip2_id'" },
+      { "id": "'$fip3_id'" },
+      { "id": "'$par1_id'" },
+      { "id": "'$par2_id'" },
+      { "id": "'$par3_id'" }
+    ]
+  }'
+```
+{: codeblock}
+
+Sample output (relevant fields):
+
+```sh
+{
+  "id": "$lbid",
+  "ipv6_enabled": true,
+  "public_ips": [
+    { "address": "169.11.111.115", "resource_type": "floating_ip" },
+    { "address": "169.11.111.116", "resource_type": "floating_ip" },
+    { "address": "169.11.111.117", "resource_type": "floating_ip" },
+    { "cidr": "2001:db8::/128",    "resource_type": "public_address_range" },
+    { "cidr": "2001:db8:1::/128",  "resource_type": "public_address_range" },
+    { "cidr": "2001:db8:2::/128",  "resource_type": "public_address_range" }
+  ],
+  "provisioning_status": "update_pending"
+}
+```
+{: screen}
+
+### Removing IPv6 public address ranges
+{: #alb-ipv6-remove}
+{: api}
+
+To remove IPv6 public address ranges while keeping floating IPs, PATCH `public_ips` with
+only the floating IP entries:
+
+```sh
+curl -H "Authorization: Bearer $iam_token" -X PATCH \
+  "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2" \
+  -d '{ "public_ips": [ { "id": "'$fip1_id'" }, { "id": "'$fip2_id'" }, { "id": "'$fip3_id'" } ] }'
+```
+{: codeblock}
+
+After removing public address ranges from the load balancer, unbind each PAR individually by
+setting `target: null`. For more information, see
+[Binding, unbinding, and moving public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding).
+{: tip}
