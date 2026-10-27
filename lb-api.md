@@ -45,7 +45,6 @@ curl -H "Authorization: Bearer $iam_token" -X POST
             }
         },
         "is_public": true,
-        "ipv6_enabled": true,
         "listeners": [
             {
                 "certificate_instance": {
@@ -111,7 +110,6 @@ Sample output:
     "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "is_public": true,
-    "ipv6_enabled": true,
     "logging": {
         "datapath": {
             "active": true
@@ -155,76 +153,7 @@ lbid=0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727
 You can deploy load balancer appliances to multiple subnets. To achieve higher availability and redundancy, deploy the load balancer to subnets in different zones.
 {: tip}
 
-## Step 1b. Create an IPv6-enabled load balancer with public address ranges
-{: #step-1b-create-ipv6-alb}
 
-If your load balancer profile supports IPv6 (`ipv6_supported.value: true`), you can enable
-public IPv6 at creation time by setting `ipv6_enabled` to `true` and including IPv6 public
-address ranges alongside floating IPs in `public_ips`.
-
-Before you begin:
-- Create three IPv6 `/128` public address ranges from an IPv6 authorized CIDR, one per zone.
-  For more information, see [Creating public address ranges](/docs/vpc?topic=vpc-par-creating).
-- Verify that the profile supports IPv6:
-
-```sh
-curl -H "Authorization: Bearer $iam_token" -X GET \
-  "$vpc_api_endpoint/v1/load_balancer/profiles/$profile_name?version=$api_version&generation=2"
-```
-{: pre}
-
-Confirm that `ipv6_supported.value` is `true` in the response before proceeding.
-{: note}
-
-```sh
-curl -H "Authorization: Bearer $iam_token" -X POST \
-  "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
-  -d '{
-    "name": "example-ipv6-balancer",
-    "is_public": true,
-    "ipv6_enabled": true,
-    "subnets": [
-      { "id": "$subnet_zone1_id" },
-      { "id": "$subnet_zone2_id" },
-      { "id": "$subnet_zone3_id" }
-    ],
-    "public_ips": [
-      { "id": "$fip1_id" },
-      { "id": "$fip2_id" },
-      { "id": "$fip3_id" },
-      { "id": "$par1_id" },
-      { "id": "$par2_id" },
-      { "id": "$par3_id" }
-    ]
-  }'
-```
-{: codeblock}
-
-Where `$fip1_id`–`$fip3_id` are floating IP IDs and `$par1_id`–`$par3_id` are IPv6 `/128`
-public address range IDs. Each PAR must be in the same zone as the corresponding floating IP
-and must not already be bound to another target.
-{: note}
-
-Sample output (relevant fields):
-
-```sh
-{
-  "id": "0738-ee123456-e9e0-4c9d-bf6c-58fbc59e5727",
-  "name": "example-ipv6-balancer",
-  "is_public": true,
-  "ipv6_enabled": true,
-  "public_ips": [
-    { "address": "169.11.111.115", "resource_type": "floating_ip" },
-    { "address": "169.11.111.116", "resource_type": "floating_ip" },
-    { "address": "169.11.111.117", "resource_type": "floating_ip" },
-    { "cidr": "2001:db8::/128",    "resource_type": "public_address_range" },
-    { "cidr": "2001:db8:1::/128",  "resource_type": "public_address_range" },
-    { "cidr": "2001:db8:2::/128",  "resource_type": "public_address_range" }
-  ],
-  "provisioning_status": "create_pending"
-}
-```
-{: screen}
 
 ## Step 2. Get details about the load balancer
 {: #step-2-get-details-about-the-alb}
