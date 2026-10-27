@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-27"
 
 keywords:
 
@@ -34,7 +34,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Dynamic route server for VPC for scalable hybrid connectivity and dynamic routing (beta)
 :   Accounts with special permissions to preview this feature can now provision dynamic route servers in VPC, which enable dynamic route exchange by using BGP between VPC networks, customer-managed routers, firewalls, and Transit Gateway connections. The service automates route updates, supports route management, and helps improve resiliency for hybrid cloud networking environments. For more information, see [Getting started with dynamic route server](/docs/vpc?topic=vpc-about-drs).
 
-   The API and CLI are available now; UI support is coming soon.
+   The API is available now; UI and CLI support are coming soon.
 
 
 
