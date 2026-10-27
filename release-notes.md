@@ -27,14 +27,21 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## October 2026
 {: #vpc-oct26}
 
-### 21 October 2026
+### 27 October 2026
+{: #vpc-oct2726}
+{: release-note}
+
+IPv6 public address ranges for VPC (beta)
+:   Customers with special access can allocate `/64` to `/128` blocks from an IBM-provided IPv6 authorized CIDR and bind them to a virtual network interface (VNI). No ingress routing is required after binding. IPv6 addresses must be configured statically in the guest OS. For more information, see [About IPv6 public address ranges](/docs/vpc?topic=vpc-ipv6-par-about), [Managing IPv6 authorized CIDRs](/docs/vpc?topic=vpc-ipv6-par-authorized-cidr), and [Creating and binding IPv6 public address ranges](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
+
+   The API is available now; UI and CLI support are coming soon.
+
+### 27 October 2026
 {: #vpc-oct2126}
 {: release-note}
 
 Dynamic route server for VPC for scalable hybrid connectivity and dynamic routing (beta)
 :   Accounts with special permissions to preview this feature can now provision dynamic route servers in VPC, which enable dynamic route exchange by using BGP between VPC networks, customer-managed routers, firewalls, and Transit Gateway connections. The service automates route updates, supports route management, and helps improve resiliency for hybrid cloud networking environments. For more information, see [Getting started with dynamic route server](/docs/vpc?topic=vpc-about-drs).
-
-   The API is available now; UI and CLI support are coming soon.
 
 
 

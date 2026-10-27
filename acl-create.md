@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-10-27"
 
 keywords:
 
@@ -159,3 +159,118 @@ Then, configure the following outbound rules:
 | 2 | Allow | ANY | Any IP, any port | `10.10.20.0/24`, any port |
 | 3 | Deny| ANY | Any IP, any port |Any IP, any port|
 {: caption="Information for configuring outbound rules." caption-side="bottom"}
+
+[Beta]{: tag-cyan}
+
+## Adding IPv6 ACL rules in the console
+{: #acl-ipv6-rules-ui}
+{: ui}
+
+To add an IPv6 rule to a network ACL in the console, follow these steps:
+
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Access control lists**.
+1. Click the name of the ACL you want to update, or click **Create** to create a new ACL.
+1. In the **Inbound rules** or **Outbound rules** section, click **Create**.
+1. In the **Create inbound rule** (or **Create outbound rule**) panel, set **IP version** to **IPv6**.
+1. In the **Details** section, complete the following fields:
+   - **Name (optional)**: Enter a name for the rule.
+   - **Protocol**: Select the protocol by name, number, or both. TCP (protocol 6) is pre-selected by default. You can type to search — for example, type `ICM` to find **ICMPv6 (58)**. The Common protocols available are: Any protocol, ICMPv6 (58), TCP (6), UDP (17).
+   - **Value** (ICMPv6 only): When **ICMPv6 (58)** is selected, a **Value** field appears:
+     - **Any** — allows all ICMPv6 types and codes.
+     - **Type and code** — reveals two fields: **Type** (the ICMPv6 message type number) and **Code** (the ICMPv6 code number). For example, type `135`, code `0` for Neighbor Solicitation.
+   - **Port** (TCP/UDP only): Select **Any** or **Port range**.
+   - **Source type**: Options vary by protocol:
+     - For **ICMPv6**: Select **Any** or **IP or CIDR** only.
+     - For **TCP** or **UDP**: Select **Any**, **IP or CIDR**.
+     
+     Use `::/0` to match any IPv6 source address when selecting **IP or CIDR**.
+   - **Destination type**: Select **Any** or **IP or CIDR**. Use `::/0` to match any IPv6 destination address.
+   - **Priority**: Select the rule priority. Rules with lower numbers are evaluated first. Select **Set to top** to assign the highest priority, or enter a specific number.
+1. Click **Create**.
+
+IPv6 extension headers are not supported in the VPC data plane. Rules that target IPv6 extension header traffic will not apply as expected.
+{: important}
+
+## Adding IPv6 ACL rules from the CLI
+{: #acl-ipv6-rules-cli}
+{: cli}
+
+Network ACLs support IPv6 traffic rules. You can allow or deny ICMPv6 traffic and TCP/UDP traffic over IPv6 by specifying `ip_version: ipv6` in your rule prototype.
+
+To add an inbound rule allowing ICMPv6 traffic from any IPv6 source, run the following command:
+
+```sh
+ibmcloud is network-acl-rule-add ACL_ID allow inbound ipv6_icmp \
+  --ip-version ipv6 \
+  --source ::/0 \
+  --destination ::/0 \
+  --icmp-type 135 \
+  --icmp-code 0
+```
+{: pre}
+
+To add an inbound rule allowing all IPv6 TCP traffic on port 443, run the following command:
+
+```sh
+ibmcloud is network-acl-rule-add ACL_ID allow inbound tcp \
+  --ip-version ipv6 \
+  --source ::/0 \
+  --destination ::/0 \
+  --destination-port-min 443 \
+  --destination-port-max 443
+```
+{: pre}
+
+Where:
+
+`ACL_ID`
+:   The ID or name of the network ACL.
+
+`--ip-version ipv6`
+:   Specifies that the rule applies to IPv6 traffic. Omit this flag (or use `ipv4`) for IPv4 rules.
+
+`--source`, `--destination`
+:   CIDR notation for the source and destination. Use `::/0` to match any IPv6 address.
+
+`--icmp-type`, `--icmp-code`
+:   ICMPv6 type and code. For example, type `135` is Neighbor Solicitation and type `136` is Neighbor Advertisement, which are required for IPv6 neighbor discovery.
+
+## Adding IPv6 ACL rules with the API
+{: #acl-ipv6-rules-api}
+{: api}
+
+To add an IPv6 ACL rule with the API, use `POST /network_acls/{network_acl_id}/rules` with `"ip_version": "ipv6"` in the request body.
+
+The following example adds an inbound rule allowing all ICMPv6 traffic:
+
+```sh
+curl -X POST -sH "Authorization:${iam_token}" \
+  "$vpc_api_endpoint/v1/network_acls/$network_acl_id/rules?version=$api_version&generation=2" \
+  -d '{
+    "action": "allow",
+    "direction": "inbound",
+    "ip_version": "ipv6",
+    "protocol": "ipv6_icmp",
+    "source": "::/0",
+    "destination": "::/0"
+  }' | jq
+```
+{: pre}
+
+The following example adds an inbound rule allowing TCP traffic over IPv6 on port 443:
+
+```sh
+curl -X POST -sH "Authorization:${iam_token}" \
+  "$vpc_api_endpoint/v1/network_acls/$network_acl_id/rules?version=$api_version&generation=2" \
+  -d '{
+    "action": "allow",
+    "direction": "inbound",
+    "ip_version": "ipv6",
+    "protocol": "tcp",
+    "source": "::/0",
+    "destination": "::/0",
+    "destination_port_min": 443,
+    "destination_port_max": 443
+  }' | jq
+```
+{: pre}

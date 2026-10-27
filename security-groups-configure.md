@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-09-24"
+lastupdated: "2026-10-27"
 
 keywords:
 
@@ -53,6 +53,29 @@ To configure your security group by using the UI, follow these steps:
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ Attach interfaces, bare metal interfaces, load balancers, virtual private endpoint gateways, and VPN servers in the remaining sections if these targets are available to attach.
+
+[Beta]{: tag-cyan}
+
+### Adding IPv6 rules to a security group in the console
+{: #sg-ipv6-rules-ui}
+{: ui}
+
+To add an IPv6 rule to a security group in the console, follow these steps:
+
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Security groups**.
+1. Click the name of the security group you want to update.
+1. Click the **Rules** tab, then click **Create** in the **Inbound rules** or **Outbound rules** section.
+1. In the **Create inbound rule** (or **Create outbound rule**) panel, set **IP version** to **IPv6**.
+1. In the **Details** section, complete the following fields:
+   - **Name (optional)**: Enter a name for the rule.
+   - **Protocol name and number**: TCP (protocol 6) is pre-selected by default. The dropdown lists **Any protocol** first, then **ICMPv6 (58)** as the second Common protocol, followed by TCP, UDP, IP-in-IP, GRE, ESP, and additional protocols by number. Select **ICMPv6 (58)** for ICMPv6 traffic, or select the appropriate protocol number for other IPv6 traffic types.
+   - **Value** (ICMPv6 only): When **ICMPv6 (58)** is selected, a **Value** field appears. Select **Any** to allow all ICMPv6 types and codes, or select **Type and code** to specify a particular ICMPv6 type and code value.
+   - **Port** (TCP/UDP only): Select **Any** to allow all ports, or select **Port range** to specify a range.
+   - **Source type** (inbound rules only): The options vary by protocol:
+     - For **ICMPv6**: Select **Any** or **IP or CIDR** only. The Security group option is not available for ICMPv6 rules.
+     - For **TCP** or **UDP**: Select **Any**, **IP or CIDR**. For IPv6 traffic, use **IP or CIDR** with an IPv6 CIDR block.
+   - **Destination type** (outbound rules only): Select **Any** or **IP or CIDR**.
+1. Click **Create**.
 
 
 
@@ -141,9 +164,75 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 
 
 
+[Beta]{: tag-cyan}
+
+### Adding IPv6 rules to a security group with the CLI
+{: #sg-ipv6-rules-cli}
+{: cli}
+
+Use `ipv6_icmp` as the protocol for ICMPv6 rules. For other protocols (such as `tcp` or `udp`), add `--ip-version ipv6` to scope the rule to IPv6 traffic.
+
+Allow all inbound ICMPv6 traffic (required for Neighbor Discovery Protocol):
+
+```sh
+ibmcloud is security-group-rule-add $sg inbound ipv6_icmp
+```
+{: pre}
+
+Allow inbound ICMPv6 Neighbor Solicitation (type 135) and Neighbor Advertisement (type 136):
+
+```sh
+ibmcloud is security-group-rule-add $sg inbound ipv6_icmp --icmp-type 135
+ibmcloud is security-group-rule-add $sg inbound ipv6_icmp --icmp-type 136
+```
+{: pre}
+
+Allow inbound TCP from an IPv6 CIDR:
+
+```sh
+ibmcloud is security-group-rule-add $sg inbound tcp --ip-version ipv6 --remote 2001:db8::/32
+```
+{: pre}
+
 
 
 For more information about setting up security groups by using the CLI, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
+
+[Beta]{: tag-cyan}
+
+### Adding IPv6 rules to a security group with the API
+{: #sg-ipv6-rules-api}
+{: api}
+
+Use `"ip_version": "ipv6"` in the rule body to create an IPv6-scoped rule. IPv6-specific protocol values (`ipv6_icmp`, `ipv6_hop_opt`, `ipv6_frag`, `ipv6_route`, `ipv6_dest_opts`, `ipv6_no_next`, `ipv6_mobility`) require `"ip_version": "ipv6"` and are not valid for IPv4 rules.
+
+Allow inbound ICMPv6 Neighbor Solicitation (type 135):
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
+  -H "Authorization: Bearer $iam_token" \
+  -d '{
+        "direction": "inbound",
+        "ip_version": "ipv6",
+        "protocol": "ipv6_icmp",
+        "type": 135
+      }'
+```
+{: pre}
+
+Allow inbound TCP from an IPv6 CIDR:
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
+  -H "Authorization: Bearer $iam_token" \
+  -d '{
+        "direction": "inbound",
+        "ip_version": "ipv6",
+        "protocol": "tcp",
+        "remote": { "cidr_block": "2001:db8::/32" }
+      }'
+```
+{: pre}
 
 
 
@@ -208,3 +297,10 @@ curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&ge
 {: pre}
 
 For more information about setting up your security group with the API, see [Security groups](/docs/apis/vpc/latest#list-security-groups){: external}.
+
+[Beta]{: tag-cyan}
+
+## Related links
+{: #sg-related-links}
+
+- [Why is IPv6 traffic not flowing after I bound a public address range to a VNI?](/docs/vpc?topic=vpc-troubleshoot-ipv6-par-no-traffic)

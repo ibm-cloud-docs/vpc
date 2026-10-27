@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-13"
+lastupdated: "2026-10-27"
 
 keywords: viewing, deleting, public address range
 
@@ -27,7 +27,7 @@ To view public address ranges in the [{{site.data.keyword.cloud_notm}} console](
 The Public address ranges for VPC page shows the following information:
 
 - **Name:** The name of the public address range object.
-- **Status:** States whether the address range is bound or unbound to the specified VPC.
+- **Status:** States whether the address range is bound or unbound to the specified VPC.[Beta]{: tag-cyan} For IPv6 public address ranges, the status shows whether the range is bound or unbound to a VNI.
 - **Lifecycle status:** States whether the binding or unbinding of the address range is successful, and if it is stable or not.
 - **IP range:** The range of IP addresses included in the address range.[BYOIP (IPv4) Beta]{: tag-cyan}
 
@@ -36,8 +36,8 @@ The Public address ranges for VPC page shows the following information:
 
 
 - **Zone:** States the zone that the address range is bound to (if applicable).
-- **Target resource:** States the VPC that the address range is bound to in the previous zone (if applicable).
-- **Target type:** States the type of resource that the address range is bound to (if applicable).
+- **Target resource:** States the VPC that the address range is bound to in the previous zone (if applicable).[Beta]{: tag-cyan} For IPv6 public address ranges, the target resource is the VNI the range is bound to. Click the name to open the VNI. For ranges that are not bound, the column shows a dash (`-`).
+- **Target type:** States the type of resource that the address range is bound to (if applicable).[Beta]{: tag-cyan} For IPv6 public address ranges, the target type is `VNI`. For ranges that are not bound, the column shows a dash (`-`).
 
 [BYOIP (IPv4) Beta]{: tag-cyan}To view details of a public address range, click the name to open the details page. The details page shows:
 
@@ -135,6 +135,13 @@ ibmcloud is public-address-ranges --profile-name provider-ipv4
 
 
 
+[Beta]{: tag-cyan}Filter to view only IPv6 public address ranges:
+
+```sh
+ibmcloud is public-address-ranges --profile-name provider-ipv6
+```
+{: pre}
+
 
 
 
@@ -167,6 +174,16 @@ Select one of the following options:
    {: pre}
 
 
+
+[Beta]{: tag-cyan}
+* Filter to view only IPv6 public address ranges:
+
+   ```sh
+   curl -sX GET \
+            "$vpc_api_endpoint/v1/public_address_ranges?version=$api_version&generation=2&profile.name=provider-ipv6" \
+            -H "Authorization: Bearer $iam_token"
+   ```
+   {: pre}
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-27"
 
 keywords: public address ranges, limitations
 
@@ -16,6 +16,35 @@ subcollection: vpc
 {: #par-known-issues}  
 
 As the rollout of public address ranges for VPC continues, a few known issues and limitations have been identified. These are temporary and are scheduled to be addressed in upcoming updates.
+
+[Beta]{: tag-cyan}
+
+## IPv6 public address range known issues
+{: #par-known-issues-ipv6}
+
+* **IPv6 traffic is denied by default after binding**
+
+   Description: Binding an IPv6 public address range to a VNI does not automatically permit traffic to or from that range. The default policy for IPv6 traffic on both security groups and network ACLs is `deny`. If you do not add explicit allow rules for your IPv6 addresses before or immediately after binding, all inbound and outbound IPv6 traffic is dropped, even though the range is successfully bound.
+
+   Resolution: After binding, add security group rules with `--ip-version ipv6` (or `"ip_version": "ipv6"` in the API) to allow the required protocols and sources or destinations. Also add matching network ACL rules on the subnet attached to the VNI's VPC. For guidance, see [Adding IPv6 rules to a security group](/docs/vpc?topic=vpc-configuring-the-security-group#sg-ipv6-rules-cli) and [Adding IPv6 ACL rules](/docs/vpc?topic=vpc-acl-create-ui#acl-ipv6-rules-cli).
+
+* **IPv6 Neighbor Discovery Protocol (NDP) is handled by IBM infrastructure, so do not create rules for it**
+
+   Description: IPv6 Neighbor Discovery messages (ICMPv6 types 133–136: Router Solicitation, Router Advertisement, Neighbor Solicitation, and Neighbor Advertisement) are intercepted and handled by the SDN hypervisor layer. These messages are never evaluated against security group or network ACL rules. Creating allow or deny rules for ICMPv6 types 133–136 has no effect.
+
+   Resolution: Do not create security group or ACL rules for NDP traffic. NDP functions automatically as long as the VNI has an IPv6 public address range bound to it.
+
+* **Protocol 46 (IPv6 Encapsulation) and Protocol 59 (IPv6 No Next Header)**
+
+   Description: These two IPv6-specific protocol numbers (protocol 46, IPv6 Encapsulation, and protocol 59, No Next Header) are not valid in security group or network ACL rules. Attempts to create rules with `protocol: ipv6_encapsulation` (46) or `protocol: ipv6_no_next` (59) are rejected by the API. IPv6 extension headers that use these protocols are also dropped in the data plane.
+
+   Resolution: Do not use protocols 46 or 59 in security group or ACL rules. Use the supported protocol values: `ipv6_icmp` (58), `ipv6_hop_opt` (0), `ipv6_route` (43), `ipv6_frag` (44), `ipv6_dest_opts` (60), `ipv6_mobility` (135), `tcp`, or `udp`.
+
+* **Flow logs do not capture IPv6 public address range traffic**
+
+   Description: Flow log collectors do not record traffic that flows through IPv6 public address ranges in this release. If you rely on flow logs for visibility, auditing, or troubleshooting IPv6 traffic, those records are not present.
+
+   Resolution: This is a known limitation in the current release. IPv6 flow log support is planned for a future update. For troubleshooting, use security group and network ACL rule testing as an alternative.
 
 
 
@@ -51,3 +80,4 @@ As the rollout of public address ranges for VPC continues, a few known issues an
 
 * [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
+* [Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).

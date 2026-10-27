@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-27"
 
 keywords: vpc, public address ranges, planning, considerations, limitations
 
@@ -37,7 +37,7 @@ Review the following considerations before creating a public address range.
    * `/30` = 4 addresses
    * `/31` = 2 addresses
    * `/32` = 1 address
-   * 
+   * [Beta]{: tag-cyan} IPv6 prefix sizes range from `/64` to `/128`, allocated from a `/64` authorized CIDR.
 * If an overlap exists between a public address range and the private address prefix in a VPC, the private address prefix takes precedence.
 * When a public address range is bound to a zone in a VPC, traffic originating from any virtual server or bare metal server in that zone can use a source IP from the public address range. Such traffic can communicate with public and private destinations. To limit this behavior, you can:
 
@@ -65,7 +65,7 @@ Review the following considerations before creating a public address range.
 
    These appliances are typically NFVs with integrated firewall capabilities, and the purpose of the public address range and the VPC ingress route is to direct traffic to that appliance.
 
-
+[Beta]{: tag-cyan}For IPv6-specific limitations, including platform service interoperability, flow log support, and future capabilities, see [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about#ipv6-par-limitations).
 
 ## Custom authorized CIDR considerations [BYOIP (IPv4) Beta]{: tag-cyan}
 {: #par-planning-byoip}
@@ -80,6 +80,18 @@ When creating a public address range from a custom authorized CIDR:
 For the full set of BYOIP planning requirements, including regional scope, the allocation model, account quotas, and provisioning, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip#ips_important_considerations).
 
 
+[Beta]{: tag-cyan}
+
+## IPv6 public address range considerations
+{: #par-planning-ipv6}
+
+When creating an IPv6 public address range:
+
+* You must first request an IPv6 authorized CIDR for the zone. See [Creating IPv6 authorized CIDRs](/docs/vpc?topic=vpc-ipv6-par-authorized-cidr).
+* The public address range, its authorized CIDR, and the target VNI must all be in the same zone.
+* No ingress routing configuration is required. Traffic is routed to the VNI automatically after binding.
+
+For the full set of IPv6 planning requirements, including guest OS configuration, security group rules, NDP handling, and limitations, see [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about#ipv6-par-planning).
 
 
 ## Next steps
@@ -88,3 +100,4 @@ For the full set of BYOIP planning requirements, including regional scope, the a
 * [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
 * [BYOIP (IPv4) Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
+* [Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).

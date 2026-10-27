@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-27"
 
 keywords: public address range, create, bind
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating public address ranges
 {: #par-creating}
 
-You can create a public address range by defining its size and optionally, specifying a VPC to associate with it in any availability zone within the account.[BYOIP (IPv4) Beta]{: tag-cyan} Addresses can be allocated from IBM-managed IP pools or from a custom authorized CIDR if you want to use your own publicly routable IP range.
+You can create a public address range by defining its size and optionally, specifying a VPC to associate with it in any availability zone within the account.[BYOIP (IPv4) Beta]{: tag-cyan} Addresses can be allocated from IBM-managed IP pools or from a custom authorized CIDR if you want to use your own publicly routable IP range.[Beta]{: tag-cyan} You can also create public IPv6 address ranges from an IBM-provided IPv6 authorized CIDR and bind them to a VNI. For IPv6 instructions, see [Creating IPv6 public address ranges and binding to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
 {: shortdesc}
 
 If the VPC is deleted while it is bound to a public address range, the address range continues to exist and can be bound later to a different VPC in any availability zone.
@@ -107,30 +107,46 @@ To create public address ranges from the command line, follow these steps:
    ```
    {: pre}
 
+   [Beta]{: tag-cyan}
+
+   ```sh
+   ibmcloud is public-address-range-create (--ipv4-address-count IPV4_ADDRESS_COUNT | --cidr CIDR | (--authorized-cidr AUTHORIZED_CIDR --network-prefix-length NETWORK_PREFIX_LENGTH)) [--name NAME] [--vpc VPC --zone ZONE | --vni VNI] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
+   ```
+   {: pre}
+
    
    
 
    Where:
 
    `--ipv4-address-count`
-   :   The total number of public IPv4 addresses required. Must be a power of 2.[BYOIP (IPv4) Beta]{: tag-cyan} Mutually exclusive with `--cidr`.
+   :   The total number of public IPv4 addresses required. Must be a power of 2.[BYOIP (IPv4) Beta]{: tag-cyan} Mutually exclusive with `--cidr`.[Beta]{: tag-cyan} Mutually exclusive with `--authorized-cidr`.
 
    [BYOIP (IPv4) Beta]{: tag-cyan}
    `--cidr`
    :   The public IPv4 range for this public address range expressed in CIDR format. Must be an unallocated block within a custom authorized CIDR in your account. Mutually exclusive with `--ipv4-address-count`.
    
 
+   [Beta]{: tag-cyan}
+   `--authorized-cidr`
+   :   The ID or name of the IPv6 authorized CIDR to allocate this public address range from. Mutually exclusive with `--cidr` and `--ipv4-address-count`. Requires `--network-prefix-length`.
+
+   `--network-prefix-length`
+   :   The prefix length of the IPv6 block to allocate from the authorized CIDR. Supported values: `64`–`128`. Requires `--authorized-cidr`.
    
 
    `--name`
    :   A name for the public address range. Names beginning with `ibm-` are reserved for provider-managed resources and are not allowed.
 
    `--vpc`
-   :   The VPC to bind this public address range to. Requires `--zone`.
+   :   The VPC to bind this public address range to. Requires `--zone`.[Beta]{: tag-cyan} Not valid for IPv6 public address ranges. Use `--vni` instead.
 
    `--zone`
-   :   The zone where this public address range resides. Requires `--vpc`.
+   :   The zone where this public address range resides. Requires `--vpc`.[Beta]{: tag-cyan} Not valid for IPv6 public address ranges.
 
+   [Beta]{: tag-cyan}
+   `--vni`
+   :   The ID or name of the VNI to bind this IPv6 public address range to. Mutually exclusive with `--vpc --zone`.
    
 
    `--resource-group-id`
@@ -190,6 +206,20 @@ ibmcloud is public-address-range-create --name public-address-range-4 --cidr 46.
 {: pre}
 
 
+
+[Beta]{: tag-cyan}Create an IPv6 public address range from an authorized CIDR, bound to a VNI (IBM selects a `/112` block):
+
+```sh
+ibmcloud is public-address-range-create --name my-ipv6-par --authorized-cidr my-ipv6-authorized-cidr --network-prefix-length 112 --vni my-vni
+```
+{: pre}
+
+Create an unbound IPv6 public address range (bind to a VNI later):
+
+```sh
+ibmcloud is public-address-range-create --name my-ipv6-par-unbound --authorized-cidr my-ipv6-authorized-cidr --network-prefix-length 112
+```
+{: pre}
 
 
 
@@ -255,6 +285,25 @@ Select one of the following options:
 
 
 
+[Beta]{: tag-cyan}
+* Create an IPv6 public address range from an authorized CIDR, bound to a VNI:
+
+   ```sh
+   curl -sX POST \
+   "$vpc_api_endpoint/v1/public_address_ranges?version=$api_version&generation=2" \
+   -H "Authorization: Bearer $iam_token" \
+   -H "Content-Type: application/json" \
+   -d '{
+         "name": "my-ipv6-par",
+         "authorized_cidr": { "id": "'$authorized_cidr_id'" },
+         "network_prefix_length": 112,
+         "target": {
+            "virtual_network_interface": { "id": "'$vni_id'" }
+         }
+      }'
+   ```
+   {: pre}
+
 
 
 If you need to change the size of the address range or the resource group, you must delete and recreate the address range.
@@ -266,7 +315,7 @@ If you need to change the size of the address range or the resource group, you m
 {: #after-create-par}
 
 * [BYOIP (IPv4) Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
-
-
+* [Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
+* [Beta]{: tag-cyan} [Create an IPv6 public address range and bind it to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
 * [Bind the public address range to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding).
 * [View public address ranges](/docs/vpc?topic=vpc-par-viewing).

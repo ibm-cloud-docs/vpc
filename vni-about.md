@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-10-27"
 
 keywords:
 
@@ -46,7 +46,10 @@ Virtual network interface highlights include:
 * The option to define and enforce security groups and unique IAM policies to give you more control over network security.
 * Scalability and flexibility for high-availability solutions.
 * Existence without being attached to a server, and the option to move from one instance or resource to another, reducing failover time.
-* The ability to attach floating IPs, primary/secondary reserved IPs, and security groups.
+* The ability to attach floating IPs, primary/secondary reserved IPs, and security groups.[Beta]{: tag-cyan}
+* The ability to bind public IPv6 address ranges directly to the VNI, enabling public IPv6 connectivity without additional routing configuration. For more information, see [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
+
+
 
 ## Planning considerations
 {: #vni-planning}
