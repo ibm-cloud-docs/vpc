@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-20"
+lastupdated: "2026-10-27"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,21 @@ Compatibility with earlier versions is not guaranteed as a feature progresses th
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 27 October 2026
+{: #27-october-2026-beta}
+
+### For all version dates
+{: #27-october-2026-all-version-dates-beta}
+
+Accounts with special approval to preview this feature can now [create](/docs/apis/vpc-beta#create-public-address-range) a public IPv6 address range. A public IPv6 address range is a contiguous block of IBM-provided public IPv6 addresses that can be bound directly to a virtual network interface (VNI) in an availability zone.
+
+Public IPv6 address ranges use a two-level allocation model:
+
+* IPv6 authorized CIDR — [Request](/docs/apis/vpc-beta#create-public-address-range-authorized-cidr) a `/64` block of IBM-provided public IPv6 addresses for a specific zone. IBM provides the block, which becomes the authorized CIDR for that zone and serves as your address pool.
+* Public address range — [Carve](/docs/apis/vpc-beta#create-public-address-range) a sub-block (prefix length `/64`–`/128`) from the authorized CIDR and bind it to a VNI. The VNI must be in the same zone as the authorized CIDR.
+
+For more information, see [Public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
 
 ## 20 October 2026
 {: #20-october-2026-beta}
