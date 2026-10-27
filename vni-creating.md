@@ -88,7 +88,7 @@ To create a virtual network interface in the console, follow these steps:
     If a floating IP is attached, the virtual network interface cannot be accepted as a file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
     {: note}
 
-[Beta]{: tag-cyan}
+[IPv6 Beta]{: tag-cyan}
 1. Optional: In the **IPv6 public address ranges** section, click **Attach**. In the **Attach IPv6 public address range** panel that opens, complete the following:
    - Select an existing range from the **IPv6 public address range** dropdown. Ranges are listed as `CIDR (name)`, for example `2001:db8:2000:100::/64 (par-2)`.
    - If no range exists yet, click **Create IPv6 public address range** to create one without leaving this flow. The **IP version** and **Location** are pre-filled from the VNI's zone and are read-only. Complete the remaining fields and click **Create**, then return to attach the new range.
@@ -247,7 +247,7 @@ To create a virtual network interface with the API, follow these steps:
     ```
     {: codeblock}
 
-[Beta]{: tag-cyan}
+[IPv6 Beta]{: tag-cyan}
 
 After an IPv6 public address range is bound to this virtual network interface, the VNI response includes a `public_address_ranges` field listing each bound range with its CIDR and ID. You can view these bindings by retrieving the VNI with `GET /virtual_network_interfaces/{id}` or by running `ibmcloud is virtual-network-interface VNI_ID`. For more information, see [Creating IPv6 public address ranges and binding to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
 

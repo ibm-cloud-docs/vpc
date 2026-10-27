@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating IPv6 public address ranges and binding to a VNI
 {: #ipv6-par-creating-binding}
 
-[IPv6 is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Public IPv6 address ranges is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You can create an IPv6 public address range from an IPv6 authorized CIDR and bind it to a virtual network interface (VNI). After binding, traffic for any IP in the range is routed automatically to the VNI.

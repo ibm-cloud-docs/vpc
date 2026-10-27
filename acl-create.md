@@ -160,7 +160,7 @@ Then, configure the following outbound rules:
 | 3 | Deny| ANY | Any IP, any port |Any IP, any port|
 {: caption="Information for configuring outbound rules." caption-side="bottom"}
 
-[Beta]{: tag-cyan}
+[IPv6 Beta]{: tag-cyan}
 
 ## Adding IPv6 ACL rules in the console
 {: #acl-ipv6-rules-ui}

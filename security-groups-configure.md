@@ -54,7 +54,7 @@ To configure your security group by using the UI, follow these steps:
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ Attach interfaces, bare metal interfaces, load balancers, virtual private endpoint gateways, and VPN servers in the remaining sections if these targets are available to attach.
 
-[Beta]{: tag-cyan}
+[IPv6 Beta]{: tag-cyan}
 
 ### Adding IPv6 rules to a security group in the console
 {: #sg-ipv6-rules-ui}
@@ -164,7 +164,7 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 
 
 
-[Beta]{: tag-cyan}
+[IPv6 Beta]{: tag-cyan}
 
 ### Adding IPv6 rules to a security group with the CLI
 {: #sg-ipv6-rules-cli}
@@ -198,7 +198,7 @@ ibmcloud is security-group-rule-add $sg inbound tcp --ip-version ipv6 --remote 2
 
 For more information about setting up security groups by using the CLI, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
-[Beta]{: tag-cyan}
+[IPv6 Beta]{: tag-cyan}
 
 ### Adding IPv6 rules to a security group with the API
 {: #sg-ipv6-rules-api}
@@ -298,7 +298,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&ge
 
 For more information about setting up your security group with the API, see [Security groups](/docs/apis/vpc/latest#list-security-groups){: external}.
 
-[Beta]{: tag-cyan}
+[IPv6 Beta]{: tag-cyan}
 
 ## Related links
 {: #sg-related-links}
