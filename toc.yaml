@@ -537,6 +537,13 @@ toc:
               - byoip-fip-create.md
               - byoip-deprovision-cidr.md
               - byoip-loa.md
+          - topicgroup:
+              id: ipv6-public-address-ranges
+              label: Public IPv6 address ranges
+              topics:
+              - ipv6-par-about.md
+              - ipv6-par-authorized-cidr.md
+              - ipv6-par-creating-binding.md
           - par-binding.md
           - par-viewing.md
           - par-deleting.md
@@ -1233,6 +1240,10 @@ toc:
               topics:
               - par-troubleshooting1.md
               - par-troubleshooting2.md
+              - ipv6-par-ts-no-traffic.md
+              - ipv6-par-ts-guest-os.md
+              - ipv6-par-ts-cannot-delete-cidr.md
+              - ipv6-par-ts-permissions.md
               - byoip-ts-cidr-not-visible.md
               - byoip-ts-par-create-fails.md
               - byoip-ts-no-traffic.md

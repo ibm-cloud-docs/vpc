@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-27"
 
 keywords:
 
@@ -156,9 +156,9 @@ The combined total of the address prefixes quota and the [advertised routes quot
 | Maximum number of IPv4 public address ranges per account per region | 5 |
 | Prefix size | `/32` to `/28` |
 | [BYOIP (IPv4) Beta]{: tag-cyan}Maximum number of custom authorized CIDRs per account per region | 5 |
-|  |  |
-|  |  |
-|  |  |
+| [Beta]{: tag-cyan}IPv6 authorized CIDRs per account per zone | 5  |
+| [Beta]{: tag-cyan}IPv6 public address ranges per account per zone | 100  |
+| [Beta]{: tag-cyan}IPv6 public address ranges per VNI | 5  |
 {: caption="Quotas for public address ranges" caption-side="bottom"}
 
 ### Reserved IP addresses

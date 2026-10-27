@@ -28,6 +28,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-oct26}
 
 ### 27 October 2026
+{: #vpc-oct2726}
+{: release-note}
+
+IPv6 public address ranges for VPC (beta)
+:   Customers with special access can allocate `/64` to `/128` blocks from an IBM-provided IPv6 authorized CIDR and bind them to a virtual network interface (VNI). No ingress routing is required after binding. IPv6 addresses must be configured statically in the guest OS. For more information, see [About IPv6 public address ranges](/docs/vpc?topic=vpc-ipv6-par-about), [Managing IPv6 authorized CIDRs](/docs/vpc?topic=vpc-ipv6-par-authorized-cidr), and [Creating and binding IPv6 public address ranges](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
+
+   The API is available now; UI and CLI support are coming soon.
+
+### 27 October 2026
 {: #vpc-oct2126}
 {: release-note}
 

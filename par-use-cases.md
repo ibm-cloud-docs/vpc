@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-27"
 
 keywords: vpc, public address ranges, use cases, secure workloads, high availability, BYOIP
 
@@ -43,6 +43,10 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 If your organization has existing public IP address ranges that are already known to your customers, partners, or DNS infrastructure, you can bring those IPs into IBM Cloud VPC instead of replacing them with IBM-provided addresses. For a full walkthrough of this use case, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip#byoip-use-case-retain-ips).
 
 
+## IPv6 connectivity use cases [Beta]{: tag-cyan}
+{: #ipv6-par-use-cases-ref}
+
+IPv6 public address ranges support two additional use cases: direct IPv6 connectivity to a VNI appliance, and IPv6-to-IPv4 translation using an NFV appliance. For details on both, see [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about#ipv6-par-use-cases).
 
 
 ## Next steps
@@ -50,3 +54,4 @@ If your organization has existing public IP address ranges that are already know
 
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
 * [BYOIP (IPv4) Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
+* [Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).

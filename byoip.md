@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-19"
+lastupdated: "2026-10-27"
 
 keywords:
 
@@ -72,10 +72,10 @@ Multiple types of authorized CIDRs can appear in your account:
 | Type | Availability mode | Origin | How it gets into your account |
 | --- | --- | --- | --- |
 | Customer-brought (BYOIP) | Regional: usable across all zones in a region | Your own publicly routable IPv4 address range | You open an IBM Support case to request provisioning |
-| IBM Classic migrated | Zonal: scoped to a single zone | IBM-owned addresses carried over from IBM Classic infrastructure | IBM provisions these automatically during Classic-to-VPC migration; you cannot request them |
+| IBM Classic migrated | Zonal: scoped to a single zone | IBM-owned addresses carried over from IBM Classic infrastructure | IBM provisions these automatically during Classic-to-VPC migration; you cannot request them |[Beta]{: tag-cyan} | IBM-provided IPv6 | Zonal: scoped to a single zone | IBM-owned IPv6 addresses | IBM provisions a `/64` zonal IPv6 CIDR for your account upon request; you cannot self-provision or bring your own IPv6 range |
 {: caption="Types of authorized CIDRs" caption-side="bottom"}
 
-All types appear on the **Custom authorized CIDRs (BYOIP)** tab because they share the same authorized CIDR infrastructure. However, only customer-brought CIDRs are BYOIP. IBM Classic migrated CIDRs and IBM Classic migrated CIDRs are IBM-provisioned and are not a form of BYOIP. The key differences to be aware of are:
+All types appear on the **Custom authorized CIDRs (BYOIP)** tab because they share the same authorized CIDR infrastructure. However, only customer-brought CIDRs are BYOIP. IBM Classic migrated CIDRs and[Beta]{: tag-cyan} IBM-provided IPv6 CIDRs are IBM Classic migrated CIDRs are IBM-provisioned and are not a form of BYOIP. The key differences to be aware of are:
 
 - **Availability mode**: Customer-brought CIDRs are regional and can allocate resources in any zone within the region. IBM Classic migrated CIDRs are zonal and can only allocate resources in the single zone they are associated with.
 - **Provisioning**: You can request a customer-brought CIDR through an IBM Support case. IBM Classic migrated CIDRs are provisioned automatically by IBM and cannot be requested or deprovisioned by customers.
