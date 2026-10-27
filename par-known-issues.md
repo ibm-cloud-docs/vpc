@@ -17,7 +17,7 @@ subcollection: vpc
 
 As the rollout of public address ranges for VPC continues, a few known issues and limitations have been identified. These are temporary and are scheduled to be addressed in upcoming updates.
 
-[Beta]{: tag-cyan}
+[IPv6 Beta]{: tag-cyan}
 
 ## IPv6 public address range known issues
 {: #par-known-issues-ipv6}
@@ -80,4 +80,4 @@ As the rollout of public address ranges for VPC continues, a few known issues an
 
 * [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
-* [Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
+* [IPv6 Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).

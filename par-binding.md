@@ -15,7 +15,7 @@ subcollection: vpc
 # Binding, unbinding, and moving public address ranges
 {: #par-unbinding-binding}
 
-You can bind, unbind, and move public address ranges to a VPC in an availability zone with the console, CLI, API, and Terraform.[Beta]{: tag-cyan} IPv6 public address ranges bind to a virtual network interface (VNI). For IPv6 binding instructions, see [Creating IPv6 public address ranges and binding to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
+You can bind, unbind, and move public address ranges to a VPC in an availability zone with the console, CLI, API, and Terraform.[IPv6 Beta]{: tag-cyan} IPv6 public address ranges bind to a virtual network interface (VNI). For IPv6 binding instructions, see [Creating IPv6 public address ranges and binding to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
 {: shortdesc}
 
 ## Before you begin
@@ -24,8 +24,8 @@ You can bind, unbind, and move public address ranges to a VPC in an availability
 Review the following requirements and considerations before binding, unbinding, or moving a public address range:
 
 * Make sure to review [planning considerations](/docs/vpc?topic=vpc-par-planning) for public address ranges.
-* The binding of a public address range must include both a VPC and an availability zone.[Beta]{: tag-cyan} For IPv6 public address ranges, the binding target is a VNI, not a VPC. The VNI must be in the same zone as the authorized CIDR the range was allocated from.
-* When using a public address range, you must [configure ingress routing](/docs/vpc?topic=vpc-about-custom-routes) after binding the address range to direct traffic to the appropriate resource. Binding the address range to a VPC does not automatically route traffic to the resource.[Beta]{: tag-cyan} IPv6 public address ranges do not require ingress routing. Traffic routes to the VNI automatically after binding.
+* The binding of a public address range must include both a VPC and an availability zone.[IPv6 Beta]{: tag-cyan} For IPv6 public address ranges, the binding target is a VNI, not a VPC. The VNI must be in the same zone as the authorized CIDR the range was allocated from.
+* When using a public address range, you must [configure ingress routing](/docs/vpc?topic=vpc-about-custom-routes) after binding the address range to direct traffic to the appropriate resource. Binding the address range to a VPC does not automatically route traffic to the resource.[IPv6 Beta]{: tag-cyan} IPv6 public address ranges do not require ingress routing. Traffic routes to the VNI automatically after binding.
 
 ## Binding, unbinding, and moving public address ranges in the console
 {: #bind-unbind-par-ui}
@@ -33,7 +33,7 @@ Review the following requirements and considerations before binding, unbinding, 
 
 You can bind, unbind, and move a public address range to a VPC in an availability zone in the console.
 
-[Beta]{: tag-cyan}IPv6 public address ranges are bound to a VNI instead of a VPC. The **Bind public address range** and **Edit public address range** panels differ for IPv6, and the button is **Attach**. For the console steps, see [Binding an IPv6 public address range to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding#ipv6-par-binding).
+[IPv6 Beta]{: tag-cyan}IPv6 public address ranges are bound to a VNI instead of a VPC. The **Bind public address range** and **Edit public address range** panels differ for IPv6, and the button is **Attach**. For the console steps, see [Binding an IPv6 public address range to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding#ipv6-par-binding).
 
 ### Binding a public address range in the console
 {: #bind-par-ui}
@@ -92,7 +92,7 @@ To bind, unbind, or move a reserved IP address from the command line, follow the
    ibmcloud is public-address-range-update PUBLIC_ADDRESS_RANGE [--name NAME] ([--vpc VPC --zone ZONE] | [--reset-target]) [--output JSON] [-q, --quiet]
    ```
 
-   [Beta]{: tag-cyan}
+   [IPv6 Beta]{: tag-cyan}
 
    ```sh
    ibmcloud is public-address-range-update PUBLIC_ADDRESS_RANGE [--name NAME] ([--vpc VPC --zone ZONE] | [--vni VNI] | [--reset-target]) [--output JSON] [-q, --quiet]
@@ -110,12 +110,12 @@ To bind, unbind, or move a reserved IP address from the command line, follow the
    :   A new identifier for the public address range, if you want to rename it.
 
    `--vpc`
-   :   The VPC you want to attach the public address range to. When specifying the `--vpc` option, `--zone` is required.[Beta]{: tag-cyan} Not valid for IPv6 public address ranges. Use `--vni` instead.
+   :   The VPC you want to attach the public address range to. When specifying the `--vpc` option, `--zone` is required.[IPv6 Beta]{: tag-cyan} Not valid for IPv6 public address ranges. Use `--vni` instead.
 
    `--zone`
-   :   The zone where you want this public address range to reside. When specifying the `--zone` option, `--vpc` is required.[Beta]{: tag-cyan} Not valid for IPv6 public address ranges.
+   :   The zone where you want this public address range to reside. When specifying the `--zone` option, `--vpc` is required.[IPv6 Beta]{: tag-cyan} Not valid for IPv6 public address ranges.
 
-   [Beta]{: tag-cyan}
+   [IPv6 Beta]{: tag-cyan}
    `--vni`
    :   The ID or name of the VNI to bind an IPv6 public address range to. Mutually exclusive with `--vpc --zone`.
    
@@ -156,7 +156,7 @@ ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf
 ```
 {: pre}
 
-[Beta]{: tag-cyan}Bind an IPv6 public address range to a VNI:
+[IPv6 Beta]{: tag-cyan}Bind an IPv6 public address range to a VNI:
 
 ```sh
 ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --vni my-vni
@@ -205,7 +205,7 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
       ```
       {: pre}
 
-   [Beta]{: tag-cyan}
+   [IPv6 Beta]{: tag-cyan}
    * Bind an IPv6 public address range to a VNI:
 
       ```sh
@@ -286,7 +286,7 @@ resource "ibm_is_public_address_range" "public_address_range_instance" {
 ```
 {: codeblock}
 
-[Beta]{: tag-cyan}To bind an IPv6 public address range to a VNI, use `virtual_network_interface` in the `target` block:
+[IPv6 Beta]{: tag-cyan}To bind an IPv6 public address range to a VNI, use `virtual_network_interface` in the `target` block:
 
 ```terraform
 resource "ibm_is_public_address_range" "ipv6_bind_example" {

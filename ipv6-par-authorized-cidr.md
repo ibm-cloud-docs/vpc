@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating and managing IPv6 authorized CIDRs
 {: #ipv6-par-authorized-cidr}
 
-[IPv6 is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Public IPv6 address ranges is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 An IPv6 authorized CIDR reserves public IPv6 address space for your account in a specific zone. Use authorized CIDRs to create public address ranges that can be bound to virtual network interfaces (VNIs). You must create an authorized CIDR before you can create any IPv6 public address ranges in that zone.
