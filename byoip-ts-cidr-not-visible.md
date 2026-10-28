@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-19"
+lastupdated: "2026-10-28"
 
 keywords: byoip, troubleshooting, authorized CIDR, bring your own IP, CIDR not visible, ipv4
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You submitted a support case to provision a custom authorized CIDR and received confirmation that it was completed, but the CIDR is not visible in your account.

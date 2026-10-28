@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-19"
+lastupdated: "2026-10-28"
 
 keywords: byoip, custom authorized CIDR, bring your own IP, public address range
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Provisioning a custom authorized CIDR  (beta)
 {: #provision-custom-authorized-cidr}
 
-[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You can provision a custom authorized CIDR to bring your own publicly routable IPv4 address range into {{site.data.keyword.vpc_short}}. By using your own IP ranges, you can retain your established IP reputation and continue to pass through externally controlled allowlists. A custom authorized CIDR acts as a pool of IP addresses that you can subdivide and allocate to public address ranges.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-28"
 
 keywords: BYOIP, deprovision, custom authorized CIDR, bring your own IP
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Deprovisioning a custom authorized CIDR (beta)
 {: #deprovision-custom-authorized-cidr}
 
-[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You can deprovision a custom authorized CIDR to fully release the IP address range from {{site.data.keyword.cloud_notm}}. When the CIDR is deprovisioned, IBM stops announcing the range and the IP addresses are released from your account.

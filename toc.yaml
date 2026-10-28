@@ -539,7 +539,7 @@ toc:
               - byoip-loa.md
           - topicgroup:
               id: ipv6-public-address-ranges
-              label: Public IPv6 address ranges
+              label: Public IPv6 address ranges (beta)
               topics:
               - ipv6-par-about.md
               - ipv6-par-authorized-cidr.md

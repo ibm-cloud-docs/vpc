@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords: vpc, public address ranges, planning, considerations, limitations
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) and [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) are beta features that are available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 # Planning considerations for public address ranges
@@ -80,9 +80,9 @@ When creating a public address range from a custom authorized CIDR:
 For the full set of BYOIP planning requirements, including regional scope, the allocation model, account quotas, and provisioning, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip#ips_important_considerations).
 
 
-[IPv6 Beta]{: tag-cyan}
 
-## IPv6 public address range considerations
+
+## IPv6 public address range considerations [IPv6 Beta]{: tag-cyan}
 {: #par-planning-ipv6}
 
 When creating an IPv6 public address range:
@@ -99,5 +99,5 @@ For the full set of IPv6 planning requirements, including guest OS configuration
 
 * [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
-* [BYOIP (IPv4) Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
-* [IPv6 Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
+* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip). [BYOIP (IPv4) Beta]{: tag-cyan}
+* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about). [IPv6 Beta]{: tag-cyan}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords: troubleshoot, public address range, ipv6, authorized cidr, cannot delete, allocation count
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-[Public IPv6 address ranges is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 Attempting to delete an IPv6 authorized CIDR returns an error, or the delete operation fails.

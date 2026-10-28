@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords:
 
@@ -14,6 +14,10 @@ subcollection: vpc
 
 # Creating a network ACL
 {: #acl-create-ui}
+
+[Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 
 You can configure an ACL to limit inbound and outbound traffic to the subnet. By default, all traffic is allowed.
 {: shortdesc}
@@ -81,9 +85,9 @@ ibmcloud is network-acl-create ACL_NAME VPC \
 
 Where:
 
-`ACL_NAME` 
+`ACL_NAME`
 :   Name of the network ACL.
-`VPC` 
+`VPC`
 :   ID of the VPC.
 `--rules`
 :   Rules for the ACL in JSON or JSON file.
@@ -91,7 +95,7 @@ Where:
 :   ID of the network ACL to copy rules from.
 `--resource-group-id`
 :   ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
-`--resource-group-name` 
+`--resource-group-name`
 :   Name of the resource group. This option is mutually exclusive with `--resource-group-id`.
 `--output`
 :   Output in JSON format.
@@ -160,9 +164,9 @@ Then, configure the following outbound rules:
 | 3 | Deny| ANY | Any IP, any port |Any IP, any port|
 {: caption="Information for configuring outbound rules." caption-side="bottom"}
 
-[IPv6 Beta]{: tag-cyan}
 
-## Adding IPv6 ACL rules in the console
+
+## Adding IPv6 ACL rules in the console [IPv6 Beta]{: tag-cyan}
 {: #acl-ipv6-rules-ui}
 {: ui}
 
@@ -182,7 +186,7 @@ To add an IPv6 rule to a network ACL in the console, follow these steps:
    - **Source type**: Options vary by protocol:
      - For **ICMPv6**: Select **Any** or **IP or CIDR** only.
      - For **TCP** or **UDP**: Select **Any**, **IP or CIDR**.
-     
+
      Use `::/0` to match any IPv6 source address when selecting **IP or CIDR**.
    - **Destination type**: Select **Any** or **IP or CIDR**. Use `::/0` to match any IPv6 destination address.
    - **Priority**: Select the rule priority. Rules with lower numbers are evaluated first. Select **Set to top** to assign the highest priority, or enter a specific number.
@@ -191,7 +195,7 @@ To add an IPv6 rule to a network ACL in the console, follow these steps:
 IPv6 extension headers are not supported in the VPC data plane. Rules that target IPv6 extension header traffic will not apply as expected.
 {: important}
 
-## Adding IPv6 ACL rules from the CLI
+## Adding IPv6 ACL rules from the CLI [IPv6 Beta]{: tag-cyan}
 {: #acl-ipv6-rules-cli}
 {: cli}
 
@@ -235,7 +239,7 @@ Where:
 `--icmp-type`, `--icmp-code`
 :   ICMPv6 type and code. For example, type `135` is Neighbor Solicitation and type `136` is Neighbor Advertisement, which are required for IPv6 neighbor discovery.
 
-## Adding IPv6 ACL rules with the API
+## Adding IPv6 ACL rules with the API [IPv6 Beta]{: tag-cyan}
 {: #acl-ipv6-rules-api}
 {: api}
 

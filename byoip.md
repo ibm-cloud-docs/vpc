@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About custom authorized CIDRs for VPC (beta)
 {: #byoip}
 
-[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) and [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) are beta features that are available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You can bring your own publicly routable IPv4 address ranges to {{site.data.keyword.vpc_short}} and use them alongside IBM-provided public IP addresses. Bring Your Own IP (BYOIP) is optional and applies to the public address ranges and floating IPs. This capability helps you maintain consistent IP addressing when migrating workloads, preserve existing allowlists, and retain IP reputation.

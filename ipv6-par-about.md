@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords: vpc, public address ranges, ipv6, about
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About public IPv6 address ranges
 {: #ipv6-par-about}
 
-[Public IPv6 address ranges is an allowlisted beta feature](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 A public IPv6 address range is a contiguous block of IBM-provided public IPv6 addresses that you can bind directly to a virtual network interface (VNI) in an availability zone.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-19"
+lastupdated: "2026-10-28"
 
 keywords: BYOIP, view, custom authorized CIDR, CIDR utilization, bring your own IP
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Viewing custom authorized CIDRs (beta)
 {: #view-custom-authorized-cidr}
 
-[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 After IBM approves your provisioning request, view your custom authorized CIDR to monitor how the address space is being used.
