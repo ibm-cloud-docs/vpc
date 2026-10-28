@@ -82,28 +82,28 @@ Not by default. However, you can create separate public address ranges in differ
 
 IPv4 public address ranges bind to a VPC and zone, and require ingress routing configuration to direct traffic to a target resource. IPv6 public address ranges bind directly to a VNI, and traffic routes to that VNI automatically without requiring ingress routing. IPv6 public address ranges also require an IPv6 authorized CIDR to be created first, whereas IPv4 ranges can be created from IBM-managed pools directly.
 
-## What is an IPv6 authorized CIDR and do I need one?
+## What is an IPv6 authorized CIDR and do I need one?  [IPv6 Beta]{: tag-cyan}
 {: #what-is-ipv6-authorized-cidr}
 {: faq}
 {: support}
 
 An IPv6 authorized CIDR is a `/64` block of IBM-provided public IPv6 addresses allocated to your account for a specific zone. You must create an authorized CIDR before you can create any IPv6 public address ranges in that zone. See [Creating IPv6 authorized CIDRs](/docs/vpc?topic=vpc-ipv6-par-authorized-cidr).
 
-## Can I bring my own IPv6 address range?
+## Can I bring my own IPv6 address range? [IPv6 Beta]{: tag-cyan}
 {: #byoipv6}
 {: faq}
 {: support}
 
 Only IBM-provided IPv6 authorized CIDRs are available. Support for bringing your own IPv6 address range is planned for a future release.
 
-## Can I bind an IPv6 public address range to a VPC?
+## Can I bind an IPv6 public address range to a VPC? [IPv6 Beta]{: tag-cyan}
 {: #ipv6-par-vpc-binding}
 {: faq}
 {: support}
 
 IPv6 public address ranges bind to a VNI, not a VPC.
 
-## Does IPv6 public address range support DHCP for address configuration?
+## Does IPv6 public address range support DHCP for address configuration? [IPv6 Beta]{: tag-cyan}
 {: #ipv6-par-dhcp}
 {: faq}
 {: support}
