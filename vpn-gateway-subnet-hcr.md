@@ -18,31 +18,31 @@ subcollection: vpc
 ## What did we change?
 {: #vpn-gw-subnet-what-changed}
 
-Support for VPN gateways with members in multiple subnets across different zones in a region is now generally available in the Virtual Private Cloud (VPC) service. Previously, both VPN gateway members were placed in the same subnet. This enhancement introduces a breaking behavior change to the VPN gateway API and CLI and affects automation that provisions or manages regional VPN gateways.
+Support for VPN gateways with members in multiple subnets across different zones in a region is now generally available in the Virtual Private Cloud (VPC) service. Previously, both VPN gateway members were placed in the same subnet. This enhancement introduces a breaking behavior change to the VPN gateway API and CLI and might affect automation that provisions or manages regional VPN gateways.
 
-The `subnet` property for a VPN gateway will be absent if the VPN gateway has members in more than one zone in the region.
+The `subnet` property for a VPN gateway is omitted from VPN gateway responses when the gateway has members more than one zone in the region.
 
 ## Why did we make this change?
 {: #vpn-gw-subnet-why-change}
 
-Regional VPN gateways support members that span multiple subnets across different zones in a region.
+This enhancement allows regional VPN gateway members to reside in separate subnets across different zones in a region.
 
 ## Who is affected by this change?
 {: #vpn-gw-subnet-those-affected-by-change}
 
-Clients using code or automation to retrieve, validate, or update regional VPN gateways are affected, particularly:
+You might be affected if you use code or automation to retrieve, validate, or update regional VPN gateways, particularly if you have:
 
 * Code that directly accesses the `subnet` property for regional VPN gateways
 * Monitoring and reporting tools that track subnet associations for VPN gateways
 
-All existing VPN gateways have members in only one subnet, and the `subnet` property continues to be included in the CLI and API responses for these gateways.
+Existing VPN gateways have members in only one subnet. The `subnet` property continues to be included in the CLI and API responses for these gateways.
 {: note}
 
 ## What actions can you take to avoid a disruption?
 {: #vpn-gw-subnet-actions-to-avoid-disruption}
 
-If you or other users in your account use VPN gateways, perform the following tasks to avoid a disruption:
+If you or other users in your account use VPN gateways, take the following actions to avoid disruptions:
 
-* Review any validation logic that accesses the `subnet` property in VPN gateway responses. If needed, update the validation logic to check for the absence of the property. You can choose to emit a log, halt processing and surface an error, or bypass the resource on which the property is absent.
-* Update validation logic to follow [API best practices](/docs/apis/vpc/latest#api-best-practices).
-* Clients using API integrations, the CLI, SDKs, or Terraform to manage VPN gateways should review [Migration considerations for updating to Regional VPNs](/docs/vpc?topic=vpc-vpn-gateway-regional-migration-update&interface=cli) for migration requirements, API schema changes, and example CLI and API responses.
+* Review code and validation logic that accesses the `subnet` property in VPN gateway responses. Update the logic to handle cases where the property is absent. Depending on your requirements, you can log a message, halt processing and report an error, or skip processing the affected resource.
+* Ensure that your integrations follow [API best practices](/apidocs/vpc/latest#api-best-practices).
+* If you use API integrations, the CLI, SDKs, or Terraform to manage VPN gateways, review [Migration considerations for updating to regional VPNs](/docs/vpc?topic=vpc-vpn-gateway-regional-migration-update&interface=cli) for migration requirements, API schema changes, and example CLI and API responses.
