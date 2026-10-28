@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-03"
+lastupdated: "2026-10-28"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -249,8 +249,8 @@ These links provide additional information about IBM Cloud VPN for VPC:
 * [VPN API reference](/docs/apis/vpc/latest#list-ike-policies)
 * [VPN Terraform reference](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway){: external}
 * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui)
-* [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-vpns)
+* [VPN gateway events](/docs/vpc?topic=vpc-at_events#events-vpns)
 * [Logging for VPC](/docs/vpc?topic=vpc-logging)
-* [FAQs for VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
+* [FAQ for site-to-site VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
 * [Troubleshooting VPN gateways](/docs/vpc?group=tbs-site-to-site-vpn-gateways)
 * [VPN gateway quotas](/docs/vpc?topic=vpc-quotas#vpn-quotas)

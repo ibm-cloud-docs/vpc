@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-08-05"
+  years: 2020, 2026
+lastupdated: "2026-10-28"
 
 keywords: aws peer, vpn aws
 
@@ -108,14 +108,14 @@ To configure an AWS peer, follow these steps:
    * Set the **Customer Gateway** to the first customer gateway you created in Step 1.
    * Set **Routing Option** to **Static**.
    * Divide the IBM VPC subnet into two smaller subnets and add them to **Static IP Prefixes**. This way, the first connection is preferred over the second connection.
-   * Enter a pre-shared key for both **tunnel1** and **tunnel2**
+   * Enter a pre-shared key for both **tunnel1** and **tunnel2**.
    * For both AWS tunnels, choose **Edit Tunnel X Options** and select the security parameters you need. You can choose multiple values for each parameter if they are also supported by the IBM VPN.
 1. Create the second AWS site-to-site connection.
    * Set the **Virtual Private Gateway** to the gateway you created in Step 2.
    * Set the **Customer Gateway** to the second customer gateway you created in Step 1.
    * Set **Routing Option** to **Static**.
    * Add the IBM VPC subnet to **Static IP Prefixes**.
-   * Enter a pre-shared key for both **tunnel1** and **tunnel2**
+   * Enter a pre-shared key for both **tunnel1** and **tunnel2**.
    * For both AWS tunnels, choose **Edit Tunnel X Options** and select the security parameters you need. You can choose multiple values for each parameter if they are also supported by the IBM VPN.
 
    ![AWS Tunnel Options](images/vpn-interop-aws-tunnel-options.png){: caption="AWS tunnel options" caption-side="bottom"}

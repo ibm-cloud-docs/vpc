@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-28"
 
 keywords:
 subcollection: vpc
@@ -71,8 +71,7 @@ Review the following considerations before you create a dynamic route-based VPN 
 
 A site-to-site VPN automation project is available that provides a Terraform module to create a site-to-site VPN gateway. It also allows a secure connection over the internet from your local on-premises network to private resources in a Power Virtual Server workspace. This Terraform Infrastructure as Code (IaC) module creates a policy-based VPN gateway and connection with local and peer policies. A Transit Gateway and IBM Power Virtual Server workspace are created by default, but you can override the default by specifying existing ones.
 
-The GitHub repository for this automation project is located in the [IBM /
-power-vpn-gateway GitHub repository](https://github.com/IBM/power-vpn-gateway/){: external}. The project's [README file](https://github.com/IBM/power-vpn-gateway/blob/master/README.md){: external} creates a VPN gateway and attaches it to a new or existing Power Virtual Server workspace, providing secure access to the IBM Cloud Power infrastructure.
+The GitHub repository for this automation project is located in the [IBM/power-vpn-gateway GitHub repository](https://github.com/IBM/power-vpn-gateway/){: external}. The project's [README file](https://github.com/IBM/power-vpn-gateway/blob/master/README.md){: external} creates a VPN gateway and attaches it to a new or existing Power Virtual Server workspace, providing secure access to the IBM Cloud Power infrastructure.
 
 ## Related link
 {: #related-link-vpn-gateways}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-28"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -76,7 +76,7 @@ IBM Cloud site-to-site VPN for VPC helps in hybrid cloud extension, backup conne
 {: #faq-vpn-6}
 {: faq}
 
-Yes, VPN for VPC is commonly used as a backup to Direct Link or as secondary connectivity alongside Transit Gateway. See [High Availability](/docs/vpc?topic=vpc-vpn-ha).
+Yes, VPN for VPC is commonly used as a backup to Direct Link or as secondary connectivity alongside Transit Gateway. See [Understanding high availability for VPN for VPC](/docs/vpc?topic=vpc-vpn-ha).
 
 ## How does IBM Cloud site-to-site VPN protect my data?
 {: #faq-vpn-7}
@@ -94,7 +94,7 @@ VPN encryption adds minimal overhead. IBM Cloud optimizes VPN for reliable perfo
 {: #faq-vpn-9}
 {: faq}
 
-To troubleshoot IBM Cloud VPN connection issues, check the VPN dashboard tunnel status, validate routes, review access, and firewall rules. For more information, see [site-to-site troubleshooting](/docs/vpc?group=tbs-site-to-site-vpn-gateways). To troubleshoot issues with negotiated, proposed, and received algorithms in IKE and IPsec policies, see [How do I check IPsec logs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-19)
+To troubleshoot IBM Cloud VPN connection issues, check the VPN dashboard tunnel status, validate routes, review access, and firewall rules. For more information, see [site-to-site troubleshooting](/docs/vpc?group=tbs-site-to-site-vpn-gateways). To troubleshoot issues with negotiated, proposed, and received algorithms in IKE and IPsec policies, see [How do I check IPsec logs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-19).
 
 ## Are there notifications for VPN service unavailability?
 {: #faq-vpn-10}
@@ -203,7 +203,7 @@ Make sure that ACL rules are in place to allow management traffic and VPN tunnel
 {: faq}
 {: support}
 
-Make sure that ACL rules are in place to allow traffic between virtual server instances in your VPC and your on-premises private network. For more information, see [Configuring ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
+Make sure that ACL rules are in place to allow traffic between virtual server instances in your VPC and your on-premises private network. For more information, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
 
 ## Does {{site.data.keyword.vpn_vpc_short}} support high-availability configurations?
 {: #faq-vpn-25}
@@ -250,7 +250,7 @@ To send all traffic from the VPC side to the on-premises side, set peer CIDRs to
 
 When a connection is created successfully, the VPN service adds a CIDR `0.0.0.0/0` through the `<VPN gateway private IP>` route into the default routing table of the VPC. However, this new route can cause routing issues, such as virtual servers in different subnets not being able to communicate with each other, and VPN gateways not communicating with on-premises VPN gateways.
 
-   To troubleshoot routing issues, see [Why do routing and reachability issues exist with my site-to-site VPN?](/docs/vpc?topic=vpc-troubleshoot-vpn-routing-reachability)
+   To troubleshoot routing issues, see [Why do routing and reachability issues exist with my site-to-site VPN?](/docs/vpc?topic=vpc-troubleshoot-vpn-routing-reachability).
 
 ## What is the difference between static and dynamic route-based VPN connection types?
 {: #faq-vpn-32}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-10-28"
 
 keywords: ike policy
 
@@ -21,7 +21,7 @@ You can use custom Internet Key Exchange (IKE) policies to define security param
 IKEv1 is a deprecated protocol and you are strongly encouraged to use IKEv2. If your VPN connection uses an IKEv1 policy, the associated IPsec policy must also contain only one algorithm because IKEv1 supports only a single algorithm. IPsec policies with multiple algorithms are not supported by IKEv1.
 {: note}
 
-To ensure consistent algorithm selection, match exact IKE and IPsec algorithms and their order of priority on both the IBM Cloud VPN gateway and peer gateway. For more information on what factors affect algorithm selection, see [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-18)
+To ensure consistent algorithm selection, match exact IKE and IPsec algorithms and their order of priority on both the IBM Cloud VPN gateway and peer gateway. For more information on what factors affect algorithm selection, see [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-18).
 {: important}
 
 ## Creating an IKE policy in the console
@@ -356,7 +356,7 @@ After you create an IKE policy, complete the following tasks as needed:
 ## Related links
 {: #related-links-vpn-ike-policy}
 
-* [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui).
-* [Changes to VPN gateway IKE and IPsec policy API](/docs/vpc?topic=vpc-vpn-hcr-introduction&interface=ui).
+* [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui)
+* [Changes to VPN gateway IKE and IPsec policy API](/docs/vpc?topic=vpc-vpn-hcr-introduction&interface=ui)
 * [How do I check IPsec logs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-19)
-* [Why does my IPsec connection status appear to be up but the BGP state isn't established?](/vpc?topic=vpc-troubleshoot-ipsec-up-bgp-not-established)
+* [Why does my IPsec connection status appear to be up but the BGP state isn't established?](/docs/vpc?topic=vpc-troubleshoot-ipsec-up-bgp-not-established)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-10-08"
+lastupdated: "2026-10-28"
 
 keywords: VPN, vpn gateways, performance, best practices
 
@@ -126,7 +126,7 @@ IBM Cloud supports both IKEv1 and IKEv2. However, IKEv2 is recommended because i
 * Improves stability
 * Minimizes rekeying issues
 
-   For more information, see [What is a rekey collision in site-to-site VPNs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui&loginMethod=federated#faq-vpn-30)
+   For more information, see [What is a rekey collision in site-to-site VPNs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui&loginMethod=federated#faq-vpn-30).
    {: tip}
 
 Use IKEv2 whenever supported by your peer device.
@@ -222,7 +222,7 @@ To optimize the VPN gateway settings, follow these steps:
 
    * **Policy-based VPN** – Only one VPN tunnel is active at a time. The secondary tunnel becomes active only if the primary fails, which lowers throughput. "Distribute traffic" isn't available in this mode.
 
-1. Make sure that the VPN gateway is in the same availability zone as your VPC subnets to avoid cross‑zone latency. For more information, see [When isn't traffic routed through a route-based VPN gateway?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui&loginMethod=federated#vpn-gateway-route)
+1. Make sure that the VPN gateway is in the same availability zone as your VPC subnets to avoid cross‑zone latency. For more information, see [When isn't traffic routed through a route-based VPN gateway?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui&loginMethod=federated#vpn-gateway-route).
 
 1. Move high‑traffic tunnels to a dedicated VPN gateway because the overall throughput depends on the gateway total capacity. If you have created multiple connections on a single gateway, consider moving them to a separate gateway, which helps reduce load on shared appliances and improves throughput stability.
 
@@ -277,5 +277,5 @@ If throughput still does not meet your requirements, review each configuration a
 {: #related-link-vpn-gateways}
 
 * [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations)
-* [FAQs for VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
+* [FAQ for site-to-site VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
 * [Troubleshooting VPN gateways](/docs/vpc?group=tbs-site-to-site-vpn-gateways)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-27"
+lastupdated: "2026-10-28"
 
 keywords:
 
@@ -251,8 +251,7 @@ To receive monitoring metrics, use the following steps:
 
 2. Select a region for your {{site.data.keyword.mon_full_notm}} instance.
 
-   If you do not have an existing VPN gateway, see [Creating a VPN gateway](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui
-) to provision one.
+   If you do not have an existing VPN gateway, see [Creating a VPN gateway](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui) to provision one.
    {: tip}
 
    The region needs to match the location of your existing VPN gateway.
