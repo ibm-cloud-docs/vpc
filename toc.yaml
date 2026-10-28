@@ -738,6 +738,7 @@ toc:
           label: Virtual network functions
           topics:
           - vnf-about.md
+          - vnf-licensed-firewall.md
           - topicgroup:
               id: deploying-ha-vnf
               label: Deploying a highly available VNF

@@ -53,6 +53,7 @@ To create and configure your VPC and other attached resources:
 1. To distribute requests over multiple instances, create a load balancer.
 1. To enable your VPC to connect securely to another private network, such as your on-premises network or another VPC, create a virtual private network (VPN).
 1. To dynamically exchange routes between your VPC and connected networks, such as transit gateways, firewalls, or SD-WAN devices, create a dynamic route server. This feature is a beta that is available only to allowlisted accounts. For more information, see [Getting started with dynamic route servers (beta)](/docs/vpc?topic=vpc-about-drs).
+1. To inspect and secure traffic in your VPC with a next-generation firewall, deploy a licensed firewall from the {{site.data.keyword.cloud_notm}} catalog. Fortinet FortiGate is currently supported. For more information, see [Deploying a licensed firewall in your VPC](/docs/vpc?topic=vpc-licensed-firewall-vpc).
 
 ## Next steps
 {: #getting-started-next-steps}
