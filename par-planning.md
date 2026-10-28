@@ -67,7 +67,7 @@ Review the following considerations before creating a public address range.
 
 [IPv6 Beta]{: tag-cyan}For IPv6-specific limitations, including platform service interoperability, flow log support, and future capabilities, see [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about#ipv6-par-limitations).
 
-## Custom authorized CIDR considerations [BYOIP (IPv4) Beta]{: tag-cyan}
+## Custom authorized CIDR considerations (beta)
 {: #par-planning-byoip}
 
 When creating a public address range from a custom authorized CIDR:
@@ -82,7 +82,7 @@ For the full set of BYOIP planning requirements, including regional scope, the a
 
 
 
-## IPv6 public address range considerations [IPv6 Beta]{: tag-cyan}
+## IPv6 public address range considerations (beta)
 {: #par-planning-ipv6}
 
 When creating an IPv6 public address range:

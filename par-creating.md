@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords: public address range, create, bind
 
@@ -12,10 +12,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) and [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) are beta features that are available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 # Creating public address ranges
 {: #par-creating}
 
-You can create a public address range by defining its size and optionally, specifying a VPC to associate with it in any availability zone within the account.[BYOIP (IPv4) Beta]{: tag-cyan} Addresses can be allocated from IBM-managed IP pools or from a custom authorized CIDR if you want to use your own publicly routable IP range.[IPv6 Beta]{: tag-cyan} You can also create public IPv6 address ranges from an IBM-provided IPv6 authorized CIDR and bind them to a VNI. For IPv6 instructions, see [Creating IPv6 public address ranges and binding to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
+You can create a public address range by defining its size and optionally, specifying a VPC to associate with it in any availability zone within the account. Addresses can be allocated from IBM-managed IP pools or from a custom authorized CIDR if you want to use your own publicly routable IP range.You can also create public IPv6 address ranges from an IBM-provided IPv6 authorized CIDR and bind them to a VNI. For IPv6 instructions, see [Creating IPv6 public address ranges and binding to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
 {: shortdesc}
 
 If the VPC is deleted while it is bound to a public address range, the address range continues to exist and can be bound later to a different VPC in any availability zone.
@@ -52,9 +55,9 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
       After you create a public address range, you can't change the resource group.
       {: note}
 
-   * **Tags**: Optional: Add tags to help you organize and find your resources. You can always add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).[BYOIP (IPv4) Beta]{: tag-cyan}
+   * **Tags**: Optional: Add tags to help you organize and find your resources. You can always add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 
-   * **Public address source**: Select one of the following:
+   * [BYOIP (IPv4) Beta]{: tag-cyan} **Public address source**: Select one of the following:
 
       * **IBM CIDRs**: Select from IBM-managed IP address pools. Then, select the size (number of IPs) of the address range. You can choose from 1, 2, 4, 8, or 16 IPs to include in the block.
 
@@ -314,8 +317,8 @@ If you need to change the size of the address range or the resource group, you m
 ## Next steps
 {: #after-create-par}
 
-* [BYOIP (IPv4) Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
-* [IPv6 Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
-* [IPv6 Beta]{: tag-cyan} [Create an IPv6 public address range and bind it to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
+* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip). [BYOIP (IPv4) Beta]{: tag-cyan}
+* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about). [IPv6 Beta]{: tag-cyan}
+* [Create an IPv6 public address range and bind it to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding). [IPv6 Beta]{: tag-cyan}
 * [Bind the public address range to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding).
 * [View public address ranges](/docs/vpc?topic=vpc-par-viewing).

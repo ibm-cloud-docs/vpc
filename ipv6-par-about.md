@@ -48,21 +48,6 @@ After a public address range is bound to a VNI, traffic for any IP in that range
 | Billing | Billed per IP per hour (egress charged at the standard rate) | Not billed (egress charged at the standard rate) |
 {: caption="IPv4 and IPv6 public address range behavior" caption-side="bottom"}
 
-## Use cases
-{: #ipv6-par-use-cases}
-
-### Direct IPv6 connectivity to a VNI appliance
-{: #ipv6-par-use-case-vni}
-
-In this scenario, you bind an IPv6 public address range directly to a VNI attached to a virtual server instance or bare metal server. Inbound internet traffic for any IP in the range is routed to the VNI. Response traffic egresses with a source IP from the range. This pattern provides direct public IPv6 connectivity without requiring ingress routing or a public gateway.
-
-### IPv6-to-IPv4 translation with an NFV appliance
-{: #ipv6-par-use-case-nfv}
-
-In this scenario, an IPv6 public address range is bound to a VNI attached to a network function virtualization (NFV) appliance. The NFV appliance receives inbound IPv6 traffic, translates it to IPv4, and forwards it to IPv4 backend members. Response traffic is translated back to IPv6 and returned to the internet using source IPs from the range.
-
-
-
 ## Planning considerations
 {: #ipv6-par-planning}
 

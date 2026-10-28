@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 subcollection: vpc
 
@@ -24,11 +24,11 @@ The following questions are commonly asked about public address ranges. If you h
 {: faq}
 {: support}
 
-[BYOIP (IPv4) Beta]{: tag-cyan}
-Yes. You can bring your own publicly routable IPv4 address range to {{site.data.keyword.vpc_short}} through custom authorized CIDRs. To get started, see [Creating a custom authorized CIDR (BYOIP)](/docs/vpc?topic=vpc-provision-custom-authorized-cidr) and open a support case. IBM verifies ownership and configures the range as an authorized CIDR in your account. After the range is available, you can allocate public address ranges and floating IPs from it.
-
-
 No. Only IBM-provided public IPs are supported. BYOIP (Bring Your Own IP) is not available for this service.
+
+[BYOIP (IPv4) Beta]{: tag-cyan}
+Yes, only for this beta. You can bring your own publicly routable IPv4 address range to {{site.data.keyword.vpc_short}} through custom authorized CIDRs. To get started, see [Creating a custom authorized CIDR (BYOIP)](/docs/vpc?topic=vpc-provision-custom-authorized-cidr) and open a support case. IBM verifies ownership and configures the range as an authorized CIDR in your account. After the range is available, you can allocate public address ranges and floating IPs from it.
+
 
 ## What public IP address range sizes can I reserve?
 {: #prefix-sizes}
@@ -73,9 +73,9 @@ Yes. You can reserve and bind multiple public address ranges to a single VPC to 
 
 Not by default. However, you can create separate public address ranges in different zones and configure routing to ensure high availability across zones.
 
-[IPv6 Beta]{: tag-cyan}
 
-## What is the difference between an IPv4 and IPv6 public address range?
+
+## What is the difference between an IPv4 and IPv6 public address range? [IPv6 Beta]{: tag-cyan}
 {: #ipv4-ipv6-par-difference}
 {: faq}
 {: support}
@@ -118,7 +118,7 @@ IPv6 addresses from a public address range must be configured statically in the 
 
 - [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
 - [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
-- [IPv6 Beta]{: tag-cyan} [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about)
+- [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about) [IPv6 Beta]{: tag-cyan} 
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [Known issues](/docs/vpc?topic=vpc-par-known-issues)

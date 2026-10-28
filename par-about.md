@@ -12,11 +12,11 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) and [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) are beta features that are available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
-{: beta}
-
 # Getting started with public address ranges
 {: #about-par}
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) and [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) are beta features that are available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone.IPv6 public address ranges bind directly to a virtual network interface (VNI) instead of a VPC.
 {: shortdesc}
@@ -65,7 +65,7 @@ Follow these steps to get started with IPv4 public address ranges.
 
 
 
-### IPv6 [IPv6 Beta]{: tag-cyan}
+### IPv6 (beta)
 {: #par-getting-started-ipv6}
 
 Follow these steps to get started with IPv6 public address ranges.
