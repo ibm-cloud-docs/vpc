@@ -211,6 +211,13 @@ Make sure that ACL rules are in place to allow traffic between virtual server in
 
 Yes, {{site.data.keyword.vpn_vpc_short}} supports high availability in an Active-Standby configuration for policy-based VPNs, and Active-Active configuration for a static, route-based VPN.
 
+
+Yes, {{site.data.keyword.vpn_vpc_short}} supports the following high availability configurations:
+
+* **Policy-based VPN**: Active-Standby configuration.
+* **Zonal route-based VPN**: Active-Active or Active-Backup configuration, with both appliances in the same zone.
+* **Regional route-based VPN**: Active-Active or Active-Backup configuration, with each appliance optionally in a different availability zone. This configuration provides zone-level fault tolerance with a single gateway resource. See [Understanding high availability for VPN for VPC](/docs/vpc?topic=vpc-vpn-ha).
+
 ## Are there plans to support SSL VPN?
 {: #faq-vpn-26}
 {: faq}
@@ -339,3 +346,23 @@ If you configured a VPC route with a VPN connection as the next hop, traffic mig
 
 * The security groups that are associated with the VPC instance don't permit the traffic. In addition, the network ACLs associated with the instance's subnet or the VPN gateway block the traffic. Make sure that your security groups and ACLs allow the intended traffic. For more information, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
 * If the source IP of the traffic doesn't belong to a subnet that is associated with the routing table containing the VPN route, the VPN gateway drops the traffic. For example, consider a VPC routing table that is associated only with **Subnet A**, and includes a route whose next hop is a VPN connection. If traffic reaches the VPN gateway but originates from an IP address outside of **Subnet A** or any other subnet that is linked to that routing table, the gateway doesn't forward the traffic.
+
+## What is a regional VPN gateway and how is it different from a zonal VPN gateway?
+{: #faq-vpn-regional-1}
+{: faq}
+
+A regional VPN gateway is a route-based VPN gateway that deploys its two appliances across two subnets, which can be in different availability zones within the same region. This configuration provides zone-level fault tolerance: if one zone fails, the appliance in the other zone continues to handle VPN traffic without requiring a separate gateway resource.
+
+A zonal VPN gateway deploys both appliances within a single availability zone. Route-based gateways of both types support static and dynamic (BGP) connection types, but regional mode is available for route-based gateways only.
+
+## Can I convert my existing zonal VPN gateway to a regional VPN gateway?
+{: #faq-vpn-regional-2}
+{: faq}
+
+No. The availability mode of a VPN gateway is set at creation time and cannot be changed afterward. A zonal VPN gateway cannot be converted to a regional VPN gateway. To use regional availability mode, you must delete the existing zonal gateway and create a new regional VPN gateway. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
+
+## Do both appliances in a regional VPN gateway have to be in different zones?
+{: #faq-vpn-regional-3}
+{: faq}
+
+No. When you create a regional VPN gateway, you select two subnets, one per appliance, but both subnets can be in the same zone. You can then move one appliance to a different zone later by updating its member subnet. You do not need to delete and re-create the gateway. See [Updating a regional VPN gateway member subnet](/docs/vpc?topic=vpc-vpn-regional-member-subnet-update).

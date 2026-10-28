@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-10-28"
 
 keywords:
 
@@ -38,6 +38,8 @@ Known issues for site-to-site VPN gateways are as follows:
 * An {{site.data.keyword.cloud_notm}} policy-based VPN gateway resides in the zone that is associated with the subnet that you select during provisioning. The VPN gateway serves only virtual server instances in the same zone of the VPC. Therefore, instances in other zones can't use the VPN gateway to communicate with an on-premises private network. For zone fault tolerance, deploy one VPN gateway per zone.
 * An {{site.data.keyword.cloud_notm}} route-based VPN gateway resides in the zone that is associated with the subnet that you select during provisioning. It is recommended that a VPN gateway serves only virtual server instances in the same zone of the VPC. By adding custom egress routes to the routing table to direct traffic, instances in other zones can use the route-based VPN gateway to communicate with an on-premises private network; however, this setup is not recommended. For zone fault tolerance, deploy one VPN gateway per zone.
 
+* A **zonal** route-based VPN gateway resides in the zone that is associated with the subnet that you select during provisioning. A zonal VPN gateway serves only virtual server instances in the same zone of the VPC. By adding custom egress routes to the routing table to direct traffic, instances in other zones can use the route-based VPN gateway to communicate with an on-premises private network; however, this setup is not recommended. For zone fault tolerance with zonal gateways, deploy one VPN gateway per zone. Alternatively, use a regional route-based VPN gateway, which provides zone-level resiliency with a single gateway resource. See [Use case 9: Regional VPN gateway for zone-resilient connectivity](/docs/vpc?topic=vpc-using-vpn&interface=api#use-case-9-vpn).
+
 * When you configure and optimize site-to-site IPsec VPN connections, you might encounter network performance issues, one of which is related to Maximum Transmission Unit (MTU) and Maximum Segment Size (MSS) clamping. For more information, see [IBM site-to-site VPN Maximum Transmission Unit (MTU) clamping](/docs/vpc?topic=vpc-about-mtu).
 * When a route uses a VPN gateway connection as its next hop, it must be present in an egress routing table that is associated with VPC subnets. Additionally, when the VPN gateway forwards traffic into the VPN tunnel, it checks whether the source IP of this traffic is within the subnet that is attached to that routing table. If the source IP is outside that subnet, the traffic is neither encrypted nor sent through the VPN tunnel to the peer gateway. For instance, if the VPN gateway receives traffic that is routed through the ingress routing table, the traffic isn't forwarded into the VPN tunnel because the source IP is outside the subnet that is attached to the routing table.
 
@@ -53,3 +55,16 @@ Known issues for site-to-site VPN gateways are as follows:
 {: #distributing-traffic-restrictions}
 
 When distributing traffic, the peer gateway must be able to support Equal-Cost Multi-Path routing (ECMP). Additionally, certain peer gateways might require specific configurations to enable ECMP. For more information, see the [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn#use-case-4-vpn) use case.
+
+## Regional VPN gateway restrictions
+{: #regional-vpn-restrictions}
+
+Review the following restrictions that apply to regional route-based VPN gateways:
+
+* Regional availability mode is available for route-based VPN gateways only. Policy-based VPN gateways are always zonal.
+* A regional VPN gateway requires exactly two member subnets at creation time. You cannot add or remove members after creation.
+* A zonal VPN gateway cannot be converted to a regional VPN gateway. To use regional mode, you must delete the existing zonal gateway and create a new one.
+* You can create up to three regional route-based VPN gateways per VPC.
+* When you use a static route-based connection with a regional VPN gateway, you must create a separate ingress route for each zone in which an appliance is deployed. See [Ingress routing for a regional static route-based VPN gateway](/docs/vpc?topic=vpc-advertise-routes-s2s#ingress-routing-regional-vpn).
+* When a regional VPN gateway member is updated to a new subnet, VPN connections through that member experience a brief disruption. Traffic automatically fails over to the other member during the update.
+* Cross-zone traffic between a VPN appliance in one zone and a workload in another zone traverses the {{site.data.keyword.cloud_notm}} network between zones. This traffic can affect latency, so evaluate the impact for latency-sensitive applications.

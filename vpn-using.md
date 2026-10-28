@@ -26,7 +26,7 @@ The IBM Cloud site-to-site VPN for VPC service includes the following features:
 * **Authentication** - IBM Cloud VPN for VPC supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include `SHA-256`, `SHA-384`, and `SHA-512`.
 * **High availability** - IBM Cloud VPN for VPC is built on two VPN devices to provide appliance-level redundancy. A policy-based VPN operates in Active-Standby mode with a single VPN gateway IP shared between the members, whereas a route-based VPN offers both Active-Backup and Active-Active redundancy modes with two VPN gateway IPs.
 
-
+Route-based VPN gateways also support a regional availability mode that provides zone-level fault tolerance by assigning each appliance to a separate subnet. The subnets can be in different availability zones within the same region, allowing the appliance in the healthy zone to continue handling traffic if one zone fails. For more information, see [VPN gateway high availability with a regional gateway](/docs/vpc?topic=vpc-vpn-ha#vpn-ha-regional).
 
    In the Active-Backup mode for a route-based VPN, two tunnels are set up between the IBM gateway and the peer VPN gateway. However, the IBM gateway always uses the tunnel with the smaller public IP as the primary egress path. The other tunnel, with the larger IP, acts as the secondary egress path. As long as both tunnels are active, traffic from the IBM VPC to the on-prem network goes through the primary egress path. If the primary egress path fails, traffic automatically switches to the secondary egress path. This setup is used when the "Distribute traffic" feature isn't enabled. The on-prem VPN gateway must also use the same configuration to choose the same preferred path. [Learn more](/docs/vpc?topic=vpc-using-vpn#active-backup-mode-static)
    {: #important-notice}
@@ -47,7 +47,16 @@ The IBM Cloud site-to-site VPN for VPC service includes the following features:
       * **Static VPN connection** - In the static route-based connection, users must manually define and configure routes in the routing table. To get started, select **Static** as the mode when you create a VPN gateway and [create routes](/docs/vpc?topic=vpc-create-vpc-route) by using the VPN connection type.
       * **Dynamic VPN connection** - In the dynamic route-based connection, the routes are automatically discovered and managed between networks by using BGP, unlike static routing, which requires manual configuration. Dynamic configuration provides better scalability, network management, and high availability. To get started, select **dynamic** as the connection type when you create a VPN gateway. Keep in mind that you must use this connection along with a transit gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-connection-considerations) for dynamic route-based VPN.
 
+* **VPN gateway availability modes (route-based only)**
 
+   * A route-based VPN gateway supports two availability modes. You select the availability mode when you create the VPN gateway, and you cannot change it afterward.
+
+   * **Zonal**: Both VPN appliances are deployed within a single availability zone. This is the default mode and matches the behavior of existing VPN gateways. A zonal VPN gateway can carry traffic from workloads in any VPC zone. However, if the zone that hosts the gateway fails, VPN connectivity is interrupted for all zones.
+
+   * **Regional**: Each VPN appliance is assigned to a separate subnet. The subnets can be in the same zone or in different zones. When the appliances are in different zones, the gateway continues to operate if one zone fails because the appliance in the healthy zone takes over.
+
+   A zonal VPN gateway cannot be converted to a regional VPN gateway. To use regional availability mode, you must delete the existing zonal gateway and create a new regional VPN gateway.
+   {: important}
 
 * **Perfect Forward Secrecy (PFS)** - PFS makes sure that DH-generated keys aren't used again during IPsec renegotiation. If a key is compromised, only data in transit during the protected security association's lifetime is accessible.
 
@@ -238,7 +247,34 @@ To set up this configuration, follow these steps:
 1. Add a VPN connection to the provisioned gateway to connect to your on-premises network. See [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui).
 1. Set up a connection between IBM Cloud VPN and Transit Gateway. See [Creating a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui#tg-ui-creating-transit-gateway).
 
+### Use case 9: Regional VPN gateway for zone-resilient connectivity
+{: #use-case-9-vpn}
 
+A regional VPN gateway provides zone-level resiliency by deploying its two appliances across two subnets that can span different availability zones within the same region. Unlike the cross-zone HA pattern in [Use case 6](#use-case-6-vpn), which requires a separate VPN gateway per zone, a regional VPN gateway achieves multizone coverage with a single gateway resource and two members.
+
+![Regional VPN gateway](images/vpn-gateway-ha-regional.svg "Regional VPN gateway with two members"){: caption="Regional VPN gateway with two members" caption-side="bottom"}
+
+A regional VPN gateway has the following key characteristics:
+
+- You must select two subnets at creation time, one per appliance. The subnets can be in the same or different zones.
+- Each appliance has its own private IP address and floating IP address.
+- You can move an appliance to a different subnet (and therefore a different zone) after creation by updating the member. You do not need to delete and re-create the gateway.
+- Regional VPN gateways are available in route-based mode only. Both static and dynamic connection types are supported.
+- When a dynamic regional VPN gateway with BGP is attached to a transit gateway, you do not specify a zone for the connection. The transit gateway automatically derives the zone from each VPN appliance and places generic routing encapsulation (GRE) tunnels accordingly.
+
+Regional VPN members do not have to be in different zones. You can deploy both appliances in the same zone initially and move one to a different zone later if your availability requirements change.
+{: note}
+
+The following table compares zonal and regional VPN gateways:
+
+| Aspect | Zonal VPN gateway | Regional VPN gateway |
+| --- | --- | --- |
+| Availability | Single zone | Up to two zones |
+| Subnet selection | One subnet | Two subnets (one per appliance) |
+| Zone failure resilience | No. The entire gateway is affected. | Yes. The other appliance continues operating. |
+| Conversion from zonal | Not applicable | Not supported. Create a new gateway. |
+| VPN mode | Policy-based or route-based | Route-based only |
+{: caption="Comparison of zonal and regional VPN gateways" caption-side="bottom"}
 
 ## Related links
 {: #vpn-related-links}

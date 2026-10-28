@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-28"
 
 keywords:
 
@@ -501,7 +501,10 @@ The following table lists the actions that are related to site-to-site VPN gatew
 | vpn  | is.vpn.ipsec-policy.delete   | IPsec policy was deleted |
 | vpn  | is.vpn.ipsec-policy.update   | IPsec policy was updated |
 | vpn  | is.vpn.ipsec-policy.read   | IPsec policy was retrieved |
-| vpn  | is.vpn.ipsec-policy.list   | IPsec policies were listed | 
+| vpn  | is.vpn.ipsec-policy.list   | IPsec policies were listed |
+| vpn  | is.vpn.vpn-member.list     | VPN gateway members were retrieved |
+| vpn  | is.vpn.vpn-member.read     | VPN gateway member details were retrieved |
+| vpn  | is.vpn.vpn-member.update   | VPN gateway member was updated |
 {: caption="Actions that generate events for site-to-site VPN gateways" caption-side="bottom"}
 
 ### VPN server events
