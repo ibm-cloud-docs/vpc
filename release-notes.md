@@ -1,8 +1,8 @@
-﻿---
+---
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## October 2026
 {: #vpc-oct26}
+
+### 28 October 2026
+{: #vpc-oct2826-vpn}
+{: release-note}
+
+Multi-zone VPN gateway support for VPN for VPC (GA)
+:   You can now create regional route-based VPN gateways for VPN for VPC. A regional VPN gateway deploys VPN appliances across multiple zones within the same region, providing higher resiliency and fault tolerance without requiring multiple VPN gateways. For more information, see [Regional VPN gateway for zone-resilient connectivity](/docs/vpc?topic=vpc-using-vpn#use-case-9-vpn).
 
 ### 27 October 2026
 {: #vpc-oct2726}

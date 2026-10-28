@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-11-07"
+  years: 2019, 2026
+lastupdated: "2026-10-28"
 
 keywords: check point peer
 
@@ -62,7 +62,7 @@ Here's an example of how to connect an IBM policy-vased VPN to a Check Point Sec
 ## Connecting an IBM route-based VPN to a Check Point Security Gateway peer
 {: #check-point-config-route-based}
 
-These example steps are referred to in the [CheckPoint Administration Guide](https://sc1.checkpoint.com/documents/R81/WebAdminGuides/EN/CP_R81_Gaia_AdminGuide/Topics-GAG/VPN-Tunnel-Interfaces.htm?tocpath=Network%20Management%7CNetwork%20Interfaces%7C_____8)
+These example steps are referred to in the [CheckPoint Administration Guide](https://sc1.checkpoint.com/documents/R81/WebAdminGuides/EN/CP_R81_Gaia_AdminGuide/Topics-GAG/VPN-Tunnel-Interfaces.htm?tocpath=Network%20Management%7CNetwork%20Interfaces%7C_____8).
 {: tip}
 
 To connect an IBM route-based VPN to a Check Point Security Gateway peer, follow these steps:

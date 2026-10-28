@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-10-28"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting, quota, advertised routes
 
@@ -199,5 +199,4 @@ After the quota-related issue is resolved, verify that services are operating no
 * [VPC quotas and service limits](/docs/vpc?topic=vpc-quotas)
 * [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes)
 * [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-advertise-routes-s2s)
-* [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations)
-* [Getting help and support for VPC](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc)
+* [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations)

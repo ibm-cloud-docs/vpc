@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords:
 
@@ -215,7 +215,9 @@ The combined total of the advertised routes quota and the [address prefixes quot
 | IKE policies | 20 per region | Yes | Yes |
 | IPsec policies | 20 per region | Yes | Yes |
 | Peer and local subnets | 50 across all connections per gateway, 15 per connection | Yes | No |
-| User defined advertised routes | 10 per VPN gateway | No | Yes[^fn3] | 
+| User defined advertised routes | 10 per VPN gateway | No | Yes[^fn3] |
+| Zonal VPN gateway | 3 per zone | Yes | Yes |
+| Regional VPN gateway | 3 regional VPN per VPC | No | Yes |
 {: caption="Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
 
 [^fn2]: A single VPC supports a maximum of one route-mode VPN per zone.

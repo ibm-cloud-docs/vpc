@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-28"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -76,7 +76,7 @@ IBM Cloud site-to-site VPN for VPC helps in hybrid cloud extension, backup conne
 {: #faq-vpn-6}
 {: faq}
 
-Yes, VPN for VPC is commonly used as a backup to Direct Link or as secondary connectivity alongside Transit Gateway. See [High Availability](/docs/vpc?topic=vpc-vpn-ha).
+Yes, VPN for VPC is commonly used as a backup to Direct Link or as secondary connectivity alongside Transit Gateway. See [Understanding high availability for VPN for VPC](/docs/vpc?topic=vpc-vpn-ha).
 
 ## How does IBM Cloud site-to-site VPN protect my data?
 {: #faq-vpn-7}
@@ -94,7 +94,7 @@ VPN encryption adds minimal overhead. IBM Cloud optimizes VPN for reliable perfo
 {: #faq-vpn-9}
 {: faq}
 
-To troubleshoot IBM Cloud VPN connection issues, check the VPN dashboard tunnel status, validate routes, review access, and firewall rules. For more information, see [site-to-site troubleshooting](/docs/vpc?group=tbs-site-to-site-vpn-gateways). To troubleshoot issues with negotiated, proposed, and received algorithms in IKE and IPsec policies, see [How do I check IPsec logs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-19)
+To troubleshoot IBM Cloud VPN connection issues, check the VPN dashboard tunnel status, validate routes, review access, and firewall rules. For more information, see [site-to-site troubleshooting](/docs/vpc?group=tbs-site-to-site-vpn-gateways). To troubleshoot issues with negotiated, proposed, and received algorithms in IKE and IPsec policies, see [How do I check IPsec logs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-19).
 
 ## Are there notifications for VPN service unavailability?
 {: #faq-vpn-10}
@@ -203,13 +203,20 @@ Make sure that ACL rules are in place to allow management traffic and VPN tunnel
 {: faq}
 {: support}
 
-Make sure that ACL rules are in place to allow traffic between virtual server instances in your VPC and your on-premises private network. For more information, see [Configuring ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
+Make sure that ACL rules are in place to allow traffic between virtual server instances in your VPC and your on-premises private network. For more information, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
 
 ## Does {{site.data.keyword.vpn_vpc_short}} support high-availability configurations?
 {: #faq-vpn-25}
 {: faq}
 
 Yes, {{site.data.keyword.vpn_vpc_short}} supports high availability in an Active-Standby configuration for policy-based VPNs, and Active-Active configuration for a static, route-based VPN.
+
+
+Yes, {{site.data.keyword.vpn_vpc_short}} supports the following high availability configurations:
+
+* **Policy-based VPN**: Active-Standby configuration.
+* **Zonal route-based VPN**: Active-Active or Active-Backup configuration, with both appliances in the same zone.
+* **Regional route-based VPN**: Active-Active or Active-Backup configuration, with each appliance optionally in a different availability zone. This configuration provides zone-level fault tolerance with a single gateway resource. See [Understanding high availability for VPN for VPC](/docs/vpc?topic=vpc-vpn-ha).
 
 ## Are there plans to support SSL VPN?
 {: #faq-vpn-26}
@@ -250,7 +257,7 @@ To send all traffic from the VPC side to the on-premises side, set peer CIDRs to
 
 When a connection is created successfully, the VPN service adds a CIDR `0.0.0.0/0` through the `<VPN gateway private IP>` route into the default routing table of the VPC. However, this new route can cause routing issues, such as virtual servers in different subnets not being able to communicate with each other, and VPN gateways not communicating with on-premises VPN gateways.
 
-   To troubleshoot routing issues, see [Why do routing and reachability issues exist with my site-to-site VPN?](/docs/vpc?topic=vpc-troubleshoot-vpn-routing-reachability)
+   To troubleshoot routing issues, see [Why do routing and reachability issues exist with my site-to-site VPN?](/docs/vpc?topic=vpc-troubleshoot-vpn-routing-reachability).
 
 ## What is the difference between static and dynamic route-based VPN connection types?
 {: #faq-vpn-32}
@@ -339,3 +346,23 @@ If you configured a VPC route with a VPN connection as the next hop, traffic mig
 
 * The security groups that are associated with the VPC instance don't permit the traffic. In addition, the network ACLs associated with the instance's subnet or the VPN gateway block the traffic. Make sure that your security groups and ACLs allow the intended traffic. For more information, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
 * If the source IP of the traffic doesn't belong to a subnet that is associated with the routing table containing the VPN route, the VPN gateway drops the traffic. For example, consider a VPC routing table that is associated only with **Subnet A**, and includes a route whose next hop is a VPN connection. If traffic reaches the VPN gateway but originates from an IP address outside of **Subnet A** or any other subnet that is linked to that routing table, the gateway doesn't forward the traffic.
+
+## What is a regional VPN gateway and how is it different from a zonal VPN gateway?
+{: #faq-vpn-regional-1}
+{: faq}
+
+A regional VPN gateway is a route-based VPN gateway that deploys its two appliances across two subnets, which can be in different availability zones within the same region. This configuration provides zone-level fault tolerance: if one zone fails, the appliance in the other zone continues to handle VPN traffic without requiring a separate gateway resource.
+
+A zonal VPN gateway deploys both appliances within a single availability zone. Route-based gateways of both types support static and dynamic (BGP) connection types, but regional mode is available for route-based gateways only.
+
+## Can I convert my existing zonal VPN gateway to a regional VPN gateway?
+{: #faq-vpn-regional-2}
+{: faq}
+
+No. The availability mode of a VPN gateway is set at creation time and cannot be changed afterward. A zonal VPN gateway cannot be converted to a regional VPN gateway. To use regional availability mode, you must delete the existing zonal gateway and create a new regional VPN gateway. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
+
+## Do both appliances in a regional VPN gateway have to be in different zones?
+{: #faq-vpn-regional-3}
+{: faq}
+
+No. When you create a regional VPN gateway, you select two subnets, one per appliance, but both subnets can be in the same zone. You can then move one appliance to a different zone later by updating its member subnet. You do not need to delete and re-create the gateway. See [Updating a regional VPN gateway member subnet](/docs/vpc?topic=vpc-vpn-regional-member-subnet-update).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-08"
+lastupdated: "2026-10-28"
 
 keywords:
 
@@ -21,7 +21,7 @@ IBM Cloud has two VPN services. _VPN for VPC_ (site-to-site VPN gateways), which
 ## Site-to-site VPN gateways
 {: #site-to-site-vpn-gateway}
 
-IBM Cloud VPN for VPC provides a simple, yet powerful solution for highly scalable, and robust site-to-site VPN gateways. With this service, you can create site-to-site VPN tunnels for secure, encrypted connectivity. Connect from on-premises sites to IBM Cloud through a VPN gateway on an IBM Cloud VPC, and a peer gateway on-premises. 
+IBM Cloud VPN for VPC provides a simple, yet powerful solution for highly scalable, and robust site-to-site VPN gateways. With this service, you can create site-to-site VPN tunnels for secure, encrypted connectivity. Connect from on-premises sites to IBM Cloud through a VPN gateway on an IBM Cloud VPC, and a peer gateway on-premises.
 
 This service provides a mixture of industry-standard security and encryption options as well as support for Pre-Shared Key (PSK) authentication. With this service, you can quickly add and remove VPN connections with the option to use pre-defined configurations. For more information, see [About site-to-site VPN gateways](/docs/vpc?topic=vpc-using-vpn).
 
@@ -52,14 +52,14 @@ In the dynamic route-based connection, the routes are automatically discovered a
 The following features are included in a site-to-site VPN gateway:
 
 * Secure tunnels - Create a VPN in route-based or policy-based mode to set up IPsec site-to-site tunnels between your VPC and your on-premises private network, or another VPC.
-* High availability - Built on two VPN devices, provides appliance-level redundancy. 
+* High availability - Built on two VPN devices, provides appliance-level redundancy.
 * Pre-defined and custom encryption proposals - Choose from multiple pre-defined proposals for a quick, secure VPN configuration with customizable Internet Key Exchange (IKE) Phase 1 and Phase 2 encryption settings.
 * Monitoring - View the monitoring dashboard to see the current status of all tunnels and connections. You can also suspend and restart your individual VPN connections at any time.
 
 ## Client-to-site VPN servers
 {: #client-to-site-vpn-server}
 
-IBM Cloud Client VPN for VPC provides an open-source compatible client-to-site VPN solution that allows users to connect to IBM Cloud resources through secure, encrypted connections. 
+IBM Cloud Client VPN for VPC provides an open-source compatible client-to-site VPN solution that allows users to connect to IBM Cloud resources through secure, encrypted connections.
 
 When your users are working remotely, traveling, or at a location without a site-to-site VPN connection, they can use an OpenVPN client to connect to VPN servers on your IBM Cloud VPC. For more information, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
 
@@ -68,4 +68,4 @@ The following features are included in client-to-site VPN:
 * Secure, encrypted connectivity - A TLS 1.2/1.3-based secure, encrypted way for your employees (or individuals) to access IBM Cloud VPC remotely. With VPN servers set up for client connections and support of Transit Gateway, you can also privately interconnect to Classic IaaS and other VPCs on IBM Cloud.
 * High availability - Spans multiple availability zones for high throughput and resiliency.
 * Multi-factor authentication - Apply to your VPN server and client connections to provide an added layer of security to meet compliance and security requirements.
-* Operations and management - View the VPN server dashboard to monitor status and manage the lifecycle of VPN servers and their client connections. In different business scenarios, you can also delete clients that are connected to the servers. 
+* Operations and management - View the VPN server dashboard to monitor status and manage the lifecycle of VPN servers and their client connections. In different business scenarios, you can also delete clients that are connected to the servers.

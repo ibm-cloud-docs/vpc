@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-01-03"
+  years: 2018, 2026
+lastupdated: "2026-10-28"
 
 keywords: vpc, virtual private cloud
 
@@ -52,6 +52,7 @@ To create and configure your VPC and other attached resources:
 5. Deploy your service or applications across the instances.
 1. To distribute requests over multiple instances, create a load balancer.
 1. To enable your VPC to connect securely to another private network, such as your on-premises network or another VPC, create a virtual private network (VPN).
+1. To dynamically exchange routes between your VPC and connected networks, such as transit gateways, firewalls, or SD-WAN devices, create a dynamic route server. This feature is a beta that is available only to allowlisted accounts. For more information, see [Getting started with dynamic route servers (beta)](/docs/vpc?topic=vpc-about-drs).
 
 ## Next steps
 {: #getting-started-next-steps}

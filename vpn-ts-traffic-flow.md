@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-10-28"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting, traffic, packets, ACL, security groups, flow
 
@@ -209,7 +209,7 @@ Correct routing is required on both the IBM Cloud and on-premises networks. Miss
 
    For more information on resolving routing and reachability issues, see [Why do routing and reachability issues exist with my site-to-site VPN?](/docs/vpc?topic=vpc-troubleshoot-vpn-routing-reachability).
 
-1. **Verify route avertisement to Transit Gateway**
+1. **Verify route advertisement to Transit Gateway**
 
    * When your architecture integrates Transit Gateway for forwarding traffic from another environment to the VPN gateway VPC, check whether the **Advertise to** toggle is turned on. This option advertises the learned routes to other VPCs through the Transit Gateway. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-advertise-routes-s2s).
 
@@ -302,7 +302,7 @@ When you configure multiple local and remote CIDRs on an IBM Cloud VPN connectio
 
 When you update peer CIDRs (for example, by consolidating multiple smaller subnets into a larger CIDR block), you might notice that traffic to those networks briefly stops working. During this time, connections to the affected subnets can fail until the new routing information is applied. This condition occurs because routing entries are briefly removed before the updated routes are applied.
 
-### Planing peer CIDR updates
+### Planning peer CIDR updates
 {: #planning-peer-cidr-updates}
 
 Before you update peer CIDRs, keep the following considerations in mind:
@@ -364,5 +364,5 @@ For more information on improving VPN performance, see [Improving site-to-site V
 {: #vpn-traffic-flow-related}
 
 * [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes)
-* [Configuring ACLs and security groups for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn)
-* [Using Transit Gateway with VPN](/docs/transit-gateway?topic=transit-gateway-about)
+* [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn)
+* [About IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-about)

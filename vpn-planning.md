@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-10-28"
 
 keywords:
 subcollection: vpc
@@ -64,15 +64,33 @@ Review the following considerations before you create a dynamic route-based VPN 
 * If you plan to use a non-RFC 1918 CIDR for your transit gateway connection that is not within the standard private IP ranges (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`), you must add a delegate-VPC route in your VPC's egress routing table. This route must point to the CIDR that you've chosen and must be associated with the VPN subnet in the same zone. See [VPN gateway connection considerations](/docs/transit-gateway?topic=transit-gateway-helpful-tips#vpn-connection-considerations) for transit gateway.
 * Each IBM VPN supports a maximum of 120 routes for each VPN peer in a dynamic routing setup. If this limit is exceeded, the BGP session for that peer automatically shuts down. To restore the session, reduce the number of routes advertised from your on-premises peer network to 120 or less, then toggle the connection in the IBM Cloud to reestablish the BGP session. For more information, see [How many routes does VPN for VPC support per VPN peer for a dynamic, route-based connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-41).
 
+### Regional route-based VPN gateway considerations
+{: #regional-route-based-vpn-considerations}
 
+Review the following considerations before you create a regional route-based VPN gateway:
+
+* Decide whether you need zonal or regional availability before you create the gateway. A zonal VPN gateway cannot be converted to a regional VPN gateway after it is created. To use regional availability mode, you must delete the existing zonal gateway and create a new regional VPN gateway. For more information, see [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations).
+* A regional VPN gateway requires exactly two subnets when you create the gateway, one for each VPN appliance. The subnets can be in the same zone or in different zones within the same region.
+* You can initially create both appliances in the same zone. You can move an appliance to a different zone later by updating the member's subnet. You don't need to delete and re-create the gateway to change a member's zone.
+* When a VPN appliance in one zone handles traffic for a workload in another zone, the traffic traverses the IBM Cloud network between zones. This additional inter-zone traffic can affect latency and is a consideration for latency-sensitive applications.
+* Each subnet must have enough space for the gateway appliance and two reserved IP addresses at all times.
+* You can create up to three regional route-based VPN gateways per VPC.
+* For static route-based regional VPN connections, ingress routing is zone-aware. You must create an ingress route for each zone in which a VPN appliance is deployed. For example, if your two appliances are in Zone 1 and Zone 2, you must create the following routes:
+   * An ingress route in Zone 1 that points to the appliance in Zone 1
+   * An ingress route in Zone 2 that points to the appliance in Zone 2
+
+   If you don't create an ingress route for each zone, traffic can be dropped for workloads in zones where no ingress route exists.
+   {: important}
+
+* When you move an appliance to a different zone by updating its subnet, you must update any static ingress routes for the previous zone to reflect the new zone.
+* When you connect a **regional** route-based VPN gateway to a transit gateway, you cannot specify a zone for the transit gateway connection. The transit gateway automatically derives the zone for each generic routing encapsulation (GRE) tunnel from the zone of the corresponding VPN appliance. Each VPN appliance connects to the transit gateway router in the same zone. This behavior cannot be customized or overridden.
 
 ## IBM Power Virtual Servers: Automate the deployment of your workspace
 {: #vpn-s2s-automate-deployment-powervs-workspace}
 
 A site-to-site VPN automation project is available that provides a Terraform module to create a site-to-site VPN gateway. It also allows a secure connection over the internet from your local on-premises network to private resources in a Power Virtual Server workspace. This Terraform Infrastructure as Code (IaC) module creates a policy-based VPN gateway and connection with local and peer policies. A Transit Gateway and IBM Power Virtual Server workspace are created by default, but you can override the default by specifying existing ones.
 
-The GitHub repository for this automation project is located in the [IBM /
-power-vpn-gateway GitHub repository](https://github.com/IBM/power-vpn-gateway/){: external}. The project's [README file](https://github.com/IBM/power-vpn-gateway/blob/master/README.md){: external} creates a VPN gateway and attaches it to a new or existing Power Virtual Server workspace, providing secure access to the IBM Cloud Power infrastructure.
+The GitHub repository for this automation project is located in the [IBM/power-vpn-gateway GitHub repository](https://github.com/IBM/power-vpn-gateway/){: external}. The project's [README file](https://github.com/IBM/power-vpn-gateway/blob/master/README.md){: external} creates a VPN gateway and attaches it to a new or existing Power Virtual Server workspace, providing secure access to the IBM Cloud Power infrastructure.
 
 ## Related link
 {: #related-link-vpn-gateways}

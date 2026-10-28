@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-14"
+lastupdated: "2026-10-28"
 
 keywords: VPN, VPN gateway, regional VPN, API migration, subnet, availability mode, members
 
@@ -23,11 +23,11 @@ Regional VPN gateways introduce schema changes that can affect integrations that
 
 Review the following information before you create or migrate a VPN gateway to regional mode.
 
-- Update to the latest supported API, CLI, SDK, and Terraform release before creating or migrating to a regional VPN gateway.
-- If your environment has an integration that reads the `vpn_gateway.subnet` property from the API response, update the integration before creating a regional VPN gateway. Regional VPN gateways do not return a top-level `subnet` field. Instead, read subnet information from `members[].private_ip.subnet`.
+- Before you create or migrate to a regional VPN gateway, update to the latest supported API, CLI, SDK, and Terraform release.
+- If your environment has an integration that reads the `vpn_gateway.subnet` property from the API response, update the integration before you create a regional VPN gateway. Regional VPN gateways do not return a top-level `subnet` field. Instead, read subnet information from `members[].private_ip.subnet`.
 - If you use the CLI to inspect VPN gateways, the `Subnet` field shows `-` for regional gateways in `ibmcloud is vpn-gateway` output. Subnet information for each member is shown in the `Members` table under the `Subnet` column.
 - If you use the VPC SDK to read subnet information from VPN gateway responses, update your integration to check `availability_mode` and the member-level `private_ip.subnet` field before reading the top-level `subnet` field.
-- Migration from zonal to regional mode is a one-way change and is supported only through the API. Changing a regional gateway back to zonal mode, and migrating with the CLI or Terraform, is not supported.
+- Migration from zonal to regional mode is a one-way change and is supported only by using the API. Changing a regional gateway back to zonal mode, and migrating by using the CLI or Terraform, are not supported.
 
 ## API schema changes for regional VPN gateways
 {: #vpn-regional-api-schema-changes}
@@ -35,7 +35,7 @@ Review the following information before you create or migrate a VPN gateway to r
 
 Regional VPN gateways introduce the following API changes:
 
-- A new `availability_mode` property is returned in all VPN gateway API responses. The value is `zonal` for existing gateways and `regional` for regional gateways.
+- All VPN gateway API responses include an `availability_mode` property. The value is `zonal` for zonal gateways and `regional` for regional gateways.
 
   ```json
   {
@@ -84,7 +84,7 @@ Regional VPN gateways introduce the following API changes:
    ```
    {: screen}
 
-- Subnet information for regional gateways must be read from each gateway member by using the `members[].private_ip.subnet` property.
+- To get subnet information for a regional gateway, read the `members[].private_ip.subnet` property of each gateway member.
 
   ```json
   {
@@ -120,13 +120,13 @@ Regional VPN gateways introduce the following API changes:
 {: #vpn-regional-api-availability-mode}
 {: api}
 
-The `availability_mode` property distinguishes between zonal and regional VPN gateways in API responses. Review the following behavior before updating your API integrations.
+The `availability_mode` property distinguishes between zonal and regional VPN gateways in API responses. Review the following behavior before you update your API integrations.
 
 Zonal gateways
 :   When `availability_mode` is `zonal`, the response includes the top-level `subnet` property, and the `members` array is embedded inline in the gateway response. Existing automation or scripts that read `gateway.subnet` continue to work for zonal gateways without changes.
 
 Regional gateways
-:   When `availability_mode` is `regional`, the top-level `subnet` property is absent from the API response. Each member contains a `private_ip.subnet` object with the subnet details for that member. Subnet information can be retrieved either from the inline `members` array in `GET /vpn_gateways/{id}` or by calling `GET /vpn_gateways/{id}/members`.
+:   When `availability_mode` is `regional`, the top-level `subnet` property is absent from the API response. Each member contains a `private_ip.subnet` object with the subnet details for that member. You can get subnet information from the inline `members` array in `GET /vpn_gateways/{id}` or by calling `GET /vpn_gateways/{id}/members`.
 
    If your integration currently reads `gateway.subnet`, update it to read the subnet from the appropriate member when `availability_mode` is `regional`.
 
@@ -323,7 +323,7 @@ For a regional gateway, the API response to `GET /vpn_gateways/{id}` does not in
 {: #vpn-regional-api-example-pending}
 {: api}
 
-When a gateway is being provisioned, a private IP address is not assigned to its members. In this case, the IP address `0.0.0.0` is returned in the response. To get the actual value, read the `private_ip` after the gateway status becomes available.
+When a gateway is being provisioned, a private IP address is not assigned to its members. In this case, the response returns the IP address `0.0.0.0`. To get the actual value, read the `private_ip` after the gateway status becomes available.
 
 - The following example shows the request to retrieve members while the gateway is being provisioned:
 
@@ -360,7 +360,7 @@ When a gateway is being provisioned, a private IP address is not assigned to its
 {: #vpn-regional-cli-changes}
 {: cli}
 
-The `availability_mode` field is now shown in all `ibmcloud is vpn-gateway` and `ibmcloud is vpn-gateways` output and is the primary differentiator between zonal and regional VPN gateways. Review the following behavior before working with regional VPN gateways from the CLI.
+The `Availability Mode` field is shown in all `ibmcloud is vpn-gateway` and `ibmcloud is vpn-gateways` output, and it is the primary differentiator between zonal and regional VPN gateways. Review the following behavior before you work with regional VPN gateways from the CLI.
 
 Zonal gateways
 :   When `Availability Mode` is `zonal`, the `Subnet` field in the CLI shows the associated subnet ID and name. Each member row in the `Members` table also shows the subnet under the `Subnet` column. Both reference the same subnet.
@@ -518,4 +518,4 @@ Lifecycle state    pending
 {: #vpn-regional-migration-related}
 
 
-- [VPN gateway API reference](/docs/apis/vpc/latest#list-vpn-gateways) - View the full API reference for VPN gateway operations, including the new member endpoints.
+- [VPN gateway API reference](/docs/apis/vpc/latest#list-vpn-gateways) - View the full API reference for VPN gateway operations, including the member endpoints.

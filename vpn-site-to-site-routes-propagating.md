@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-09-15"
+lastupdated: "2026-10-28"
 
 keywords: network, VPN, VPN gateways, encryption
 
@@ -42,7 +42,7 @@ Route propagation and route advertisement behavior differ based on the VPN gatew
 | VPN type | Route behavior | Transit Gateway support |
 | --- | --- | --- |
 | **Policy-based VPN** | No manual route configuration required. Traffic that matches the configured local and remote CIDR ranges and defined security policies pass through the VPN. | Supported. To configure a transit gateway with a policy-based VPN connection, see [Setting up a transit gateway with policy-based VPN](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui#setup-tg-with-vpn-vpc). |
-| **Static route-based VPN** | You must configure routes manually in the routing table. Traffic is forwarded through the VPN tunnel based on routing table entries that point to the VPN connection. | Supported. To configure a transit gateway with a static route-based connection, see [Setting up a transit gateway with static route-based VPN for VPC](/docs/vpc?topic=vpc-advertise-routes-s2s#setup-tg-with-static-vpn-vpc). | 
+| **Static route-based VPN** | You must configure routes manually in the routing table. Traffic is forwarded through the VPN tunnel based on routing table entries that point to the VPN connection. For a regional VPN gateway, you must create a separate ingress route for each zone in which an appliance is deployed. | Supported. To configure a transit gateway with a static route-based connection, see [Setting up a transit gateway with static route-based VPN for VPC](/docs/vpc?topic=vpc-advertise-routes-s2s#setup-tg-with-static-vpn-vpc). |
 | **Dynamic route-based VPN** | No manual route configuration required. BGP automatically learns and propagates routes. | Supported with automatic route advertisement. For more information, see [planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-connection-considerations). |
 {: caption="VPN gateway modes and route propagation behavior" caption-side="bottom"}
 
@@ -108,7 +108,33 @@ The ingress routing table in the transit VPC advertises on-premises CIDR ranges 
 
 ![Static route-based VPN with transit gateway](images/vpn-static-tgw.svg){: caption="Static route-based VPN with transit gateway" caption-side="bottom"}
 
+### Ingress routing for a regional static route-based VPN gateway
+{: #ingress-routing-regional-vpn}
 
+For a regional VPN gateway with a static route-based connection, ingress routing is zone-aware. Because each VPN appliance is deployed in its own subnet and potentially its own zone, you must create a separate ingress route for each zone in which an appliance is deployed.
+
+For example, if your regional VPN gateway has:
+- Appliance 1 in Zone 1 (subnet `10.240.64.0/24`)
+- Appliance 2 in Zone 2 (subnet `10.240.128.0/24`)
+
+You must create the following ingress routes:
+- An ingress route in Zone 1 with the next hop pointing to the VPN connection for Appliance 1.
+- An ingress route in Zone 2 with the next hop pointing to the VPN connection for Appliance 2.
+
+If you create an ingress route for only one zone, all traffic still flows through the member in that zone. However, if that member becomes unavailable, there is no failover because no route exists for the other member. Additionally, if you have an Active-Active setup with **Distribute traffic** enabled, you lose the bandwidth contribution of the second member, reducing overall throughput.
+{: important}
+
+To set up ingress routing for a regional static route-based VPN gateway, follow these steps:
+
+1. [Create a regional route-based VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) with two member subnets, one per appliance.
+1. [Create a VPN connection](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui) on the gateway.
+1. For each zone in which a VPN appliance is deployed, [create an ingress routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui) in that zone:
+   * Create a route with the next hop set to **VPN connection**, pointing to the appliance in that zone.
+   * Enable the **Advertise** toggle to advertise on-premises routes to the transit gateway, if applicable.
+1. Verify that both ingress routes are active before sending traffic through the VPN.
+
+When you move a VPN appliance to a different zone by updating its member subnet, update the corresponding ingress route to reflect the new zone. The route for the previous zone is no longer valid.
+{: note}
 
 ## Related links
 {: #propagating-routes-s2s-related}

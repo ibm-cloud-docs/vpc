@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-10-28"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can add connections when [creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui), or after provisioning one. When you configure a VPN connection, you can choose to connect with auto-negotiation or use a pre-defined custom IKE or IPsec policy. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 {: shortdesc}
 
-To ensure consistent algorithm selection, match exact IKE and IPsec algorithms and their order of priority on both the IBM Cloud VPN gateway and peer gateway. For more information on what factors affect algorithm selection, see [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-18)
+To ensure consistent algorithm selection, match exact IKE and IPsec algorithms and their order of priority on both the IBM Cloud VPN gateway and peer gateway. For more information on what factors affect algorithm selection, see [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-18).
 {: important}
 
 ## Adding a connection in the console
@@ -280,7 +280,7 @@ Where:
    ```
    {: pre}
 
-- Get the service connection details of a specifc VPN gateway:
+- Get the service connection details of a specific VPN gateway:
 
    ```sh
    ibmcloud is vpn-gateway-service-connection my-vpc-gateway --service-connection-id 72fd9e00-3117-4b2e-984d-9361a9a97801

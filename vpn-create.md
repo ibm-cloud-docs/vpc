@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-15"
+lastupdated: "2026-10-28"
 
 keywords:
 subcollection: vpc
@@ -17,7 +17,7 @@ subcollection: vpc
 You can create an IBM Cloud VPN for VPC to securely connect your VPC to another private network, such as an on-premises network or another VPC.
 {: shortdesc}
 
-Before you begin, review [Planning considerations for VPN gateways](/docs/vpc?topic=vpc-planning-considerations-vpn), [VPN gateway known limitations, issues, and restrictions](/docs/vpc?topic=vpc-vpn-limitations&interface=ui) and [VPC, regions, zones, and subnets](/docs/vpc?topic=vpc-about-networking-for-vpc#vpc-regions-zones-subnets).
+Before you begin, review [Planning considerations for VPN gateways](/docs/vpc?topic=vpc-planning-considerations-vpn) and [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations&interface=ui).
 {: important}
 
 ## Creating a VPN gateway in the console
@@ -39,6 +39,14 @@ To create a VPN gateway in the console, follow these steps:
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
    * **Subnet** - Select the subnet where you want to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn) for important subnet information.
    * **Mode** - Select either a policy-based or route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
+
+   * **Availability mode (Route-based VPN only)** - Select the availability mode for the gateway.
+
+      * **Zonal**: Both VPN appliances run within a single availability zone.
+      * **Regional**: Each VPN appliance is assigned to a separate subnet. The subnets can be in the same zone or in different availability zones.
+
+      After you create the gateway, you cannot change the availability mode or convert a zonal VPN gateway to a regional VPN gateway.
+      {: important}
 
    * **ASN** - A numeric identifier for the VPN gateway. This value identifies your local network for BGP peering and is used during the BGP session setup with your on-premises device.
    * **Advertised CIDRs (optional)** - The CIDR range values that advertise the IPv4 network ranges to the remote VPN peers.
@@ -71,7 +79,8 @@ To create a VPN gateway in the console, follow these steps:
 
     * **Distribute traffic (Route-based VPN only)** - Enable this option to automatically distribute traffic between the active tunnels of the VPN gateway when a VPC route's next hop is the VPN connection. This option is useful to maximize throughput wherein two VPN tunnels connect to your remote peer network. If this option isn't enabled, the VPN gateway chooses the tunnel with the smaller public IP as the primary path, and switches to the secondary tunnel only if the primary goes down. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
 
-    
+      For a regional VPN gateway, when **Distribute traffic** is not enabled, the primary path is determined by member order, not by public IP address. The first member listed in the output is always the primary egress path. For other route-based gateways, see [Active-Backup mode](/docs/vpc?topic=vpc-using-vpn#active-backup-mode-static).
+      {: note}
 
     * **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC that you want to connect through the VPN tunnel.
     * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the peer network that you want to connect through the VPN tunnel.
@@ -133,6 +142,20 @@ ibmcloud is vpn-gateway-create VPN_GATEWAY_NAME SUBNET
 ```
 {: codeblock}
 
+To create a regional route-based VPN gateway, use the `--availability-mode` and `--members-private-ip-subnet` flags instead of a single `SUBNET` argument:
+
+```sh
+ibmcloud is vpn-gateway-create VPN_GATEWAY_NAME
+    --members-private-ip-subnet SUBNET_ID_1,SUBNET_ID_2
+    --mode route
+    --availability-mode regional
+    [--advertised-cidrs IPv4_NETWORK_RANGE]
+    [--local-asn ASN_NUMBER]
+    [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
+    [--output JSON] [-q, --quiet]
+```
+{: codeblock}
+
 
 
 Where:
@@ -143,7 +166,11 @@ Where:
 `SUBNET`
     : The ID of the subnet.
 
+`--members-private-ip-subnet`
+    : A comma-separated list of exactly two subnet IDs, one for each VPN gateway appliance. Required when `--availability-mode regional` is specified. The subnets can be in the same zone or in different zones within the same region. Cannot be used together with the `SUBNET` positional argument.
 
+`--availability-mode`
+    : The availability mode of the VPN gateway. One of: `zonal`, `regional`. The default is `zonal`. This value cannot be changed after the gateway is created. Applies to route-based VPN gateways only.
 
 `--mode`
     : The mode of the VPN gateway. One of: `policy`, `route`.
@@ -199,7 +226,12 @@ Where:
    ```
    {: pre}
 
+- Create a regional route-based VPN gateway with two subnets in different zones:
 
+   ```sh
+   ibmcloud is vpn-gateway-create my-regional-vpn-gateway --members-private-ip-subnet 0717-7ec86020-1c6e-4889-b3f0-a15f2e50f87e,0717-e120cc2a-0ff8-4348-abaa-a03d8934ca3f --mode route --availability-mode regional --local-asn 64520
+   ```
+   {: pre}
 
 - List all VPN gateways:
 
@@ -351,7 +383,40 @@ To create a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
+   * To create a regional route-based VPN gateway with two member subnets, use the following command:
 
+   ```sh
+      curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
+        -H "Authorization: Bearer $iam_token" \
+        -H "Content-Type: application/json" \
+        -d '{
+            "name": "my-regional-vpn-gateway",
+            "mode": "route",
+            "availability_mode": "regional",
+            "members": [
+              {
+                "private_ip": {
+                  "subnet": { "id": "'"$SubnetId1"'" }
+                }
+              },
+              {
+                "private_ip": {
+                  "subnet": { "id": "'"$SubnetId2"'" }
+                }
+              }
+            ],
+            "local_asn": 64520,
+            "resource_group": {
+              "id": "'"$ResourceGroupId"'"
+            }
+        }'
+   ```
+   {: codeblock}
+
+Where:
+
+`SubnetId1` and `SubnetId2`
+:   The IDs of the two subnets, one per appliance. The subnets can be in the same zone or in different zones.
 
    * To list all the advertised CIDRs for a VPN gateway, use the following command:
 
@@ -404,6 +469,6 @@ After you create a VPN gateway, you can:
 * [Create an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) if you decide to use a custom IKE policy instead of auto-negotiation.
 * [Create an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use a custom IPsec policy instead of auto-negotiation.
 * Create a VPN connection if you haven't already created one when provisioning your VPN gateway. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
-* [Configure route-propagation](/docs/vpc?topic=vpc-advertise-routes-s2s) for VPN gateways in policy-based mode.
+* [Configure route propagation](/docs/vpc?topic=vpc-advertise-routes-s2s) for VPN gateways in policy-based mode.
 * To create a route-based VPN, first [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table), then [create a route by using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).
 * For a dynamic route-based VPN connection, attach a transit gateway to the VPN gateway. See [Creating a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui).
