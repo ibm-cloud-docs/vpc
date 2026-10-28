@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords: public address ranges, limitations
 
@@ -80,4 +80,4 @@ As the rollout of public address ranges for VPC continues, a few known issues an
 
 * [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
-* [IPv6 Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
+* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about). [IPv6 Beta]{: tag-cyan}

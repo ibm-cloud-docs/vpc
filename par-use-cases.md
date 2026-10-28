@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords: vpc, public address ranges, use cases, secure workloads, high availability, BYOIP
 
@@ -11,6 +11,9 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) and [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) are beta features that are available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
 
 # Use cases for public address ranges
 {: #par-use-cases}
@@ -37,21 +40,30 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 
 ![Deploying highly-available and resilient workloads in VPC](images/par_use_case_2.svg "Deploy highly-available and resilient workloads in VPC"){: caption="Deploy highly-available and resilient workloads in VPC" caption-side="bottom"}
 
-## Retaining your own public IP addresses in VPC [BYOIP (IPv4) Beta]{: tag-cyan}
+## Retaining your own public IP addresses in VPC (beta)
 {: #byoip-public-address-range}
 
 If your organization has existing public IP address ranges that are already known to your customers, partners, or DNS infrastructure, you can bring those IPs into IBM Cloud VPC instead of replacing them with IBM-provided addresses. For a full walkthrough of this use case, see [About custom authorized CIDRs for VPC](/docs/vpc?topic=vpc-byoip#byoip-use-case-retain-ips).
 
 
-## IPv6 connectivity use cases [IPv6 Beta]{: tag-cyan}
+## IPv6 connectivity use cases (beta)
 {: #ipv6-par-use-cases-ref}
 
-IPv6 public address ranges support two additional use cases: direct IPv6 connectivity to a VNI appliance, and IPv6-to-IPv4 translation using an NFV appliance. For details on both, see [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about#ipv6-par-use-cases).
+### Direct IPv6 connectivity to a VNI appliance
+{: #ipv6-par-use-case-vni}
+
+You can bind an IPv6 public address range directly to a VNI attached to a virtual server instance or bare metal server. Inbound internet traffic for any IP in the range is routed to the VNI. Response traffic egresses with a source IP from the range. This pattern provides direct public IPv6 connectivity without requiring ingress routing or a public gateway.
+
+### IPv6-to-IPv4 translation with an NFV appliance
+{: #ipv6-par-use-case-nfv}
+
+In this scenario, an IPv6 public address range is bound to a VNI attached to a network function virtualization (NFV) appliance. The NFV appliance receives inbound IPv6 traffic, translates it to IPv4, and forwards it to IPv4 back-end members. Response traffic is translated back to IPv6 and returned to the internet using source IPs from the range.
+
 
 
 ## Next steps
 {: #par-use-cases-related-links}
 
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
-* [BYOIP (IPv4) Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
-* [IPv6 Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
+* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip). [BYOIP (IPv4) Beta]{: tag-cyan}
+* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about). [IPv6 Beta]{: tag-cyan}
