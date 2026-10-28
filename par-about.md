@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-10-28"
 
 keywords: vpc, public address ranges, getting started
 
@@ -18,10 +18,10 @@ subcollection: vpc
 # Getting started with public address ranges
 {: #about-par}
 
-A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone.[IPv6 Beta]{: tag-cyan} IPv6 public address ranges bind directly to a virtual network interface (VNI) instead of a VPC.
+A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone.IPv6 public address ranges bind directly to a virtual network interface (VNI) instead of a VPC.
 {: shortdesc}
 
-You can create public address ranges by using IBM-managed public IP address pools.[BYOIP (IPv4) Beta]{: tag-cyan} You can also create public address ranges from custom authorized CIDRs, which allow you to use your own IP address ranges in the VPC. When you use a custom authorized CIDR, you define the public address range by selecting a CIDR block from your IP address range instead of specifying the number of IPs.[IPv6 Beta]{: tag-cyan} You can also create public IPv6 address ranges from an IBM-provided IPv6 authorized CIDR that you request for a specific zone.
+You can create public address ranges by using IBM-managed public IP address pools.You can also create public address ranges from custom authorized CIDRs, which allow you to use your own IP address ranges in the VPC. When you use a custom authorized CIDR, you define the public address range by selecting a CIDR block from your IP address range instead of specifying the number of IPs.You can also create public IPv6 address ranges from an IBM-provided IPv6 authorized CIDR that you request for a specific zone.
 
 You can use ingress routing only with IPv4 public address ranges to route traffic to a target resource in the VPC, such as a virtual server instance, virtual network function (VNF), or other compute resource.
 
@@ -63,9 +63,9 @@ Follow these steps to get started with IPv4 public address ranges.
    The next-hop IP must be an IP address that is bound to a network interface on a subnet in the route's zone for ingress routing.
    {: note}
 
-[IPv6 Beta]{: tag-cyan}
 
-### IPv6
+
+### IPv6 [IPv6 Beta]{: tag-cyan}
 {: #par-getting-started-ipv6}
 
 Follow these steps to get started with IPv6 public address ranges.
@@ -82,8 +82,8 @@ Follow these steps to get started with IPv6 public address ranges.
 * [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
 * [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
-* [BYOIP (IPv4) Beta]{: tag-cyan} [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
-* [IPv6 Beta]{: tag-cyan} [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
+* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip). [BYOIP (IPv4) Beta]{: tag-cyan} 
+* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about). [IPv6 Beta]{: tag-cyan}
 
 ## Reference and support
 {: #par-reference-support}
