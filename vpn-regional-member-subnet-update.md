@@ -12,8 +12,6 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-[Regional VPN start]{: tag-purple}
-
 # Updating a regional VPN gateway member subnet
 {: #vpn-regional-member-subnet-update}
 
