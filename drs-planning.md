@@ -41,9 +41,9 @@ Review the following considerations when you select a virtual network interface 
 * All VNIs must belong to the same VPC as the dynamic route server instance.
 * Each VNI must have a reserved private IP address and one or more security groups that allow BGP traffic.
 * An existing VNI that you use for a member must meet the following requirements:
-  * It is in the same account as the dynamic route server and isn't bound to another target.
-  * IP spoofing isn't allowed, infrastructure NAT is enabled, and protocol state filtering isn't disabled.
-  * It has no floating IP, no secondary reserved IPs, and no IP other than its primary IP.
+    * It is in the same account as the dynamic route server and isn't bound to another target.
+    * IP spoofing isn't allowed, infrastructure NAT is enabled, and protocol state filtering isn't disabled.
+    * It has no floating IP, no secondary reserved IPs, and no IP other than its primary IP.
 * For high availability, select VNIs that are located in different availability zones.
 * A VNI that is attached to a dynamic route server instance can't be deleted until it is detached from the dynamic route server.
 * Subnets that are associated with VNIs must have sufficient IP capacity for the reserved IP addresses and ongoing operations.
@@ -72,6 +72,7 @@ Review the following considerations when you integrate a dynamic route server wi
 * If you specify a CIDR for GRE tunnel IP addresses, it must be at least `/27` and not overlap with any VPC subnets or existing transit gateway tunnel CIDRs.
 * If no CIDR is specified, a default CIDR range is used.
 * When a dynamic route server is connected to a transit gateway, routes that are learned from the transit gateway can be advertised to other peers only if allowed in the dynamic route server policies.
+
 To establish connectivity between Transit Gateway and dynamic route server appliances, configure network ACLs (NACLs) to allow GRE traffic (IP protocol 47). Also, configure security group (SG) rules to allow BGP traffic (TCP port 179) and GRE traffic (IP protocol 47) between Transit Gateway and the dynamic route server appliances.
 
 

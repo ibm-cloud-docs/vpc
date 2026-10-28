@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating and managing IPv6 authorized CIDRs
+# Creating and managing IPv6 authorized CIDRs (beta)
 {: #ipv6-par-authorized-cidr}
 
 [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.

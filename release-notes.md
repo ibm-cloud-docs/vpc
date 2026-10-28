@@ -43,7 +43,7 @@ IPv6 public address ranges for VPC (beta)
 
    The API is available now; UI and CLI support are coming soon.
 
-### 27 October 2026
+### 21 October 2026
 {: #vpc-oct2126}
 {: release-note}
 

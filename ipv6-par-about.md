@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About public IPv6 address ranges
+# About public IPv6 address ranges (beta)
 {: #ipv6-par-about}
 
 [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
@@ -72,6 +72,7 @@ IPv6 public address ranges are available for VNIs that are attached to virtual s
 * IPv6 authorized CIDRs are IBM-provided. Bringing your own IPv6 address range is planned for a future release.
 * IPv6 public address ranges bind to a VNI, not a VPC, and route the entire address block to that VNI. Individual addresses from the range cannot be reserved as floating IPs.
 * Flow log collectors do not record IPv6 public address range traffic. This capability is planned for a future release.
+
 * IPv6 public address ranges work with security groups and network ACLs only. They do not interoperate with VPN gateways, VPN servers, {{site.data.keyword.tg_full_notm}}, {{site.data.keyword.dl_full_notm}}, endpoint gateways, Private Path service gateways, {{site.data.keyword.containerlong_notm}}, {{site.data.keyword.openshiftlong_notm}}, or other platform services in this release.
 * IPv6 addresses in VPC routing table routes, VPC address prefixes, subnets, and reserved IPs are planned for a future release.
 
