@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-22"
+lastupdated: "2026-10-28"
 
 keywords: dynamic route server
 
@@ -32,7 +32,6 @@ Review the following general considerations before you create a dynamic route se
 * All members of a dynamic route server instance must use the same local ASN.
 * After a dynamic route server instance is created, it must reach a stable lifecycle state before you can configure peers, peer groups, or routing policies.
 
-
 ## Virtual network interface considerations
 {: #drs-vni-considerations}
 
@@ -49,7 +48,7 @@ Review the following considerations when you select a virtual network interface 
 * A VNI that is attached to a dynamic route server instance can't be deleted until it is detached from the dynamic route server.
 * Subnets that are associated with VNIs must have sufficient IP capacity for the reserved IP addresses and ongoing operations.
 
-## BGP and ASN considerations
+## BGP, BFD and ASN considerations
 {: #drs-bgp-asn-considerations}
 
 Review the following BGP-related considerations before you create a dynamic route server instance:
@@ -60,6 +59,7 @@ Review the following BGP-related considerations before you create a dynamic rout
 * The ASN values `0`, `13884`, `36351`, `64512`, `64513`, `65100`, `65200-65234`, `65402-65433`, `65500`, `65516`, `65519`, `65521`, `65531`, and `4201065000-4201065999` are reserved and can't be used as local or peer ASNs.
 * If an ASN conflict exists, BGP sessions fail to establish until the ASN configuration is corrected.
 * Bidirectional Forwarding Detection (BFD) can be enabled on peer groups for faster failure detection and route withdrawal.
+* Dynamic route server appliances establish BGP sessions by using multihop. To use Bidirectional Forwarding Detection (BFD) with BGP sessions, configure BGP multihop on both the dynamic route server appliance and the peer device. Ensure that the peer device's BGP configuration supports multihop to enable BFD failure detection.
 
 ## Transit Gateway integration considerations
 {: #drs-bgp-tgw-considerations}
@@ -68,10 +68,12 @@ Review the following considerations when you integrate a dynamic route server wi
 
 * You can create a transit gateway connection to a dynamic route server either when you create a transit gateway or by adding a network connection to an existing transit gateway.
 * A dynamic route server instance can be connected to only one transit gateway.
-* A transit gateway connection uses redundant GRE tunnels with eBGP between a transit gateway and dynamic route server members.
+* A transit gateway connection uses redundant Generic Routing Encapsulation (GRE) tunnels with eBGP between a transit gateway and dynamic route server members.
 * If you specify a CIDR for GRE tunnel IP addresses, it must be at least `/27` and not overlap with any VPC subnets or existing transit gateway tunnel CIDRs.
 * If no CIDR is specified, a default CIDR range is used.
 * When a dynamic route server is connected to a transit gateway, routes that are learned from the transit gateway can be advertised to other peers only if allowed in the dynamic route server policies.
+To establish connectivity between Transit Gateway and dynamic route server appliances, configure network ACLs (NACLs) to allow GRE traffic (IP protocol 47). Also, configure security group (SG) rules to allow BGP traffic (TCP port 179) and GRE traffic (IP protocol 47) between Transit Gateway and the dynamic route server appliances.
+
 
 ## Routing table and policy considerations
 {: #drs-routing-table-considerations}

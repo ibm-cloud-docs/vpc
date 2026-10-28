@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-22"
+lastupdated: "2026-10-28"
 
 keywords: dynamic route server
 
@@ -92,8 +92,8 @@ The IP addresses, CIDR ranges, ASNs, and resource names used in this example are
    1. Create an ingress routing table in the edge VPC.
    1. Create a virtual network interface (VNI) in the edge VPC subnet.
    1. Assign IP address `10.240.0.4` to the VNI.
-   1. Provision a dynamic route server instance.
    1. Attach the VNI to the dynamic route server and configure the ASN.
+   1. Provision a dynamic route server instance.
 
    For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes) and [Creating a dynamic route server](/docs/vpc?topic=vpc-drs-create).
 
