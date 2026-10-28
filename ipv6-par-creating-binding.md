@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating IPv6 public address ranges and binding to a VNI
+# Creating IPv6 public address ranges and binding to a VNI (beta)
 {: #ipv6-par-creating-binding}
 
 [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
