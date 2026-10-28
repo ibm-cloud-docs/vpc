@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-19"
+lastupdated: "2026-10-28"
 
 keywords: byoip, troubleshooting, authorized CIDR, public gateway, floating IP, bring your own IP
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-[BYOIP for IPv4 is a beta feature](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
 {: beta}
 
 You reserved a floating IP from your custom authorized CIDR and attached it to a public gateway, but outbound traffic from the subnet is not using the expected IP address.
