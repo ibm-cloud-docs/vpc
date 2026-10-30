@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-10-29"
 
 keywords:
 
@@ -60,6 +60,7 @@ After a volume's capacity is increased, snapshot operations such as cross-region
 {: #cross-regional-snapshot-copy-volume-migration-india}
 
 Cross-regional copy of Gen 2 block volume snapshots and volume migration are not supported in the Chennai - Airtel (`in-che`) and Mumbai - Airtel (`in-mum`) region at this time.
+
 
 ## File Storage shares and snapshots
 {: #file-storage-known-issue}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-27"
+lastupdated: "2026-10-30"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -67,7 +67,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 
 3. Click **Create**. You're returned to the screen that you started from. Snapshot creation is asynchronous. The snapshot is created immediately, but it remains in the pending state until all of data is transferred to the regional storage repository. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the console](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
 
-If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-estimate-cost).
 {: tip}
 
 ## Enabling fast restore snapshot clones in the console

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-10-29"
 
 keywords:
 
@@ -28,7 +28,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-oct26}
 
 ### 28 October 2026
-{: #vpc-oct2826-vpn}
+{: #vpc-oct2826}
 {: release-note}
 
 Multi-zone VPN gateway support for VPN for VPC (GA)
@@ -49,8 +49,6 @@ IPv6 public address ranges for VPC (beta)
 
 Dynamic route server for VPC for scalable hybrid connectivity and dynamic routing (beta)
 :   Accounts with special permissions to preview this feature can now provision dynamic route servers in VPC, which enable dynamic route exchange by using BGP between VPC networks, customer-managed routers, firewalls, and Transit Gateway connections. The service automates route updates, supports route management, and helps improve resiliency for hybrid cloud networking environments. For more information, see [Getting started with dynamic route server](/docs/vpc?topic=vpc-about-drs).
-
-
 
 ### 01 Oct 2026
 {: #vpc-oct-0126}

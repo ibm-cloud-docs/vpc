@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-10-16"
+lastupdated: "2026-10-30"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -131,7 +131,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
         {: note}
 
      1. When you're finished, click **Create block storage volume**.
-        - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
+        - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-estimate-cost).
      1. The {{site.data.keyword.block_storage_is_short}} volumes page is shown, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
      1. To see details of the new volume, select the **View resource** link in the second message to go to the Volume details page.
 

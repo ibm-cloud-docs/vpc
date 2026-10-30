@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-17"
+lastupdated: "2026-10-30"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -83,7 +83,7 @@ On the File share replica create page, review the source file share details, and
 1. In the side panel, review your estimated cost, and apply a discount code, if you have one.
 1. Click **Create file share**.
 
-If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-estimate-cost).
 {: tip}
 
 ## Adding replication to file share from the CLI

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-10-30"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -69,7 +69,7 @@ Cost for {{site.data.keyword.filestorage_vpc_short}} is calculated based on the 
 
 Pricing is also affected when you [expand share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity) or [adjust IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops). For example, expanding volume capacity increases costs, and decreasing the IOPS value decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in capacity and IOPS affect the cost. For more information, see [Estimating your costs](/docs/account?topic=account-cost).
+You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in capacity and IOPS affect the cost. For more information, see [Estimating your costs](/docs/account?topic=account-estimate-cost).
 
 You also incur charges when you [replicate data](/docs/vpc?topic=vpc-file-storage-replication) to a different region. Charges for data transfer between the two file shares are calculated with a flat rate in GiB increments. The charges are based on the amount of data that was transferred during the entire billing period. You can use the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-syncinfo) to see the transferred data values, which can help you estimate the global transfer charges at the end of the billing period.
 
