@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-10-30"
 
 keywords:
 
@@ -52,7 +52,7 @@ In the dynamic route-based connection, the routes are automatically discovered a
 The following features are included in a site-to-site VPN gateway:
 
 * Secure tunnels - Create a VPN in route-based or policy-based mode to set up IPsec site-to-site tunnels between your VPC and your on-premises private network, or another VPC.
-* High availability - Built on two VPN devices, provides appliance-level redundancy.
+* High availability - Spans multiple availability zones with regional VPN for high throughput and resiliency.
 * Pre-defined and custom encryption proposals - Choose from multiple pre-defined proposals for a quick, secure VPN configuration with customizable Internet Key Exchange (IKE) Phase 1 and Phase 2 encryption settings.
 * Monitoring - View the monitoring dashboard to see the current status of all tunnels and connections. You can also suspend and restart your individual VPN connections at any time.
 
