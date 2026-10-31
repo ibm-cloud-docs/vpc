@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-09-10"
+lastupdated: "2026-10-30"
 
 keywords: File Storage, snapshots, cross-regional copy, backup, restore share
 
@@ -74,7 +74,7 @@ Yes, you can use Backup for VPC to create a backup policy and plan. In the plan,
 {: faq}
 {: #faq-fs-snapshot-pricing}
 
-The cost for snapshots is calculated based on GB capacity that is used during the billing cycle. Shares are configured for the maximum Snapshot size, a maximum of 99 times the size of the share or 100 TB. Because the snapshot space is based on the capacity that was provisioned for the original share, the snapshot capacity does not vary. However, you pay only for the capacity that is used by the snapshots. Deleting snapshots can reduce cost. For more information about billing and usage, see [How you're charged](/docs/account?topic=account-charges).
+The cost for snapshots is calculated based on GB capacity that is used during the billing cycle. Shares are configured for the maximum Snapshot size, a maximum of 99 times the size of the share or 100 TB. Because the snapshot space is based on the capacity that was provisioned for the original share, the snapshot capacity does not vary. However, you pay only for the capacity that is used by the snapshots. Deleting snapshots can reduce cost. For more information about billing and usage, see [How you're charged](/docs/account?topic=account-billing-pricing-charges).
 
 ## What happens when I delete a snapshot?
 {: faq}

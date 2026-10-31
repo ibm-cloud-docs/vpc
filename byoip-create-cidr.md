@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-10-30"
 
 keywords: byoip, custom authorized CIDR, bring your own IP, public address range
 
@@ -62,8 +62,8 @@ To request provisioning of a custom authorized CIDR:
 
    The fields differ depending on your support plan:
 
-   - **Platinum, Premium, or Advanced support plan**: Select **Category**: `Account`, **Topic**: `Account`, **Subtopic**: `Bring your own IP to VPC`.
-   - **Basic support plan**: Under **Report an issue**, select **Topic**: `Virtual Private Cloud (VPC)`, **Subtopic**: `Bring your own IP to VPC`. A two-way support case is opened to process your request.
+   - **Platinum, Premium, or Advanced support plan**: Select **Topic**: `Request Bring Your Own IPv4 for VPC`.
+   - **Basic support plan**: Under **Report an issue**, select **Topic**: `Request Bring Your Own IPv4 for VPC`. A two-way support case is opened to process your request.
 
    Then complete the remaining fields:
    - **Subject**: Enter `Authorize custom CIDR (BYOIP)`

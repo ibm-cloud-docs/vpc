@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-10-30"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS, vsi
 
@@ -19,18 +19,16 @@ subcollection: vpc
 
 With virtual server instances for {{site.data.keyword.vpc_short}}, you can quickly provision instances with high network performance. When you provision an instance, you select a profile that matches the amount of memory and compute power that you need for the application that you plan to run on the instance. Instances are available on:
 
--  x86 architecture
--  [Deprecated]{: tag-deprecated} s390x architecture
+- x86 architecture
+- s390x architecture [Deprecated]{: tag-deprecated}
 
 The s390x architecture is deprecated. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information about deprecation, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
-
 After you provision an instance, you control and manage those infrastructure resources.
-
 
 ## How are virtual server instances for VPC different from other IBM virtual server offerings?
 {: #how-are-vsis-different}
 
-In the IBM Cloud Virtual Servers for Classic infrastructure offering, instances use native subnet and VLAN networking to communicate to each other within a data center (and single pod). Using subnet and VLAN networking in one pod works well until you must scale up or have large virtual resource demands that require resources to be created between pods. (Adding appliances for VLAN spanning can get expensive and complicated!)
+In the IBM Cloud Virtual Servers for Classic infrastructure offering, instances use cloud-native subnet and VLAN networking to communicate to each other within a data center (and single pod). Using subnet and VLAN networking in one pod works well until you must scale up or have large virtual resource demands that require resources to be created between pods. (Adding appliances for VLAN spanning can get expensive and complicated!)
 
 {{site.data.keyword.vpc_short}} adds a network orchestration layer that eliminates the pod boundary, creating increased capacity for scaling instances. The network orchestration layer handles all of the networking for all virtual server instances that are within a VPC across regions and zones. With the software-defined networking capabilities that VPC provides, you have more options for multi-vNIC instances and larger subnet sizes.
 
@@ -38,7 +36,7 @@ To review and start deploying compute resources, see the following topics:
 
 |              Deployment options                           |  Description                                        |
 | --------------------------------------------------------- | --------------------------------------------------- |
-|[Virtual Servers for VPC profiles](/docs/vpc?topic=vpc-profiles#profiles) | IBM Cloud Virtual Servers for VPC provide the advanced security of a private cloud with the agility and ease of a public cloud. Virtual servers for VPC offer the best network performance (up to 80 Gbps), best security, and fastest provisioning times.|
+|[Virtual Servers for VPC profiles](/docs/vpc?topic=vpc-profiles#profiles) | IBM Cloud Virtual Servers for VPC provide the advanced security of a private cloud with the agility and ease of a public cloud. Virtual servers for VPC offer the best network performance (up to 80 Gbps), best security, and fast provisioning times.|
 |[Dedicated hosts for VPC](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) | With dedicated host availability, you can choose to create a single-tenancy environment where you can provision virtual server instances according to your needs.|
 | [Burstable virtual servers for VPC](/docs/vpc?topic=vpc-burstable-virtual-servers) | When Burstable is enabled, the virtual server is configured to share CPU cores on the host. Which means that multiple virtual servers can use the same CPU resources simultaneously. |
 | [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) | Spot instances are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads.  |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-09-08"
+lastupdated: "2026-10-30"
 
 keywords: creating bare metal servers
 
@@ -364,7 +364,7 @@ Before you can use the CLI to create bare metal server, you need to gather the i
 | Subnet | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
 | Security groups (optional) | [List all security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) |
 | Profile | [List all bare metal server profiles](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-profiles-list) |
-| Zone | [List all regions](/docs/vpc?topic=vpc-vpc-reference#regions)  \n List all zones in a region](/docs/vpc?topic=vpc-vpc-reference#zones) |
+| Zone | [List all regions](/docs/vpc?topic=vpc-vpc-reference#regions)  \n [List all zones in a region](/docs/vpc?topic=vpc-vpc-reference#zones) |
 {: caption="Information that you need to create a bare metal server by using the CLI" caption-side="bottom"}
 
 You can provision a bare metal server from an `available`, `partially_available` (image is not yet available in all zones), or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
