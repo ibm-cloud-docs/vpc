@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-02"
 
 keywords: public address range, create, bind
 
@@ -132,10 +132,10 @@ To create public address ranges from the command line, follow these steps:
 
    [IPv6 Beta]{: tag-cyan}
    `--authorized-cidr`
-   :   The ID or name of the IPv6 authorized CIDR to allocate this public address range from. Mutually exclusive with `--cidr` and `--ipv4-address-count`. Requires `--network-prefix-length`.
+   :   The ID or name of the authorized CIDR to allocate the IPv6 public address range from. Required together with `--network-prefix-length`. Mutually exclusive with `--cidr` and `--ipv4-address-count`.
 
    `--network-prefix-length`
-   :   The prefix length of the IPv6 block to allocate from the authorized CIDR. Supported values: `64`–`128`. Requires `--authorized-cidr`.
+   :   The network prefix length for this public address range. Required when `--authorized-cidr` is specified. Supported values: `64`–`128`.
    
 
    `--name`
@@ -149,7 +149,7 @@ To create public address ranges from the command line, follow these steps:
 
    [IPv6 Beta]{: tag-cyan}
    `--vni`
-   :   The ID or name of the VNI to bind this IPv6 public address range to. Mutually exclusive with `--vpc --zone`.
+   :   The ID or name of the virtual network interface to bind this public address range to at creation. Mutually exclusive with `--vpc` and `--zone`.
    
 
    `--resource-group-id`
@@ -317,8 +317,8 @@ If you need to change the size of the address range or the resource group, you m
 ## Next steps
 {: #after-create-par}
 
-* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip). [BYOIP (IPv4) Beta]{: tag-cyan}
-* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about). [IPv6 Beta]{: tag-cyan}
-* [Create an IPv6 public address range and bind it to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding). [IPv6 Beta]{: tag-cyan}
+* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
+* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
+* [Create an IPv6 public address range and bind it to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
 * [Bind the public address range to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding).
 * [View public address ranges](/docs/vpc?topic=vpc-par-viewing).

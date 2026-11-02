@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-02"
 
 keywords: vpc, public address ranges, getting started
 
@@ -82,8 +82,8 @@ Follow these steps to get started with IPv6 public address ranges.
 * [Plan for public address ranges](/docs/vpc?topic=vpc-par-planning).
 * [Review use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases).
 * [Create a public address range](/docs/vpc?topic=vpc-par-creating).
-* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip). [BYOIP (IPv4) Beta]{: tag-cyan} 
-* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about). [IPv6 Beta]{: tag-cyan}
+* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
+* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
 
 ## Reference and support
 {: #par-reference-support}

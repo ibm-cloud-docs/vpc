@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-02"
 
 subcollection: vpc
 
@@ -118,7 +118,7 @@ IPv6 addresses from a public address range must be configured statically in the 
 
 - [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
 - [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
-- [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about) [IPv6 Beta]{: tag-cyan} 
+- [About public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about)
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [Known issues](/docs/vpc?topic=vpc-par-known-issues)
