@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-11-02"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -15,6 +15,11 @@ subcollection: vpc
 
 # Bring your own subnet
 {: #configuring-address-prefixes}
+
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 
 You can bring your own IPv4 address ranges (public and private) from your on-premises deployment to your {{site.data.keyword.vpc_full}} (VPC) by creating address prefixes. You can then create subnets within these IP ranges.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-11-02"
 
 keywords: viewing, deleting, public address range
 
@@ -14,6 +14,11 @@ subcollection: vpc
 
 # Deleting public address ranges
 {: #par-deleting}
+
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 
 You can delete public address ranges with the console, CLI, API, and Terraform.
 {: shortdesc}

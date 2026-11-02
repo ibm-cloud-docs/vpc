@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-02"
 
 keywords:
 
@@ -14,6 +14,11 @@ subcollection: vpc
 
 # Setting up a security group for your resource
 {: #configuring-the-security-group}
+
+
+[Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 
 You can configure security groups to define the inbound and outbound traffic that is allowed for your resource. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 {: shortdesc}
@@ -298,7 +303,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&ge
 
 For more information about setting up your security group with the API, see [Security groups](/docs/apis/vpc/latest#list-security-groups){: external}.
 
-[IPv6 Beta]{: tag-cyan}
+
 
 ## Related links
 {: #sg-related-links}

@@ -15,6 +15,11 @@ subcollection: vpc
 # Known issues for public address ranges
 {: #par-known-issues}  
 
+
+[Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
+
 As the rollout of public address ranges for VPC continues, a few known issues and limitations have been identified. These are temporary and are scheduled to be addressed in upcoming updates.
 
 [IPv6 Beta]{: tag-cyan}

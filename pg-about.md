@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-11-02"
 
 keywords:
 
@@ -13,6 +13,11 @@ subcollection: vpc
 
 # About public gateways
 {: #about-public-gateways}
+
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 
 A public gateway enables a subnet and all its attached virtual server instances to connect to the internet. By default, subnets do not have access to the public internet. After a subnet is attached to a public gateway, all instances in that subnet can connect to the internet.
 {: shortdesc}

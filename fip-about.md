@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-17"
+lastupdated: "2026-11-02"
 
 keywords: floating ip, about, public gateway
 
@@ -14,6 +14,11 @@ subcollection: vpc
 
 # About floating IPs
 {: #fip-about}
+
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 
 Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet. They are allocated an IPv4 address, which can be used for external connectivity in a number of ways.
 {: shortdesc}
