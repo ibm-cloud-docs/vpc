@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-02"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -318,6 +318,25 @@ No, you don't need to manually configure routes when you create a dynamic route-
 {: faq}
 
 Each IBM VPN gateway supports up to a maximum of 120 routes for **each VPN peer** in a dynamic routing setup. If this limit is exceeded, the BGP session for that peer automatically shuts down. To restore the session, you must reduce the number of routes that are advertised from your on-premises peer network to 120 or less, then toggle the connection in the IBM Cloud to reestablish the BGP session. Additionally, if the VPN appliance receives more than 120 routes across a combination of peers, then the appliance forwards only the first 120 routes to the transit gateway. For example, if two peers each send 70 routes to the VPN appliance, only the first 120 routes are propagated to the transit gateway. If you require more than 120 routes, you can connect the VPN appliance to different on-premises devices. However, keep in mind that this configuration does not guarantee high availability or disaster recovery for the VPN appliance when it is connected to different on-premises devices.
+
+## Does the Distribute traffic option affect BGP path selection in a dynamic route-based VPN?
+{: #faq-vpn-distribute-traffic}
+{: faq}
+
+Yes, but indirectly. For a dynamic route-based VPN connection, the **Distribute traffic** option sets the default AS path values that {{site.data.keyword.cloud_notm}} applies to each tunnel. Finally, BGP decides which tunnel carries traffic. The following list shows the default routing behavior when you disable or enable **Distribute traffic**.
+
+* **Distribute traffic disabled (Active-Backup):** {{site.data.keyword.cloud_notm}} sets a shorter AS path on the tunnel of the first appliance and a longer AS path on the second. Traffic prefers the first appliance.
+* **Distribute traffic enabled (Active-Active):** {{site.data.keyword.cloud_notm}} sets the same AS path on both tunnels. Traffic is distributed across both tunnels equally.
+
+If you change BGP attributes on your on-premises device, such as lengthening the AS path on one tunnel, BGP prefers the route with the shorter AS path. This behavior is shown in the following table:
+
+| Distribute traffic | AS path of the routes | Path that BGP prefers |
+| ------------------ | --------------------- | --------------------- |
+| Disabled | Default (first appliance is shorter) | First appliance |
+| Disabled | Lengthened on the first appliance, or shortened on the second (from the on prem) | Second appliance |
+| Enabled | Equal on both tunnels | Both tunnels (traffic is distributed) |
+| Enabled | Different on each tunnel (from the on prem) | Tunnel with the shorter AS path only |
+{: caption="Path that BGP prefers" caption-side="bottom"}
 
 ## Does IBM complete quarterly ASV scans of data-plane VPN appliances?
 {: #vpn-asv}
