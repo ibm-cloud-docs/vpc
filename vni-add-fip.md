@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-11-02"
 
 keywords:
 
@@ -14,6 +14,11 @@ subcollection: vpc
 
 # Attaching floating IPs to a virtual network interface
 {: #vni-add-fip}
+
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 
 Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet. A floating cannot be attached to a virtual network interface if that virtual network interface is attached to a share mount target.
 {: shortdesc}

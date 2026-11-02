@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-02"
 
 keywords: viewing, deleting, public address range
 
@@ -14,6 +14,9 @@ subcollection: vpc
 
 # Viewing public address ranges
 {: #par-viewing}
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) and [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) are beta features that are available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
 
 You can view public address ranges with the console, CLI, API, and Terraform.
 {: shortdesc}

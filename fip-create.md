@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-11-02"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -14,6 +14,11 @@ subcollection: vpc
 
 # Creating network interfaces with floating IP addresses
 {: #fip-working}
+
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 
 You can reserve a floating IP address, then add it to a network interface to allow traffic from the internet to access your VPC public gateway, virtual server instance, or Bare Metal server.
 {: shortdesc}

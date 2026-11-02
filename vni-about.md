@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-02"
 
 keywords:
 
@@ -15,6 +15,11 @@ subcollection: vpc
 
 # About virtual network interfaces
 {: #vni-about}
+
+
+[Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) is a beta feature that is available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 
 A virtual network interface (VNI) is a logical abstraction of a network interface in a subnet. It can be attached to a target resource, providing that resource with network connectivity. As a top-level resource with a CRN, a VNI's lifecycle is independent of the target resource it is attached to (unless `auto_delete` is set to `true`). In addition, it has its own set of IAM permissions.
 {: shortdesc}

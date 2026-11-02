@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-02"
 
 keywords:
 
@@ -14,6 +14,9 @@ subcollection: vpc
 
 # Creating a virtual network interface
 {: #vni-create}
+
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) and [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) are beta features that are available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
 
 A virtual network interface can be created without attaching to a target. Therefore, a virtual network interface can exist even when its target is removed.
 {: shortdesc}
