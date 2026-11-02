@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-02"
 
 keywords: vpc, public address ranges, ipv6, authorized cidr, create
 
@@ -115,20 +115,35 @@ To create an IPv6 authorized CIDR from the command line, follow these steps:
 1. Run the following command:
 
    ```sh
-   ibmcloud is public-address-range-authorized-cidr-create --zone ZONE_NAME [--name NAME] [--output JSON] [-q, --quiet]
+   ibmcloud is public-address-range-authorized-cidr-create --ip-version ipv6 --availability-mode zonal --zone ZONE_NAME --network-prefix-length NETWORK_PREFIX_LENGTH [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
    {: pre}
 
    Where:
 
+   `--ip-version`
+   :   The IP version for this authorized CIDR. Must be `ipv6`. The default value is `ipv6`.
+
+   `--availability-mode`
+   :   The availability mode for this authorized CIDR. The default value is `zonal`.
+
    `--zone`
    :   The zone in which to create the IPv6 authorized CIDR, for example `us-south-1`. Required.
 
+   `--network-prefix-length`
+   :   The network prefix length for this authorized CIDR. Required.
+
    `--name`
-   :   A name for the authorized CIDR. Names beginning with `ibm-` are reserved. Optional.
+   :   A name for the authorized CIDR. The name must not be used by another authorized CIDR in the region. Names beginning with `ibm-` are reserved for provider-managed resources and are not allowed. Optional.
+
+   `--resource-group-id`
+   :   ID of the resource group. Mutually exclusive with `--resource-group-name`.
+
+   `--resource-group-name`
+   :   Name of the resource group. Mutually exclusive with `--resource-group-id`.
 
    `--output`
-   :   Output format. One of: JSON.
+   :   The output format, only JSON is supported. One of: JSON.
 
    `-q, --quiet`
    :   Suppress verbose output.
@@ -139,7 +154,7 @@ To create an IPv6 authorized CIDR from the command line, follow these steps:
 Create an IPv6 authorized CIDR in `us-south-1`:
 
 ```sh
-ibmcloud is public-address-range-authorized-cidr-create --zone us-south-1 --name my-ipv6-auth-cidr
+ibmcloud is public-address-range-authorized-cidr-create --ip-version ipv6 --availability-mode zonal --zone us-south-1 --network-prefix-length 64 --name my-ipv6-auth-cidr
 ```
 {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-02"
 
 keywords: vpc, public address ranges, ipv6, create, bind, vni
 
@@ -85,10 +85,10 @@ To create an IPv6 public address range from the command line, follow these steps
    Where:
 
    `--authorized-cidr`
-   :   The ID or name of the IPv6 authorized CIDR to allocate this public address range from. IBM selects an available block of the specified prefix length. Requires `--network-prefix-length`.
+   :   The ID or name of the authorized CIDR to allocate the IPv6 public address range from. IBM selects an available block of the specified prefix length. Required together with `--network-prefix-length`.
 
    `--network-prefix-length`
-   :   The prefix length of the IPv6 block to allocate. Supported values: `64`–`128`. Requires `--authorized-cidr`.
+   :   The network prefix length for this public address range. Required when `--authorized-cidr` is specified. Supported values: `64`–`128`.
 
    `--cidr`
    :   An exact IPv6 CIDR block to allocate. Must be an unallocated block within an authorized CIDR in your account. Mutually exclusive with `--authorized-cidr`.
@@ -97,13 +97,19 @@ To create an IPv6 public address range from the command line, follow these steps
    :   A name for the public address range. Names beginning with `ibm-` are reserved.
 
    `--vni`
-   :   The ID or name of the VNI to bind this range to. The VNI must be in the same zone as the authorized CIDR.
+   :   The ID or name of the virtual network interface to bind this public address range to at creation. The VNI must be in the same zone as the authorized CIDR.
 
    `--resource-group-id`
    :   ID of the resource group. Mutually exclusive with `--resource-group-name`.
 
    `--resource-group-name`
    :   Name of the resource group. Mutually exclusive with `--resource-group-id`.
+
+   `--output`
+   :   The output format, only JSON is supported. One of: JSON.
+
+   `-q, --quiet`
+   :   Suppress verbose output.
 
 ### Command examples
 {: #ipv6-par-create-cli-examples}
@@ -223,6 +229,8 @@ After the range is bound, the **Status** column shows **Bound**, and the **Targe
 ibmcloud is public-address-range-update PUBLIC_ADDRESS_RANGE --vni VNI [--output JSON] [-q, --quiet]
 ```
 {: pre}
+
+Where `--vni` is the ID or name of the virtual network interface to bind this public address range to. It is mutually exclusive with `--vpc`, `--zone`, and `--reset-target`.
 
 Example:
 

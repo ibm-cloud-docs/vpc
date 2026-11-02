@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-02"
 
 keywords: public address range, bind, unbind
 
@@ -95,7 +95,7 @@ To bind, unbind, or move a reserved IP address from the command line, follow the
    [IPv6 Beta]{: tag-cyan}
 
    ```sh
-   ibmcloud is public-address-range-update PUBLIC_ADDRESS_RANGE [--name NAME] ([--vpc VPC --zone ZONE] | [--vni VNI] | [--reset-target]) [--output JSON] [-q, --quiet]
+   ibmcloud is public-address-range-update PUBLIC_ADDRESS_RANGE [--name NAME] [--reset-target | --vni VNI | [--vpc VPC] [--zone ZONE]] [--output JSON] [-q, --quiet]
    ```
    {: pre}
 
@@ -117,14 +117,11 @@ To bind, unbind, or move a reserved IP address from the command line, follow the
 
    [IPv6 Beta]{: tag-cyan}
    `--vni`
-   :   The ID or name of the VNI to bind an IPv6 public address range to. Mutually exclusive with `--vpc --zone`.
+   :   The ID or name of the virtual network interface to bind this public address range to. Mutually exclusive with `--vpc`, `--zone`, and `--reset-target`.
    
 
    `--reset-target`
    :   Unbind a public address range.
-
-   `-f, --force`
-   :   Force the operation without confirmation.
 
    `--output`
    :   The output format, only JSON is supported. One of: JSON.
