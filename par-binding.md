@@ -15,6 +15,9 @@ subcollection: vpc
 # Binding, unbinding, and moving public address ranges
 {: #par-unbinding-binding}
 
+[BYOIP for IPv4](/docs/vpc?topic=vpc-release-notes#vpc-sep2926) and [Public IPv6 address ranges](/docs/vpc?topic=vpc-release-notes&interface=ui#vpc-oct2726) are beta features that are available for evaluation and testing purposes to select customers. Access is restricted to allowlisted accounts.
+{: beta}
+
 You can bind, unbind, and move public address ranges to a VPC in an availability zone with the console, CLI, API, and Terraform.[IPv6 Beta]{: tag-cyan} IPv6 public address ranges bind to a virtual network interface (VNI). For IPv6 binding instructions, see [Creating IPv6 public address ranges and binding to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
 {: shortdesc}
 

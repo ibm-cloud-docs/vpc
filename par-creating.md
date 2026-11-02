@@ -317,8 +317,8 @@ If you need to change the size of the address range or the resource group, you m
 ## Next steps
 {: #after-create-par}
 
-* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip). [BYOIP (IPv4) Beta]{: tag-cyan}
-* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about). [IPv6 Beta]{: tag-cyan}
-* [Create an IPv6 public address range and bind it to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding). [IPv6 Beta]{: tag-cyan}
+* [Learn about custom authorized CIDRs](/docs/vpc?topic=vpc-byoip).
+* [Learn about public IPv6 address ranges](/docs/vpc?topic=vpc-ipv6-par-about).
+* [Create an IPv6 public address range and bind it to a VNI](/docs/vpc?topic=vpc-ipv6-par-creating-binding).
 * [Bind the public address range to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding).
 * [View public address ranges](/docs/vpc?topic=vpc-par-viewing).
