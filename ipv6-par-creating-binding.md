@@ -91,7 +91,7 @@ To create an IPv6 public address range from the command line, follow these steps
    :   The network prefix length for this public address range. Required when `--authorized-cidr` is specified. Supported values: `64`–`128`.
 
    `--cidr`
-   :   An exact IPv6 CIDR block to allocate. Must be an unallocated block within an authorized CIDR in your account. Mutually exclusive with `--authorized-cidr`.
+   :   An exact IPv6 or IPv4 CIDR block to allocate. Must be an unallocated block within an authorized CIDR in your account. Mutually exclusive with `--authorized-cidr`.
 
    `--name`
    :   A name for the public address range. Names beginning with `ibm-` are reserved.
@@ -114,10 +114,10 @@ To create an IPv6 public address range from the command line, follow these steps
 ### Command examples
 {: #ipv6-par-create-cli-examples}
 
-Create an IPv6 public address range from an authorized CIDR, let IBM select a `/112` block, and bind to a VNI:
+Create an IPv6 public address range with a prefix length of `/112` from an authorized CIDR, and bind it to a VNI:
 
 ```sh
-ibmcloud is public-address-range-create --authorized-cidr my-ipv6-auth-cidr --network-prefix-length 112 --name my-ipv6-par --vni my-vni
+ibmcloud is public-address-range-create --authorized-cidr r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --network-prefix-length 112 --name my-ipv6-par --vni 02h7-c26bbb47-fd16-4d4b-bb3a-f620f592b84c
 ```
 {: pre}
 
@@ -137,7 +137,7 @@ Before you begin, set up your [API environment](/docs/vpc?topic=vpc-set-up-envir
 
 Select one of the following options:
 
-* Create an IPv6 public address range from an authorized CIDR, bound to a VNI (IBM selects the block):
+* Create an IPv6 public address range with a prefix length of `112` from an authorized CIDR, and bind it to a VNI:
 
    ```sh
    curl -sX POST \
@@ -235,7 +235,7 @@ Where `--vni` is the ID or name of the virtual network interface to bind this pu
 Example:
 
 ```sh
-ibmcloud is public-address-range-update my-ipv6-par --vni my-vni
+ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --vni 02h7-c26bbb47-fd16-4d4b-bb3a-f620f592b84c
 ```
 {: pre}
 
@@ -297,7 +297,7 @@ After unbinding, the range is still allocated from the authorized CIDR and can b
 {: cli}
 
 ```sh
-ibmcloud is public-address-range-update my-ipv6-par --reset-target
+ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --reset-target
 ```
 {: pre}
 

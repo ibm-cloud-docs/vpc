@@ -159,14 +159,14 @@ ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf
 [IPv6 Beta]{: tag-cyan}Bind an IPv6 public address range to a VNI:
 
 ```sh
-ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --vni my-vni
+ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --vni 02h7-c26bbb47-fd16-4d4b-bb3a-f620f592b84c
 ```
 {: pre}
 
 Move an IPv6 public address range to a different VNI (in the same zone):
 
 ```sh
-ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --vni my-other-vni
+ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --vni 03h7-c26bbb47-fd16-4d4b-bb3a-f620f592b84c
 ```
 {: pre}
 
