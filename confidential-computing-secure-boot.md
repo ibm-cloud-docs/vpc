@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-09-28"
+lastupdated: "2026-11-03"
 
 keywords: secure boot, secure boot for virtual servers
 
@@ -44,7 +44,7 @@ In the current release of {{site.data.keyword.block_storage_is_short}} offering,
 ## Disabling secure boot requirements
 {: #disabling-secure-boot-vpc}
 
-When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. 
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. Secure boot is opt-in for [Flex instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#flexible-profiles). You must fully stop and start the virtual server instance for the change to take effect.
 
 You can choose to disable secure boot when you create the virtual server instance. To disable secure boot for an existing virtual server instance, you must first stop your virtual server instance. You can then disable the secure boot option. After disabling secure boot, you can then restart your virtual server instance. For more information, see [Managing virtual server instances: Disable or enable secure boot](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#disable-secure-boot-ui).
 

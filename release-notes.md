@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-29"
+lastupdated: "2026-11-03"
 
 keywords:
 
@@ -23,6 +23,18 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## November 2026
+{: #vpc-nov26}
+
+### 02 November 2026
+{: #vpc-nov0226}
+{: release-note}
+
+Expansion of Flex profiles (select availability)
+:   Flex profiles now scale up to 128 vCPUS and you can enable secure boot with any Flex profiles. In addition, there are new vNIC limits for Flex profiles. For more information on the new vNIC limits, see [General purpose - Flex > Limitations](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers#flexible-profiles-limits) for the list.
+
+   When you create a new virtual server instance with a Flex profile, the new vNIC limit is used. For existing virtual server instance, you must update the vNIC limits. For more information, see [Updating vNIC limits for existing virtual server instances](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers#flexible-profiles-vnic-limit-update). NUMA Pinning is available with select profiles. For more information, see [x86-64 instance profiles > Flex profiles](/docs/vpc?topic=vpc-profiles&interface=ui#flexible-profiles) and [General purpose - Flex](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers#flexible-profiles-limits).
 
 ## October 2026
 {: #vpc-oct26}

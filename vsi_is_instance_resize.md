@@ -80,6 +80,11 @@ You can resize a 2nd generation profile to a 3rd generation profile. A 3rd gener
 When you deploy a new Windows virtual server instance with a 3rd generation profile, avoid resizing to a 2nd generation profile. The new Windows instance uses OVMF virtual firmware and cannot be resized to a 2nd generation profile because the instance can't boot. If the Windows virtual server instance was originally provisioned with a 2nd generation profile, then resized to a 3rd generation profile, it can be resized back to a 2nd generation profile successfully.
 {: note}
 
+## Resizing instances with Flex profiles
+{: #resizing-instance-flex}
+
+When you resize a Flex profile virtual server instance to the same profile, the instance specification is refreshed with updated limits such as the new maximum vNIC count. For more information, see [Updating vNIC limits for existing virtual server instances](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers#flexible-profiles-vnic-limit-update).
+
 ## Resizing a virtual server instance by using the UI
 {: #resizing-a-virtual-server-UI}
 {: ui}
