@@ -90,7 +90,7 @@ After you create your Windows instance and complete the prerequisites, complete 
 3. After you obtain your instance password, you can optionally associate a floating IP address to your Windows instance so you can connect to it from an internet location. Run the following command to associate a floating IP address to your instance, where `NIC` is the ID or Name of the target network interface (for example, `eth0`).
 
    ```sh
-   ibmcloud is floating-ip-reserve FLOATING_IP_NAME --nic <NIC>
+   ibmcloud is floating-ip-reserve FLOATING_IP_NAME --nic NIC
    ```
    {: pre}
 
