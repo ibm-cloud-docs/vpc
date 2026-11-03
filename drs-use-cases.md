@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-03"
 
 keywords: dynamic route server
 
@@ -52,79 +52,73 @@ The IP addresses, CIDR ranges, ASNs, and resource names used in this example are
 1. Create the VPC infrastructure.
 
    1. Create an edge VPC with CIDR `10.240.0.0/16`.
-   1. Create a subnet in the edge VPC for the dynamic route server and firewall, for example `10.240.0.0/24`.
+   1. Create a subnet for the dynamic route sercer in the edge VPC, for example `10.240.0.0/24`.
+   1. Create a firewall subnet in the edge VPC, for example `10.240.1.0/24`.
    1. Create a workload VPC with CIDR `172.16.0.0/16`.
    1. Create a workload subnet, for example `172.16.0.0/24`.
-   1. Configure security groups to allow BGP, BFD and any additional specific traffic that is required for routing control.
+   1. Configure security groups to allow BGP, BFD, and any additional traffic that is required for routing control.
 
    For more information, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started) and [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 
-1. Create the Direct Link and Transit Gateway connectivity
+1. Create the Direct Link and Transit Gateway connectivity.
 
-   1. Order a Direct Link connection between your on-premises network (`10.0.0.0/16`) and {{site.data.keyword.cloud_notm}}.
-      - Connect the on-premises network (`10.0.0.0/16`) to Direct Link.
-      - Connect the edge VPC (`10.240.0.0/16`) to Direct Link.
-
-   1. Create a Transit Gateway connection.
-      - Connect the workload VPC (`172.16.0.0/16`) to Transit Gateway.
-      - Connect the edge VPC (`10.240.0.0/16`) to Transit Gateway.
-      - Configure a deny prefix filter of `10.0.0.0/8` and `172.16.0.0/16` on the edge VPC connection.
-
+   1. Order a Direct Link connection between your on-premises network (`10.0.0.0/16`) and the edge VPC.
+   1. Create a transit gateway and add the following connections:
+      - Workload VPC (`172.16.0.0/16`)
+      - Edge VPC (`10.240.0.0/16`)
+   1. Configure a deny prefix filter of `172.16.0.0/16` on the edge VPC connection to prevent the workload VPC prefix from being re-advertised back to the transit gateway through the edge VPC.
    1. Verify that the following connections are established:
-      - On-premises network to Direct Link
-      - Edge VPC to Direct Link
+      - On-premises network to Direct Link, and Direct Link to the edge VPC
       - Workload VPC to Transit Gateway
       - Edge VPC to Transit Gateway
 
    For more information, see [Getting started with IBM Cloud Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) and [Creating a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui).
 
-1. Provision the virtual server instances
+1. Provision the virtual server instances.
 
-   1. Assign IP address `10.240.1.10` to the firewall, FW-1.
+   1. Deploy a firewall, FW-1, in the firewall subnet and assign IP address `10.240.1.10`.
    1. Enable IP forwarding on the firewall.
    1. Make sure that a host in your on-premises network (`10.0.0.0/16`) can send traffic over Direct Link.
    1. Deploy a workload host in the workload VPC with IP address `172.16.0.10`.
 
    For more information, see [Creating virtual servers for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers#creating-vsis-for-vpc).
 
-1. Provision the dynamic route server
+1. Provision the dynamic route server.
 
-   1. Create an ingress routing table in the edge VPC.
-   1. Create a virtual network interface (VNI) in the edge VPC subnet.
-   1. Assign IP address `10.240.0.4` to the VNI.
-   1. Attach the VNI to the dynamic route server and configure the ASN.
-   1. Provision a dynamic route server instance.
+   1. Create an ingress routing table in the edge VPC for Direct Link traffic.
+   1. Create an ingress routing table in the edge VPC for Transit Gateway traffic.
+   1. Create a virtual network interface (VNI) in the dynamic route server subnet (`10.240.0.0/24`) and assign IP address `10.240.0.4`.
+   1. Provision a dynamic route server instance and attach the VNI.
+   1. Configure the BGP ASN for the dynamic route server.
 
    For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes) and [Creating a dynamic route server](/docs/vpc?topic=vpc-drs-create).
 
-1. Connect the dynamic route server to Transit Gateway
+1. Connect the dynamic route server to Transit Gateway.
 
-   1. Make sure that a GRE tunnel is established between the dynamic route server and Transit Gateway.
-   1. Verify that BGP peering is established.
+   1. From the Transit Gateway console, add a Dynamic Route Server connection and select the dynamic route server instance.
+   1. Verify that the redundant GRE tunnels are established.
+   1. Verify that eBGP sessions over those tunnels are in an established state.
    1. Verify that the dynamic route server learns the workload VPC prefix `172.16.0.0/16` from the transit gateway.
 
-1. Configure firewall peer group and route advertisement
+1. Configure the firewall peer group and routing policies.
 
-   1. Create a firewall peer group on the dynamic route server.
-   1. Add FW-1 (`10.240.1.10`) as a next-hop peer and enable BFD on the peer.
-   1. Create a peer group policy of type VPC routing table for destination `172.16.0.0/16` with next hop `10.240.1.10`.
-   1. Create a peer group policy of type VPC routing table for destination `10.0.0.0/8` with next hop `10.240.1.10`.
-   1. Configure both policies to add routes into the edge VPC ingress routing table.
+   1. Create a firewall peer group on the dynamic route server with the Next hop role.
+   1. Add FW-1 (`10.240.1.10`) as a peer and enable BFD. This BGP session is used for health monitoring only, not for route learning.
+   1. Create a VPC routing table policy on the transit gateway provider peer group for destination `172.16.0.0/16` with next hop `10.240.1.10`. Configure the policy to add the route to the Direct Link ingress routing table.
+   1. Create a static route on the dynamic route server for destination `10.0.0.0/16` with next-hop peer group set to the firewall peer group. Configure the static route to add the route to the transit gateway ingress routing table. The on-premises prefix enters the edge VPC through Direct Link and is not advertised by the transit gateway, so a static route is required instead of a learned route policy.
 
-   For more information, see [Attaching a peer to a peer group](/docs/vpc?topic=vpc-drs-attach-peer-to-group&interface=ui) and [Creating a peer group policy](/docs/vpc?topic=vpc-drs-create-peer-group-policy).
+   For more information, see [Attaching a peer to a peer group](/docs/vpc?topic=vpc-drs-attach-peer-to-group&interface=ui), [Creating a peer group policy](/docs/vpc?topic=vpc-drs-create-peer-group-policy), and [Creating a static route](/docs/vpc?topic=vpc-drs-create-static-routes).
 
-1. Verify route updates
+1. Verify route updates.
 
-   1. Verify that the ingress routing table contains the following CIDR ranges:
-      - `172.16.0.0/16` to `10.240.1.10`
-      - `10.0.0.0/8` to `10.240.1.10`
-   1. Verify that both routes are advertised by the dynamic route server.
+   1. Verify that the Direct Link ingress routing table contains a route for `172.16.0.0/16` with next hop `10.240.1.10`.
+   1. Verify that the Transit Gateway ingress routing table contains a route for `10.0.0.0/16` with next hop `10.240.1.10`.
 
-1. Validate traffic flow and failover
+1. Validate traffic flow and failover.
 
    1. From the on-premises host, send traffic to the workload host `172.16.0.10`.
    1. Verify that traffic traverses the firewall FW-1.
-   1. Remove the policy for `172.16.0.0/16` and verify that connectivity is lost.
+   1. Remove the VPC routing table policy for `172.16.0.0/16` and verify that connectivity is lost.
    1. Re-create the policy and verify that connectivity is restored.
    1. Stop firewall FW-1 and verify that the dynamic route server withdraws the added routes.
    1. Restart firewall FW-1 and verify that the routes are automatically reinstated and connectivity is restored.
@@ -172,15 +166,15 @@ You can use a dynamic route server to steer all north-south and east-west traffi
 
 Static routes work differently from learned routes. Their destination, next-hop peer group, and target routing tables come from your configuration, not from a BGP session. The dynamic route server uses the zone and priority of the peers in the next-hop peer group to determine which route entries to add. The same ingress and egress ranking rules apply, but no BGP advertisement from a peer is required.
 
-This setup is useful when a destination prefix is fixed and well known, and you do not want to depend on a BGP peer to advertise it. A common example is a stable on-premises CIDR such as `10.0.0.0/8`.
+This setup is useful when a destination prefix is fixed and well known, and you do not want to depend on a BGP peer to advertise it. In the topology described in use case 1, the on-premises prefix `10.0.0.0/16` arrives at the edge VPC through Direct Link. Because Direct Link is attached directly to the edge VPC and not through the transit gateway, the transit gateway does not advertise this prefix to the dynamic route server. A static route is therefore the correct way to add this prefix to the ingress routing table.
 
-In the same topology as use case 1, you can define a static route directly on the dynamic route server instead of relying on a custom routes policy:
+In the same topology as use case 1, define a static route on the dynamic route server with the following values:
 
-- Destination: `10.0.0.0/8`
+- Destination: `10.0.0.0/16`
 - Next-hop peer group: the firewall peer group
-- Target routing table: the edge VPC ingress routing table
+- Target routing table: the transit gateway ingress routing table in the edge VPC
 - Advertise: enabled
 
-The dynamic route server adds the destination route `10.0.0.0/8` to the ingress routing table with the firewall as the next hop. This process doesn't require any peer to advertise the route. When advertising is enabled on the static route, the route is passed to the transit gateway through the edge VPC connection so that other connections in the workload VPC are aware of it.
+The dynamic route server adds the route `10.0.0.0/16` to the transit gateway ingress routing table with the firewall as the next hop. This process does not require any peer to advertise the route. When advertising is enabled on the static route, the route is passed to the transit gateway through the edge VPC connection so that workload VPCs learn how to reach the on-premises network.
 
 The health-aware behavior for static routes is the same as for learned routes. If the firewall peer group becomes unhealthy, the static route entry is withdrawn. When the peer group recovers, the entry is reinstated. This mechanism is what separates it from a plain VPC static route: the dynamic route server owns the lifecycle of the route and ties it to peer health.

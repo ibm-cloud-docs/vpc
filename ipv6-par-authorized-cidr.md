@@ -122,10 +122,10 @@ To create an IPv6 authorized CIDR from the command line, follow these steps:
    Where:
 
    `--ip-version`
-   :   The IP version for this authorized CIDR. Must be `ipv6`. The default value is `ipv6`.
+   :   The IP version for this authorized CIDR. Must be `ipv6`. The default value is `ipv6`. Required.
 
    `--availability-mode`
-   :   The availability mode for this authorized CIDR. The default value is `zonal`.
+   :   The availability mode for this authorized CIDR. The default value is `zonal`. Required.
 
    `--zone`
    :   The zone in which to create the IPv6 authorized CIDR, for example `us-south-1`. Required.
@@ -168,14 +168,14 @@ ibmcloud is public-address-range-authorized-cidrs
 Rename an authorized CIDR:
 
 ```sh
-ibmcloud is public-address-range-authorized-cidr-update my-ipv6-auth-cidr --name my-renamed-auth-cidr
+ibmcloud is public-address-range-authorized-cidr-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --name my-renamed-auth-cidr
 ```
 {: pre}
 
 Delete an authorized CIDR (only when `allocation.count` is `0`):
 
 ```sh
-ibmcloud is public-address-range-authorized-cidr-delete my-ipv6-auth-cidr
+ibmcloud is public-address-range-authorized-cidr-delete r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2
 ```
 {: pre}
 

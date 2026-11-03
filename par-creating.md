@@ -131,6 +131,9 @@ To create public address ranges from the command line, follow these steps:
    
 
    [IPv6 Beta]{: tag-cyan}
+   `--cidr`
+   :   The public IPv4 or IPv6 range for this public address range, expressed in CIDR format. Must be an unallocated block within an authorized CIDR in your account. Mutually exclusive with `--ipv4-address-count` and `--authorized-cidr`.
+
    `--authorized-cidr`
    :   The ID or name of the authorized CIDR to allocate the IPv6 public address range from. Required together with `--network-prefix-length`. Mutually exclusive with `--cidr` and `--ipv4-address-count`.
 
@@ -210,17 +213,17 @@ ibmcloud is public-address-range-create --name public-address-range-4 --cidr 46.
 
 
 
-[IPv6 Beta]{: tag-cyan}Create an IPv6 public address range from an authorized CIDR, bound to a VNI (IBM selects a `/112` block):
+[IPv6 Beta]{: tag-cyan}Create an IPv6 public address range with a prefix length of `/112` from an authorized CIDR, and bind it to a VNI:
 
 ```sh
-ibmcloud is public-address-range-create --name my-ipv6-par --authorized-cidr my-ipv6-authorized-cidr --network-prefix-length 112 --vni my-vni
+ibmcloud is public-address-range-create --name my-ipv6-par --authorized-cidr r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --network-prefix-length 112 --vni 02h7-c26bbb47-fd16-4d4b-bb3a-f620f592b84c
 ```
 {: pre}
 
 Create an unbound IPv6 public address range (bind to a VNI later):
 
 ```sh
-ibmcloud is public-address-range-create --name my-ipv6-par-unbound --authorized-cidr my-ipv6-authorized-cidr --network-prefix-length 112
+ibmcloud is public-address-range-create --name my-ipv6-par-unbound --authorized-cidr r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --network-prefix-length 112
 ```
 {: pre}
 

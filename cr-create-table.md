@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-11-03"
 
 keywords: custom routes
 
@@ -42,7 +42,7 @@ To create a routing table in the console, follow these steps:
    * **Virtual private cloud** - Select your VPC.
    * In the Traffic section, you can select from these optional features:
 
-      * **Accepts routes from** (optional) -  Choose which resources can create routes in the routing table. You can select the switch for **VPN server**, **VPN gateway**, or both.
+      * **Accepts routes from** (optional) -  Choose which resources can create routes in the routing table. You can select the switch for **VPN server**, **VPN gateway**, and **Dynamic route server**.
 
          For policy-based VPN gateways, routes are not automatically discovered. The routing table must be configured to accept routes from the VPN gateway, and propagated routes are limited to the CIDR prefixes defined in the VPN policy. Route-based VPN gateways with BGP dynamically advertise learned routes. For more information about defining CIDR prefixes for policy-based VPNs, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
 
@@ -92,7 +92,7 @@ Where:
 :   Optional. If set to `true`, this routing table is used to route traffic that originates from the public internet. For the routing to succeed, the VPC must not have an existing routing table with this property set to `true`. One of: `false`, `true`.
 
 `--accept-routes-from-resource-type-filters, --ar-rtf`
-:   Comma-separated resource type filters that can create routes in this routing table. One of: `vpn_server`, `vpn_gatewa`.
+:   Comma-separated resource type filters that can create routes in this routing table. One of: `vpn_server`, `vpn_gateway`, or `dynamic_route_server`.
 
 `--advertise_routes_to TARGETS`
 :   Optional. Is a comma-separated list of advertisement targets for routes in this routing table. Currently, `direct_link` and `transit_gateway` are the allowed values. `direct_link` requires `direct-link-ingress` to be set to `true`. `transit_gateway` requires `transit—gateway-ingress` to be set to `true`. All routes in the routing table with the `advertise` option set to `true` are advertised to the ingress sources specified by 'advertise_routes_to'.

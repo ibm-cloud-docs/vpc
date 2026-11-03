@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-03"
 
 keywords: dynamic route server
 
@@ -85,6 +85,8 @@ Review the following routing considerations before you configure dynamic route s
 * A dynamic route server updates VPC custom routing tables based on routing policies that you define.
 * Routes are added only to the routing tables that you explicitly reference in the VPC routing table policies.
 * If you exceed the routing table limits, route addition might fail. For more information, see quotas for [Routing tables and routes](/docs/vpc?topic=vpc-quotas&interface=ui#routing-tables-routes-quotas). In this case, you might need to request a quota increase.
+* To allow dynamic route server to update the routes in the ingress and egress routing tables, you must select the switch for **Dynamic Route Server** in **Accept routes from** in the routing table. For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui).
+* The egress and ingress routing tables require to
 * When a VPC routing table policy is configured, configure the peer groups for a dynamic route server so that peers in different peer groups do not advertise the same destination. Advertising the same destination across peer groups can cause inconsistencies in learned routes.
 
 ## High availability and resiliency considerations

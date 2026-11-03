@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-15"
+lastupdated: "2026-11-03"
 
 keywords: Block Storage, virtual private cloud, view volumes, volume details, volume status, volume health, encryption, IOPS, boot volume, data volume, snapshots, backup policy, volume jobs, software attachments
 
@@ -34,19 +34,27 @@ Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [
 
 By default, {{site.data.keyword.block_storage_is_short}} volumes are displayed in sets of 10 for all resource groups in your region. Change this preset by clicking the Page Control down arrow and increase the list to 20 or 50 volumes. Use the Page Control arrows to go to the following page or return. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, you see the following information.
 
+Some columns are hidden by default. To show or hide columns, click the **Settings** icon ![Settings icon](../icons/settings.svg "Settings") to open the **Edit columns** menu. To return to the default columns, click **Reset to default**. You can also sort the list by clicking a column heading.
+
 | Field | Description |
 |-------|-------------|
 | Region | The region where these volumes are located, for example, US South. Click the down arrow to see volumes in a different region in which you have an account. |
 | Name | Click the name of the volume to see individual volume details. |
 | Status | Status of the volume, which functions as the default filter for all rows. |
-| Location | Availability zone in your region, inherited from the VPC (for example, US South 1).|
+| Resource group | The resource group that the volume belongs to. |
+| Profile | The [volume profile](/docs/vpc?topic=vpc-block-storage-profiles) of the volume, for example, `general-purpose`. |
+| Location | Availability zone in your region, inherited from the VPC (for example, US South 1). This column is hidden by default.|
 | Size | Size of the volume you specified, in GBs.|
-| Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
-| Health | Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have degraded performance, capacity, or experience connection problems. Volumes being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so that you can resolve any issues. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states). |
+| Max IOPS | The maximum IOPS value for a predefined IOPS tier or the value you specified for custom IOPS. This column is hidden by default. |
+| Throughput | The allocated bandwidth of the volume, in Mbps. |
+| Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or a dash (-) for an unattached volume.|
+| Generation | The storage generation of the volume, either 1 or 2. This column is hidden by default. |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys in a {{site.data.keyword.keymanagementserviceshort}} instance to protect your data. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
 | Tags | Number of user tags that are applied to the volume. Click the number in this column to view or edit the tags in the new window. If no tags were applied to the volume, click **Add tags** and add them in the new window. User tags can associate the volume with a [backup policy](/docs/vpc?topic=vpc-backup-service-about) for creating backups of the volume. For more information, see [Adding user tags that are associated with a backup policy to a volume in the console](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui).
 | Actions | Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") to display a menu of context-specific actions you can take.|
 {: caption="Details about all volumes" caption-side="bottom"}
+
+To save the list, click the **Download** icon ![Download icon](../icons/download.svg "Download"). In the dialog, select a file format (**Comma separated values (.csv)** or **Microsoft Excel (.xlsx)**) and whether to include **All pages** or the **Current page**, and then click **Download**. The file contains the volumes in the region that is selected in the **Region** list.
 
 From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") on the volume list page, the following actions are available. Some actions are available only when the volume meets specific conditions, such as being attached or unattached.
 
@@ -78,19 +86,18 @@ The page has 4 tabs. By default, the Overview tab is selected for volume details
 | Volume ID | System-generated volume ID. |
 | Health |  Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have less than OK performance and capacity, or they experience connection problems. Volumes that are being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so you can resolve it. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states). |
 | Resource group | Resource group defined when you set up your VPC. Resource groups manage access to resources but do not affect billing or monitoring.|
-| Attachment type | Data, for a secondary volume that is attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
+| Attachment type | Data, for a secondary volume that is attached to an instance, boot when attached as a boot volume, or a dash (-) for an unattached volume.|
 | Created date | System-generated date when the volume was created.|
 | Location | Availability zone in your region.|
 | Size | Size of the volume you specified. When the volume is attached to a virtual server instance and the volume is not at maximum capacity for its range, you can click the icon to expand the volume. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
 | Profile | This field shows the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles): [`sdp`](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile), [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom), or one of the [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profiles.|
 | Max IOPS | The maximum IOPS value for a predefined IOPS tier or the value you specified for custom IOPS. |
-| Throughput | The field shows the allocated bandwidth of the storage volume, which is measured in Gigabits per second (Gbps). Throughput is calculated as the result of the number of IOPS the volume is provisioned for times the throughput multiplier. Depending on the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles), the throughput multiplier can be 16 KB or 256 KB. For volumes that are created with the `sdp` profile, the throughput value is customizable in the range of 1000-8192 Mbps.|
+| Throughput | The field shows the allocated bandwidth of the storage volume, which is measured in Megabits per second (Mbps). Throughput is calculated as the result of the number of IOPS the volume is provisioned for times the throughput multiplier. Depending on the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles), the throughput multiplier can be 16 KB or 256 KB. For volumes that are created with the `sdp` profile, the throughput value is customizable in the range of 1000-8192 Mbps.|
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys to protect your data. The Encryption field shows the name of the key management service (KMS) you provisioned (for example, {{site.data.keyword.keymanagementserviceshort}}) and **customer-managed**. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).|
 | Encryption Instance | _Optional._ A link to the provisioned KMS instance for a customer-managed encryption volume. |
 | Key | _Optional._ The name and copiable ID of the root key that is used to encrypt the passphrase, which secures a customer-managed encryption volume. |
 | Backup policies | The number of backup policies that are associated with the volume. Click the number link to go to the backup policies tab. |
 | Snapshots | The number of snapshots that were created of the volume. Click the number link to go to the Snapshots and Backups tab. |
-| Replication role | The role of this volume in a replication relationship: `source`, `replica`, or `none`. This field is present only for `sdp` profile volumes. |
 | **Attached virtual server** | Volumes attached to a virtual server instance are listed here. Click **Attach** to select an instance to attach this volume. For more information, see [Attaching a volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage). |
 | Status | This field tracks the overall lifecycle state of the volume, which ranges from volume creation to volume deletion. Attachment status, for example, is _attached_ when the volume is attached to an instance and _attaching_ when in progress. |
 | Name | Click the name of the virtual server instance to see instance details. |
