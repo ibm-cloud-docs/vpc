@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-11-03"
 
 keywords: upgrading VPN, VPN server types
 
@@ -30,8 +30,8 @@ To change the VPN server type, follow these steps:
 1. In the Subnets section, select one of the following actions:
 
    * To upgrade to an HA VPN server, click **Add+** to add a second subnet in a different zone.
-   * To change to a stand-alone VPN server, click the Remove icon ![Remove icon](../../icons/subtract-alt.svg) to remove one of the two existing subnets.
-   * To use a different subnet, click the subnet's Edit icon ![Edit icon](../../icons/edit-tagging.svg).
+   * To change to a stand-alone VPN server, click the Remove icon ![Remove icon](../icons/subtract-alt.svg) to remove one of the two existing subnets.
+   * To use a different subnet, click the subnet's Edit icon ![Edit icon](../icons/edit-tagging.svg).
 
    See the following example:
 
