@@ -98,7 +98,6 @@ The page has 4 tabs. By default, the Overview tab is selected for volume details
 | Key | _Optional._ The name and copiable ID of the root key that is used to encrypt the passphrase, which secures a customer-managed encryption volume. |
 | Backup policies | The number of backup policies that are associated with the volume. Click the number link to go to the backup policies tab. |
 | Snapshots | The number of snapshots that were created of the volume. Click the number link to go to the Snapshots and Backups tab. |
-| Replication role | The role of this volume in a replication relationship: `source`, `replica`, or `none`. This field is present only for `sdp` profile volumes. |
 | **Attached virtual server** | Volumes attached to a virtual server instance are listed here. Click **Attach** to select an instance to attach this volume. For more information, see [Attaching a volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage). |
 | Status | This field tracks the overall lifecycle state of the volume, which ranges from volume creation to volume deletion. Attachment status, for example, is _attached_ when the volume is attached to an instance and _attaching_ when in progress. |
 | Name | Click the name of the virtual server instance to see instance details. |
