@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-22"
+lastupdated: "2026-11-03"
 
 keywords: dynamic route server, architecture, BGP, appliance, GRE, high availability
 
@@ -31,7 +31,10 @@ Understand the following concepts, which help you plan and configure a dynamic r
 ### Members
 {: #drs-architecture-members}
 
-A dynamic route server instance is made up of one or more members. Each member is a routing appliance that is managed by {{site.data.keyword.cloud_notm}} and deployed in the availability zone of the virtual network interface (VNI) that you provide. Members establish BGP sessions with your peers and exchange routing information on behalf of the dynamic route server instance. You can have up to three members, one per availability zone, to provide zone-level redundancy.
+A dynamic route server instance is made up of one or more members. Each member is a routing appliance that is managed by {{site.data.keyword.cloud_notm}} and deployed in the availability zone of the virtual network interface (VNI) that you provide. Members establish BGP sessions with your peers and exchange routing information on behalf of the dynamic route server instance.
+
+You can create up to three members for a dynamic route server instance. You can deploy all three members in the same availability zone or distribute them across availability zones. For zone-level redundancy, create three members and deploy one in each availability zone.
+{: note}
 
 ### Peers and peer groups
 {: #drs-architecture-peers}
@@ -84,32 +87,34 @@ A dynamic route server instance can be connected to only one transit gateway at 
 ## How a dynamic route server routes traffic through a firewall
 {: #drs-architecture-how-it-works}
 
-The following example shows how a dynamic route server automates traffic steering through a firewall in a three-VPC topology. This example is a common pattern for organizations that require all traffic between on-premises network and cloud workloads to pass through a centralized security device.
+The following example shows how a dynamic route server automates traffic steering through a firewall in a topology that connects an on-premises network to cloud workloads. This example is a common pattern for organizations that require all cross-domain traffic to pass through a centralized security device.
 
 ![Single firewall as next hop](images/drs-single-fw-no-router.svg){: caption="Dynamic route server routing traffic through a single firewall" caption-side="bottom"}
 
 In this topology:
 
-* An **on-premises network** (`10.0.0.0/16`) is connected to {{site.data.keyword.cloud_notm}} through Direct Link.
+* An **on-premises network** (`10.0.0.0/16`) is connected to the edge VPC through Direct Link.
 * A **workload VPC** (`172.16.0.0/16`) hosts cloud workloads and is connected to the edge VPC through Transit Gateway.
-* The **edge VPC** (`10.240.0.0/16`) is the security hub. It contains the dynamic route server and a firewall (`10.240.1.10`) that all cross-domain traffic must traverse.
+* The **edge VPC** (`10.240.0.0/16`) is the security hub. It contains the dynamic route server in the subnet (`10.240.0.0/24`) and a firewall in the firewall subnet (`10.240.1.0/24`). The firewall IP address is `10.240.1.10`. All cross-domain traffic must traverse this firewall.
 
 Without a dynamic route server, you would need to manually add and update routes in the edge VPC ingress routing table every time a workload subnet changes or a firewall becomes unavailable. With a dynamic route server, this process is handled automatically:
 
-1. The dynamic route server connects to the transit gateway and learns the workload VPC prefix (`172.16.0.0/16`). The transit gateway advertises this CIDR prefix to the dynamic route server over a BGP session.
+1. The dynamic route server connects to the transit gateway as a read-only spoke. The connection uses redundant GRE tunnels, with eBGP sessions running over those tunnels. The transit gateway advertises the workload VPC prefix (`172.16.0.0/16`) to the dynamic route server over this BGP session.
 
-1. A firewall peer group is configured with the firewall (`10.240.1.10`) as the next-hop peer. BFD is enabled so that the dynamic route server can detect firewall failures quickly.
+1. A firewall peer group is configured with the firewall (`10.240.1.10`) as the next-hop peer. BFD is enabled so that the dynamic route server can detect firewall failures quickly. The BGP session with the firewall is used only for health monitoring, not for learning routes. The dynamic route server learns the workload VPC prefix from the transit gateway, not from the firewall.
 
-1. VPC routing table policies are applied. The dynamic route server adds two routes to the edge VPC ingress routing table:
-   - A route for `172.16.0.0/16` with next hop `10.240.1.10` (firewall): intercepts traffic that enters the edge VPC from on-premises and is destined for the workload VPC, and steers it through the firewall before it continues to the transit gateway.
+1. The on-premises prefix (`10.0.0.0/16`) is not advertised to the dynamic route server by the transit gateway in this design. Because this prefix enters the edge VPC through Direct Link, it must be configured as a static route on the dynamic route server. For more information, see [Use case 6](/docs/vpc?topic=vpc-drs-use-cases#use-case-6-drs).
 
-   - A route for `10.0.0.0/8` with next hop `10.240.1.10` (firewall): intercepts traffic that enters the edge VPC from the workload VPC and is destined for the on-premises network, and steers it through the firewall before it continues to the on-premises network.
+1. VPC routing table policies are applied. The dynamic route server adds routes to the edge VPC ingress routing tables:
+   - A route for `172.16.0.0/16` with next hop `10.240.1.10` (firewall) is added to the Direct Link ingress routing table. This route intercepts traffic that enters the edge VPC from Direct Link and is destined for the workload VPC, and steers it through the firewall before it continues to the transit gateway.
+   - A route for `10.0.0.0/16` with next hop `10.240.1.10` (firewall) is added to the transit gateway ingress routing table. This route intercepts traffic that enters the edge VPC from the transit gateway and is destined for the on-premises network, and steers it through the firewall before it continues to Direct Link.
 
-1. Traffic flows through the firewall in both directions. All traffic between the on-premises network and the workload VPC passes through the firewall for inspection, regardless of which direction it is traveling. After the firewall inspects and forwards the traffic, the VPC system routing table sends it onward to the transit gateway, which delivers it to the destination.
+1. Traffic flows through the firewall in both directions. All traffic between the on-premises network and the workload VPC passes through the firewall for inspection, regardless of direction. After the firewall inspects and forwards the traffic, the VPC system routing table sends it onward to the transit gateway or Direct Link, which delivers it to the destination.
 
-1. If the firewall becomes unavailable, the dynamic route server detects the failure through BFD and automatically removes both routes from the ingress routing table. Traffic stops rather than being sent to an unreachable device. When the firewall recovers, the routes are automatically reinstated.
+1. If the firewall becomes unavailable, the dynamic route server detects the failure through BFD and automatically removes both routes from the ingress routing tables. Traffic stops rather than being sent to an unreachable device. When the firewall recovers, the routes are automatically reinstated.
 
 This example uses a single firewall. For active and standby failover, you can add a second firewall as a lower-priority next-hop peer in the same peer group. For zone redundancy, you can deploy firewalls in multiple availability zones and add them to the same peer group with zone-specific priorities. For more information, see [Dynamic route server use cases](/docs/vpc?topic=vpc-drs-use-cases).
+
 
 ## Related links
 {: #drs-architecture-related}

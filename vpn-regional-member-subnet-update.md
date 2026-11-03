@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-03"
 
 keywords: VPN, VPN gateway, regional VPN, VPN member, update member, move zone
 
@@ -153,5 +153,3 @@ To update a VPN gateway member's subnet with the API, follow these steps:
    {: pre}
 
 A successful request returns an HTTP `204 No Content` response. The member's `lifecycle_state` changes to `updating` while the appliance is re-created in the new subnet.
-
-[Regional VPN end]{: tag-purple}
