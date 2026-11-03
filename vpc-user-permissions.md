@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-11-03"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -164,7 +164,7 @@ You can use the following CLI commands to validate the resource group permission
 {: #validate-by-policy}
 
 ```sh
-ibmcloud iam user-policies <username>
+ibmcloud iam user-policies USERNAME
 ```
 {: pre}
 
@@ -172,7 +172,7 @@ ibmcloud iam user-policies <username>
 {: #validate-by-access-group}
 
 ```sh
-ibmcloud iam access-groups -u <username>
+ibmcloud iam access-groups -u USERNAME
 ```
 {: pre}
 

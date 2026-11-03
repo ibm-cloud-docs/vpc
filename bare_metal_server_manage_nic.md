@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-11-03"
 
 subcollection: vpc
 
@@ -162,7 +162,7 @@ From the API perspective, you create a VIP the same way that you create a primar
 1. Use the following command to create a VIP.
 
    ```sh
-   ibmcloud is bm-nicc <BM_ID> --subnet <SUBNET_ID> --interface-type vlan --vlan <VLAN_ID> --allow-interface-to-float true
+   ibmcloud is bm-nicc <BM_ID> --subnet SUBNET_ID --interface-type vlan --vlan VLAN_ID --allow-interface-to-float true
    ```
    {: pre}
 
@@ -176,7 +176,7 @@ Custom routes communication without NAT rules between VMWare VMS within an NSX-T
 1. Use the following command to create the custom route.
 
    ```sh
-   ibmcloud is vpc-routing-table-route-create <VPC_ID> <ROUTING_TABLE_ID> --zone us-south-3 --destination <DEST_CIDR> --next-hop <NH_IP>
+   ibmcloud is vpc-routing-table-route-create VPC_ID <ROUTING_TABLE_ID> --zone us-south-3 --destination <DEST_CIDR> --next-hop <NH_IP>
    ```
    {: pre}
 

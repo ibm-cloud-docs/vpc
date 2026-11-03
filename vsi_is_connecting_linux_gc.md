@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-11-03"
 
 keywords: connecting, linux
 
@@ -31,7 +31,7 @@ If you need to locate your floating IP address for the instance to which you wan
 1. You need to identify your floating IP address. Run the following command to identify your floating IP address:
 
    ```sh
-   ibmcloud is instance-network-interfaces <INSTANCE_ID> <NETWORK_INTERFACE_ID> --json
+   ibmcloud is instance-network-interfaces INSTANCE_ID NETWORK_INTERFACE_ID --json
    ```
    {: pre}
 
