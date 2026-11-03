@@ -52,7 +52,7 @@ The IP addresses, CIDR ranges, ASNs, and resource names used in this example are
 1. Create the VPC infrastructure.
 
    1. Create an edge VPC with CIDR `10.240.0.0/16`.
-   1. Create a DRS subnet in the edge VPC, for example `10.240.0.0/24`.
+   1. Create a subnet for the dynamic route sercer in the edge VPC, for example `10.240.0.0/24`.
    1. Create a firewall subnet in the edge VPC, for example `10.240.1.0/24`.
    1. Create a workload VPC with CIDR `172.16.0.0/16`.
    1. Create a workload subnet, for example `172.16.0.0/24`.
@@ -87,7 +87,7 @@ The IP addresses, CIDR ranges, ASNs, and resource names used in this example are
 
    1. Create an ingress routing table in the edge VPC for Direct Link traffic.
    1. Create an ingress routing table in the edge VPC for Transit Gateway traffic.
-   1. Create a virtual network interface (VNI) in the DRS subnet (`10.240.0.0/24`) and assign IP address `10.240.0.4`.
+   1. Create a virtual network interface (VNI) in the dynamic route server subnet (`10.240.0.0/24`) and assign IP address `10.240.0.4`.
    1. Provision a dynamic route server instance and attach the VNI.
    1. Configure the BGP ASN for the dynamic route server.
 
