@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-03"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,18 @@ Compatibility with earlier versions is not guaranteed as a feature progresses th
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 3 November 2026
+{: #3-november-2026-beta}
+
+### For all version dates
+{: #3-november-2026-all-version-dates-beta}
+
+**Block storage for bare metal servers.** Accounts with special approval to preview this feature can now attach [Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about&interface=api) volumes directly to bare metal servers.
+
+The enhancement introduces full lifecycle management of bare metal volume attachments through the VPC API. When [creating a bare metal server](/docs/apis/vpc-beta#create-bare-metal-server), you can specify the new `volume_attachments` property to attach secondary data volumes at provisioning time. You can also now [list](/docs/apis/vpc-beta#list-bare-metal-server-volume-attachments), [create](/docs/apis/vpc-beta#create-bare-metal-server-volume-attachment), [retrieve](/docs/apis/vpc-beta#get-bare-metal-server-volume-attachment), [update](/docs/apis/vpc-beta#update-bare-metal-server-volume-attachment), and [delete](/docs/apis/vpc-beta#delete-bare-metal-server-volume-attachment) bare metal server volume attachments.
+
+For more information, see [Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about&interface=api) and [Bare metal servers](/docs/vpc?topic=vpc-about-bare-metal-servers&interface=api).
 
 ## 27 October 2026
 {: #27-october-2026-beta}
