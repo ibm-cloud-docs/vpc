@@ -34,7 +34,7 @@ Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [
 
 By default, {{site.data.keyword.block_storage_is_short}} volumes are displayed in sets of 10 for all resource groups in your region. Change this preset by clicking the Page Control down arrow and increase the list to 20 or 50 volumes. Use the Page Control arrows to go to the following page or return. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, you see the following information.
 
-Some columns are hidden by default. Open the **Edit columns** menu above the table by clicking the **Settings** icon ![Settings icon](../icons/settings.svg "Settings") to show or hide columns. To return to the default columns, click **Reset to default**. You can also sort the list by clicking a column heading.
+Some columns are hidden by default. To show or hide columns, click the **Settings** icon ![Settings icon](../icons/settings.svg "Settings") to open the **Edit columns** menu. To return to the default columns, click **Reset to default**. You can also sort the list by clicking a column heading.
 
 | Field | Description |
 |-------|-------------|
@@ -54,7 +54,7 @@ Some columns are hidden by default. Open the **Edit columns** menu above the tab
 | Actions | Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") to display a menu of context-specific actions you can take.|
 {: caption="Details about all volumes" caption-side="bottom"}
 
-To save the list, click the **Download** icon ![Download icon](../icons/download.svg "Download") above the table. In the dialog, select a file format (**Comma separated values (.csv)** or **Microsoft Excel (.xlsx)**) and whether to include **All pages** or the **Current page**, and then click **Download**. The file contains the volumes in the region that is selected in the **Region** list.
+To save the list, click the **Download** icon ![Download icon](../icons/download.svg "Download"). In the dialog, select a file format (**Comma separated values (.csv)** or **Microsoft Excel (.xlsx)**) and whether to include **All pages** or the **Current page**, and then click **Download**. The file contains the volumes in the region that is selected in the **Region** list.
 
 From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") on the volume list page, the following actions are available. Some actions are available only when the volume meets specific conditions, such as being attached or unattached.
 
