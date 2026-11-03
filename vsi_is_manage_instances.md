@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-09-18"
+lastupdated: "2026-11-03"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -1094,7 +1094,7 @@ For more information, see the [`confidential_compute_mode` argument](https://reg
 {: #disable-secure-boot-ui}
 {: ui}
 
-When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default.  You can enable or disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you enable or disable secure boot, you can then restart your virtual server instance.
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. For [Flex instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#flexible-profiles), secure boot is opt-in and you must enable it. You can enable or disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you enable or disable secure boot, you can then restart your virtual server instance.
 
 1. From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, select the virtual server instance.
 1. From **Actions**, click **Stop**.
@@ -1105,7 +1105,7 @@ When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-
 {: #set-secure-boot-cli}
 {: cli}
 
-When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default.  You can enable or disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you enable or disable secure boot, you can then restart your virtual server instance.
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. For [Flex instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#flexible-profiles), secure boot is opt-in and you must enable it. You can enable or disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you enable or disable secure boot, you can then restart your virtual server instance.
 
 You can update an instance and change the `enable-secure-boot` by using the command-line interface (CLI). Use the `ibmcloud is instance-update` command. For INSTANCE, specify the ID or name of the instance and set the `--enable-secure-boot` property to `false`.
 
@@ -1120,7 +1120,7 @@ If you decide to re-enable secure boot, follow these same steps and set the `--e
 {: #set-secure-boot-API}
 {: api}
 
-When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default.  You can enable or disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you enable or disable secure boot, you can then restart your virtual server instance.
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. For [Flex instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#flexible-profiles), secure boot is opt-in and you must enable it. You can enable or disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you enable or disable secure boot, you can then restart your virtual server instance.
 
 You can update a virtual server instance and change the `enable_secure_boot` property by using the API. Make a `PATCH /instances` request and specify a boolean value for the `enable_secure_boot` property. The following example disables secure boot:
 
@@ -1132,6 +1132,34 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&ge
 If you decide to re-enable secure boot, follow these same steps and set the `enable_secure_boot` property to `true`.
 
 For more information, see the [update an instance action](/docs/apis/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
+
+## Enabling and disabling secure boot from Terraform
+{: #set-secure-boot-terraform}
+{: terraform}
+
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. For [Flex instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#flexible-profiles), secure boot is opt-in and you must enable it. You can enable or disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you enable or disable secure boot, you can then restart your virtual server instance.
+
+You can enable and disable secure boot in your {{site.data.keyword.vpc_short}} by using Terraform with the `ibm_is_instance` resource. To enable secure boot, add `enable_secure_boot = true` to the resource configuration.
+
+```terraform
+resource "ibm_is_instance" "example" {
+  name               = "example-flex-instance"
+  vpc                = ibm_is_vpc.example.id
+  zone               = "us-south-1"
+  profile            = "bxf-96x384"
+  image              = "r006-9e07a73c-8a04-4a95-b67d-a54e26bd98c2"
+  enable_secure_boot = true
+
+  primary_network_attachment {
+    virtual_network_interface {
+      subnet = ibm_is_subnet.example.id
+    }
+  }
+}
+```
+{: codeblock}
+
+For more information, see [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance){: external} in the Terraform documentation.
 
 ## Detaching a server from a reservation in the console
 {: #removing-adding-server-reserved-capacity-ui-vpc}

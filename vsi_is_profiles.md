@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-20"
+lastupdated: "2026-11-03"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -576,6 +576,8 @@ The following flex profiles are available.
 | bxf-32x128       | 32   | 128          | 64  |
 | bxf-48x192       | 48   | 192          | 80  |
 | bxf-64x256       | 64   | 256          | 80  |
+| bxf-96x384       | 96   | 384          | 80  |
+| bxf-128x512      | 128  | 512          | 80  |
 | cxf-2x4          | 2    | 4            | 4   |
 | cxf-4x8          | 4    | 8            | 8   |
 | cxf-8x16         | 8    | 16           | 16  |
@@ -584,6 +586,8 @@ The following flex profiles are available.
 | cxf-32x64        | 32   | 64           | 64  |
 | cxf-48x96        | 48   | 96           | 80  |
 | cxf-64x128       | 64   | 128          | 80  |
+| cxf-96x192       | 96   | 192          | 80  |
+| cxf-128x256      | 128  | 256          | 80  |
 | mxf-2x16         | 2    | 16           | 4   |
 | mxf-4x32         | 4    | 32           | 8   |
 | mxf-8x64         | 8    | 64           | 16  |
@@ -592,7 +596,19 @@ The following flex profiles are available.
 | mxf-32x256       | 32   | 256          | 64  |
 | mxf-48x384       | 48   | 384          | 80  |
 | mxf-64x512       | 64   | 512          | 80  |
+| mxf-96x768       | 96   | 768          | 80  |
+| mxf-128x1024     | 128  | 1024         | 80  |
 {: caption="Flex profile options for virtual servers" caption-side="bottom"}
+
+The following profiles don't support NUMA pinning:
+{: note}
+
+- `bxf-96x384`
+- `bxf-128x512`
+- `cxf-96x192`
+- `cxf-128x256`
+- `mxf-96x768`
+- `mxf-128x1024`
 
 ### Burstable-supported Flex profiles
 {: #burstable-supported-flex-profiles}
