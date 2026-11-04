@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-22"
+lastupdated: "2026-11-04"
 
 keywords: dynamic route server
 
@@ -112,7 +112,7 @@ Where:
     : The local autonomous system number (ASN).
 
 `--members`
-    : A JSON payload that defines the dynamic route server members. You can specify a minimum of one and a maximum of three members. For the data schema, see the `members` property in the [API documentation](/apidocs/vpc#create-dynamic-route-server).
+    : A JSON payload that defines the dynamic route server members. You can specify a minimum of one and a maximum of three members. For the data schema, see the `members` property in the [API documentation](/docs/apis/vpc-beta/latest#create-dynamic-route-server).
 
 `@MEMBERS_JSON_FILE`
     : A file that contains the members JSON payload.

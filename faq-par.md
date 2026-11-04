@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-11-02"
+lastupdated: "2026-11-03"
 
 subcollection: vpc
 
@@ -112,7 +112,6 @@ IPv6 public address ranges bind to a VNI, not a VPC.
 {: support}
 
 IPv6 addresses from a public address range must be configured statically in the guest OS. DHCP is not supported for IPv6 public address range addresses.
-
 
 
 
