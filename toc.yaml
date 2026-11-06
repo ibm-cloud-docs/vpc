@@ -1177,6 +1177,7 @@ toc:
               label: Troubleshooting file storage
               topics:
               - file_storage_vpc_troubleshoot.md
+              - file_storage_vpc_ts_mount_nfs_version.md
           - topicgroup:
               id: tbs-file-snapshots
               label: Troubleshooting file storage snapshots

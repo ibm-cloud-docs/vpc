@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-30"
+lastupdated: "2026-11-06"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -47,13 +47,15 @@ Yes.
 {: faq}
 {: #faq-fs-os}
 
-No, file shares can be mounted only on Linux operating systems or z/OS-based {{site.data.keyword.cloud}} Compute instances that support NFS file shares. For more information, see the topics about mounting file shares on [Red Hat](/docs/vpc?topic=vpc-file-storage-mount-RHEL), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-mount-zos) systems. Mounting file shares on Windows servers is not supported.
+No, file shares can be mounted only on Linux operating systems or z/OS-based {{site.data.keyword.cloud}} Compute instances that support NFS file shares. For more information, see the topics about mounting file shares on [Red Hat](/docs/vpc?topic=vpc-file-storage-mount-RHEL), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-mount-zos) systems. Mounting file shares on Windows or AIX servers is not supported.
 
 ### What is the minimum NFS version supported?
 {: faq}
 {: #faq-nfs-version}
 
 {{site.data.keyword.filestorage_vpc_short}} requires NFS versions v4.1 or higher.
+
+Operating systems that support only earlier NFS versions, such as AIX, can't mount VPC file shares. If you can't mount a file share, see [Why can't I mount a file share on my server?](/docs/vpc?topic=vpc-troubleshooting-file-storage-nfs-version).
 
 ### Who do I contact to help with any issues? What information do I need to provide?
 {: faq}
@@ -119,7 +121,7 @@ No. As a best practice, independently back up your data. When your file share da
 {: faq}
 {: #faq-fs-mgt-7}
 
-File shares are not elastic. Currently, you can provision zonal file shares with a minimum of 10 GiB to a maximum of 32,000 GiB capacity, and regional file shares with a minimum of 1 GiB to a maximum of 32,000 GiB capacity. For more information, see [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles).
+File shares are not elastic. Currently, you can provision zonal file shares with a minimum of 10 GiB to a maximum of 32,000 GiB capacity. Regional file shares can be created with a minimum of 1 GiB to a maximum of 32,000 GiB capacity. For more information, see [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
 ### Can I change the size of a file share?
 {: faq}
@@ -195,7 +197,7 @@ Snapshots inherit their storage_generation property from the parent file share. 
 {: faq}
 {: #faq-fs-access-mode}
 
-Yes. When you create a file share, the access control mode defaults to Security Groups, which can restrict the access to the file share to specific resources in the VPC. If you want to restrict access to one single compute host, make sure the security group settings reflect this. For more information, see [Granular authorization](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-mount-granular-auth).
+Yes. When you create a file share, the access control mode defaults to Security Groups, which can restrict the access to the file share to specific resources in the VPC. If you want to restrict access to one single compute host, make sure that the security group settings reflect this configuration. For more information, see [Granular authorization](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-mount-granular-auth).
 
 ### Can I securely share my data with other accounts?
 {: faq}
@@ -213,7 +215,7 @@ Administrators with the right authorizations can configure access to a file shar
 {: faq}
 {: #faq-fs-accessor-binding}
 
-An accessor share binding is a cloud resource that is created when an accessor share is provisioned for an origin share. It acts as a connector between the origin share and the accessor share. The accessor binding allows the accessor share to use the origin share's data. The accessor bindings are sub-resources that are owned by the origin share, and only the owner or administrator of the origin share can retrieve or delete them.
+An accessor share binding is a cloud resource that is created when an accessor share is provisioned for an origin share. It acts as a connector between the origin share and the accessor share. The accessor binding allows the accessor share to use the origin share's data. The accessor bindings are subresources that are owned by the origin share, and only the owner or administrator of the origin share can retrieve or delete them.
 
 ### How many accessor shares can be set up to access my share?
 {: faq}
@@ -238,7 +240,7 @@ This setting can be changed [in the console](/docs/vpc?topic=vpc-file-storage-ma
 
 Yes, you can increase or decrease IOPS for file shares based on an **IOPS tier**, **custom**, or **dp2** profile. Adjusting IOPS depends on the file share size. Adjusting the IOPS causes no outage or lack of access to the storage. Pricing is adjusted with your selection. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=ui).
 
-### What is the maximum IO transfer size that's supported for a file share per session?
+### What is the maximum IO transfer size for a file share per session?
 {: faq}
 {: #faq-fs-supported-IO-size}
 

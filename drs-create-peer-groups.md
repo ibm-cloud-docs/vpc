@@ -59,6 +59,9 @@ To create a peer group in the console, follow these steps:
 
 A prefix watcher is a rule that controls which routes from the peer group are allowed or denied by the dynamic route server before any policies are applied. Use a prefix watcher to limit route intake, block unwanted prefixes, and reduce routing noise.
 
+By default, all prefixes are denied unless they are explicitly allowed by the prefix watcher configuration. To accept routes that are advertised from a peer group with the **Router** role, you must configure a prefix watcher that allows those prefixes. Without a prefix watcher, the dynamic route server doesn't accept routes from the peer group.
+{: important}
+
 To create a prefix watcher in the console, follow these steps:
 
 1. In the **Prefix watcher (optional)** section, click **Create**.
