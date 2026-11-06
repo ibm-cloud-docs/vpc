@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-11-04"
 
 keywords:
 
@@ -75,7 +75,7 @@ Before you can create a custom image, grant the {{site.data.keyword.cloud_notm}}
 You can also use the {{site.data.keyword.cloud_notm}} CLI to create a service-to-service authorization:
 
 ```sh
-ibmcloud iam authorization-policy-create Reader --source-service-name is.vpc --target-service-name cloud-object-storage --source-service-account <ACCOUNT_ID> --source-resource-type image
+ibmcloud iam authorization-policy-create Reader --source-service-name is.vpc --target-service-name cloud-object-storage --source-service-account ACCOUNT_ID --source-resource-type image
 ```
 {: codeblock}
 

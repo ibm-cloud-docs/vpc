@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-29"
+lastupdated: "2026-11-06"
 
 keywords:
 
@@ -56,11 +56,20 @@ When you create a virtual server instance with multiple volumes, the provisionin
 
 After a volume's capacity is increased, snapshot operations such as cross-region copy, volume restoration, and snapshot deletion can be slower than before the size update.
 
+
 ### Cross-regional snapshot copy and volume migration are not supported in Chennai - Airtel and Mumbai - Airtel
 {: #cross-regional-snapshot-copy-volume-migration-india}
 
 Cross-regional copy of Gen 2 block volume snapshots and volume migration are not supported in the Chennai - Airtel (`in-che`) and Mumbai - Airtel (`in-mum`) region at this time.
 
+### Cross-regional snapshot copy fails when an unsupported target region is selected
+{: #cross-regional-snapshot-copy-unsupported-target}
+
+Cross-regional copy for second-generation (`sdp`) {{site.data.keyword.block_storage_is_short}} snapshots requires that second-generation block storage is available in both the source and target regions.
+
+When you configure a cross-regional snapshot copy or a backup policy in the UI, CLI, or API, the interface currently allows you to select target regions where second-generation block storage is not supported (such as Montreal `ca-mon`) without returning a creation-time validation error. However, the subsequent copy operation fails.
+
+To avoid failed copy operations, verify that second-generation block storage is supported in the target region before you configure cross-regional snapshot copies or backup policies. For a list of supported regions, see [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 ## File Storage shares and snapshots
 {: #file-storage-known-issue}

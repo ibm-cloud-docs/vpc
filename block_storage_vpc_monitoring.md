@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-11-04"
 
 keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance
 
@@ -54,9 +54,9 @@ The following table shows the statuses that you might see when you create, view,
 ## Block Storage volume health states
 {: #block-storage-vpc-health-states}
 
-Volume health states correspond with volume statuses. Table 2 describes the health states and health reasons.
+Volume health states correspond with volume statuses. The following table describes the health states and health reasons.
 
-| Health State | Reason |
+| Health state | Reason |
 |--------|-------------|
 | OK | A volume is performing at the expected I/O performance and capacity is sufficient. No network connection issues are present. Or the volume is restored from a snapshot (and hydration is completed). |
 | Degraded | A volume is experiencing degraded performance for any of the following reasons: \n  - Volume data is being restored (hydrated) and the volume shows as degraded until hydration is completed. \n - Volume initialization from a snapshot failed, and the volume hydration failed. \n - Volume hydration is not started. \n - Volume hydration is paused. \n - The snapshot is in an unusable state. |

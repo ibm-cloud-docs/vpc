@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-11-03"
+lastupdated: "2026-11-06"
 
 keywords:
 
@@ -26,6 +26,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## November 2026
 {: #vpc-nov26}
+
+### 06 November 2026
+{: #vpc-nov0626}
+{: release-note}
+
+Expanded boot volume capacity for first-generation profiles (select availability)
+:   Allowlisted accounts can now expand boot volumes that use first-generation volume profiles (such as `general-purpose` or `custom`) up to 2,000 GB, significantly increasing the previous 250 GB limit. You can specify the expanded capacity when you provision a new virtual server instance or when you directly update an existing boot volume. Boot volumes larger than 250 GB cannot be used to create custom images. Contact IBM Sales or your IBM representative if you are interested in being allowlisted for this capability. For more information, see [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#block-storage-vpc-boot-volumes), [Block Storage profiles](/docs/vpc?topic=vpc-block-storage-profiles#vsi-profiles-boot), and [Expanding Block Storage volumes](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expand-boot-vols).
+
 
 ### 02 November 2026
 {: #vpc-nov0226}

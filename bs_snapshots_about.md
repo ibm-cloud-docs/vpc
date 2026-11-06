@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-11-04"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Block storage snapshots are point-in-time copies of boot or data volumes in {{site.data.keyword.vpc_short}}. Restore snapshot data to new volumes for testing, recovery from accidental deletion, or data corruption. Replicate snapshots across zones and regions for disaster recovery.
 {: shortdesc}
 
-In the current release of second-generation block volumes, snapshots are available in most regions, except in Montreal.
+In the current release of second-generation block volumes, snapshots are available in most regions, except in Montreal. 
 {: preview}
 
 ## Snapshots concepts

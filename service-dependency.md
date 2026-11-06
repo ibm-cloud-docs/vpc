@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-10-26"
+lastupdated: "2026-11-04"
 
 keywords:
 
@@ -881,6 +881,8 @@ The following dependencies apply to the following deployment locations: Chennai 
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | ngdc-data-plane |  Same region  |
 | IBM Cloud Business Support Services| none | No | ngdc-data-plane |  Same zone  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same zone  |
+| {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same zone  |
+| {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.logs_full}}| Access management, Operations, Security compliance | No | ngdc-data-plane |  Same region  |
 | corporate-palo-alto| Security compliance | No | ngdc-data-plane |  Same zone  |

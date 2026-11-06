@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-11-03"
+lastupdated: "2026-11-04"
 
 subcollection: vpc
 
@@ -183,7 +183,7 @@ Custom routes communication without NAT rules between VMWare VMS within an NSX-T
 2. Set `allow-ip-spoofing` to _true_ for the VNIC of NH_IP by using this command. Typically, a VIP is used as NH_IP for high availability.
 
    ```sh
-   ibmcloud is bm-nicu BM_ID <VNIC_ID> --allow-ip-spoofing true
+   ibmcloud is bm-nicu BM_ID VNIC_ID --allow-ip-spoofing true
    ```
    {: pre}
 

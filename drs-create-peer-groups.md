@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-22"
+lastupdated: "2026-11-06"
 
 keywords: dynamic route server
 
@@ -57,7 +57,7 @@ To create a peer group in the console, follow these steps:
 {: #drs-create-prefix-watcher}
 {: ui}
 
-A prefix watcher is a rule that controls which routes from the peer group are allowed or denied by the dynamic route server before any policies are applied. It is an optional configuration. Use a prefix watcher to limit route intake, block unwanted prefixes, and reduce routing noise.
+A prefix watcher is a rule that controls which routes from the peer group are allowed or denied by the dynamic route server before any policies are applied. Use a prefix watcher to limit route intake, block unwanted prefixes, and reduce routing noise.
 
 To create a prefix watcher in the console, follow these steps:
 

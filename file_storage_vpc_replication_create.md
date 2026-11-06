@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-10-30"
+lastupdated: "2026-11-06"
 
 keywords: file share, file storage, source volume, replica share,
 

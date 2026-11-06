@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-05"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -36,10 +36,12 @@ To create an ALB:
    * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Access management tags**: (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **Virtual private cloud**: Select your VPC.
+
    * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
 
         You cannot assign more than 15 subnets per ALB.
         {: important}
+
 
    * **Type**: Select the load balancer type.
      * A **Public** load balancer has a public IP address, which means that it can route requests from clients over the internet.
@@ -131,6 +133,8 @@ To create an ALB:
     * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout values are 50 seconds and 2 hours. These values are for both the client and server. To increase the timeout limit to more than 2 hours, [create a support case](/docs/support?topic=support-open-case&interface=ui) providing the business requirement for the timeout value required.
 
 1. Click **Create** to create the front-end listener.
+
+
 1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.
 
    Ensure that the security group allows for load-balancing traffic (listener, back-end, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
@@ -211,6 +215,7 @@ To create an application load balancer from the CLI, follow these steps:
     ibmcloud is load-balancer-create alb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family application
     ```
     {: pre}
+
     
     Sample output:
 
@@ -480,6 +485,7 @@ To create an application load balancer with the API, follow these steps:
           }'
     ```
     {: codeblock}
+
     
     For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/docs/apis/vpc/latest#list-load-balancer-profiles).
 

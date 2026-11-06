@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-11-05"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -69,7 +69,9 @@ To create and configure a network load balancer in the {{site.data.keyword.cloud
       **For Private type only**, click **Bind+** to enter your DNS instance and zone information, then click **Bind**.
       {: note}
 
+
    * Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
+
 1. For Back-end pools, click **Create pool** and specify the following information to create a back-end pool. When you are done, click **Create**.
 
    You can create one or more pools.
@@ -119,6 +121,8 @@ To create and configure a network load balancer in the {{site.data.keyword.cloud
       * **Listener port range** - The range of ports where the load balancer receives your inbound customer traffic.
 
    Then, click **Create**. You can create one or more listeners.
+
+
 1. For Security groups, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your NLB.
 
    Ensure that the security group allows for load-balancing traffic (listener, targets, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
@@ -149,6 +153,7 @@ To create a network load balancer with the CLI, follow these steps:
    ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
    ```
    {: pre}
+
 
 
    Sample output:
@@ -418,6 +423,7 @@ To create a network load balancer with the API, follow these steps:
            }'
    ```
    {: codeblock}
+
 
    Sample output:
 

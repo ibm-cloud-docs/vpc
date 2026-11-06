@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-16"
+lastupdated: "2026-11-06"
 
 keywords: block storage, VPC, boot volume, data volume, IOPS, NVMe, encryption, SSD, sdp profile, volume profiles
 
@@ -52,9 +52,7 @@ When you create an instance, you can specify if the boot volume is to be populat
 
 If you use the console to provision the instance, your default choice is the `general-purpose` volume profile. When you provision a boot volume from the CLI, with the API, or Terraform, you can specify any of the profiles from the `tiered`, `custom`, or `defined performance` volume profile families. Allowlisted customers can also use the `sdp` profile to provision boot volumes.
 
-
-
-Boot volumes can be expanded up to 250 GB when you're using one of the first-generation profiles. When you use a second-generation volume profile, such as `sdp`, you can increase the boot volume capacity up to 32,000 GB. After the boot volume capacity is increased, it can't be decreased.
+Boot volumes can be expanded up to 250 GB when you're using one of the first-generation profiles. Allowlisted accounts can expand first-generation boot volumes up to 2,000 GB. When you use a second-generation volume profile, such as `sdp`, you can increase the boot volume capacity up to 32,000 GB. After the boot volume capacity is increased, it can't be decreased.
 
 Boot volumes that are larger than 250 GB can't be used to create a custom image.
 {: note}
