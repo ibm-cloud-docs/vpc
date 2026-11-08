@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-12-29"
+  years: 2018, 2026
+lastupdated: "2026-11-08"
 
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, layer 7, auto scale, managed pool, instance group
@@ -92,10 +92,14 @@ The health check response timeout value must be less than the health check inter
 {: #ip-addresses-fixed}
 {: faq}
 
-Application load balancer IP addresses are not guaranteed to be fixed. During system maintenance or horizontal scaling, you see changes in the available IPs associated with the FQDN of your load balancer.
+Application load balancer IP addresses are not guaranteed to be fixed when using dynamic address mode. During system maintenance or horizontal scaling, you see changes in the available IPs associated with the FQDN of your load balancer.
+
+
 
 Use FQDN, rather than cached IP addresses.
 {: important}
+
+
 
 ## Does the load balancer support layer 7 switching?
 {: #layer-7-switching-alb}
