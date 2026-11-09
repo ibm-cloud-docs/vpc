@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-09-02"
+lastupdated: "2026-11-09"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -565,7 +565,7 @@ data "ibm_is_bare_metal_server_capacities" "ds_bmscapacities" {
 ```
 {: pre}
 
-For more information, see [ibm_is_bare_metal_capacities](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_bare_metal_servers_capacities).
+For more information, see [ibm_is_bare_metal_capacities](https://registry.terraform.io/providers/ibm-cloud/ibm/latest/docs/data-sources/is_bare_metal_server_capacities).
 
 ### Restarting a bare metal server by using Terraform
 {: #reboot-bare-metal-servers-terraform}
