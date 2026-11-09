@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-22"
+lastupdated: "2026-11-09"
 
 keywords: dynamic route server
 
@@ -29,6 +29,8 @@ Before you create a peer group policy:
 - Review [Planning considerations for dynamic route servers](/docs/vpc?topic=vpc-planning-drs).
 - Review [Known issues for dynamic route servers](/docs/vpc?topic=vpc-known-issues).
 - Make sure that you have [created a peer group](/docs/vpc?topic=vpc-drs-create-peer-group) and [added at least one peer](/docs/vpc?topic=vpc-drs-attach-peer-to-group).
+
+
 
 ## Creating a peer group policy in the console
 {: #drs-create-peer-group-policy-ui}
