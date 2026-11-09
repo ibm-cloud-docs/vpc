@@ -92,7 +92,7 @@ The health check response timeout value must be less than the health check inter
 {: #ip-addresses-fixed}
 {: faq}
 
-Application load balancer IP addresses are not guaranteed to be fixed when using dynamic address mode. During system maintenance or horizontal scaling, you see changes in the available IPs associated with the FQDN of your load balancer.
+Application load balancer IP addresses are not guaranteed to be fixed<staging> when using dynamic address mode</staging>. During system maintenance or horizontal scaling, you see changes in the available IPs associated with the FQDN of your load balancer.
 
 
 
