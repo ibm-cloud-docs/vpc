@@ -21,7 +21,8 @@ subcollection: vpc
 You can create a peer group to logically group related peers, define their routing roles, configure health monitoring, and control, which routes the dynamic route server processes from those peers. Policies are applied at the peer group level.
 {: shortdesc}
 
-
+You can't create a peer group for a transit gateway from the dynamic route server console, CLI, or API. To create a transit gateway peer group, create a dynamic route server connection from the Transit Gateway side. When the connection is created, the corresponding peer group is automatically created in the dynamic route server. For more information, see [Adding a dynamic route server connection to a transit gateway](/docs/transit-gateway?topic=transit-gateway-drs-connection).
+{: important}
 
 ## Before you begin
 {: #create-peer-group-prerequisites}
