@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-11-03"
+lastupdated: "2026-11-09"
 
 keywords: dynamic route server
 
@@ -72,9 +72,14 @@ Review the following considerations when you integrate a dynamic route server wi
 * If you specify a CIDR for GRE tunnel IP addresses, it must be at least `/27` and not overlap with any VPC subnets or existing transit gateway tunnel CIDRs.
 * If no CIDR is specified, a default CIDR range is used.
 * When a dynamic route server is connected to a transit gateway, routes that are learned from the transit gateway can be advertised to other peers only if allowed in the dynamic route server policies.
+* The **VPC routing table** policy is the only policy type that you can use with a transit gateway peer group. The **Custom routes**, **Learned routes**, and **VPC address prefixes** policy types aren't supported for transit gateway peer groups.
 
-To establish connectivity between Transit Gateway and dynamic route server appliances, configure network ACLs (NACLs) to allow GRE traffic (IP protocol 47). Also, configure security group (SG) rules to allow BGP traffic (TCP port 179) and GRE traffic (IP protocol 47) between Transit Gateway and the dynamic route server appliances.
+To establish connectivity between Transit Gateway and dynamic route server appliances, complete the following configuration:
 
+* Configure network ACLs (NACLs) to allow GRE traffic (IP protocol 47).
+* Configure security group (SG) rules to allow the following traffic between Transit Gateway and the dynamic route server appliances:
+    * BGP traffic (TCP port 179)
+    * GRE traffic (IP protocol 47)
 
 ## Routing table and policy considerations
 {: #drs-routing-table-considerations}

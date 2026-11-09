@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-07"
+lastupdated: "2026-11-08"
 
 subcollection: vpc
 
@@ -68,4 +68,4 @@ Yes. The VPC public gateway applies a fixed idle timeout of 4 minutes for TCP co
 {: #faq-crn}
 {: faq}
 
- To obtain the CRN of a VPC, click **menu** ![menu icon](images/icon_hamburger.svg) > **Resource list** from the {{site.data.keyword.cloud_notm}} console. Expand **Infrastructure** to list your VPCs. Select a VPC and then click the **Status** entry to view its details. Use the icon to copy the CRN and paste it where needed.
+ To obtain the CRN of a VPC, click the **Navigation menu** icon ![Navigation menu icon](../icons/icon_hamburger.svg) > **Resource list** from the {{site.data.keyword.cloud_notm}} console. Expand **Infrastructure** to list your VPCs. Select a VPC and then click the **Status** entry to view its details. Use the icon to copy the CRN and paste it where needed.

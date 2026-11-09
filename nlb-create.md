@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-11-05"
+lastupdated: "2026-11-08"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -153,6 +153,8 @@ To create a network load balancer with the CLI, follow these steps:
    ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
    ```
    {: pre}
+
+
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-11-06"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits
 
@@ -89,7 +89,7 @@ Comparatively, use cases for bare metal are common regardless of the deployment 
 
 In general, you choose bare metal servers over virtual server instances if you need to install a hypervisor or run real-time workloads that take advantage of physical cores, full memory bandwidth, or local storage.
 
-{{site.data.keyword.bm_is_short}} sets up a VMware virtualization environment in a VPC. {{site.data.keyword.bm_is_short}} offers improved security compared to a virtual server instance as customers fully manage the physical resources of a bare metal server until it is decommissioned. By contrast, virtual server instances can share resources such as CPU, memory, and processes, across an IBM managed hypervisor.
+{{site.data.keyword.bm_is_short}} offers improved security compared to a virtual server instance as customers fully manage the physical resources of a bare metal server until it is decommissioned. By contrast, virtual server instances can share resources such as CPU, memory, and processes, across an IBM managed hypervisor.
 
 Keep the following lifecycle operations differences in mind:
 
