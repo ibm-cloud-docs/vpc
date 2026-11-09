@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-11-06"
+lastupdated: "2026-11-09"
 
 keywords: dynamic route server
 
@@ -20,6 +20,8 @@ subcollection: vpc
 
 You can create a peer group to logically group related peers, define their routing roles, configure health monitoring, and control, which routes the dynamic route server processes from those peers. Policies are applied at the peer group level.
 {: shortdesc}
+
+
 
 ## Before you begin
 {: #create-peer-group-prerequisites}
@@ -44,7 +46,7 @@ To create a peer group in the console, follow these steps:
    - **Router** - Use this role when the peer exchanges routes with the dynamic route server by using BGP. Suitable for routers, firewalls, SD-WAN devices that advertise and learn routes.
    - **Next hop** - Use this role when the peer is only a forwarding target, not a route source. Suitable for firewalls or appliances through which traffic must flow, but that don't need to advertise routes.
 
-      Transit gateway peer groups can be set up only from the Transit Gateway service. For more information, see [Adding a connection](/docs/transit-gateway?topic=transit-gateway-adding-connections&interface=ui).
+      You can't create a transit gateway peer group in the dynamic route server console. Transit gateway peer groups are created automatically in the dynamic route server when you create a dynamic route server connection from the Transit Gateway side. For more information, see [Adding a dynamic route server connection to a transit gateway](/docs/transit-gateway?topic=transit-gateway-drs-connection).
       {: note}
 
 1. Select one of the following health monitor modes:
