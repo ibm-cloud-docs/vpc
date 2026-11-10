@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-11-09"
+lastupdated: "2026-11-10"
 
 keywords: help, support
 
@@ -18,7 +18,7 @@ subcollection: vpc
 If you experience an issue or have questions when using VPC infrastructure services, you can use the following resources before you open a support case.
 {: shortdesc}
 
-* Troubleshoot with {{site.data.keyword.paver_full}}{: external}. {{site.data.keyword.paver}} is an embedded AI operator that understands your account context, creates a resolution plan, and executes changes on your behalf, while always requiring your approval before touching your live environment.
+* Troubleshoot with [{{site.data.keyword.paver_full}}](https://paver.cloud.ibm.com/){: external}. {{site.data.keyword.paver}} is an embedded AI operator that understands your account context, creates a resolution plan, and executes changes on your behalf, while always requiring your approval before touching your live environment.
 * Review the [FAQs](/docs/vpc?topic=vpc-faqs-for-VPC) in the product documentation.
 * Review the [troubleshooting documentation](/docs/vpc?group=troubleshooting) to troubleshoot and resolve common issues.
 * Check the status of the {{site.data.keyword.Bluemix_notm}} platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-11-05"
+lastupdated: "2026-11-10"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -133,8 +133,6 @@ To create an ALB:
     * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout values are 50 seconds and 2 hours. These values are for both the client and server. To increase the timeout limit to more than 2 hours, [create a support case](/docs/support?topic=support-open-case&interface=ui) providing the business requirement for the timeout value required.
 
 1. Click **Create** to create the front-end listener.
-
-
 1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.
 
    Ensure that the security group allows for load-balancing traffic (listener, back-end, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
@@ -156,8 +154,8 @@ To create an ALB:
       * **Target**: Select a pool from the list of compatible pools as your backup pool.
 1. If you want to redirect the traffic from an HTTP listener to an HTTPS listener, you can create an HTTP listener with HTTPS redirect settings.
 
-    Layer 7 load-balancing policies overwrite settings that you define here. Also, keep in mind that there must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
-    {: note}
+   Layer 7 load-balancing policies overwrite settings that you define here. Also, keep in mind that there must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
+   {: note}
 
     To do so: 
 
