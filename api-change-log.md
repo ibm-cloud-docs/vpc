@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-10"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -328,7 +328,7 @@ For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=v
 A new child resource collection, `resource_bindings`, has been added to endpoint gateways. To [create a resource binding](/docs/apis/vpc/latest#create-endpoint-gateway-resource-binding) for an endpoint gateway, the endpoint gateway must reside in a VPC that is participating in a DNS sharing VPC topology and the VPC must have `dns.enable_hub` set to `false`. You can [delete](/docs/apis/vpc/latest#delete-endpoint-gateway-resource-binding) or [update](/docs/apis/vpc/latest#update-endpoint-gateway-resource-binding) a resource binding as needed. You can [retrieve](/docs/apis/vpc/latest#get-endpoint-gateway-resource-binding) or [list](/docs/apis/vpc/latest#list-endpoint-gateway-resource-bindings) resource bindings to view the `target` resource and its associated `service_endpoints`.
 
 ### For version `2025-11-18` or later
-{: #version-2025-11-18}
+{: #version-2025-11-18-dec}
 
 **Local-access endpoint gateways with DNS sharing for VPE gateways.** When using a `version` query parameter of `2025-11-18` or later, a new property, `dns_resolution_binding_mode`, has been added to endpoint gateways. This property replaces the `allow_dns_resolution_binding` and `allow_resource_binding` properties in older API versions.
 
@@ -338,7 +338,7 @@ In a DNS sharing VPC topology, when [creating](/docs/apis/vpc/latest#create-endp
 - `per_resource_binding` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service.
 
 ### For version `2025-11-17` or earlier
-{: #version-2025-11-17}
+{: #version-2025-11-17-dec}
 
 **Local-access endpoint gateways with DNS sharing for VPE gateways.** When using a `version` query parameter of `2025-11-17` or earlier, a new property, `allow_resource_binding` has been added to endpoint gateways. This property can be used together with `allow_dns_resolution_binding` to allow local access to resources in an endpoint gateway's target service.
 
