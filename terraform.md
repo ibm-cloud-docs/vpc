@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-09-08"
+lastupdated: "2026-11-11"
 
 keywords: Terraform, VPC, infrastructure as code, IaC, HashiCorp
 
@@ -129,6 +129,24 @@ Before you begin, make sure that you have the required access to create and work
 
 6. From the [{{site.data.keyword.cloud_notm}} resource list](/resources){: external}, select the {{site.data.keyword.vpc_full}} instance that you created and note the instance ID.
 7. Verify that the instance is running. For more information, see [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances).
+
+## Using IBM Terraform modules for VPC
+{: #terraform-ibm-modules}
+
+In addition to writing individual Terraform resources, you can use IBM Cloud Terraform modules to provision VPC infrastructure. IBM Cloud Terraform modules are a collection of open source Terraform modules that help you build, update, and version complex and compliant environments in IBM Cloud. The modules are curated and actively supported by the IBM Cloud development organization and are published in the [terraform-ibm-modules](https://github.com/terraform-ibm-modules){: external} GitHub organization.
+
+Rather than defining each `ibm_is_*` resource individually, you reference a module in a single `module` block and supply input variables. The module manages the underlying resources for you.
+
+IBM Terraform modules are available for an expanding set of VPC services. The following modules are currently available:
+
+| Service | Module |
+|---------|--------|
+| File storage | [terraform-ibm-vpc-file-storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external} |
+{: caption="IBM Terraform modules for VPC" caption-side="bottom"}
+
+The file storage module supports zonal file shares with the `dp2` profile only.
+
+For service-specific usage examples, see the Terraform tab in each service's documentation.
 
 ## What's next?
 {: #terraform-setup-next}

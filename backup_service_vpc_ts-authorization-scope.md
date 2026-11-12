@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2024, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, authorization scope, granular authorization, VSI authorization
+keywords: Backup for VPC, backup service, backup plan, backup policy, authorization scope, granular authorization, VSI authorization, IBM Cloud backup, backup job failed, backup troubleshooting
 
 subcollection: vpc
 

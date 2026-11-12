@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-10-27"
+lastupdated: "2026-11-11"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer 7
 
@@ -153,8 +153,8 @@ lbid=0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727
 You can deploy load balancer appliances to multiple subnets. To achieve higher availability and redundancy, deploy the load balancer to subnets in different zones.
 {: tip}
 
-## Step 2. Get details about the load balancer
-{: #step-2-get-details-about-the-alb}
+## Step 3. Get details about the load balancer
+{: #step-3-get-details-about-the-alb}
 
 ```sh
 curl -H "Authorization: Bearer $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
@@ -224,7 +224,7 @@ Sample output:
 ```
 {: screen}
 
-## Step 3. Delete the application load balancer
+## Step 4. Delete the application load balancer
 {: #step-3-delete-the-alb}
 
 ```sh

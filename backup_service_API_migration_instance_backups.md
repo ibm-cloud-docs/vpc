@@ -2,9 +2,9 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, api migration, versioned change
+keywords: Backup for VPC, api migration, versioned change, IBM Cloud backup, backup policies API, 2023-12-05
 
 subcollection: vpc
 

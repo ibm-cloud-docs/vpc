@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, IBM Cloud backup, snapshot failure, backup job failed, backup troubleshooting, snapshot quota reached
 
 subcollection: vpc
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Backup snapshots cannot be created because the snapshot quota for the storage volume is reached.
+{{site.data.keyword.cloud_notm}} backup snapshots can't be created when the snapshot quota for the storage volume is reached. Delete unneeded snapshots and review your retention.
 {: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshot-quota-reached'.

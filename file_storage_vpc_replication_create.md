@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-11-06"
+lastupdated: "2026-11-11"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -362,6 +362,9 @@ resource "ibm_is_share" "my-replica" {
 }
 ```
 {: screen}
+
+You can also use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external} to manage replication. Use a second `module` block with `mode = "replica"`, and pass the source share CRN through the `source_crn` input and the sync schedule through `replication_cron_spec`. For a complete example, see [Creating a zonal file share with a replica](/docs/vpc?topic=vpc-file-storage-create&interface=terraform#file-storage-tim-create-replica).
+{: tip}
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-10-14"
+lastupdated: "2026-11-11"
 
 keywords: snapshots, File storage snapshots, manage snapshots, backup snapshot, remote copy, cross-regional copy
 
@@ -179,6 +179,7 @@ resource "ibm_is_share_snapshot" "example" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_share_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_snapshot){: external}.
+
 
 ## Deleting snapshots in the console
 {: #fs-snapshots-delete-snapshot-ui}

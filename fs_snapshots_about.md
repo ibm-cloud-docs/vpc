@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-09-22"
+lastupdated: "2026-11-11"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -113,7 +113,7 @@ You can [create](/docs/vpc?topic=vpc-fs-snapshots-create#fs-snapshots-create) an
 * To use the console, log in to the [{{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-fs-snapshots-create&interface=ui).{: ui}
 * To use the [CLI](/docs/vpc?topic=vpc-fs-snapshots-create&interface=cli), download and install the required CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).{: cli}
 * To use the [API](/docs/vpc?topic=vpc-fs-snapshots-create&interface=api), set up the [VPC API](/docs/apis/vpc).{: api}
-* To use [Terraform](/docs/vpc?topic=vpc-fs-snapshots-create&interface=terraform), download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).{: terraform}
+* To use [Terraform](/docs/vpc?topic=vpc-fs-snapshots-create&interface=terraform), download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started). You can also use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external}.{: terraform}
 
 For more information about creating and managing snapshots, and restoring a share from a snapshot, see the following topics.
 * [Create](/docs/vpc?topic=vpc-fs-snapshots-create#fs-snapshots-create) your snapshots.

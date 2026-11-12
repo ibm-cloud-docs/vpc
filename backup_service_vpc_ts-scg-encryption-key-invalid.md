@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, IBM Cloud backup, snapshot consistency group, backup job failed, backup troubleshooting, encryption key invalid
 
 subcollection: vpc
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Backup snapshots in a consistency group cannot be created because the encryption key is invalid or inaccessible.
+{{site.data.keyword.cloud_notm}} backup snapshots in a consistency group can't be created when the encryption key is invalid or inaccessible. Verify the key and update your plan.
 {: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshot_consistency_group-encryption-key-invalid'.

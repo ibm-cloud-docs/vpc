@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists, IBM Cloud backup, backup jobs, backup job status
 
 subcollection: vpc
 

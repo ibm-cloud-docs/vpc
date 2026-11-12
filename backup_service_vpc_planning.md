@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-11-12"
 
-keywords: backup planning, restore volume, restore data
+keywords: backup planning, restore volume, restore data, IBM Cloud backup, backup strategy, backup checklist, snapshot retention
 
 subcollection: vpc
 

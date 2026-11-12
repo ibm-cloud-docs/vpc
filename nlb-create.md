@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-11-08"
+lastupdated: "2026-11-11"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -122,7 +122,6 @@ To create and configure a network load balancer in the {{site.data.keyword.cloud
 
    Then, click **Create**. You can create one or more listeners.
 
-
 1. For Security groups, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your NLB.
 
    Ensure that the security group allows for load-balancing traffic (listener, targets, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
@@ -153,7 +152,7 @@ To create a network load balancer with the CLI, follow these steps:
    ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
    ```
    {: pre}
-
+   
 
 
 
@@ -425,7 +424,7 @@ To create a network load balancer with the API, follow these steps:
            }'
    ```
    {: codeblock}
-
+   
 
    Sample output:
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-11-11"
 
-keywords: delete, resources, ui, console, cli, infrastructure, command line interface
+keywords: delete, resources, delete resource, delete resources, delete vpc
 
 
 subcollection: vpc
@@ -16,24 +16,33 @@ subcollection: vpc
 # Deleting a VPC and its associated resources
 {: #deleting-vpc-resources}
 
-Before you can delete an {{site.data.keyword.vpc_full}} in the {{site.data.keyword.cloud_notm}} console, you must delete all of the VPC's public gateways, subnets, and attached resources.
+You can delete a VPC and any of its associated resources. Keep in mind that before you can delete an {{site.data.keyword.vpc_full}} in the {{site.data.keyword.cloud_notm}} console, you must delete all of the associated public gateways, subnets, and attached resources.
 {: shortdesc}
 
 ## Deleting a VPC by using the IBM Cloud console
 {: #deleting-using-console}
 {: ui}
 
-To delete a VPC by using the console:
+You can't delete a VPC until it is empty and you can't delete a resource while it is in a transient state, such as `pending`, or while other resources depend on it. After you request a deletion, the resource shows a `deleting` status in list queries until it is removed. Because of this behavior, you must poll the resources that you delete and confirm that they don't appear in the list query before you delete the parent resource.
 
-1. Find all subnets in the VPC. Click **VPCs** in the navigation pane and select your VPC.
-2. On the VPC details page, go to the **Subnets in this VPC** list and select a subnet to view its details.
-3. Delete any resources that are attached to the subnet. In the navigation pane, click **Attached resources**. Select each attached instance, load balancer, and VPN gateway to go its details page. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Delete**. Attached instances must be stopped before you can delete them.
+   To facilitate deletion, delete resources in the following order. Make sure that you wait for each resource to disappear from the list query before you continue.
+   {: tip}
 
-    Although the resource's status immediately changes to **Deleting**, it can take up to 30 minutes for the delete operation to complete. The subnet can't be deleted until all attached resources are no longer displayed in the console.
-    {: tip}
+   * Delete your VPN gateways.
+   * Delete your load balancers.
+   * Stop and delete your instances.
+   * Release your floating IP addresses. Deleting an instance detaches its floating IP addresses but does not release them.
+   * Delete your subnets. Any public gateway that is attached to a subnet is automatically detached.
+   * Delete your public gateways.
+   * Delete your VPC.
 
-4. After all attached resources are deleted, go back to the subnet's details page, and click the delete icon.
-5. After you delete all subnets, go back to the details page for the VPC, and click the delete icon. The VPC and any public gateways are deleted.
+To delete a VPC by using the console, use the following steps. 
+
+1. Find all subnets in the VPC. Click **VPCs** in the navigation window and select your VPC.
+1. On the VPC details page, go to the **Subnets in this VPC** list and select a subnet to view its details.
+1. Delete any resources that are attached to the subnet. In the navigation window, click **Attached resources**. Select each attached instance, load balancer, and VPN gateway to go its details page. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Delete**. Attached instances must be stopped before you can delete them. Keep in mind that although the resource's status immediately changes to **Deleting**, it can take up to 30 minutes for the deletion to complete. The subnet can't be deleted until all attached resources are no longer displayed in the console.
+1. After all attached resources are deleted, go back to the subnet's details page, and click the delete icon.
+1. After you delete all subnets, go back to the details page for the VPC, and click the delete icon. The VPC and any public gateways are deleted.
 
 ## Deleting a VPC by using the IBM Cloud CLI
 {: #deleting-using-cli}
@@ -90,6 +99,8 @@ If the VPC you want to delete has multiple subnets, repeat these steps to delete
 ### Step 2: Delete each subnet in the VPC
 {: #deleting-subnet-resources-cli}
 
+Use the following commands to delete each subnet in your VPC.
+
 #### Delete all VPN gateways in the subnet, if any
 {: #deleting-vpn-cli}
 
@@ -100,7 +111,7 @@ ibmcloud is vpn-gateways
 ```
 {: pre}
 
-For each VPN gateway in the subnet you want like to delete, run the following command, where `$vpnid` is the ID of the VPN gateway.
+For each VPN gateway that is in the subnet you want like to delete, run the following command, where `$vpnid` is the ID of the VPN gateway.
 
 ```sh
 ibmcloud is vpn-gateway-delete $vpnid
@@ -119,7 +130,7 @@ ibmcloud is load-balancers
 ```
 {: pre}
 
-For each load balancer in the subnet you want to delete, run the following command, where `$lbid` is the ID of the load balancer.
+For each load balancer in the subnet that you want to delete, run the following command, where `$lbid` is the ID of the load balancer.
 
 ```sh
 ibmcloud is load-balancer-delete $lbid
@@ -150,7 +161,7 @@ ibmcloud is instances
 ```
 {: pre}
 
-If you are deleting all instances in the VPC, you can run the following command for each instance in the VPC, where `$vsi` is the ID of the instance you want to delete. When the instance is deleted, all network interfaces in other subnets, if any, are deleted automatically.
+If you want to delete all instances that are in the VPC, run the following command for each instance, where `$vsi` is the ID of the instance you want to delete. When the instance is deleted, all network interfaces in other subnets, if any, are deleted automatically.
 
 Instances must be stopped before you can delete them. To stop an instance, run the `ibmcloud is instance-stop` command.
 {: tip}
@@ -189,7 +200,7 @@ ibmcloud is public-gateways
 ```
 {: pre}
 
-For each public gateway in the VPC you want to delete, run the following command to delete the public gateway, where `$gateway` is the public gateway ID.
+For each public gateway that is in the VPC that you want to delete, run the following command where `$gateway` is the public gateway ID.
 
 ```sh
 ibmcloud is public-gateway-delete $gateway
@@ -200,7 +211,7 @@ ibmcloud is public-gateway-delete $gateway
 ### Step 4: Delete the VPC
 {: #deleting-single-vpc-cli}
 
-After all subnets and public gateways in the VPC are deleted, run the following command to delete the VPC, where `$vpc` is the ID of the VPC you are deleting.
+After all subnets and public gateways in the VPC are deleted, run the following command to delete the VPC, where `$vpc` is the ID of the VPC you want to delete.
 
 ```sh
 ibmcloud is vpc-delete $vpc
@@ -216,17 +227,17 @@ The status of the VPC changes to `deleting` immediately, but it might take a few
 The following steps are the main parts in the process:
 
 1. Find all subnets in the VPC that you want to delete.
-2. Delete each subnet in the VPC, which means:
+2. Delete each subnet in the VPC, which means
     - Delete all VPN gateways in the subnet.
     - Delete all Load Balancers in the subnet.
     - Delete all network interfaces of the instances in the subnet.
     - Delete the subnet.
-3. Delete all public gateways in the VPC.
+3. Delete all public gateways that are in the VPC.
 4. Delete the VPC.
 
 The following sections provide some example API calls that you can run to delete a VPC.
 
-### Step 1: Find all subnets in the VPC that you want to delete
+### Step 1: Find all subnets that are in the VPC that you want to delete
 {: #deleting-find-subnets-api}
 
 Before a VPC can be deleted, each of its subnets must be deleted. Get the ID of the VPC that you want to delete by running the following command and looking at the `id` value:
@@ -333,7 +344,7 @@ curl -X GET "$vpc_api_endpoint/v1/instances?version=$version&generation=2" \
 ```
 {: pre}
 
-If you are deleting all instances in the VPC, you can run the following command for each instance in the VPC, where `$vsi` is the ID of the instance you want to delete. When the instance is deleted, all network interfaces in other subnets, if any, are deleted automatically.
+If you are deleting all instances in the VPC, you can run the following command for each instance in the VPC, where `$vsi` is the ID of the instance that you want to delete. When the instance is deleted, all network interfaces in other subnets, if any, are deleted automatically.
 
 Instances must be stopped before you can delete them. For more information, see [Create an instance action](/docs/apis/vpc/latest#create-instance-action) to use the `type` request and `stop` action.
 {: tip}
@@ -357,7 +368,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/subnets/$subnet?version=$version&generation
 ```
 {: pre}
 
-The status of the subnet changes to `deleting` immediately, but it might take a few minutes for the subnet to be deleted and it no longer returns in the list queries.
+The status of the subnet changes to `deleting` immediately, but it might take a few minutes for the subnet delete and it no longer returns in the list queries.
 
 ### Step 3: Delete all public gateways in the VPC, if any
 {: #deleting-pgs-api}
@@ -370,7 +381,7 @@ curl -X GET "$vpc_api_endpoint/v1/public_gateways?version=$version&generation=2"
 ```
 {: pre}
 
-For each public gateway in the VPC you want to delete, run the following command to delete the public gateway, where `$gateway` is the public gateway ID.
+For each public gateway in the VPC that you want to delete, run the following command to delete the public gateway, where `$gateway` is the public gateway ID.
 
 ```bash
 curl -X DELETE "$vpc_api_endpoint/v1/public_gateways/$gateway?version=$version&generation=2" \

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-11-11"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -410,6 +410,9 @@ resource "ibm_is_share" "example" {
 }
 ```
 {: codeblock}
+
+When you use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external}, change the `iops` input variable in your module block and run `terraform apply` again to adjust IOPS for the file share.
+{: tip}
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 

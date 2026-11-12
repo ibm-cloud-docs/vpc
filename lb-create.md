@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-11-10"
+lastupdated: "2026-11-11"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -55,11 +55,11 @@ To create an ALB:
    * **Name**: Enter a name for the pool, such as `my-pool`.
    * **Pool protocol**: Select the protocol for your instances in this pool. The pool protocol must be compatible with its listener protocol. For HTTP or HTTPS listeners, use HTTP as the pool protocol. For TCP listeners, use TCP as the pool protocol.
    * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.
-   * **Proxy protocol**: Select **Disabled** (default), **Version 1**, or **Version 2** (versions of the proxy protocol header). Proxy protocol attaches a proxy protocol header to the TCP, HTTP, and HTTPS packets that are sent to the back-end pool. This setting enables the the back-end servers to get the client IP and port information that the load balancer sets in the proxy protocol header.
+   * **Proxy protocol**: Select **Disabled** (default), **Version 1**, or **Version 2** (versions of the proxy protocol header). Proxy protocol attaches a proxy protocol header to the TCP, HTTP, and HTTPS packets that are sent to the back-end pool. This setting enables the back-end servers to get the client IP and port information that the load balancer sets in the proxy protocol header.
    * **Method**: Select how you want the load balancer to distribute traffic across the instances in the pool:
        * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
        * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
-       * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to `60`, `60` and `30`. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
+       * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to `60`, `60`, and `30`. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
    * **Health check**: Configure how the load balancer checks the health of the instances.
        * **Health check path**: The health check path is applicable only if HTTP is selected as the health check protocol. The health check path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (`/`).
        * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
@@ -69,8 +69,8 @@ To create an ALB:
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 1. (Optional) Select **Request settings** to customize health check request values. If no values are specified, the default settings are used.
 
-   * **Request method**: Choose one of `GET` or `POST`. You can customize Request headers for both methods. You can optionally customize a Request body while using the `POST` method.
-   * **Request Body**: Include the HTTP request body to use for health checks. If unspecified, health check requests will not have a request body.
+   * **Request method**: Choose one of `GET` or `POST`. You can customize request headers for both methods. You can optionally customize a request body while using the `POST` method.
+   * **Request body**: Include the HTTP request body to use for health checks. If unspecified, health check requests will not have a request body.
    * **Host header**: Include host header to ensure request uses HTTP/1.1 protocol. Otherwise, the system defaults to HTTP/1.0.
    * **Add other request headers**: Add one or more additional request headers.
    * **Header name**: For `GET` request method, choose one of `content-type`, `accept`, `authorization`, `cookie`, `origin`, `referrer`, or `user-agent`. For `POST` request method, choose one of `content-type`, `content-length`, `application-json`, or `accept-encoding`.
@@ -78,11 +78,11 @@ To create an ALB:
 
    For Private Path Network Load Balancers (PPNLBs), there is a known issue in which the health monitor request and response fields are not returned in the GET API response.
    {: note}
-   
+
 1. (Optional) Select **Response settings** to customize health check response values. If no values are specified, the default settings are used.
 
    * **Response body**: Enter response body text.
-   * **Response code**: You can specify multiple comma separated values within the range of 100-599. To specify a range, use XX. For example, 2XX for 200-299.
+   * **Response code**: You can specify multiple comma-separated values within the range of 100-599. To specify a range, use XX. For example, 2XX for 200-299.
 
        HTTP sends data as plain text that can be intercepted and is considered insecure. `https` is recommended instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}.
        {: note}
@@ -133,6 +133,8 @@ To create an ALB:
     * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout values are 50 seconds and 2 hours. These values are for both the client and server. To increase the timeout limit to more than 2 hours, [create a support case](/docs/support?topic=support-open-case&interface=ui) providing the business requirement for the timeout value required.
 
 1. Click **Create** to create the front-end listener.
+
+
 1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.
 
    Ensure that the security group allows for load-balancing traffic (listener, back-end, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
@@ -157,7 +159,7 @@ To create an ALB:
    Layer 7 load-balancing policies overwrite settings that you define here. Also, keep in mind that there must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
    {: note}
 
-    To do so: 
+    To do so:
 
     * After the status of the load balancer changes to **Active**, click the **Front-end listeners** tab.
     * In the listener list page, click **Create**, then specify the following information:
@@ -213,44 +215,44 @@ To create an application load balancer from the CLI, follow these steps:
     ibmcloud is load-balancer-create alb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family application
     ```
     {: pre}
-
+    
     
     Sample output:
 
     ```sh
-    ibmcloud is load-balancer-create my-lb public --subnet my-subnet 
+    ibmcloud is load-balancer-create my-lb public --subnet my-subnet
     Creating load balancer my-lb under account vpcdemo as user test@ibm.com..
-                                        
-    ID                                 r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423   
-    Name                               my-lb   
-    CRN                                crn:v1:bluemix:public:is:au-syd:a/7f75c7b025e54bc5635f754b2f888665::load-balancer:r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423   
-    Family                             application   
-    Host name                          ec6717fa-au-syd.lb.appdomain.cloud   
-    Subnets                            ID                                          Name      
-                                    02h7-16f74a61-b586-4143-92df-dbc4a047bd5c   my-subnet      
-                                        
-    Public IPs                            
-    Private IPs                           
-    Provision status                   create_pending   
-    Operating status                   offline   
-    Is public                          true   
-    Is private path                    false   
-    Listeners                             
-    Pools                              ID   Name      
-                                        
-    Resource group                     ID                                 Name      
-                                    bdd96715c2a44f2bb60df4ff14a543f5   -      
-                                        
-    Created                            2026-05-26T14:47:06+05:30   
-    Availability                       subnet   
-    Instance Group Supported           true   
-    SourceIP Session Supported         true   
-    Security groups supported          true   
-    UDP Supported                      false   
-    Failsafe policy actions            fail,drop,forward   
-    Access mode                        public   
-    Advanced Health Checks Supported   true   
-    FQDN Pool Members Supported        true     
+
+    ID                                 r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423
+    Name                               my-lb
+    CRN                                crn:v1:bluemix:public:is:au-syd:a/7f75c7b025e54bc5635f754b2f888665::load-balancer:r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423
+    Family                             application
+    Host name                          ec6717fa-au-syd.lb.appdomain.cloud
+    Subnets                            ID                                          Name
+                                    02h7-16f74a61-b586-4143-92df-dbc4a047bd5c   my-subnet
+
+    Public IPs
+    Private IPs
+    Provision status                   create_pending
+    Operating status                   offline
+    Is public                          true
+    Is private path                    false
+    Listeners
+    Pools                              ID   Name
+
+    Resource group                     ID                                 Name
+                                    bdd96715c2a44f2bb60df4ff14a543f5   -
+
+    Created                            2026-05-26T14:47:06+05:30
+    Availability                       subnet
+    Instance Group Supported           true
+    SourceIP Session Supported         true
+    Security groups supported          true
+    UDP Supported                      false
+    Failsafe policy actions            fail,drop,forward
+    Access mode                        public
+    Advanced Health Checks Supported   true
+    FQDN Pool Members Supported        true
     ```
     {: screen}
 
@@ -483,7 +485,7 @@ To create an application load balancer with the API, follow these steps:
           }'
     ```
     {: codeblock}
-
+    
     
     For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/docs/apis/vpc/latest#list-load-balancer-profiles).
 
@@ -537,7 +539,7 @@ To create an application load balancer with the API, follow these steps:
       ```
       {: pre}
 
-1. Get details about the load balancer
+1. Get details about the load balancer:
 
     ```bash
     curl -H "Authorization: Bearer $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"

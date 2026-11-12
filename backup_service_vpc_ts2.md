@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, IBM Cloud backup, backup job failed, failed state, snapshot limit
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ content-type: troubleshoot
 {: #baas-ts-2}
 {: troubleshoot}
 
-Backup jobs can fail due to an internal error or because the snapshot limit for the volume is reached.
+{{site.data.keyword.cloud_notm}} backup jobs can fail due to an internal error or because the volume's snapshot limit is reached. Learn how to find the cause and resolve it.
 {: shortdesc}
 
 The backup failed, as indicated in the backup job details. When you make a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` call, the `status` property shows `failed`.

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, IBM Cloud backup, snapshot consistency group, backup job failed, backup troubleshooting, volume too large, 10 TB limit
 
 subcollection: vpc
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Backup snapshots in a consistency group cannot be created because one or more Gen 1 parent volumes exceed the 10 TB size limit.
+{{site.data.keyword.cloud_notm}} backup snapshots in a consistency group can't be created when Gen 1 parent volumes exceed the 10 TB limit. Snapshots aren't supported for these volumes.
 {: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshot_consistency_group-volume-too-large'.

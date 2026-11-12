@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, IBM Cloud backup, backup best practices, snapshot retention, backup costs
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Best practices for backups
 {: #backups-vpc-best-practices}
 
-To help ensure that you're using the VPC Backup Service most effectively and economically, consider the following suggestions.
+Use these suggestions for {{site.data.keyword.cloud_notm}} Backup for VPC to create backup policies and plans, retain snapshots economically, and recover volume and share data.
 {: shortdesc}
 
 ## General best practices

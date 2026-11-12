@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-11-08"
+lastupdated: "2026-11-11"
 
 keywords: application, load balancer, application, public, private, listener, back-end, front-end, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -29,9 +29,12 @@ This table shows a comparison of public versus private features.
 
 | Feature | Public load balancer | Private load balancer |
 |--------|-------|-------|
-| Accessible on the internet? |  Yes, with a fully qualified domain name (FQDN) | No, internal clients only, on same region and VPC |
-| Accepts all traffic? | Yes | Yes \n (The restriction to accept traffic only from the RFC-1918 address space is removed.) |
-| How is the domain name registered? | Public IP addresses | Private IP addresses |
+| Internet access |  Yes, accessible by using a fully qualified domain name (FQDN) | No, accessible to internal clients only within the same region and VPC |
+| Incoming traffic | Accepts all traffic | Accepts all traffic (the restriction to
+accept traffic only from the RFC 1918 address space is removed for private load
+balancers.) |
+| Domain name registration | Public IPv4 addresses; also public IPv6 addresses when IPv6 is enabled | Private IP addresses |
+| IPv6 (dual-stack) support | Yes, with the dynamic profile | No |
 {: caption="Comparison of public and private load balancers" caption-side="bottom"}
 
 ### Public application load balancer

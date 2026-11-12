@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-10-14"
+lastupdated: "2026-11-12"
 
-keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data, IBM Cloud backup, update backup policy, delete backup policy, backup schedule
 
 subcollection: vpc
 

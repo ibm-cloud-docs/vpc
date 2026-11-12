@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-29"
+lastupdated: "2026-11-11"
 
 keywords: vpc, public address ranges, ipv6, about
 
@@ -64,7 +64,7 @@ Review the following before you create an IPv6 public address range.
 * Protocol 46 (IPv6 Encapsulation) and protocol 59 (No Next Header for IPv6) are not valid values in security group or network ACL rules.
 * Use custom IAM roles on the Public Address Range resource to control which users in an account can manage IPv6 public address ranges.
 
-## Limitations
+### Limitations
 {: #ipv6-par-limitations}
 
 IPv6 public address ranges are available for VNIs that are attached to virtual server instances and bare metal servers. The following scope applies to this release:
@@ -73,7 +73,7 @@ IPv6 public address ranges are available for VNIs that are attached to virtual s
 * IPv6 public address ranges bind to a VNI, not a VPC, and route the entire address block to that VNI. Individual addresses from the range cannot be reserved as floating IPs.
 * Flow log collectors do not record IPv6 public address range traffic. This capability is planned for a future release.
 
-* IPv6 public address ranges work with security groups and network ACLs only. They do not interoperate with VPN gateways, VPN servers, {{site.data.keyword.tg_full_notm}}, {{site.data.keyword.dl_full_notm}}, endpoint gateways, Private Path service gateways, {{site.data.keyword.containerlong_notm}}, {{site.data.keyword.openshiftlong_notm}}, or other platform services in this release.
+* IPv6 public address ranges work with security groups and network ACLs only.
 
 ## Getting started
 {: #ipv6-par-getting-started}

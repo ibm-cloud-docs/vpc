@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-09-03"
+lastupdated: "2026-11-11"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -543,6 +543,9 @@ resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
 }
 ```
 {: codeblock}
+
+When you use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external} with a KMS root key in the same account, the module automatically creates the required service-to-service authorization policy when `kms_encryption_enabled = true` and `kms_key_crn` is provided. If the root key belongs to another account or if `skip_iam_share_authorization_policy` is set to `true`, create the authorization policy separately.
+{: tip}
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 

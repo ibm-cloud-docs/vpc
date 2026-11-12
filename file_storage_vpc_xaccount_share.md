@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-11-11"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -423,6 +423,18 @@ resource "ibm_is_share" "share4" {
            }
     }
    }
+}
+```
+{: codeblock}
+
+You can also create the accessor share binding by using the [IBM Terraform Module for VPC File Storage `accessor` sub-module](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external}:
+
+```terraform
+module "accessor" {
+  source     = "terraform-ibm-modules/vpc-file-storage/ibm//modules/accessor"
+  version    = "X.Y.Z" # replace with a specific release version
+  name       = "<accessor_share_name>"
+  source_crn = "<source_share_crn>"
 }
 ```
 {: codeblock}

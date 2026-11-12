@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, IBM Cloud backup, snapshot failure, backup job failed, backup troubleshooting, encryption key invalid
 
 subcollection: vpc
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Backup snapshots cannot be created because the encryption key is invalid or inaccessible.
+{{site.data.keyword.cloud_notm}} backup snapshots can't be created when the encryption key is invalid or inaccessible. Verify the key in your key management system and update your plan.
 {: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshots-encryption-key-invalid'.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-14"
+lastupdated: "2026-11-11"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -537,6 +537,9 @@ resource "ibm_is_share_mount_target" "is_share_target" {
 
 For more information about the arguments and attributes, see [ibm_is_share_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_mount_target){: external}.
 
+Instead of managing individual resources, you can use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external} to update file shares by changing module input variables and running `terraform apply` again.
+{: tip}
+
 ## Adding user tags to a file share
 {: #fs-add-user-tags}
 
@@ -895,6 +898,9 @@ resource "ibm_is_share" "example" {
 ```
 {: codeblock}
 
+When you use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external}, pass tags through the `tags` input variable in your module block and run `terraform apply` again.
+{: tip}
+
 ## Adding access management tags to a file share
 {: #fs-add-access-mgt-tags}
 {: ui}
@@ -943,6 +949,9 @@ Create an argument in your `main.tf` file. The following example creates the acc
    }
    ```
     {: codeblock}
+
+When you use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external}, access management tags are passed through the `access_tags` input variable in the module block and applied on `terraform apply`.
+{: tip}
 
 ### Step 2 - Adding an access management tag to a file share
 {: #fs-add-access-mgt-tag}
@@ -1335,6 +1344,9 @@ terraform destroy --target ibm_is_share.example
 
 Using this method preserves the resource block in your configuration, which creates a drift between your configuration and your infrastructure state. Remove the resource block from your configuration after you confirm that the file share is deleted.
 
+When you use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external}, run `terraform destroy` on the module block to remove the file share and all its mount targets together.
+{: tip}
+
 If the file share has snapshots, those snapshots are deleted along with the file share.
 
 For more information, see [terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply){: external} and [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
@@ -1348,7 +1360,6 @@ resource "ibm_is_share_delete_accessor_binding" "example" {
 }
 ```
 {: pre}
-{: terraform}
 
 For more information about the arguments and attributes, see [ibm_is_share_delete_accessor_binding](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_delete_accessor_binding){: external}.
 {: terraform}

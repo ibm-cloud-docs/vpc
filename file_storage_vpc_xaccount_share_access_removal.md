@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-11-11"
 
 keywords: file share, file storage, virtual network interface, accessor share, de-auth
 
@@ -64,6 +64,10 @@ resource "ibm_is_share_delete_accessor_binding" "example" {
 }
 ```
 {: pre}
+{: terraform}
+
+When you use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external}, destroy the module block (`terraform destroy --target module.accessor`) to remove the accessor binding and revoke cross-account access.
+{: tip}
 {: terraform}
 
 For more information about the arguments and attributes, see [ibm_is_share_delete_accessor_binding](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_delete_accessor_binding){: external}.

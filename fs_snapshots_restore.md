@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-11-11"
 
 keywords:
 
@@ -268,6 +268,31 @@ resource "ibm_is_share" "storage" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
+
+### Restoring a share from a snapshot with the IBM Terraform Module for VPC File Storage
+{: #fs-snapshots-tim-restore}
+
+You can also use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external} to restore a file share from a snapshot with `mode = "snapshot_restore"`.
+
+```terraform
+module "snapshot_restored_file_storage" {
+  source            = "terraform-ibm-modules/vpc-file-storage/ibm//modules/snapshot_restore"
+  version           = "X.Y.Z" # replace with a specific release version
+  name              = "my-restored-share"
+  resource_group_id = "<resource_group_id>"
+  source_crn        = "<source_share_crn>"
+  size              = 200
+  initial_owner_uid = 10001
+  initial_owner_gid = 10002
+  snapshot_restore = {
+    snapshot_name              = "my-first-share-snapshot"
+    create_snapshot_if_missing = false
+  }
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see the [module documentation](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external}.
 
 ## Restoring files from a snapshot
 {: #fs-snapshots-restore-single-file}

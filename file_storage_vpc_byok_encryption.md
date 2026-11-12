@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-11-11"
 
 keywords: file share, customer-managed encryption, encryption, KMS, Key Protect, Standard, Dedicated,
 
@@ -423,6 +423,9 @@ resource "ibm_is_share" "share4" {
 }
 ```
 {: screen}
+
+When you use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external}, set `kms_encryption_enabled = true` and provide the CRN of your KMS root key in the `kms_key_crn` input variable instead of setting `encryption_key` directly on the resource.
+{: tip}
 
 The following example creates a regional file share with 1000 GiB capacity and the `rfs` performance profile. The file share is encrypted by using a key that is identified by its CRN.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-10-30"
+lastupdated: "2026-11-11"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -1258,6 +1258,114 @@ resource "ibm_is_share" "example" {
 }
 ```
 {: codeblock}
+
+## Using the IBM Terraform Module for VPC File Storage
+{: #file-storage-create-tim-module}
+{: terraform}
+
+Instead of writing individual `ibm_is_share` and `ibm_is_share_mount_target` resources, you can use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external} to create file shares and mount targets with a single `module` block. For more information about IBM Terraform modules, see [Using IBM Terraform modules for VPC](/docs/vpc?topic=vpc-terraform-setup#terraform-ibm-modules). The module supports zonal file shares (using the `dp2` profile), security-group-based mount targets, replicas, snapshot restores, and supplemental IDs.
+
+### Before you begin
+{: #file-storage-tim-prereqs}
+
+- Install the [Terraform CLI](https://developer.hashicorp.com/terraform/install){: external} and configure the [IBM Cloud Provider plug-in](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+- Export your IBM Cloud API key as the `TF_VAR_ibmcloud_api_key` environment variable, or set `ibmcloud_api_key` directly in your `provider` block.
+
+### Creating a zonal file share with a mount target
+{: #file-storage-tim-create}
+
+The module wraps `ibm_is_share` and `ibm_is_share_mount_target` into a single call. The following example creates a zonal file share with the `dp2` profile and attaches a mount target that uses security group access mode. Mount targets created through the module always use `security_group` access control mode — the deprecated VPC-wide access mode is not supported.
+
+```terraform
+provider "ibm" {
+  ibmcloud_api_key = var.ibmcloud_api_key
+  region           = "us-south"
+}
+
+module "file_storage" {
+  source            = "terraform-ibm-modules/vpc-file-storage/ibm"
+  version           = "X.Y.Z" # replace with a specific release version
+  name              = "my-share"
+  resource_group_id = "<resource_group_id>"
+  size              = 200
+  iops              = 500
+  profile           = "dp2"
+  zone              = "us-south-2"
+  initial_owner_uid = 10001
+  initial_owner_gid = 10002
+  sg_mount_targets = {
+    "primary" = {
+      name               = "my-mount-target"
+      subnet_id          = "<subnet_id>"
+      security_group_ids = ["<security_group_id>"]
+      transit_encryption = "none"
+      access_protocol    = "nfs4"
+    }
+  }
+}
+```
+{: codeblock}
+
+After `terraform apply`, use the `file_share` and `mount_targets` outputs to retrieve the share ID and mount target details for mounting on your virtual server instances.
+
+### Creating a zonal file share with a replica
+{: #file-storage-tim-create-replica}
+
+Use a second module block with `mode = "replica"` to create a replica in another zone. Pass the CRN of the source share to the `source_crn` input. For a cross-regional replica, also set `cross_regional_replica = true`.
+
+```terraform
+module "file_storage" {
+  source            = "terraform-ibm-modules/vpc-file-storage/ibm"
+  version           = "X.Y.Z" # replace with a specific release version
+  name              = "my-share"
+  resource_group_id = "<resource_group_id>"
+  size              = 220
+  iops              = 800
+  profile           = "dp2"
+  zone              = "us-south-1"
+  initial_owner_uid = 10001
+  initial_owner_gid = 10002
+}
+
+module "replica" {
+  source                = "terraform-ibm-modules/vpc-file-storage/ibm"
+  version               = "X.Y.Z" # replace with a specific release version
+  mode                  = "replica"
+  name                  = "my-replica"
+  zone                  = "us-south-3"
+  source_crn            = module.file_storage.file_share.crn
+  replication_cron_spec = "0 */5 * * *"
+}
+```
+{: codeblock}
+
+### Creating a file share from a snapshot
+{: #file-storage-tim-snapshot-restore}
+
+You can also use the [IBM Terraform Module for VPC File Storage](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external} to restore a file share from a snapshot with `mode = "snapshot_restore"`. For more information and an example, see [Restoring a share from a snapshot with the IBM Terraform Module for VPC File Storage](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=terraform#fs-snapshots-tim-restore).
+
+### Adding supplemental IDs when you create a file share with the module
+{: #file-storage-tim-supplemental-ids}
+
+Specify `initial_owner_uid` and `initial_owner_gid` to set the UID and GID ownership on the root directory of the share at mount time. `initial_owner_uid` must be 10000 or higher.
+
+```terraform
+module "file_storage" {
+  source             = "terraform-ibm-modules/vpc-file-storage/ibm"
+  version            = "X.Y.Z" # replace with a specific release version
+  name               = "my-share"
+  resource_group_id  = "<resource_group_id>"
+  size               = 200
+  iops               = 500
+  profile            = "dp2"
+  zone               = "us-south-2"
+  initial_owner_uid  = 10041
+  initial_owner_gid  = 10042
+}
+```
+{: codeblock}
+
+For a full list of input variables and outputs, see the [module documentation](https://github.com/terraform-ibm-modules/terraform-ibm-vpc-file-storage){: external} on GitHub.
 
 ## Next steps
 {: #fs-create-next-steps}

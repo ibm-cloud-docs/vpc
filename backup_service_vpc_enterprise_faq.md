@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-11-12"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs, IBM Cloud backup, enterprise account, cross-account backup, service-to-service authorization
 
 subcollection: vpc
 
