@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Backup snapshots fail for Generation 1 volumes that exceed 10 TB. Learn about snapshot size limitations and why no workaround exists for oversized Generation 1 volumes.
+{{site.data.keyword.cloud_notm}} backup snapshots fail for Generation 1 volumes that exceed 10 TB. Snapshots aren't supported for these volumes.
 {: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the error message 'snapshots-volume-too-large'.
