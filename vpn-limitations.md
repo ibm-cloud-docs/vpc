@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-11-20"
 
 keywords:
 
@@ -68,3 +68,7 @@ Review the following restrictions that apply to regional route-based VPN gateway
 * When you use a static route-based connection with a regional VPN gateway, you must create a separate ingress route for each zone in which an appliance is deployed. See [Ingress routing for a regional static route-based VPN gateway](/docs/vpc?topic=vpc-advertise-routes-s2s#ingress-routing-regional-vpn).
 * When a regional VPN gateway member is updated to a new subnet, VPN connections through that member experience a brief disruption. Traffic automatically fails over to the other member during the update.
 * Cross-zone traffic between a VPN appliance in one zone and a workload in another zone traverses the {{site.data.keyword.cloud_notm}} network between zones. This traffic can affect latency, so evaluate the impact for latency-sensitive applications.
+* For a static route-based connection, traffic does not switch over automatically to the secondary member if you update the subnet of an active primary member, even after the tunnel comes back up. To avoid this issue, use one of the following workarounds:
+
+   * Set the connection status to down before you update the member, and bring the connection back up when the member is available again.
+   * Delete and re-create the route after the member update is successful and the connection is back up.

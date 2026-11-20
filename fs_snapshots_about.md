@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-11-11"
+lastupdated: "2026-11-20"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -78,6 +78,7 @@ The following limitations apply for the second-generation file storage snapshots
 
 * You can take up to 30 snapshots per share in a region. This snapshot limit can be increased upon request.
 * You cannot use a second-generation snapshot to create a zonal file share.
+* Hard links are not preserved when you restore a regional file share from a snapshot. Files that are hard-linked in the snapshot are created as independent files in the new share. For more information, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore#fs-snapshots-restore-limitations).
 
 The following limitations apply for the first-generation file storage snapshots:
 

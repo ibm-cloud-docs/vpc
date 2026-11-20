@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-11-12"
+lastupdated: "2026-11-20"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, IBM Cloud backup, event notifications, backup job failed, backup alerts
 
@@ -32,15 +32,15 @@ The following table lists the IBM Cloud Backup for VPC events.
 
 | Event type                                 | Description |
 |--------------------------------------------|-------------|
-| Volume backup job creation failure \n - `service-to-service-policy-missing` \n - `snapshot-quota-reached` \n - `snapshots-bad-state` \n - `snapshots-source-volume-busy` \n - `snapshot-volume-too-large` \n - `snapshot-volume-unavailable` \n - `snapshots-encryption-key-invalid` | These events are created when a backup job can't create a backup snapshot due to missing authorization, too many existing snapshots, or when the source volume is busy. For more information, see [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3), [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-monitoring&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). For more information about possible fixes, see [Troubleshooting Backup](/docs/vpc?group=tbs-backup) topics.|
+| Volume backup job creation failure \n - `service-to-service-policy-missing` \n - `snapshot-quota-reached` \n - `snapshots-bad-state` \n - `snapshots-source-volume-busy` \n - `snapshot-volume-too-large` \n - `snapshot-volume-unavailable` \n - `snapshots-encryption-key-invalid` | These events are created when a backup job can't create a backup snapshot due to missing authorization, too many existing snapshots, or when the source volume is busy. For more information, see [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3), [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-monitoring&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). For more information about possible fixes, see [troubleshooting backup](/docs/vpc?group=tbs-backup) topics.|
 | Volume backup job retention failure \n - `service-to-service-policy-missing` \n - `snapshot-bad-state` \n - `snapshot-in-pending-state` | These events are created when a backup job can't delete a backup snapshot due to missing authorization, or because the snapshot was in `pending` or `bad` state. For more information, see [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-monitoring&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).  |
-| Instance backup job creation failure \n - `service-to-service-policy-missing` \n - `snapshot_consistency_group-quota-reached` \n - `snapshot_consistency_group-bad-state` \n - `snapshot_consistency_group-source-volume-busy` \n - `snapshot_consistency_group-volume-too-large` \n - `snapshot_consistency_group-volume-unavailable`  \n - `snapshot_consistency_group-encryption-key-invalid` | These events are created when a backup job can't create the snapshots of a consistency group due to various reasons. For example, missing authorization, unavailability of the instance that the volumes are attached to, inaccessible encryption key, or service limits for size of the volume or number of snapshots are reached. For more information, see [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-monitoring&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).  For more information about possible fixes, see [Troubleshooting Backup](/docs/vpc?group=tbs-backup) topics. |
-| Instance backup job retention failure \n - `service-to-service-policy-missing` \n - `snapshot_consistency_group-bad-state` \n - `snapshot-consistency-group-in-pending-state` |  These events are created when a backup job can't delete the backup snapshots that are part of a consistency group due to missing authorization, or the snapshots are in `pending` state. For more information, see [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-monitoring&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). For more information about possible fixes, see [Troubleshooting Backup](/docs/vpc?group=tbs-backup) topics. |
+| Instance backup job creation failure \n - `service-to-service-policy-missing` \n - `snapshot_consistency_group-quota-reached` \n - `snapshot_consistency_group-bad-state` \n - `snapshot_consistency_group-source-volume-busy` \n - `snapshot_consistency_group-volume-too-large` \n - `snapshot_consistency_group-volume-unavailable`  \n - `snapshot_consistency_group-encryption-key-invalid` | These events are created when a backup job can't create the snapshots of a consistency group due to various reasons. For example, missing authorization, unavailability of the instance that the volumes are attached to, inaccessible encryption key, or service limits for size of the volume or number of snapshots are reached. For more information, see [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-monitoring&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). For more information about possible fixes, see [troubleshooting backup](/docs/vpc?group=tbs-backup) topics. |
+| Instance backup job retention failure \n - `service-to-service-policy-missing` \n - `snapshot_consistency_group-bad-state` \n - `snapshot-consistency-group-in-pending-state` |  These events are created when a backup job can't delete the backup snapshots that are part of a consistency group due to missing authorization, or the snapshots are in `pending` state. For more information, see [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-monitoring&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). For more information about possible fixes, see [troubleshooting backup](/docs/vpc?group=tbs-backup) topics. |
 {: caption="Actions that generate event notifications" caption-side="bottom"}
 
 When you see these alerts, you can use the [API](/docs/vpc?topic=vpc-backup-view-policy-jobs&interface=api#backup-view-jobs-details-api) or [CLI](/docs/vpc?topic=vpc-backup-view-policy-jobs&interface=cli#backup-view-jobs-details-cli) to confirm the reason for the failed status.
 
-For more information about how to resolve the issue, see [Troubleshooting Backup for VPC](/docs/vpc?topic=vpc-baas-troubleshoot).
+For more information about how to resolve the issue, see [troubleshooting backup for VPC](/docs/vpc?topic=vpc-baas-troubleshoot).
 
 ## Enabling notifications
 {: #event-notifications-enable}
@@ -53,7 +53,7 @@ Before you can enable notifications for IBM Cloud Backup for VPC, be sure that y
 
 Then, you can use the **Actions > Event notifications** section in the IBM Cloud Backup policy details page to connect the services.{: ui}
 
-Then, you can connect to {{site.data.keyword.en_short}} programmatically by calling the Event Notification API.{: api}
+Then, you can connect to {{site.data.keyword.en_short}} programmatically by calling the Event notification API.{: api}
 
 ### Connecting to {{site.data.keyword.en_short}} in the console
 {: #event-notifications-enable-ui}
@@ -80,7 +80,7 @@ ibmcloud event-notifications sources-create --instance-id INSTANCE-ID --name NAM
 ```
 {: pre}
 
-For more information, see the [Event Notification CLI reference](/docs/event-notifications?topic=event-notifications-event-notifications-cli#en-cli-source-create-command){: external}.
+For more information, see the [Event notification CLI reference](/docs/event-notifications?topic=event-notifications-event-notifications-cli#en-cli-source-create-command){: external}.
 
 ### Connecting to {{site.data.keyword.en_short}} with the API
 {: #event-notifications-enable-api}
@@ -105,7 +105,7 @@ curl -X POST "{base_url}/v1/instances/{instance_id}/sources"
 ```
 {: codeblock}
 
-A successful response returns the CRN value of your connected {{site.data.keyword.en_short}} service instance. For more information about the required and optional request parameters, see the [Event Notification API docs](/docs/apis/event-notifications#create-sources).
+A successful response returns the CRN value of your connected {{site.data.keyword.en_short}} service instance. For more information about the required and optional request parameters, see the [Event notification API docs](/docs/apis/event-notifications#create-sources).
 
 ### Connecting to {{site.data.keyword.en_short}} with Terraform
 {: #event-notifications-enable-terraform}
@@ -171,7 +171,7 @@ To receive detailed information about an event notification in your email, selec
 ### Webhooks
 {: #event-notifications-webhook}
 
-You can configure a webhook destination so that an incoming notification can be consumed programmatically by an app or service. For more information about setting up webhooks, check out the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destinations-webhook).
+You can configure a webhook destination so that an incoming notification can be used programmatically by an app or service. For more information about setting up webhooks, check out the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destinations-webhook).
 
 ## Notification payload details
 {: #event-notifications-payload}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-11-11"
+lastupdated: "2026-11-20"
 
 keywords:
 
@@ -32,6 +32,7 @@ The following limitations apply when you restore a share from a snapshot.
 * To restore a share, the snapshot must be in a _stable_ and _available_ state.
 * You can't delete the snapshot from which the share is restored from unless the initialization is complete.
 * If snapshot is protected with customer-managed encryption and you don't specify a different root key CRN, the restored share is encrypted with the snapshot's encryption key. The encryption cannot be changed later. If the encryption key of the parent share is deleted while the new share is initialized, it disrupts the initialization process and causes it to fail.
+* Hard links are not preserved when you restore a regional file share from a snapshot. Files that are hard-linked in the snapshot are created as independent files in the new share. The content is identical, but changes to one file are no longer reflected in the other. If your applications rely on hard links, verify them after you restore the share.
 
 ## Restoring shares from snapshots in the console
 {: #fs-snapshots-restore-ui}

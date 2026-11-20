@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-11-06"
+lastupdated: "2026-11-20"
 
 keywords:
 
@@ -36,12 +36,8 @@ When details of first-generation volume profiles are retrieved, the responses sh
 
 The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot is not found or it's not stable in the remote region, a new full-copy is created. When a full remote copy is generated from an incremental snapshot, it creates a discrepancy in the billing.
 
-### Snapshot encryption in regional {{site.data.keyword.cos_short}} in Indian MZRs
-{: #snapshot-COS-upload-IN-CHE-EU-GB}
 
-A local {{site.data.keyword.keymanagementserviceshort}} instance is not available in Chennai - Airtel and Mumbai - Airtel. First-generation block volume snapshots that are taken in Chennai - Airtel are routed to a regional {{site.data.keyword.cos_short}} bucket that is encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. When the KMS service becomes available in Chennai - Airtel and Mumbai - Airtel, the snapshots service will switch to use the local {{site.data.keyword.keymanagementserviceshort}} instance for encryption, so both storage and key management are handled within the same region.
-
-### Creating a volume from a second-generation snapshot that has provider-managed encryption fails when customer-managed encryption is specified for the volume
+### Creating a volume from a second-generation snapshot with provider-managed encryption fails when customer-managed encryption is specified for the volume
 {: #gen2-volume-from-snapshot-fail}
 
 When a second-generation snapshot with provider-managed encryption is selected to create a volume with customer-managed keys, the volume provisioning gets stuck in `pending` status. When you restore a volume from a second-generation snapshot, make sure that the encryption type of the new volume matches the encryption type of the snapshot.
@@ -49,7 +45,7 @@ When a second-generation snapshot with provider-managed encryption is selected t
 ### Virtual server instance creation can fail when the request includes multiple volumes with different profiles and one or more volumes are restored from snapshot
 {: #multi-volume-restore-from-snapshot-fail}
 
-When you create a virtual server instance with multiple volumes, the provisioning can fail if the volumes have different profiles and the data is restored from snapshots. This scenario is currently not supported. As a workaround, create the virtual server instance first with a restored volume. Then, create and attach the restored data volumes separately.
+When you create a virtual server instance with multiple volumes, the provisioning can fail if the volumes have different profiles and the data is restored from snapshots. This scenario is not supported. As a workaround, create the virtual server instance first with a restored volume. Then, create and attach the restored data volumes separately.
 
 ### Snapshot operations can be slower after a volume is resized
 {: #snapshot-slowness-after-resize-known-issue}
@@ -60,14 +56,14 @@ After a volume's capacity is increased, snapshot operations such as cross-region
 ### Cross-regional snapshot copy and volume migration are not supported in Chennai - Airtel and Mumbai - Airtel
 {: #cross-regional-snapshot-copy-volume-migration-india}
 
-Cross-regional copy of Gen 2 block volume snapshots and volume migration are not supported in the Chennai - Airtel (`in-che`) and Mumbai - Airtel (`in-mum`) region at this time.
+Cross-regional copies of Gen 2 block volume snapshots and volume migration are not supported in the Chennai - Airtel (`in-che`) and Mumbai - Airtel (`in-mum`) region currently.
 
 ### Cross-regional snapshot copy fails when an unsupported target region is selected
 {: #cross-regional-snapshot-copy-unsupported-target}
 
-Cross-regional copy for second-generation (`sdp`) {{site.data.keyword.block_storage_is_short}} snapshots requires that second-generation block storage is available in both the source and target regions.
+Cross-regional copy for second generation (`sdp`) snapshots requires that second-generation block storage is available in both the source and target regions.
 
-When you configure a cross-regional snapshot copy or a backup policy in the UI, CLI, or API, the interface currently allows you to select target regions where second-generation block storage is not supported (such as Montreal `ca-mon`) without returning a creation-time validation error. However, the subsequent copy operation fails.
+When you configure a cross-regional snapshot copy or a backup policy in the UI, CLI, or API, you can select target regions where second-generation block storage is not supported (such as Montreal `ca-mon`) and the interface does not return a creation-time validation error. However, the subsequent copy operation fails.
 
 To avoid failed copy operations, verify that second-generation block storage is supported in the target region before you configure cross-regional snapshot copies or backup policies. For a list of supported regions, see [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
@@ -102,19 +98,19 @@ When you retrieve information about your cross-regional replica share, the sourc
 ### File share `accessor_bindings` missing in share API response
 {: #fs-missing-accessor-info-api}
 
-When creating, retrieving, listing, updating, or deleting file shares, `accessor_bindings` may be absent from the share API response.
+When you're creating, retrieving, listing, updating, or deleting file shares, `accessor_bindings` might be absent from the share API response.
 
 ### File share `more_info` does not return URL of issue
 {: #fs-missing-more-info-url}
 
-When an error is reported while making share API requests, the `more_info` property does not return an error topic URL for the issue encountered. The `more_info` property returns information on how to resolve the issue encountered instead.
+When an error is reported during file share API requests, the `more_info` property does not return an error topic URL for the issue encountered. The `more_info` property returns information on how to resolve the issue encountered instead.
 
-### File share properties missing in API response
+### Missing file share properties in API response
 {: #file-share-properties-missing-in-api-response}
 
 [Select availability]{: tag-green}
 
-When using an API `version` query parameter of `2025-09-15` or earlier, the following properties might be missing or incorrect from the response:
+When you use an API `version` query parameter of `2025-09-15` or earlier, the following properties might be missing or incorrect from the response:
 
 - `zone` might be absent in the share API response when file shares and file share snapshots with `rfs` profile from a source share are created, retrieved, listed, updated, or deleted by using an API version of `2025-09-15` or earlier. When a `version` query parameter of `2025-09-15` or earlier is used, the `zone` of an `rfs` share snapshot returns the first zone from the region and is informational only. `zone` is not affected for `dp2` share snapshots and is represented correctly for `rfs` share snapshots when an API version of `2025-09-16` or later is used.
 
@@ -132,15 +128,15 @@ When you try to create a replica file share with the `allowed_transit_encryption
 
 Creating a share mount target for a regional file share can take more than 10 minutes, during which time its `lifecycle_state` shows as `pending`. Mount targets for shares that use the `dp2` profile are not affected.
 
-### Regional file share snapshot size not reported accurately in API and CLI responses
+### Regional file share snapshot size is not reported accurately in API and CLI responses
 {: #regional-file-share-snapshot-size-incorrect}
 
-When performing file share operations with the CLI or API, the snapshot size field defaults to 1 in the response when a snapshot is created and to 0 otherwise. This value does not represent the actual size of the snapshot for regional shares.
+After file share operations in the CLI or API complete, the snapshot size field in the response defaults to 1 in the response when a snapshot is created and to 0 otherwise. This value does not represent the actual size of the snapshot for regional shares.
 
 ### Potential mount disruption for IPsec-configured zonal file shares during maintenance
 {: #ipsec-connection-delays}
 
-When you use IPsec connections to mount zonal file shares, temporary mount disruptions can occur during maintenance or node failure situations. In rare circumstances, IPsec-configured mounts can experience service disruptions of up to 3 minutes while the network connection is reestablished. This issue occurs because ingress traffic flow needs to be redirected during these events. A networking feature to address this issue is currently in development.
+When you use IPsec connections to mount zonal file shares, temporary mount disruptions can occur during maintenance or node failure situations. In rare circumstances, IPsec-configured mounts can experience service disruptions of up to 3 minutes while the network connection is reestablished. This issue occurs because ingress traffic flow needs to be redirected during these events. A networking feature to address this issue is in development.
 
 ## Backup for VPC service
 {: #backup-service-known-issue}
